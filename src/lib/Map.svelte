@@ -41,7 +41,7 @@
         let choropleth = choropleths[layer];
         console.log(choropleth);
 
-        map.setPaintProperty("polygons", "fill-opacity", 1);
+        map.setPaintProperty("polygons", "fill-opacity", 0.8);
 
         map.setPaintProperty("polygons", "fill-color", [
             "case",
@@ -57,31 +57,9 @@
 
     function circleSet(layer) {
         let circle = circleSize[layer];
+        console.log(circle);
 
-        map.setPaintProperty("centroids", "circle-opacity", [
-            "step", ["zoom"],
-            1, [
-                "case",
-                [">", ["get", circle.dataSource], circle.breaks[3]], 1,
-                0
-            ],
-            4, [
-                "case",
-                [">", ["get", circle.dataSource], circle.breaks[2]], 1,
-                0
-            ],
-            7, [
-                "case",
-                [">", ["get", circle.dataSource], circle.breaks[1]], 1,
-                0
-            ],
-            10, [
-                "case",
-                [">", ["get", circle.dataSource], circle.breaks[0]], 1,
-                0
-            ],
-            11, 1
-        ]);
+        map.setPaintProperty("centroids", "circle-opacity", 0.8);
 
         map.setPaintProperty("centroids", "circle-color", [
             "case",
@@ -95,6 +73,36 @@
         ]);
 
         map.setPaintProperty("centroids", "circle-radius", [
+            "interpolate", ["linear"], ["zoom"],
+            3, [
+                "case",
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 2,
+                0
+            ],
+            6, [
+                "case",
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 1.5,
+                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3]* 1.5,
+                0
+            ],
+            9, [
+                "case",
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 1.25,
+                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3]* 1.25,
+                [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2]* 1.25,
+                0
+            ],
+            11, [
+                "case",
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
+                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
+                [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
+                [">", ["get", circle.dataSource], circle.breaks[0]], circle.size[1],
+                circle.size[0],
+            ],
+        ]);
+
+        /*map.setPaintProperty("centroids", "circle-radius", [
             "case",
             ["==", ["get", circle.dataSource], null], 0,
             ["==", ["get", circle.dataSource], 0], 0,
@@ -103,7 +111,7 @@
             [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
             [">", ["get", circle.dataSource], circle.breaks[0]], circle.size[1],
             circle.size[0],
-        ]);
+        ]);*/
     };
 
     onMount(async () => {
@@ -175,22 +183,38 @@
 
 
 <div id="map-container">
+    <div id="panel">
+        <h1>Impact of US Administration's Tariffs on Canada</h1>
+        <h2>Mapping information about the direct impacts of tariffs across Canada at the aggregate dissemination area level</h2>
+    </div>
+    
     <div id="map"></div>
 </div>
 
 
 <style>
 
+    #panel {
+		max-width: 420px;
+		width: 100%;
+		min-width: 350px;
+		height: calc(100vh - 15px);
+		overflow-y: auto;
+		background-color: #ffffff;
+		padding-top: 15px;
+		border-right: solid 1px #DC4633;
+		flex-shrink: 0;
+	}
+
     #map-container {
-        position: relative;
-        width: 100%;
-        height: 100vh;
+        display: flex;
+        flex-direction: row;
     }
 
     #map {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+        flex: 1;
+        height: 100vh;
+        overflow: hidden;
     }
 
 </style>
