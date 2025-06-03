@@ -11,6 +11,8 @@
     let map;
 
     let work_side = "work_side.pmtiles";
+
+    let ADA_cent = "ADA_centroids.pmtiles"
     
     let graduated_col = ["#ADADAD", "#B198B4", "#C97CA3", "#DD5C76", "#DC4633"];
 
@@ -72,24 +74,28 @@
             circle.colours[0],
         ]);
 
+        /*map.setPaintProperty("centroids", "circle-radius",[
+            'step', ['get', circle.dataSource],
+            circle.size[0], circle.breaks[0], 
+            circle.size[1], circle.breaks[1], 
+            circle.size[2], circle.breaks[2], 
+            circle.size[3], circle.breaks[3], 
+            circle.size[4],
+        ]);*/
+
         map.setPaintProperty("centroids", "circle-radius", [
             "interpolate", ["linear"], ["zoom"],
             3, [
                 "case",
-                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 2,
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
+                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
                 0
             ],
-            6, [
+            8, [
                 "case",
-                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 1.5,
-                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3]* 1.5,
-                0
-            ],
-            9, [
-                "case",
-                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4]* 1.25,
-                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3]* 1.25,
-                [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2]* 1.25,
+                [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
+                [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
+                [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
                 0
             ],
             11, [
@@ -137,6 +143,11 @@
                 url: 'pmtiles://' + work_side,
             });
 
+            map.addSource('ADA_centroids', {
+                type: 'vector',
+                url: 'pmtiles://' + ADA_cent,
+            });
+
             /*map.addLayer({
                 'id': 'polygons',
                 'type': 'fill',
@@ -147,9 +158,8 @@
             map.addLayer({
                 'id': 'centroids',
                 'type': 'circle',
-                'source': 'work_side',
+                'source': 'ADA_centroids',
                 'source-layer': 'ADA_centroids',
-                'circle-allow-overlap': true,
             });
 
             map.setLayerZoomRange('centroids', 1, 12);
@@ -172,7 +182,7 @@
                 });
             });
 
-            // choroSet(defaultMap);
+            //choroSet(defaultMap);
             circleSet(defaultMap);
 
         });
