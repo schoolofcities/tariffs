@@ -4,6 +4,7 @@
     import "../assets/styles.css";
     import "maplibre-gl/dist/maplibre-gl.css";
     import * as pmtiles from "pmtiles";
+    import Select from "svelte-select";
 
     const protocol = new pmtiles.Protocol();
     maplibregl.addProtocol('pmtiles', protocol.tile);
@@ -14,18 +15,98 @@
 
     let ADA_cent = "ADA_centroids.pmtiles"
     
-    let graduated_col = ["#ADADAD", "#B198B4", "#C97CA3", "#DD5C76", "#DC4633"];
+    let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
-    let graduated_siz = [10, 20, 30, 40, 50];
+    let graduated_siz = [5, 7.5, 10, 20, 40];
 
-    const defaultMap = "Est Count of All Employees Affected";
+    const defaultMap = "All Tariffs (% of Employees)";
+
+    let mapSelected = defaultMap;
 
     const choropleths = {
-        "Est % of All Employees Affected": {
+        "All Tariffs (% of Employees)": {
             dataSource: "Total_E_pc",
             breaks: [0.017, 0.057, 0.124, 0.26],
             colours: graduated_col,
-            text: "Estimated % of All Employees affected by US Administration's Tariffs on Canada",
+            text: "Estimated % of employees affected by all types of US Administration's Tariffs on Canada",
+        },
+        "All Tariffs (% of Businesses)": {
+            dataSource: "Total_B_pc",
+            breaks: [0.0037, 0.0104, 0.0257, 0.0667],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by all types of US Administration's Tariffs on Canada",
+        },
+        "Tariffs on Automobiles (% of Employees)": {
+            dataSource: "Auto_E_pc",
+            breaks: [0.0012, 0.0086, 0.0505, 0.1012],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Automobile Tariffs on Canada",
+        },
+        "Tariffs on Automobiles (% of Businesses)": {
+            dataSource: "Auto_B_pc",
+            breaks: [0.00017, 0.00076, 0.00146, 0.00322],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Automobile Tariffs on Canada",
+        },
+        "Tariffs on Aluminum (% of Businesses)": {
+            dataSource: "Aluminum_1",
+            breaks: [0.002, 0.006, 0.0131, 0.0287],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Aluminum Tariffs on Canada",
+        },
+        "Tariffs on Aluminum (% of Employees)": {
+            dataSource: "Aluminum_2",
+            breaks: [0.012, 0.045, 0.103, 0.207],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Aluminum Tariffs on Canada",
+        },
+        "Tariffs on Steel (% of Businesses)": {
+            dataSource: "Steel_B_pc",
+            breaks: [0.0011, 0.0037, 0.0092, 0.0357],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Steel Tariffs on Canada",
+        },
+        "Tariffs on Steel (% of Employees)": {
+            dataSource: "Steel_E_pc",
+            breaks: [0.0064, 0.0246, 0.0671, 0.2244],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Steel Tariffs on Canada",
+        },
+        "Tariffs on Lumber (% of Businesses)": {
+            dataSource: "Lumber_B_p",
+            breaks: [0.0013, 0.0045, 0.0156, 0.0556],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Lumber Tariffs on Canada",
+        },
+        "Tariffs on Lumber (% of Employees)": {
+            dataSource: "Lumber_E_p",
+            breaks: [0.0061, 0.0226, 0.057, 0.1834],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Lumber Tariffs on Canada",
+        },
+        "Tariffs on Energy and Natural Resources (% of Businesses)": {
+            dataSource: "Energy_B_p",
+            breaks: [0.0004, 0.00128, 0.00257, 0.00614],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+        },
+        "Tariffs on Energy and Natural Resources (% of Employees)": {
+            dataSource: "Energy_E_p",
+            breaks: [0.0056, 0.0296, 0.0696, 0.3205],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+        },
+        "Tariffs on non-CUSMA compliant goods (% of Businesses)": {
+            dataSource: "nonCUSMA_1",
+            breaks: [0.00064, 0.00206, 0.00457, 0.01283],
+            colours: graduated_col,
+            text: "Estimated % of businesses affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
+        },
+        "Tariffs on non-CUSMA compliant goods (% of Employees)": {
+            dataSource: "nonCUSMA_2",
+            breaks: [0.0086, 0.0349, 0.0856, 0.1958],
+            colours: graduated_col,
+            text: "Estimated % of employees affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
     };
 
@@ -38,6 +119,9 @@
             text: "Estimated Count of All Employees affected by US Administration's Tariffs on Canada",
         },
     };
+    
+    const items = Object.keys(choropleths);
+    //const items = Object.keys(choropleths).concat(Object.keys(circleSize)); later once you have the circle data ready
 
     function choroSet(layer) {
         let choropleth = choropleths[layer];
@@ -74,15 +158,6 @@
             circle.colours[0],
         ]);
 
-        /*map.setPaintProperty("centroids", "circle-radius",[
-            'step', ['get', circle.dataSource],
-            circle.size[0], circle.breaks[0], 
-            circle.size[1], circle.breaks[1], 
-            circle.size[2], circle.breaks[2], 
-            circle.size[3], circle.breaks[3], 
-            circle.size[4],
-        ]);*/
-
         map.setPaintProperty("centroids", "circle-radius", [
             "interpolate", ["linear"], ["zoom"],
             3, [
@@ -107,18 +182,12 @@
                 circle.size[0],
             ],
         ]);
-
-        /*map.setPaintProperty("centroids", "circle-radius", [
-            "case",
-            ["==", ["get", circle.dataSource], null], 0,
-            ["==", ["get", circle.dataSource], 0], 0,
-            [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
-            [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
-            [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
-            [">", ["get", circle.dataSource], circle.breaks[0]], circle.size[1],
-            circle.size[0],
-        ]);*/
     };
+
+    function layerSelect(e) {
+        mapSelected = e.detail.value;
+        choroSet(mapSelected);
+    }
 
     onMount(async () => {
         
@@ -130,7 +199,7 @@
             bearing: 0,
             scrollZoom: true,
             minZoom: 1,
-            maxZoom: 11.75,
+            maxZoom: 11.9,
             pitch: 5,
             projection: "globe",
             attributionControl: false,
@@ -148,24 +217,24 @@
                 url: 'pmtiles://' + ADA_cent,
             });
 
-            /*map.addLayer({
+            map.addLayer({
                 'id': 'polygons',
                 'type': 'fill',
                 'source': 'work_side',
                 'source-layer': 'ADA_aggregates',
-            });*/
+            });
 
-            map.addLayer({
+            /*map.addLayer({
                 'id': 'centroids',
                 'type': 'circle',
                 'source': 'ADA_centroids',
                 'source-layer': 'ADA_centroids',
-            });
+            });*/
 
             map.setLayerZoomRange('centroids', 1, 12);
 
-            // choroSet(defaultMap);
-            circleSet(defaultMap);
+            choroSet(defaultMap);
+            //circleSet(defaultMap);
 
         });
         
@@ -183,8 +252,12 @@
             });
 
             //choroSet(defaultMap);
-            circleSet(defaultMap);
+            //circleSet(defaultMap);
 
+        });
+
+        map.once('styledata', () => {
+            layerSelect();
         });
 
     });
@@ -192,10 +265,28 @@
 </script>
 
 
-<div id="map-container">
+<div id="container">
+
     <div id="panel">
+
         <h1>Impact of US Administration's Tariffs on Canada</h1>
+        
         <h2>Mapping information about the direct impacts of tariffs across Canada at the aggregate dissemination area level</h2>
+
+        <div id = "select-wrapper">
+            <Select
+            id = 'select'
+            items = {items}
+            value = {mapSelected}
+            clearable = {false}
+            showChevron = {true}
+            listAutoWidth = {true}
+            searchable = {false}
+            listOffset = {10}
+            on:change = {layerSelect}
+            />
+        </div>
+    
     </div>
     
     <div id="map"></div>
@@ -211,12 +302,12 @@
 		height: calc(100vh - 15px);
 		overflow-y: auto;
 		background-color: #ffffff;
-		padding-top: 15px;
+		padding: 15px;
 		border-right: solid 1px #DC4633;
 		flex-shrink: 0;
 	}
 
-    #map-container {
+    #container {
         display: flex;
         flex-direction: row;
     }
