@@ -23,6 +23,7 @@
 		"@sveltejs/adapter-static": "^3.0.8",
 		"maplibre-gl": "^5.5.0",
 		"pmtiles": "^3.2.1",
-		"protomaps-themes-base": "^4.3.0"
+		"protomaps-themes-base": "^4.3.0",
+		"svelte-select": "^5.8.3"
 	}
 }
