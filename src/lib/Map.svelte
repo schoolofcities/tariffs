@@ -37,13 +37,13 @@
             text: "Estimated % of businesses affected by all types of US Administration's Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Employees)": {
-            dataSource: "Auto_E_pc",
+            dataSource: "Auto_E_pct",
             breaks: [0.0012, 0.0086, 0.0505, 0.1012],
             colours: graduated_col,
             text: "Estimated % of employees affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Businesses)": {
-            dataSource: "Auto_B_pc",
+            dataSource: "Auto_B_pct",
             breaks: [0.00017, 0.00076, 0.00146, 0.00322],
             colours: graduated_col,
             text: "Estimated % of businesses affected by US Administration's Automobile Tariffs on Canada",
@@ -111,17 +111,16 @@
     };
 
     const circleSize = {
-        "Est Count of All Employees Affected": {
+        "All Tariffs (Count of Employees)": {
             dataSource: "Total_E",
             breaks: [5871, 27500, 82127, 211116],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated Count of All Employees affected by US Administration's Tariffs on Canada",
+            text: "Estimated Count of All Employees affected by all types of US Administration's Tariffs on Canada",
         },
     };
     
-    const items = Object.keys(choropleths);
-    //const items = Object.keys(choropleths).concat(Object.keys(circleSize)); later once you have the circle data ready
+    let items = Object.keys(choropleths);
 
     function choroSet(layer) {
         let choropleth = choropleths[layer];
@@ -184,10 +183,37 @@
         ]);
     };
 
+    let estimatedPct = true;
+    let estimatedCount = false;
+
+    function toggleViz() {
+        if (this.id === 'pctcheck' && estimatedPct) {
+            estimatedCount = false;
+            items = Object.keys(choropleths);
+        } else if (this.id === 'countcheck' && estimatedCount) {
+            estimatedPct = false;
+            items = Object.keys(circleSize);
+        };
+
+        if (estimatedPct) {
+            map.setLayoutProperty('polygons', 'visibility', 'visible');
+            map.setLayoutProperty('centroids', 'visibility', 'none');
+            choroSet(mapSelected);
+        } else if (estimatedCount) {
+            map.setLayoutProperty('polygons', 'visibility', 'none');
+            map.setLayoutProperty('centroids', 'visibility', 'visible');
+            circleSet(mapSelected);
+        };
+    };
+
     function layerSelect(e) {
         mapSelected = e.detail.value;
-        choroSet(mapSelected);
-    }
+        if (estimatedPct) {
+            choroSet(mapSelected);
+        } else if (estimatedCount) {
+            circleSet(mapSelected);
+        };
+    };
 
     onMount(async () => {
         
@@ -224,17 +250,14 @@
                 'source-layer': 'ADA_aggregates',
             });
 
-            /*map.addLayer({
+            map.addLayer({
                 'id': 'centroids',
                 'type': 'circle',
                 'source': 'ADA_centroids',
                 'source-layer': 'ADA_centroids',
-            });*/
+            });
 
             map.setLayerZoomRange('centroids', 1, 12);
-
-            choroSet(defaultMap);
-            //circleSet(defaultMap);
 
         });
         
@@ -250,9 +273,6 @@
                     type: (zoom < 7) ? 'globe' : 'mercator'
                 });
             });
-
-            //choroSet(defaultMap);
-            //circleSet(defaultMap);
 
         });
 
@@ -272,6 +292,24 @@
         <h1>Impact of US Administration's Tariffs on Canada</h1>
         
         <h2>Mapping information about the direct impacts of tariffs across Canada at the aggregate dissemination area level</h2>
+
+        <div id="checkbox" class="check-box">
+			<label class="label-format"><input type="checkbox" id="pctcheck" class="check-box-item" bind:checked={estimatedPct} on:change={toggleViz}/> 
+				Show estimated percentages
+				<svg width="30" height="12">
+					<line x1="0" y1="6" x2="40" y2="6" stroke="#1E3765" stroke-width="2"/>
+					<circle cx="15" cy="6" r="4" fill="#1E3765", stroke="#ffffff" stroke-width="2"/>
+				</svg>
+			</label>
+			<br>
+			<label class="label-format"><input type="checkbox" id="countcheck" class="check-box-item" bind:checked={estimatedCount} on:change={toggleViz}/> 
+				Show estimated counts
+				<svg width="30" height="12">
+					<line x1="0" y1="6" x2="40" y2="6" stroke="#1E3765" stroke-width="2" stroke-dasharray="4,1"/>
+					<circle cx="15" cy="6" r="4" fill="#1E3765", stroke="#ffffff"  stroke-width="2"/>
+				</svg>
+			</label>
+        </div>
 
         <div id = "select-wrapper">
             <Select
