@@ -13,7 +13,9 @@
 
     let work_side = "work_side.pmtiles";
 
-    let ADA_cent = "ADA_centroids.pmtiles"
+    let ADA_cent = "ADA_centroids.pmtiles";
+
+    let background = "background.pmtiles";
     
     let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
@@ -211,8 +213,6 @@
         },
     };
     
-    let items = Object.keys(choropleths);
-
     function choroSet(layer) {
         let choropleth = choropleths[layer];
         console.log(choropleth);
@@ -276,6 +276,7 @@
 
     let estimatedPct = false;
     let estimatedCount = false;
+    let items;
 
     function toggleViz(event) {
         const id = event.target.id;
@@ -312,6 +313,10 @@
         };
     };
 
+    let selectedZone = "";
+    let selectedValue = "";
+    let lastUpdate = "0";
+
     onMount(async () => {
         
         map = new maplibregl.Map({
@@ -330,6 +335,11 @@
 
         map.on('load', async () => {
 
+            map.addSource('background', {
+                type: 'vector',
+                url: 'pmtiles://' + background,
+            });
+            
             map.addSource('work_side',{
                 type: 'vector',
                 url: 'pmtiles://' + work_side,
@@ -351,6 +361,30 @@
             });
 
             map.addLayer({
+                'id': 'outline',
+                'type': 'line',
+                'source': 'background',
+                'source-layer': 'background',
+                'paint': {
+                    'line-color': '#808080',
+                    'line-width': 1,
+                    'line-opacity': 0.5,
+                },
+            });
+
+            map.addLayer({
+                'id': 'outline-hover',
+                'type': 'fill',
+                'source': 'background',
+                'source-layer': 'background',
+                'paint': {
+                    'fill-color': '#0000FF',
+                    'fill-opacity': 0.5,
+                },
+                'filter': ['==', 'DGUID', ''],
+            });
+            
+            map.addLayer({
                 'id': 'centroids',
                 'type': 'circle',
                 'source': 'ADA_centroids',
@@ -359,7 +393,7 @@
                     'visibility': 'none',
                 },
             });
-
+            
             map.setLayerZoomRange('centroids', 1, 12);
 
         });
@@ -381,6 +415,74 @@
 
         map.once('styledata', () => {
             layerSelect();
+        });
+
+        map.on('mousemove', 'polygons', (e) => {
+            const now = performance.now();
+            if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
+            lastUpdate = now;
+
+            map.getCanvas().style.cursor = 'pointer';
+
+            if (!e.features.length) return;
+
+            const properties = e.features[0].properties;
+            const currentZone = properties.ADADGUID;
+
+            if (currentZone !== selectedZone) {
+                const dataField = choropleths[mapSelected]?.dataSource;
+
+                const rawValue = properties[dataField];
+
+                selectedValue = (rawValue != null && rawValue >= 0)
+                    ? (rawValue * 100).toFixed(2) + '%'
+                    : "No Data";
+
+                selectedZone = currentZone;
+
+                map.setFilter('outline-hover', ['==', 'DGUID', selectedZone]);
+            }
+        });
+
+        map.on('mouseleave', 'polygons', () => {
+            map.getCanvas().style.cursor = '';
+            selectedZone = "";
+            selectedValue = "";
+            map.setFilter('outline-hover', ['==', 'DGUID', '']);
+        });
+
+        map.on('mousemove', 'centroids', (e) => {
+            const now = performance.now();
+            if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
+            lastUpdate = now;
+
+            map.getCanvas().style.cursor = 'pointer';
+
+            if (!e.features.length) return;
+
+            const properties = e.features[0].properties;
+            const currentZone = properties.ADADGUID;
+
+            if (currentZone !== selectedZone) {
+                const dataField = circleSize[mapSelected]?.dataSource;
+
+                const rawValue = properties[dataField];
+
+                selectedValue = (rawValue != null && rawValue >= 0)
+                    ? Math.round(rawValue).toLocaleString()
+                    : "No Data";
+
+                selectedZone = currentZone;
+
+                map.setFilter('outline-hover', ['==', 'DGUID', selectedZone]);
+            }
+        });
+
+        map.on('mouseleave', 'centroids', () => {
+            map.getCanvas().style.cursor = '';
+            selectedZone = "";
+            selectedValue = "";
+            map.setFilter('outline-hover', ['==', 'DGUID', '']);
         });
 
     });
@@ -418,6 +520,12 @@
             listOffset = {10}
             on:change = {layerSelect}
             />
+        </div>
+
+        <div>
+            <div id="hovered-zone" style="padding: 4px; border: solid 1px #AB1368;">
+                Hovered zone: {selectedValue || 'No data available'}
+	        </div>
         </div>
 
         <div class="des">
@@ -556,7 +664,7 @@
 
     #container {
         display: flex;
-        flex-direction: row;
+        height: 100vh;
         overflow: hidden;
     }
 
@@ -568,6 +676,10 @@
 
     #select-wrapper {
         margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #hovered-zone {
         margin-bottom: 10px;
     }
 
