@@ -15,7 +15,7 @@
 
     let ADA_cent = "ADA_centroids.pmtiles";
 
-    let background = "background.pmtiles";
+    //let background = "background.pmtiles";
     
     let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
@@ -335,10 +335,10 @@
 
         map.on('load', async () => {
 
-            map.addSource('background', {
+            /*map.addSource('background', {
                 type: 'vector',
                 url: 'pmtiles://' + background,
-            });
+            });*/
             
             map.addSource('work_side',{
                 type: 'vector',
@@ -363,8 +363,8 @@
             map.addLayer({
                 'id': 'outline',
                 'type': 'line',
-                'source': 'background',
-                'source-layer': 'background',
+                'source': 'work_side',
+                'source-layer': 'ADA_aggregates',
                 'paint': {
                     'line-color': '#808080',
                     'line-width': 1,
@@ -375,13 +375,13 @@
             map.addLayer({
                 'id': 'outline-hover',
                 'type': 'fill',
-                'source': 'background',
-                'source-layer': 'background',
+                'source': 'work_side',
+                'source-layer': 'ADA_aggregates',
                 'paint': {
                     'fill-color': '#0000FF',
                     'fill-opacity': 0.5,
                 },
-                'filter': ['==', 'DGUID', ''],
+                'filter': ['==', 'ADADGUID', ''],
             });
             
             map.addLayer({
@@ -440,7 +440,7 @@
 
                 selectedZone = currentZone;
 
-                map.setFilter('outline-hover', ['==', 'DGUID', selectedZone]);
+                map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
             }
         });
 
@@ -448,7 +448,7 @@
             map.getCanvas().style.cursor = '';
             selectedZone = "";
             selectedValue = "";
-            map.setFilter('outline-hover', ['==', 'DGUID', '']);
+            map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
         });
 
         map.on('mousemove', 'centroids', (e) => {
@@ -474,7 +474,7 @@
 
                 selectedZone = currentZone;
 
-                map.setFilter('outline-hover', ['==', 'DGUID', selectedZone]);
+                map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
             }
         });
 
@@ -482,7 +482,7 @@
             map.getCanvas().style.cursor = '';
             selectedZone = "";
             selectedValue = "";
-            map.setFilter('outline-hover', ['==', 'DGUID', '']);
+            map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
         });
 
     });
