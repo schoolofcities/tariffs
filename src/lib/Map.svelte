@@ -11,11 +11,9 @@
 
     let map;
 
-    let work_side = "work_side.pmtiles";
+    let work_ADA_poly = "work_ADA_aggregates.pmtiles";
 
-    let ADA_cent = "ADA_centroids.pmtiles";
-
-    //let background = "background.pmtiles";
+    let work_ADA_cent = "work_ADA_centroids.pmtiles";
     
     let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
@@ -27,86 +25,86 @@
 
     const choropleths = {
         "All Tariffs (% of Businesses)": {
-            dataSource: "Total_B_pc",
-            breaks: [0.0037, 0.0104, 0.0257, 0.0667],
+            dataSource: "Total_1",
+            breaks: [0.003373, 0.009313, 0.024911, 0.058824],
             colours: graduated_col,
             text: "% of businesses directly affected by all types of US Administration's Tariffs on Canada",
         },
         "All Tariffs (% of Employees)": {
-            dataSource: "Total_E_pc",
-            breaks: [0.017, 0.057, 0.124, 0.26],
+            dataSource: "Total_2",
+            breaks: [0.01593, 0.05325, 0.12301, 0.26468],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by all types of US Administration's Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Businesses)": {
-            dataSource: "Auto_B_pct",
-            breaks: [0.00017, 0.00076, 0.00146, 0.00322],
+            dataSource: "Auto_1",
+            breaks: [0.0002690, 0.0008795, 0.0015552, 0.0025907],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Employees)": {
-            dataSource: "Auto_E_pct",
-            breaks: [0.0012, 0.0086, 0.0505, 0.1012],
+            dataSource: "Auto_2",
+            breaks: [0.0007601, 0.0040214, 0.0408163, 0.0844206],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Aluminum (% of Businesses)": {
-            dataSource: "Aluminum_1",
-            breaks: [0.002, 0.006, 0.0131, 0.0287],
+            dataSource: "Alum_1",
+            breaks: [0.001606, 0.004852, 0.010540, 0.023529],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Aluminum (% of Employees)": {
-            dataSource: "Aluminum_2",
-            breaks: [0.012, 0.045, 0.103, 0.207],
+            dataSource: "Alum_2",
+            breaks: [0.01074, 0.03797, 0.08570, 0.17310],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Steel (% of Businesses)": {
-            dataSource: "Steel_B_pc",
-            breaks: [0.0011, 0.0037, 0.0092, 0.0357],
+            dataSource: "Steel_1",
+            breaks: [0.001008, 0.003396, 0.010204, 0.025210],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Steel (% of Employees)": {
-            dataSource: "Steel_E_pc",
-            breaks: [0.0064, 0.0246, 0.0671, 0.2244],
+            dataSource: "Steel_2",
+            breaks: [0.005952, 0.021349, 0.047185, 0.094637],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Lumber (% of Businesses)": {
-            dataSource: "Lumber_B_p",
-            breaks: [0.0013, 0.0045, 0.0156, 0.0556],
+            dataSource: "Lumber_1",
+            breaks: [0.001, 0.003663, 0.013699, 0.05],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Lumber (% of Employees)": {
-            dataSource: "Lumber_E_p",
-            breaks: [0.0061, 0.0226, 0.057, 0.1834],
+            dataSource: "Lumber_2",
+            breaks: [0.005390, 0.019358, 0.048170, 0.155556],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (% of Businesses)": {
-            dataSource: "Energy_B_p",
-            breaks: [0.0004, 0.00128, 0.00257, 0.00614],
+            dataSource: "Energy_1",
+            breaks: [0.0003789, 0.0012151, 0.002584, 0.0056818],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (% of Employees)": {
-            dataSource: "Energy_E_p",
-            breaks: [0.0056, 0.0296, 0.0696, 0.3205],
+            dataSource: "Energy_2",
+            breaks: [0.01568, 0.05259, 0.11681, 0.22883],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (% of Businesses)": {
             dataSource: "nonCUSMA_1",
-            breaks: [0.00064, 0.00206, 0.00457, 0.01283],
+            breaks: [0.0005841, 0.0019157, 0.0042918, 0.0196078],
             colours: graduated_col,
             text: "% of businesses directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (% of Employees)": {
             dataSource: "nonCUSMA_2",
-            breaks: [0.0086, 0.0349, 0.0856, 0.1958],
+            breaks: [0.006887, 0.029499, 0.070126, 0.186407],
             colours: graduated_col,
             text: "Estimated % of employees directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
@@ -115,98 +113,98 @@
     const circleSize = {
         "All Tariffs (Count of Businesses)": {
             dataSource: "Total_B",
-            breaks: [127, 765, 1990, 7309],
+            breaks: [4, 12, 36, 89],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by all types of US Administration's Tariffs on Canada",
         },
         "All Tariffs (Count of Employees)": {
             dataSource: "Total_E",
-            breaks: [5871, 27500, 82127, 211116],
+            breaks: [172, 583, 1365, 3271],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by all types of US Administration's Tariffs on Canada",
         },
         "Tariffs on Automobiles (Count of Businesses)": {
             dataSource: "Auto_B",
-            breaks: [5, 16, 31, 142],
+            breaks: [0, 0, 0, 1],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Automobiles (Count of Employees)": {
             dataSource: "Auto_E",
-            breaks: [30, 805, 4400, 7700],
+            breaks: [0, 7, 150, 550],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Aluminum (Count of Businesses)": {
             dataSource: "Aluminum_B",
-            breaks: [85, 558, 1672, 5061],
+            breaks: [2, 7, 22, 74],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Aluminum (Count of Employees)": {
             dataSource: "Aluminum_E",
-            breaks: [6439, 32663, 75072, 146906],
+            breaks: [129, 515, 1332, 2808],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Steel (Count of Businesses)": {
             dataSource: "Steel_B",
-            breaks: [48, 271, 806, 2586],
+            breaks: [0, 2, 7, 25],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Steel (Count of Employees)": {
             dataSource: "Steel_E",
-            breaks: [1284, 5867, 17711, 51468],
+            breaks: [51, 207, 438, 1250],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Lumber (Count of Businesses)": {
             dataSource: "Lumber_B",
-            breaks: [16, 61, 195, 858],
+            breaks: [0, 1, 3, 10],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Lumber (Count of Employees)": {
             dataSource: "Lumber_E",
-            breaks: [875, 3300, 7162, 19095],
+            breaks: [19, 60, 127, 265],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (Count of Businesses)": {
             dataSource: "Energy_B",
-            breaks: [5, 19, 46, 131],
+            breaks: [0, 1, 2, 4],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (Count of Employees)": {
             dataSource: "Energy_E",
-            breaks: [1440, 5250, 12000, 26620],
+            breaks: [35, 192, 353, 1200],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (Count of Businesses)": {
             dataSource: "nonCUSMA_B",
-            breaks: [20, 96, 277, 910],
+            breaks: [0, 1, 3, 7],
             size: graduated_siz,
             colours: graduated_col,
             text: "Count of businesses directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (Count of Employees)": {
             dataSource: "nonCUSMA_E",
-            breaks: [2100, 9426, 26875, 55160],
+            breaks: [56, 225, 435, 700],
             size: graduated_siz,
             colours: graduated_col,
             text: "Estimated count of employees directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
@@ -217,11 +215,12 @@
         let choropleth = choropleths[layer];
         console.log(choropleth);
 
-        map.setPaintProperty("polygons", "fill-opacity", 0.8);
+        map.setPaintProperty("polygons_work", "fill-opacity", 0.8);
 
-        map.setPaintProperty("polygons", "fill-color", [
+        map.setPaintProperty("polygons_work", "fill-color", [
             "case",
             ["==", ["get", choropleth.dataSource], null], "rgba(0,0,0,0)",
+            ["==", ["get", choropleth.dataSource], 0], "rgba(0,0,0,0)",
             ["step", ["get", choropleth.dataSource],
             choropleth.colours[0], choropleth.breaks[0],
             choropleth.colours[1], choropleth.breaks[1],
@@ -235,9 +234,9 @@
         let circle = circleSize[layer];
         console.log(circle);
 
-        map.setPaintProperty("centroids", "circle-opacity", 0.8);
+        map.setPaintProperty("centroids_work", "circle-opacity", 0.8);
 
-        map.setPaintProperty("centroids", "circle-color", [
+        map.setPaintProperty("centroids_work", "circle-color", [
             "case",
             ["==", ["get", circle.dataSource], null], "rgba(0,0,0,0)",
             ["==", ["get", circle.dataSource], 0], "rgba(0,0,0,0)",
@@ -248,12 +247,13 @@
             circle.colours[0],
         ]);
 
-        map.setPaintProperty("centroids", "circle-radius", [
+        map.setPaintProperty("centroids_work", "circle-radius", [
             "interpolate", ["linear"], ["zoom"],
             3, [
                 "case",
                 [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
                 [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
+                ["==", ["get", circle.dataSource], 0], 0,
                 0
             ],
             8, [
@@ -261,6 +261,7 @@
                 [">", ["get", circle.dataSource], circle.breaks[3]], circle.size[4],
                 [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
                 [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
+                ["==", ["get", circle.dataSource], 0], 0,
                 0
             ],
             11, [
@@ -269,6 +270,7 @@
                 [">", ["get", circle.dataSource], circle.breaks[2]], circle.size[3],
                 [">", ["get", circle.dataSource], circle.breaks[1]], circle.size[2],
                 [">", ["get", circle.dataSource], circle.breaks[0]], circle.size[1],
+                ["==", ["get", circle.dataSource], 0], 0,
                 circle.size[0],
             ],
         ]);
@@ -291,16 +293,16 @@
         }
 
         if (estimatedPct) {
-            map.setLayoutProperty('polygons', 'visibility', 'visible');
-            map.setLayoutProperty('centroids', 'visibility', 'none');
+            map.setLayoutProperty('polygons_work', 'visibility', 'visible');
+            map.setLayoutProperty('centroids_work', 'visibility', 'none');
             choroSet(mapSelected);
         } else if (estimatedCount) {
-            map.setLayoutProperty('polygons', 'visibility', 'none');
-            map.setLayoutProperty('centroids', 'visibility', 'visible');
+            map.setLayoutProperty('polygons_work', 'visibility', 'none');
+            map.setLayoutProperty('centroids_work', 'visibility', 'visible');
             circleSet(mapSelected);
         } else {
-            map.setLayoutProperty('polygons', 'visibility', 'none');
-            map.setLayoutProperty('centroids', 'visibility', 'none');
+            map.setLayoutProperty('polygons_work', 'visibility', 'none');
+            map.setLayoutProperty('centroids_work', 'visibility', 'none');
         }
     };
 
@@ -334,26 +336,21 @@
         });
 
         map.on('load', async () => {
-
-            /*map.addSource('background', {
-                type: 'vector',
-                url: 'pmtiles://' + background,
-            });*/
             
-            map.addSource('work_side',{
+            map.addSource('work_polygons',{
                 type: 'vector',
-                url: 'pmtiles://' + work_side,
+                url: 'pmtiles://' + work_ADA_poly,
             });
 
-            map.addSource('ADA_centroids', {
+            map.addSource('work_centroids', {
                 type: 'vector',
-                url: 'pmtiles://' + ADA_cent,
+                url: 'pmtiles://' + work_ADA_cent,
             });
 
             map.addLayer({
-                'id': 'polygons',
+                'id': 'polygons_work',
                 'type': 'fill',
-                'source': 'work_side',
+                'source': 'work_polygons',
                 'source-layer': 'ADA_aggregates',
                 'layout': {
                     'visibility': 'none',
@@ -361,9 +358,9 @@
             });
 
             map.addLayer({
-                'id': 'outline',
+                'id': 'outline_work',
                 'type': 'line',
-                'source': 'work_side',
+                'source': 'work_polygons',
                 'source-layer': 'ADA_aggregates',
                 'paint': {
                     'line-color': '#808080',
@@ -373,9 +370,9 @@
             });
 
             map.addLayer({
-                'id': 'outline-hover',
+                'id': 'outline-hover-work',
                 'type': 'fill',
-                'source': 'work_side',
+                'source': 'work_polygons',
                 'source-layer': 'ADA_aggregates',
                 'paint': {
                     'fill-color': '#0000FF',
@@ -385,9 +382,9 @@
             });
             
             map.addLayer({
-                'id': 'centroids',
+                'id': 'centroids_work',
                 'type': 'circle',
-                'source': 'ADA_centroids',
+                'source': 'work_centroids',
                 'source-layer': 'ADA_centroids',
                 'layout': {
                     'visibility': 'none',
@@ -398,7 +395,7 @@
 
         });
         
-        map.on('style.load', () => {
+        /*map.on('style.load', () => {
 
             map.setProjection({
                 type: (map.getZoom() < 7) ? 'globe' : 'mercator'
@@ -411,13 +408,13 @@
                 });
             });
 
-        });
+        });*/
 
         map.once('styledata', () => {
             layerSelect();
         });
 
-        map.on('mousemove', 'polygons', (e) => {
+        map.on('mousemove', 'polygons_work', (e) => {
             const now = performance.now();
             if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
             lastUpdate = now;
@@ -434,24 +431,29 @@
 
                 const rawValue = properties[dataField];
 
-                selectedValue = (rawValue != null && rawValue >= 0)
-                    ? (rawValue * 100).toFixed(2) + '%'
-                    : "No Data";
+                if (rawValue == null || rawValue === 0) {
+                    selectedValue = "No Data";
+                    selectedZone = "";
+                    map.setFilter('outline-hover-work', ['==', 'ADADGUID', '']);
+                    return;
+                };
+
+                selectedValue = (rawValue * 100).toFixed(2) + '%';
 
                 selectedZone = currentZone;
 
-                map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+                map.setFilter('outline-hover-work', ['==', 'ADADGUID', selectedZone]);
             }
         });
 
-        map.on('mouseleave', 'polygons', () => {
+        map.on('mouseleave', 'polygons_work', () => {
             map.getCanvas().style.cursor = '';
             selectedZone = "";
             selectedValue = "";
-            map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
+            map.setFilter('outline-hover-work', ['==', 'ADADGUID', '']);
         });
 
-        map.on('mousemove', 'centroids', (e) => {
+        map.on('mousemove', 'centroids_work', (e) => {
             const now = performance.now();
             if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
             lastUpdate = now;
@@ -474,15 +476,15 @@
 
                 selectedZone = currentZone;
 
-                map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+                map.setFilter('outline-hover-work', ['==', 'ADADGUID', selectedZone]);
             }
         });
 
-        map.on('mouseleave', 'centroids', () => {
+        map.on('mouseleave', 'centroids_work', () => {
             map.getCanvas().style.cursor = '';
             selectedZone = "";
             selectedValue = "";
-            map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
+            map.setFilter('outline-hover-work', ['==', 'ADADGUID', '']);
         });
 
     });
@@ -523,7 +525,7 @@
         </div>
 
         <div>
-            <div id="hovered-zone" style="padding: 4px; border: solid 1px #AB1368;">
+            <div id="hovered-zone" style="padding: 4px; border: solid 1px #AB1368; font-weight: bold;">
                 Hovered zone: {selectedValue || 'No data available'}
 	        </div>
         </div>
@@ -591,29 +593,35 @@
 
                 <div id="legend">
                     <svg width='350' height='200'>
-                        <circle
-                        class = "box"
-                        cx="55"
-                        cy="10"
-                        r="{circleSize[mapSelected].size[0]}"
-                        style="fill:{circleSize[mapSelected].colours[0]};"
-                        />
+                        {#if circleSize[mapSelected].breaks[0] !== 0}
+                            <circle
+                            class = "box"
+                            cx="55"
+                            cy="10"
+                            r="{circleSize[mapSelected].size[0]}"
+                            style="fill:{circleSize[mapSelected].colours[0]};"
+                            />
+                        {/if}
 
-                        <circle
-                        class = "box"
-                        cx="55"
-                        cy="32.5"
-                        r="{circleSize[mapSelected].size[1]}"
-                        style="fill:{circleSize[mapSelected].colours[1]};"
-                        />
+                        {#if circleSize[mapSelected].breaks[1] !== 0}
+                            <circle
+                            class = "box"
+                            cx="55"
+                            cy="32.5"
+                            r="{circleSize[mapSelected].size[1]}"
+                            style="fill:{circleSize[mapSelected].colours[1]};"
+                            />
+                        {/if}
 
-                        <circle
-                        class = "box"
-                        cx="55"
-                        cy="55"
-                        r="{circleSize[mapSelected].size[2]}"
-                        style="fill:{circleSize[mapSelected].colours[2]};"
-                        />
+                        {#if circleSize[mapSelected].breaks[2] !== 0}
+                            <circle
+                            class = "box"
+                            cx="55"
+                            cy="55"
+                            r="{circleSize[mapSelected].size[2]}"
+                            style="fill:{circleSize[mapSelected].colours[2]};"
+                            />
+                        {/if}
 
                         <circle
                         class = "box"
@@ -631,10 +639,10 @@
                         style="fill:{circleSize[mapSelected].colours[4]};"
                         />
 
-                        <text class="legend-label" x="100" y="10" dy="0.35em">&lt;{circleSize[mapSelected].breaks[0]}</text>
-                        <text class="legend-label" x="100" y="32.5" dy="0.35em">{circleSize[mapSelected].breaks[0]} - {circleSize[mapSelected].breaks[1]}</text>
-                        <text class="legend-label" x="100" y="55" dy="0.35em">{circleSize[mapSelected].breaks[1]} - {circleSize[mapSelected].breaks[2]}</text>
-                        <text class="legend-label" x="100" y="90" dy="0.35em">{circleSize[mapSelected].breaks[2]} - {circleSize[mapSelected].breaks[3]}</text>
+                        {#if circleSize[mapSelected].breaks[0] !== 0}<text class="legend-label" x="100" y="10" dy="0.35em">&le;{circleSize[mapSelected].breaks[0]}</text>{/if}
+                        {#if circleSize[mapSelected].breaks[1] !== 0}<text class="legend-label" x="100" y="32.5" dy="0.35em">{circleSize[mapSelected].breaks[0] + 1} - {circleSize[mapSelected].breaks[1]}</text>{/if}
+                        {#if circleSize[mapSelected].breaks[2] !== 0}<text class="legend-label" x="100" y="55" dy="0.35em">{circleSize[mapSelected].breaks[1]+ 1} - {circleSize[mapSelected].breaks[2]}</text>{/if}
+                        <text class="legend-label" x="100" y="90" dy="0.35em">{circleSize[mapSelected].breaks[2]+ 1} - {circleSize[mapSelected].breaks[3]}</text>
                         <text class="legend-label" x="100" y="150" dy="0.35em">&gt;{circleSize[mapSelected].breaks[3]}</text>
                     </svg>
                 </div>
