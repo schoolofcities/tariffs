@@ -324,6 +324,7 @@
         map = new maplibregl.Map({
             container: "map",
             style: "https://api.protomaps.com/styles/v5/white/en.json?key=89c5d93843b4ca61",
+            //style: "https://demotiles.maplibre.org/style.json",
             center: [-95, 60],
             zoom: 3,
             bearing: 0,
@@ -391,11 +392,11 @@
                 },
             });
             
-            map.setLayerZoomRange('centroids', 1, 12);
+            map.setLayerZoomRange('centroids_work', 1, 12);
 
         });
         
-        /*map.on('style.load', () => {
+        map.on('style.load', () => {
 
             map.setProjection({
                 type: (map.getZoom() < 7) ? 'globe' : 'mercator'
@@ -408,10 +409,10 @@
                 });
             });
 
-        });*/
+        });
 
         map.once('styledata', () => {
-            layerSelect();
+            layerSelect({ detail: { value: mapSelected } });
         });
 
         map.on('mousemove', 'polygons_work', (e) => {
@@ -593,13 +594,29 @@
 
                 <div id="legend">
                     <svg width='350' height='200'>
-                        {#if circleSize[mapSelected].breaks[0] !== 0}
+                        <circle
+                        class = "box"
+                        cx="55"
+                        cy="40"
+                        r="35"
+                        style="fill:{circleSize[mapSelected].colours[4]};"
+                        />
+
+                        <circle
+                        class = "box"
+                        cx="55"
+                        cy="100"
+                        r="{circleSize[mapSelected].size[3]}"
+                        style="fill:{circleSize[mapSelected].colours[3]};"
+                        />
+
+                        {#if circleSize[mapSelected].breaks[2] !== 0}
                             <circle
                             class = "box"
                             cx="55"
-                            cy="10"
-                            r="{circleSize[mapSelected].size[0]}"
-                            style="fill:{circleSize[mapSelected].colours[0]};"
+                            cy="135"
+                            r="{circleSize[mapSelected].size[2]}"
+                            style="fill:{circleSize[mapSelected].colours[2]};"
                             />
                         {/if}
 
@@ -607,43 +624,27 @@
                             <circle
                             class = "box"
                             cx="55"
-                            cy="32.5"
+                            cy="157.5"
                             r="{circleSize[mapSelected].size[1]}"
                             style="fill:{circleSize[mapSelected].colours[1]};"
                             />
                         {/if}
 
-                        {#if circleSize[mapSelected].breaks[2] !== 0}
+                        {#if circleSize[mapSelected].breaks[0] !== 0}
                             <circle
                             class = "box"
                             cx="55"
-                            cy="55"
-                            r="{circleSize[mapSelected].size[2]}"
-                            style="fill:{circleSize[mapSelected].colours[2]};"
+                            cy="177"
+                            r="{circleSize[mapSelected].size[0]}"
+                            style="fill:{circleSize[mapSelected].colours[0]};"
                             />
                         {/if}
 
-                        <circle
-                        class = "box"
-                        cx="55"
-                        cy="90"
-                        r="{circleSize[mapSelected].size[3]}"
-                        style="fill:{circleSize[mapSelected].colours[3]};"
-                        />
-
-                        <circle
-                        class = "box"
-                        cx="55"
-                        cy="150"
-                        r="35"
-                        style="fill:{circleSize[mapSelected].colours[4]};"
-                        />
-
-                        {#if circleSize[mapSelected].breaks[0] !== 0}<text class="legend-label" x="100" y="10" dy="0.35em">&le;{circleSize[mapSelected].breaks[0]}</text>{/if}
-                        {#if circleSize[mapSelected].breaks[1] !== 0}<text class="legend-label" x="100" y="32.5" dy="0.35em">{circleSize[mapSelected].breaks[0] + 1} - {circleSize[mapSelected].breaks[1]}</text>{/if}
-                        {#if circleSize[mapSelected].breaks[2] !== 0}<text class="legend-label" x="100" y="55" dy="0.35em">{circleSize[mapSelected].breaks[1]+ 1} - {circleSize[mapSelected].breaks[2]}</text>{/if}
-                        <text class="legend-label" x="100" y="90" dy="0.35em">{circleSize[mapSelected].breaks[2]+ 1} - {circleSize[mapSelected].breaks[3]}</text>
-                        <text class="legend-label" x="100" y="150" dy="0.35em">&gt;{circleSize[mapSelected].breaks[3]}</text>
+                        <text class="legend-label" x="100" y="40" dy="0.35em">&gt;{circleSize[mapSelected].breaks[3]}</text>
+                        <text class="legend-label" x="100" y="100" dy="0.35em">{circleSize[mapSelected].breaks[2]+ 1} - {circleSize[mapSelected].breaks[3]}</text>
+                        {#if circleSize[mapSelected].breaks[2] !== 0}<text class="legend-label" x="100" y="135" dy="0.35em">{circleSize[mapSelected].breaks[1]+ 1} - {circleSize[mapSelected].breaks[2]}</text>{/if}
+                        {#if circleSize[mapSelected].breaks[1] !== 0}<text class="legend-label" x="100" y="157.5" dy="0.35em">{circleSize[mapSelected].breaks[0] + 1} - {circleSize[mapSelected].breaks[1]}</text>{/if}
+                        {#if circleSize[mapSelected].breaks[0] !== 0}<text class="legend-label" x="100" y="177" dy="0.35em">&le;{circleSize[mapSelected].breaks[0]}</text>{/if}
                     </svg>
                 </div>
 
