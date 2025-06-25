@@ -11,9 +11,9 @@
 
     let map;
 
-    let work_ADA_poly = "work_ADA_aggregates.pmtiles";
+    let polygon = "work_pct.pmtiles";
 
-    let work_ADA_cent = "work_ADA_centroids.pmtiles";
+    let centroid = "work_count.pmtiles";
     
     let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
@@ -28,85 +28,85 @@
             dataSource: "Total_1",
             breaks: [0.003373, 0.009313, 0.024911, 0.058824],
             colours: graduated_col,
-            text: "% of businesses directly affected by all types of US Administration's Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by all types of US Administration's Tariffs on Canada",
         },
         "All Tariffs (% of Employees)": {
             dataSource: "Total_2",
             breaks: [0.01593, 0.05325, 0.12301, 0.26468],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by all types of US Administration's Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by all types of US Administration's Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Businesses)": {
             dataSource: "Auto_1",
             breaks: [0.0002690, 0.0008795, 0.0015552, 0.0025907],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Automobile Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Automobiles (% of Employees)": {
             dataSource: "Auto_2",
             breaks: [0.0007601, 0.0040214, 0.0408163, 0.0844206],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Automobile Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Aluminum (% of Businesses)": {
             dataSource: "Alum_1",
             breaks: [0.001606, 0.004852, 0.010540, 0.023529],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Aluminum Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Aluminum (% of Employees)": {
             dataSource: "Alum_2",
             breaks: [0.01074, 0.03797, 0.08570, 0.17310],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Aluminum Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Steel (% of Businesses)": {
             dataSource: "Steel_1",
             breaks: [0.001008, 0.003396, 0.010204, 0.025210],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Steel Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Steel (% of Employees)": {
             dataSource: "Steel_2",
             breaks: [0.005952, 0.021349, 0.047185, 0.094637],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Steel Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Lumber (% of Businesses)": {
             dataSource: "Lumber_1",
             breaks: [0.001, 0.003663, 0.013699, 0.05],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Lumber Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Lumber (% of Employees)": {
             dataSource: "Lumber_2",
             breaks: [0.005390, 0.019358, 0.048170, 0.155556],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Lumber Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (% of Businesses)": {
             dataSource: "Energy_1",
             breaks: [0.0003789, 0.0012151, 0.002584, 0.0056818],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (% of Employees)": {
             dataSource: "Energy_2",
             breaks: [0.01568, 0.05259, 0.11681, 0.22883],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+            text: "Estimated % of employees working within the ADA that are directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (% of Businesses)": {
             dataSource: "nonCUSMA_1",
             breaks: [0.0005841, 0.0019157, 0.0042918, 0.0196078],
             colours: graduated_col,
-            text: "% of businesses directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
+            text: "% of businesses within the ADA directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (% of Employees)": {
             dataSource: "nonCUSMA_2",
             breaks: [0.006887, 0.029499, 0.070126, 0.186407],
             colours: graduated_col,
-            text: "Estimated % of employees directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
+            text: "Estimated % of employees working within the ADA that aredirectly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
     };
 
@@ -116,98 +116,98 @@
             breaks: [4, 12, 36, 89],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by all types of US Administration's Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by all types of US Administration's Tariffs on Canada",
         },
         "All Tariffs (Count of Employees)": {
             dataSource: "Total_E",
             breaks: [172, 583, 1365, 3271],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by all types of US Administration's Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by all types of US Administration's Tariffs on Canada",
         },
         "Tariffs on Automobiles (Count of Businesses)": {
             dataSource: "Auto_B",
             breaks: [0, 0, 0, 1],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Automobile Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Automobiles (Count of Employees)": {
             dataSource: "Auto_E",
             breaks: [0, 7, 150, 550],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Automobile Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Automobile Tariffs on Canada",
         },
         "Tariffs on Aluminum (Count of Businesses)": {
             dataSource: "Aluminum_B",
             breaks: [2, 7, 22, 74],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Aluminum Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Aluminum (Count of Employees)": {
             dataSource: "Aluminum_E",
             breaks: [129, 515, 1332, 2808],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Aluminum Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Aluminum Tariffs on Canada",
         },
         "Tariffs on Steel (Count of Businesses)": {
             dataSource: "Steel_B",
             breaks: [0, 2, 7, 25],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Steel Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Steel (Count of Employees)": {
             dataSource: "Steel_E",
             breaks: [51, 207, 438, 1250],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Steel Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Steel Tariffs on Canada",
         },
         "Tariffs on Lumber (Count of Businesses)": {
             dataSource: "Lumber_B",
             breaks: [0, 1, 3, 10],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Lumber Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Lumber (Count of Employees)": {
             dataSource: "Lumber_E",
             breaks: [19, 60, 127, 265],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Lumber Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Lumber Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (Count of Businesses)": {
             dataSource: "Energy_B",
             breaks: [0, 1, 2, 4],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on Energy and Natural Resources (Count of Employees)": {
             dataSource: "Energy_E",
             breaks: [35, 192, 353, 1200],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Energy and Natural Resources Tariffs on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (Count of Businesses)": {
             dataSource: "nonCUSMA_B",
             breaks: [0, 1, 3, 7],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Count of businesses directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
+            text: "Count of businesses within the ADA directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
         "Tariffs on non-CUSMA compliant goods (Count of Employees)": {
             dataSource: "nonCUSMA_E",
             breaks: [56, 225, 435, 700],
             size: graduated_siz,
             colours: graduated_col,
-            text: "Estimated count of employees directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
+            text: "Estimated count of employees working within the ADA that are directly affected by US Administration's Tariffs for non-CUSMA compliant goods on Canada",
         },
     };
     
@@ -340,12 +340,12 @@
             
             map.addSource('work_polygons',{
                 type: 'vector',
-                url: 'pmtiles://' + work_ADA_poly,
+                url: 'pmtiles://' + polygon,
             });
 
             map.addSource('work_centroids', {
                 type: 'vector',
-                url: 'pmtiles://' + work_ADA_cent,
+                url: 'pmtiles://' + centroid,
             });
 
             map.addLayer({
@@ -432,7 +432,7 @@
 
                 const rawValue = properties[dataField];
 
-                if (rawValue == null || rawValue === 0) {
+                if (rawValue == null) {
                     selectedValue = "No Data";
                     selectedZone = "";
                     map.setFilter('outline-hover-work', ['==', 'ADADGUID', '']);
