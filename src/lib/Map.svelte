@@ -499,7 +499,21 @@
 
         <h1>Impact of US Administration's Tariffs on Canada</h1>
         
-        <h2>Mapping information about the direct impacts of tariffs across Canada at the aggregate dissemination area level</h2>
+        <h2>Mapping information about the direct impacts of tariffs across Canada at the Aggregate Dissemination Area (ADA) level</h2>
+
+        <div id="buttons">
+            <button id="businessButton">
+                Businesses
+            </button>
+            
+            <button id="employeeButton">
+                Employees
+            </button>
+
+            <button id="residentButton">
+                Residents
+            </button>
+        </div>
 
         <div id="checkbox" class="check-box">
 			<label class="label-format"><input type="checkbox" id="pctcheck" class="check-box-item" bind:checked={estimatedPct} on:change={toggleViz}/> 
@@ -683,6 +697,16 @@
         overflow: hidden;
     }
 
+    #buttons {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #checkbox {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
     #select-wrapper {
         margin-top: 10px;
         margin-bottom: 10px;
