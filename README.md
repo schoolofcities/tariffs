@@ -52,7 +52,8 @@ Residents are defined from Census 2021 data.
 5)	[Refer to Jupyter notebook] Use this new filter from Step 4 to find out the ratio of US to global exports for each NAICS code in every province/territory
 
 6)	[Refer to Jupyter notebook] Also use this new filter from Step 4 onto the Establishment Counts dataset to find out the following from each DA:
-..._a.	How many businesses are directly exposed to tariffs
+   
+       ..._a.	How many businesses are directly exposed to tariffs
   	b.	How many estimated employees are directly exposed to tariffs, after getting weighted for its province’s/territory’s NAICS US/Global export ratio (Step 5). This is also broken down by the type of tariffs
   	c.	How many estimated employees working within each directly exposed industry_
 
