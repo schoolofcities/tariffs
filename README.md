@@ -4,24 +4,23 @@
 The objective of this visualisation is to map out the direct exposure of Canadian businesses, employees and residents to US President Donald Trump Second Administration’s Tariffs (Tariffs) at the Aggregate Dissemination Area (ADA) level.
 
 As of July 2025, the Tariffs include the following:
-1)	25% tariffs on all Canadian products not covered by CUSMA
-2)	10% tariffs on potash, energy and natural resources
-3)	25% tariffs on automobiles and auto parts
-4)	25% tariffs on aluminum and derivative products
-5)	25% tariffs on steel and derivative products
-6)	Tariffs on lumber*
-*Tariffs on lumber are included because it remains an economic measure that the US continues to impose on Canada.
+1)	10% tariffs on energy and natural resources [(HTS 9903.01.13)](https://content.govdelivery.com/bulletins/gd/USDHSCBP-3d7c46d?wgt_ref=USDHSCBP_WIDGET_2) and potash [(HTS 9903.01.15)](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/3d5b0a5)
+2)	50% tariffs on iron and steel, and their derivative products (HTS 9903.81.87, 9903.81.88, 9903.81.89, 9903.81.90, 9903.81.91, 9903.81.93)
+3)	50% tariffs on aluminum, and its derivative products (HTS 9903.85.02, 9903.85.04, 9903.85.07, 9903.85.08)
+4)	25% tariffs on automobiles, and its parts (HTS 9903.94.01, 9903.94.03, 9903.94.05)
+5)	25% tariffs on all Canadian products not covered by CUSMA (HTS 9903.01.14, focusing on goods that the US maintains Tariff-Rate Quotas)
+6)	Tariffs on softwood lumber (This is included because it remains an economic measure that the US continues to impose on Canada, even if it has not yet been explicitly mentioned by President Donald Trump in 2025.)
 
 Businesses are defined as the establishments that are recorded in the 20XX Establishment Counts by DA, excluding those with no employees.
 Employees are defined from the employee ranges provided in the 20XX Establishment Counts by DA, which are as follows:
--	1 to 4  	3 employees
--	5 to 9 	7 employees
--	10 to 19 	15 employees
--	20 to 49 	35 employees
--	50 to 99 	75 employees
--	100 to 199 	150 employees
--	200 to 499 	350 employees
--	500 + 	550 employees
+-	1 to 4 --> 	3 employees
+-	5 to 9 -->	7 employees
+-	10 to 19 -->	15 employees
+-	20 to 49 -->	35 employees
+-	50 to 99 -->	75 employees
+-	100 to 199 -->	150 employees
+-	200 to 499 -->	350 employees
+-	500 + -->	550 employees
 Residents are defined from Census 2021 data.
 
 ## DATA SOURCES
