@@ -8,8 +8,8 @@ As of July 2025, the Tariffs include the following:
 2)	50% tariffs on iron and steel, and their derivative products (HTS 9903.81.87, 9903.81.88, 9903.81.89, 9903.81.90, 9903.81.91, 9903.81.93)
 3)	50% tariffs on aluminum, and its derivative products (HTS 9903.85.02, 9903.85.04, 9903.85.07, 9903.85.08)
 4)	25% tariffs on automobiles, and its parts (HTS 9903.94.01, 9903.94.03, 9903.94.05)
-5)	25% tariffs on all Canadian products not covered by CUSMA (HTS 9903.01.14, focusing on goods that the US maintains Tariff-Rate Quotas)
-6)	Tariffs on softwood lumber (This is included because it remains an economic measure that the US continues to impose on Canada, even if it has not yet been explicitly mentioned by President Donald Trump in 2025.)
+5)	25% tariffs on all Canadian products not covered by CUSMA (focusing on goods that the US maintains Tariff-Rate Quotas as found in HTS Chapter 98 Subchapter XXIII)
+6)	Duties on softwood lumber (This is included because it remains an economic measure that the US continues to impose on Canada, even if it has not been explicitly threatened as a tariff as of July 2025.)
 
 Businesses are defined as the establishments that are recorded in the 20XX Establishment Counts by DA, excluding those with no employees.
 Employees are defined from the employee ranges provided in the 20XX Establishment Counts by DA, which are as follows:
@@ -24,7 +24,7 @@ Employees are defined from the employee ranges provided in the 20XX Establishmen
 Residents are defined from Census 2021 data.
 
 ## DATA SOURCES
-1)	List of HS Codes for products tariffed by the US from [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099)
+1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
 2)	2025 US HS-NAICS Concordance Table [(_download the 2025 Import .xlsx file_)](https://www.census.gov/foreign-trade/reference/index.html)
 3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
 4)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_same setting as above, except to set Country/State to 'US total' instead_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
@@ -34,7 +34,7 @@ Residents are defined from Census 2021 data.
 8)	Census 2021 Data – Aggregate Dissemination Area Level [(_data is found in the 'Comprehensive download files' section_)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E&SearchText=canada&DGUIDlist=2021A000011124&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0)
 
 ## STEPS
-1)	Extract list of HS Codes for products that are tariffed by the US from Chapter 99 of US Harmonized Tariff Schedule (HTS)
+1)	Extract list of HS Codes for products that are subject to tariffs and duties
 
        _Any new tariffs officially announced by the US International Trade Commission would result in an update of the HTS and changes to Chapter 99, which pertains to temporary legislation and amendments from the general HTS terms. HTS codes and HS codes are the same at the 6-digit level, thus it is safe to list the entire HTS code so long as they are later snipped to the first 6 digits during Python processing._
  
