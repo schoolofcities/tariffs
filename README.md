@@ -53,9 +53,11 @@ Residents are defined from Census 2021 data.
 
 6)	[Refer to Jupyter notebook] Also use this new filter from Step 4 onto the Establishment Counts dataset to find out the following from each DA:
    
-	  _a.	How many businesses are directly exposed to tariffs
-  	  b.	How many estimated employees are directly exposed to tariffs, after getting weighted for its province’s/territory’s NAICS US/Global export ratio (Step 5). This is also broken down by the type of tariffs
-  	  c.	How many estimated employees working within each directly exposed industry_
+	  _a.	How many businesses are directly exposed to tariffs_
+  	
+  	  _b.	How many estimated employees are directly exposed to tariffs, after getting weighted for its province’s/territory’s NAICS US/Global export ratio (Step 5). This is also broken down by the type of tariffs_
+  	
+  	  _c.	How many estimated employees working within each directly exposed industry_
 
 8)	[Refer to Jupyter notebook] Each result (6a, 6b and 6c) will be aggregated from DA to ADA level using table created in Step 3
 
@@ -70,5 +72,7 @@ Residents are defined from Census 2021 data.
 13)	[Refer to Jupter notebook] Results from Step 11 are then processed to be appended to the choropleth and centroid maps. They will both be saved as GeoJSON files.
 
 14)	Convert the GeoJSON files into PMTiles via Windows Subsystem for Linux with the following codes:
-15)	       _a.	For Choropleth Map: code to be added later_
-   	    _b.	For Centroid Map: code to be added later_
+    
+	  _a.	For Choropleth Map: code to be added later_
+
+	  _b.	For Centroid Map: code to be added later_
