@@ -28,6 +28,8 @@
 
 	</a>
 
+	<a href="./" target="_blank" class="research-link">Canada-U.S. Tariff Research</a>
+
 </div>
 
 
@@ -55,6 +57,22 @@
 		opacity: 0.75;
 	}
 
+	.research-link {
+		position: absolute;
+		top: 19px;
+		right: 22px;
+		font-family: SourceSerifItalic, serif;
+		font-size: 20px;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		color: var(--brandDarkBlue);
+	}
+
+	.research-link:hover {
+		color: var(--brandMedGreen);
+	}
+
+
 	@media (max-width: 730px) {
 		.logo {
 			width: 175px;
@@ -64,6 +82,12 @@
 		.logo-container {
 			height: 40px;
 			margin-bottom: 40px;
+		}
+
+		.research-link {
+			font-size: 13px;
+			right: 13px;
+			top: 18px;
 		}
 	}
 

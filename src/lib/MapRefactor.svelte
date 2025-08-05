@@ -381,9 +381,11 @@
 
 			</a>
 
+			<a href="./" target="_blank" class="research-link">Canada-U.S. Tariff Research</a>
+
 		</div>
 
-		<h2>Potential geographic impact of U.S. tariffs on Canada</h2>
+		<h2>Maps of geographic impact of U.S. tariffs on Canada</h2>
 
 		<div id = "select-wrapper">
 			<Select
@@ -617,17 +619,21 @@
 		opacity: 0.75;
 	}
 
-	@media (max-width: 730px) {
-		.logo {
-			width: 175px;
-			padding-left: 15px;
-			margin-top: -8px
-		}
-		.logo-container {
-			height: 40px;
-			margin-bottom: 40px;
-		}
+	.research-link {
+		position: absolute;
+		top: 40px;
+		left: 252px;
+		font-family: SourceSerifItalic, serif;
+		font-size: 16px;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		color: var(--brandDarkBlue);
 	}
+
+	.research-link:hover {
+		color: var(--brandMedGreen);
+	}
+
 
 	#panel h2 {
 		margin-top: 0px;
