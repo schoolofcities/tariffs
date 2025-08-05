@@ -15,8 +15,6 @@
 
 	let map;
 
-	let mapLoad = 0;
-
 	let work_side = "pmtiles/work_side.pmtiles";
 	let ADA_cent = "pmtiles/ADA_centroids.pmtiles";
 	let background = "pmtiles/background.pmtiles";
@@ -24,8 +22,7 @@
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 7.5, 10, 20, 40];
 
-	// let defaultMap = "Total_B_pc";
-	// let mapSelected = defaultMap;
+
 
 	let metricType = "Percent"; // ["Percent", "Count"]
 	function metricSelect(value) {
@@ -53,6 +50,9 @@
 	$: mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
 		Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
 	)?.[0];
+
+
+	// dynamic update to map if any inputs are changed
 
 	$: if (
 		map &&
@@ -131,6 +131,9 @@
 		console.log("map not loaded");
 	}
 
+
+	// all the data layers
+
 	const dataLayers = {
 		"Total_B_pc": {
 			dataSource: "Total_B_pc",
@@ -189,6 +192,9 @@
 			text: "Estimated count of employees directly affected by all types of US Administration's Tariffs on Canada",
 		},
 	};
+
+
+	// maps loading and hovering functions
 
 	let selectedZone = "";
 	let selectedValue = "";
