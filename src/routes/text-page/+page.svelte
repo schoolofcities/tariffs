@@ -34,9 +34,9 @@
 
 <svelte:head>
 
-	<title>Design Components | School of Cities</title>
+	<title>Tariffs | School of Cities</title>
 
-	<meta name="description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
+	<!-- <meta name="description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
 	<meta name="author" content="Jeff Allen">
 
 	<meta property="og:title" content="Design Components" />
@@ -50,7 +50,7 @@
 	<meta name="twitter:title" content="Design Components" />
 	<meta name="twitter:description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
 	<meta name="twitter:site" content="https://schoolofcities.github.io/design-components/" />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" /> 
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" />  -->
 
 </svelte:head>
 
@@ -93,15 +93,6 @@
 
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
-	<ImageSingle
-		imageURL="./images/border-rainbow-bridge.jpg"
-		caption="Border crossing."
-		source='Photo by Lennon Kong on Unsplash.'
-		altText=""
-		maxWidth="680px"
-		link="no"
-	/>
-
 	<TitleStandard
 		title="Captivating title"
 		subtitle="Maybe a slightly longer more detailed wordier subtitle "
@@ -113,6 +104,19 @@
 			authors="<a href='' target='_blank'>Author Name</a>, <a href='' target='_blank'>Author Name</a>, and <a href='' target='_blank'>Author Name</a>"
 			date="August 2025"
 		/>
+	
+	</div>
+
+	<ImageSingle
+		imageURL="./images/border-rainbow-bridge.jpg"
+		caption="Rainbow Bridge, Niagara River."
+		source='Photo by Lennon Kong on Unsplash.'
+		altText=""
+		maxWidth="680px"
+		link="no"
+	/>
+
+	<div class="text">	
 
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat lacus eu dolor dapibus sodales. Aenean venenatis metus id eleifend tincidunt. Nulla ut lacus et urna finibus bibendum sit amet et ante. Aliquam tristique, ex sed porttitor hendrerit, ex odio accumsan ex, eu maximus leo quam quis nulla. 
