@@ -11,7 +11,7 @@
 	// adjust left-padding based on if image fits the full screen or not
 	let containerWidth = 0;
 	$: numericMaxWidth = parseInt(maxWidth); // remove "px"
-	$: paddingLeft = containerWidth < numericMaxWidth ? '20px' : '1px';
+	$: paddingLeft = containerWidth < numericMaxWidth ? '20px' : '0px';
 
 </script>
 
@@ -73,7 +73,7 @@
 
 	p {
 		text-align: left;
-		padding-left: 1px;
+		padding-left: 0px;
 		margin: 0px;
 		box-sizing: border-box;
 		width: 100%;

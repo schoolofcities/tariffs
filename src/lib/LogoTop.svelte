@@ -60,7 +60,7 @@
 	.research-link {
 		position: absolute;
 		top: 19px;
-		right: 22px;
+		right: 35px;
 		font-family: SourceSerifItalic, serif;
 		font-size: 20px;
 		text-decoration: underline;

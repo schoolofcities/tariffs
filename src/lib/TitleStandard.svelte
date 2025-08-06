@@ -28,7 +28,7 @@
 		position: relative;
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 15px;
+		padding-top: 5px;
 		margin-bottom: 45px;
 
 	}
