@@ -1,6 +1,6 @@
 <script>
 
-    import Map from '$lib/MapRefactor.svelte';
+    import Map from '$lib/Map.svelte';
     
 </script>
 
