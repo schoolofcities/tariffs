@@ -11,6 +11,7 @@
 	import GraphicSingle from '$lib/GraphicSingle.svelte';
 	import GraphicsMultiples from '$lib/GraphicMultiples.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import Password from '$lib/Password.svelte';
 
 	import ScrollyImages from "$lib/ScrollyImages.svelte";
 
@@ -54,6 +55,10 @@
 
 </svelte:head>
 
+
+
+
+<Password/>
 
 
 <main>
