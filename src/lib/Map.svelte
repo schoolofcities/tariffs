@@ -31,7 +31,7 @@
 		impactType = value;
 	};
 
-	let tariffType = "All" // see full list below
+	let tariffType = "All tariffs" // see full list below
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
@@ -44,6 +44,7 @@
 		tariffType: tariffType,
 	};
 
+	let mapSelected;
 	$: mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
 		Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
 	)?.[0];
@@ -51,83 +52,93 @@
 
 	// dynamic update to map if any inputs are changed
 
-	$: if (
-		map &&
-		map.isStyleLoaded() &&
-		map.getLayer("polygons") &&
-		map.getLayer("centroids")
-	) {
-		if (mapSelected) {
-			if (mapQuery.metricType === "Percent") {
-			
-				map.setLayoutProperty('polygons', 'visibility', 'visible');
-				map.setLayoutProperty('centroids', 'visibility', 'none');
+	function updateMap() {
+		if (
+			map &&
+			map.isStyleLoaded() &&
+			map.getLayer("polygons") &&
+			map.getLayer("centroids")
+		) {
+			if (mapSelected) {
+				if (mapQuery.metricType === "Percent") {
+				
+					map.setLayoutProperty('polygons', 'visibility', 'visible');
+					map.setLayoutProperty('centroids', 'visibility', 'none');
 
-				map.setPaintProperty("polygons", "fill-opacity", 0.8);
+					map.setPaintProperty("polygons", "fill-opacity", 0.8);
 
-				map.setPaintProperty("polygons", "fill-color", [
-					"case",
-					["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
-					["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
-					["step", ["get", dataLayers[mapSelected].dataSource],
-					dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
-					dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
-					dataLayers[mapSelected].colours[2], dataLayers[mapSelected].breaks[2],
-					dataLayers[mapSelected].colours[3], dataLayers[mapSelected].breaks[3],
-					dataLayers[mapSelected].colours[4]],
-				]);
-
-			} else if (mapQuery.metricType === "Count") {
-
-				map.setLayoutProperty('polygons', 'visibility', 'none');
-				map.setLayoutProperty('centroids', 'visibility', 'visible');
-
-				map.setPaintProperty("centroids", "circle-opacity", 0.8);
-
-				map.setPaintProperty("centroids", "circle-color", [
-					"case",
-					["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
-					["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
-					[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
-					[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
-					[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
-					[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
-					dataLayers[mapSelected].colours[0],
-				]);
-
-				map.setPaintProperty("centroids", "circle-radius", [
-					"interpolate", ["linear"], ["zoom"],
-					3, [
+					map.setPaintProperty("polygons", "fill-color", [
 						"case",
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-						0
-					],
-					8, [
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], 0], "#f1c500",
+						["step", ["get", dataLayers[mapSelected].dataSource],
+						dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
+						dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
+						dataLayers[mapSelected].colours[2], dataLayers[mapSelected].breaks[2],
+						dataLayers[mapSelected].colours[3], dataLayers[mapSelected].breaks[3],
+						dataLayers[mapSelected].colours[4]],
+					]);
+
+				} else if (mapQuery.metricType === "Count") {
+
+					map.setLayoutProperty('polygons', 'visibility', 'none');
+					map.setLayoutProperty('centroids', 'visibility', 'visible');
+
+					map.setPaintProperty("centroids", "circle-opacity", 0.8);
+
+					map.setPaintProperty("centroids", "circle-color", [
 						"case",
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
-						0
-					],
-					11, [
-						"case",
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].size[1],
-						dataLayers[mapSelected].size[0],
-					],
-				]);
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
+						dataLayers[mapSelected].colours[0],
+					]);
+
+					map.setPaintProperty("centroids", "circle-radius", [
+						"interpolate", ["linear"], ["zoom"],
+						3, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							0
+						],
+						8, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
+							0
+						],
+						11, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].size[1],
+							dataLayers[mapSelected].size[0],
+						],
+					]);
+				} else {
+					console.log("no data")
+				}
 			} else {
-				console.log("no data")
+				console.log("no matching data layer");
 			}
 		} else {
-			console.log("no matching data layer");
+			console.log("map not loaded");
 		}
-	} else {
-		console.log("map not loaded");
+	};
+
+	$: {
+		mapQuery;   // track metricType, impactType, tariffType
+		mapSelected;
+		map;
+		updateMap();
 	}
+
 
 
 	// all the data layers
@@ -602,7 +613,29 @@
 		
 		map = new maplibregl.Map({
 			container: "map",
-			style: "https://api.protomaps.com/styles/v5/white/en.json?key=89c5d93843b4ca61",
+			// style: "https://api.protomaps.com/styles/v5/white/en.json?key=89c5d93843b4ca61",
+			style: {
+				version: 8,
+				sources: {
+					osm: {
+						type: 'vector',
+						tiles: [
+						'https://vector.openstreetmap.org/shortbread_v1/{z}/{x}/{y}.mvt'
+						]
+					}
+					},
+				layers: [
+					{
+						id: 'ocean',
+						type: 'fill',
+						source: 'osm',
+						'source-layer': 'ocean',
+						paint: {
+							'fill-color': '#E3F4FB'
+						}
+					}
+				]
+			},
 			center: [-95, 60],
 			zoom: 3,
 			bearing: 0,
@@ -626,6 +659,12 @@
 				url: 'pmtiles://' + centroids,
 			});
 
+			map.addSource('ne_water', {
+				type: 'geojson',
+				data: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_lakes.geojson'
+			});
+
+			
 			map.addLayer({
 				'id': 'polygons',
 				'type': 'fill',
@@ -637,15 +676,54 @@
 			});
 
 			map.addLayer({
-				'id': 'outline',
-				'type': 'line',
-				'source': 'choropleth',
-				'source-layer': 'choropleth',
-				'paint': {
-					'line-color': '#808080',
-					'line-width': 1,
-					'line-opacity': 0.25,
+				id: 'ne_water_fill',
+				type: 'fill',
+				source: 'ne_water',
+				paint: {
+					'fill-color': '#E3F4FB'
 				},
+				minzoom: 0,
+				maxzoom: 5
+			});
+
+			const CUTOFF = 50000000; 
+
+			// Large lakes: show at all zooms
+			map.addLayer({
+				id: 'water_polygons_large',
+				type: 'fill',
+				source: 'osm',
+				'source-layer': 'water_polygons',
+				filter: ['all', ['==', 'kind', 'water'], ['>=', 'way_area', CUTOFF]],
+				paint: { 'fill-color': '#E3F4FB' },
+				minZoom: 5
+			});
+
+			// Small lakes: only from z>=10
+			map.addLayer({
+				id: 'water_polygons_small',
+				type: 'fill',
+				source: 'osm',
+				'source-layer': 'water_polygons',
+				filter: ['all', ['==', 'kind', 'water'], ['<', 'way_area', CUTOFF]],
+				paint: { 'fill-color': '#E3F4FB' },
+				minzoom: 9.6
+			});
+
+			map.addLayer({
+				id: 'outline',
+				type: 'line',
+				source: 'choropleth',
+				'source-layer': 'choropleth',
+				paint: {
+					'line-color': '#808080',
+					'line-width': [
+						'interpolate', ['linear'], ['zoom'],
+						3, 1,  
+						16, 2
+					],
+					'line-opacity': 0.25
+				}
 			});
 
 			map.addLayer({
@@ -672,6 +750,19 @@
 			
 			map.setLayerZoomRange('centroids', 1, 12);
 
+			mapQuery = {
+				metricType: metricType,
+				impactType: impactType,
+				tariffType: tariffType,
+			};
+
+			mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
+				Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
+			)?.[0];
+
+			map.once('idle', () => {
+				updateMap();
+			});
 
 		});
 		
@@ -780,7 +871,10 @@
 
 		<h2>Maps of geographic impact of U.S. tariffs on Canada</h2>
 
+		
+
 		<div id = "select-wrapper">
+			<p>Select the tariff industry:</p>
 			<Select
 				id = 'select'
 				items = {selectTariffList}
@@ -794,21 +888,7 @@
 			/>
 		</div>
 
-		<div class="button-group">
-			<div
-				class="toggle-button {metricType === 'Percent' ? 'selected' : ''}"
-				on:click={() => metricSelect("Percent")}
-			>
-				Percent
-			</div>
-			<div
-				class="toggle-button {metricType === 'Count' ? 'selected' : ''}"
-				on:click={() => metricSelect("Count")}
-			>
-				Count
-			</div>
-		</div>
-
+		<p>Show exposure by the number of businesses, employees based on where they work, or employees based on their home location.</p>
 		<div class="button-group" style="margin-top: 10px;">
 			<div
 				class="toggle-button {impactType === 'Business' ? 'selected' : ''}"
@@ -829,6 +909,23 @@
 				Employees (home)
 			</div>
 		</div>
+
+		<p>Show exposure as the total businesses or employees, or as a percent of all within the area.</p>
+		<div class="button-group">
+			<div
+				class="toggle-button {metricType === 'Percent' ? 'selected' : ''}"
+				on:click={() => metricSelect("Percent")}
+			>
+				Percent
+			</div>
+			<div
+				class="toggle-button {metricType === 'Count' ? 'selected' : ''}"
+				on:click={() => metricSelect("Count")}
+			>
+				Count
+			</div>
+		</div>
+
 
 		<div class="des">
 
