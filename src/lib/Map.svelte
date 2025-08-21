@@ -792,7 +792,7 @@
 				'source': 'choropleth',
 				'source-layer': 'choropleth',
 				'paint': {
-					'fill-color': '#0000FF',
+					'fill-color': '#1E3765',
 					'fill-opacity': 0.5,
 				},
 				'filter': ['==', 'ADADGUID', ''],
@@ -1125,6 +1125,34 @@
 
 	}
 
+
+	let mouseX = 0;
+	let mouseY = 0;
+
+	function handleMouseMove(event) {
+		const mapEl = document.getElementById("map");
+		const rect = mapEl.getBoundingClientRect();
+
+		// Mouse coordinates relative to the map
+		let x = event.clientX - rect.left;
+		let y = event.clientY - rect.top;
+
+		const tooltipEl = document.getElementById("map-tooltip");
+		const tooltipWidth = tooltipEl ? tooltipEl.offsetWidth : 150; // fallback width
+		const tooltipHeight = tooltipEl ? tooltipEl.offsetHeight : 30;
+
+		// Clamp tooltip inside map bounds
+		mouseX = Math.min(x + 10, mapEl.clientWidth - tooltipWidth - 5);
+		mouseY = Math.min(y + 10, mapEl.clientHeight - tooltipHeight - 5);
+	}
+
+	onMount(() => {
+		const mapEl = document.getElementById("map");
+		mapEl.addEventListener("mousemove", handleMouseMove);
+
+		return () => mapEl.removeEventListener("mousemove", handleMouseMove);
+	});
+
 </script>
 
 
@@ -1345,18 +1373,6 @@
 		</div>
 
 
-		<div id="searchbar">
-
-			<div id="destext">
-				<p style="margin-bottom: -10px;">Search and fly to a location:</p>
-			</div>
-
-			<input id="address-search" bind:value={addressQuery} placeholder="Ottawa, ON" />
-			
-			<button id="address-button" on:click={getResults} disabled={addressQuery.length < 1}>Search</button>
-
-		</div>
-
 		<div class="datadetail">
 			<h4 style="margin-bottom: 0px;">Data Sources</h4>
 			<p>
@@ -1373,7 +1389,43 @@
 	
 	</div>
 	
-	<div id="map"></div>
+	<div id="map">
+
+		<div id="searchbar">
+
+			<input 
+				id="address-search" 
+				bind:value={addressQuery} 
+				placeholder="Search and fly to a location..." 
+				on:keydown={(e) => {
+					if (e.key === 'Enter' && addressQuery.length > 0) {
+					getResults();
+					}
+				}}
+			/>
+			
+			<button 
+				id="address-button" 
+				on:click={getResults} 
+				disabled={addressQuery.length < 1}
+			>
+				Search
+			</button>
+
+			{#if selectedValue}
+				<div
+				id="map-tooltip"
+				style="top: {mouseY + 10}px; left: {mouseX + 10}px;"
+				>
+				{selectedValue}
+				</div>
+			{/if}
+
+		</div>
+
+	</div>
+
+	
 
 </div>
 
@@ -1442,12 +1494,7 @@
 		line-height: 36px;
 	}
 
-	#map {
-		flex: 1;
-		height: 100vh;
-		overflow: hidden;
-		background-color: #ffffff;
-	}
+	
 
 	#select-wrapper {
 		margin-top: 10px;
@@ -1544,10 +1591,28 @@
 		text-rendering: optimizeLegibility;
 	}
 
-	 #address-search {
+
+	#map {
+		flex: 1;
+		height: 100vh;
+		overflow: hidden;
+		background-color: #ffffff;
+		z-index: 0;
+		position: relative;
+	}
+
+	#searchbar {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 999;
+	}
+
+	#address-search {
 		width: 185px;
 		font-family: OpenSans, sans-serif;
-		border: 1px solid var(--brandGray);
+		font-size: 12px;
+		border: 1.5px solid var(--brandGray);
 		padding: 2px; 
 		padding-left: 6px;
 		border-radius: 4px; 
@@ -1555,11 +1620,12 @@
 
 	#address-button {
 		font-family: OpenSans, sans-serif;
+		font-size: 12px;
 		padding: 2px;
 		padding-left: 5px;
 		padding-right: 5px;
-		margin-left: 6px;
-		border: 1px solid var(--brandGray);
+		margin-left: 0px;
+		border: 1.5px solid var(--brandGray);
 		border-radius: 4px;
 		background-color: var(--brandWhite);
 		cursor: pointer;
@@ -1575,5 +1641,18 @@
 		cursor: not-allowed;
 	}
 
+	#map-tooltip {
+		position: absolute;
+		background-color: var(--brandGray80);
+		color: var(--brandWhite);
+		border: 1px solid var(--brandGray);
+		padding: 2px 6px;
+		font-size: 12px;
+		border-radius: 4px;
+		pointer-events: none;
+		box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+		white-space: nowrap;
+		z-index: 999;
+	}
 
 </style>
