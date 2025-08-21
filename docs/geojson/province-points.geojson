@@ -1,0 +1,174 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.0,
+          55.0
+        ]
+      },
+      "properties": {
+        "name": "Alberta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.5,
+          54.0
+        ]
+      },
+      "properties": {
+        "name": "British Columbia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.0,
+          55.0
+        ]
+      },
+      "properties": {
+        "name": "Manitoba"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.5,
+          46.5
+        ]
+      },
+      "properties": {
+        "name": "New Brunswick"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.5,
+          53.5
+        ]
+      },
+      "properties": {
+        "name": "Newfoundland and Labrador"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.0,
+          64.0
+        ]
+      },
+      "properties": {
+        "name": "Northwest Territories"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.0,
+          45.0
+        ]
+      },
+      "properties": {
+        "name": "Nova Scotia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.0,
+          70.0
+        ]
+      },
+      "properties": {
+        "name": "Nunavut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.0,
+          50.0
+        ]
+      },
+      "properties": {
+        "name": "Ontario"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.0,
+          46.5
+        ]
+      },
+      "properties": {
+        "name": "P.E.I."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0,
+          52.0
+        ]
+      },
+      "properties": {
+        "name": "Quebec"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0,
+          55.0
+        ]
+      },
+      "properties": {
+        "name": "Saskatchewan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -135.0,
+          64.0
+        ]
+      },
+      "properties": {
+        "name": "Yukon"
+      }
+    }
+  ]
+}

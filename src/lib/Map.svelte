@@ -1129,7 +1129,6 @@
 
 
 
-
 <div id="container">
 
 	<div id="panel">
@@ -1357,8 +1356,6 @@
 			<button id="address-button" on:click={getResults} disabled={addressQuery.length < 1}>Search</button>
 
 		</div>
-
-
 
 		<div class="datadetail">
 			<h4 style="margin-bottom: 0px;">Data Sources</h4>
