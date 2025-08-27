@@ -74,7 +74,6 @@
 					map.setPaintProperty("polygons", "fill-color", [
 						"case",
 						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
-						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
 						["step", ["get", dataLayers[mapSelected].dataSource],
 						dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
 						dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
@@ -82,6 +81,8 @@
 						dataLayers[mapSelected].colours[3], dataLayers[mapSelected].breaks[3],
 						dataLayers[mapSelected].colours[4]],
 					]);
+
+					// add code here to highlight areas with 0 businesses/0 workers/0 population to begin with
 
 				} else if (mapQuery.metricType === "Count") {
 
@@ -796,6 +797,8 @@
 				},
 				'filter': ['==', 'ADADGUID', ''],
 			});
+
+			// try to add layer here for the 0 businesses/0 workers/0 population part
 
 			map.addLayer({
 				id: 'boundaries',
