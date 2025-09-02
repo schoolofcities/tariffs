@@ -65,7 +65,7 @@
 		) {
 			if (mapSelected) {
 				if (mapQuery.metricType === "Percent") {
-				
+					
 					map.setLayoutProperty('polygons', 'visibility', 'visible');
 					map.setLayoutProperty('centroids', 'visibility', 'none');
 
@@ -73,7 +73,7 @@
 
 					map.setPaintProperty("polygons", "fill-color", [
 						"case",
-						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "#D0D1C9",
 						["step", ["get", dataLayers[mapSelected].dataSource],
 						dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
 						dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
@@ -214,7 +214,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [0.04, 0.1, 0.2, 0.4],
+			breaks: [0.05, 0.1, 0.2, 0.4],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
@@ -286,7 +286,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [0.04, 0.1, 0.2, 0.6],
+			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
@@ -295,7 +295,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "All tariffs",
-			breaks: [0.05, 0.1, 0.3, 0.6],
+			breaks: [0.05, 0.1, 0.3, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
 		},
@@ -358,7 +358,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [0.04, 0.1, 0.2, 0.6],
+			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
@@ -1250,12 +1250,12 @@
 				</div>
 
 				<div id="legend">
-					<svg width='350' height='40'>
+					<svg width='500' height='40'>
 						<rect
 						class = "box"
 						width="64"
 						height="20"
-						x="20"
+						x="0"
 						y="0"
 						style="fill:{dataLayers[mapSelected].colours[0]};"
 						/>
@@ -1264,7 +1264,7 @@
 						class = "box"
 						width="64"
 						height="20"
-						x="85"
+						x="65"
 						y="0"
 						style="fill:{dataLayers[mapSelected].colours[1]};"
 						/>
@@ -1273,7 +1273,7 @@
 						class = "box"
 						width="64"
 						height="20"
-						x="150"
+						x="130"
 						y="0"
 						style="fill:{dataLayers[mapSelected].colours[2]};"
 						/>
@@ -1282,7 +1282,7 @@
 						class = "box"
 						width="64"
 						height="20"
-						x="215"
+						x="195"
 						y="0"
 						style="fill:{dataLayers[mapSelected].colours[3]};"
 						/>
@@ -1291,15 +1291,26 @@
 						class = "box"
 						width="64"
 						height="20"
-						x="280"
+						x="260"
 						y="0"
 						style="fill:{dataLayers[mapSelected].colours[4]};"
 						/>
+
+						<rect
+							class = "box"
+							width="64"
+							height="20"
+							x="340"
+							y="0"
+							style="fill:#D0D1C9;"
+						/>
 	
-						<text class="legend-label" text-anchor="middle" x="85" y="35">&lt;{(dataLayers[mapSelected].breaks[0]*100).toFixed(1)}%</text>
-						<text class="legend-label" text-anchor="middle" x="150" y="35">{(dataLayers[mapSelected].breaks[1]*100).toFixed(0)}%</text>
-						<text class="legend-label" text-anchor="middle" x="215" y="35">{(dataLayers[mapSelected].breaks[2]*100).toFixed(0)}%</text>
-						<text class="legend-label" text-anchor="middle" x="280" y="35">&gt{(dataLayers[mapSelected].breaks[3]*100).toFixed(0)}%</text>
+						<text class="legend-label" text-anchor="middle" x="65" y="35">&lt;{(dataLayers[mapSelected].breaks[0]*100).toFixed(1)}%</text>
+						<text class="legend-label" text-anchor="middle" x="130" y="35">{(dataLayers[mapSelected].breaks[1]*100).toFixed(0)}%</text>
+						<text class="legend-label" text-anchor="middle" x="195" y="35">{(dataLayers[mapSelected].breaks[2]*100).toFixed(0)}%</text>
+						<text class="legend-label" text-anchor="middle" x="260" y="35">&gt{(dataLayers[mapSelected].breaks[3]*100).toFixed(0)}%</text>
+
+						<text class="legend-label" text-anchor="middle" x="370" y="35">no data</text>
 					</svg>
 				</div>
 
@@ -1432,8 +1443,11 @@
 
 	#container {
 		display: flex;
-		height: 100vh;
-		overflow: hidden;
+		min-width: 420px;
+		flex-wrap: nowrap; 
+		height: 100dvh;
+		overflow: auto;
+		overflow-y: hidden;
 		position: relative;
 	}
 
@@ -1441,13 +1455,50 @@
 		max-width: 420px;
 		width: 100%;
 		min-width: 350px;
-		height: calc(100dvh);
+		height: 100%;
 		overflow-y: auto;
 		background-color: #ffffff;
 		padding: 20px;
 		border-right: solid 1px var(--brandDarkBlue);
 		flex-shrink: 0;
+		overflow-x: hidden;
+		box-sizing: border-box; 
 	}
+
+	#map {
+		flex: 1;
+		height: 100%;
+		min-width: 420px;
+		overflow: hidden;
+		background-color: #ffffff;
+		z-index: 0;
+		position: relative;
+	}
+
+	@media (max-width: 840px) {
+		#container {
+			flex-direction: column; 
+		}
+
+		#map {
+			order: -1; 
+			height: 50vh; 
+			border-bottom: solid 1px var(--brandDarkBlue);
+		}
+
+		#panel {
+			max-width: 420px;
+			min-width: 360px; 
+			width: 100%; 
+			height: 50vh;
+			border-right: none;
+			margin: 0 auto;
+		}
+	}
+
+
+
+
 
 	.logo-container {
 		display: flex;
@@ -1587,16 +1638,6 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
-	}
-
-
-	#map {
-		flex: 1;
-		height: 100vh;
-		overflow: hidden;
-		background-color: #ffffff;
-		z-index: 0;
-		position: relative;
 	}
 
 	#searchbar {
