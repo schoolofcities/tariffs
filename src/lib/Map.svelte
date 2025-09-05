@@ -151,7 +151,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "All tariffs",
-			breaks: [0.04, 0.1, 0.2, 0.3],
+			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to all types of US Administration's Tariffs on Canada",
 		},
@@ -160,7 +160,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Automobile tariffs",
-			breaks: [0.003, 0.01, 0.02, 0.06],
+			breaks: [0.01, 0.02, 0.03, 0.06],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Automobile Tariffs on Canada",
 		},
@@ -169,7 +169,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Aluminum tariffs",
-			breaks: [0.004, 0.01, 0.03, 0.05],
+			breaks: [0.01, 0.02, 0.03, 0.05],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Aluminum Tariffs on Canada",
 		},
@@ -178,7 +178,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Steel tariffs",
-			breaks: [0.005, 0.01, 0.03, 0.07],
+			breaks: [0.01, 0.02, 0.03, 0.07],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Steel Tariffs on Canada",
 		},
@@ -187,7 +187,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Copper tariffs",
-			breaks: [0.002, 0.006, 0.01, 0.03],
+			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Copper Tariffs on Canada",
 		},
@@ -196,7 +196,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Lumber tariffs",
-			breaks: [0.004, 0.01, 0.07, 0.2],
+			breaks: [0.01, 0.02, 0.07, 0.15],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Lumber Tariffs on Canada",
 		},
@@ -205,7 +205,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [0.004, 0.01, 0.03, 0.08],
+			breaks: [0.01, 0.02, 0.03, 0.08],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
 		},
@@ -214,7 +214,7 @@
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [0.05, 0.1, 0.2, 0.4],
+			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
@@ -223,7 +223,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "All tariffs",
-			breaks: [0.04, 0.1, 0.2, 0.3],
+			breaks: [0.04, 0.1, 0.2, 0.4],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
 		},
@@ -259,7 +259,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "Copper tariffs",
-			breaks: [0.004, 0.01, 0.04, 0.08],
+			breaks: [0.01, 0.02, 0.04, 0.08],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Copper Tariffs on Canada",
 		},
@@ -268,7 +268,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "Lumber tariffs",
-			breaks: [0.01, 0.04, 0.09, 0.2],
+			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada",
 		},
@@ -277,7 +277,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [0.01, 0.05, 0.1, 0.3],
+			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
 		},
@@ -286,7 +286,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [0.05, 0.1, 0.2, 0.5],
+			breaks: [0.05, 0.1, 0.2, 0.4],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
@@ -295,7 +295,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "All tariffs",
-			breaks: [0.05, 0.1, 0.3, 0.5],
+			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
 		},
@@ -304,7 +304,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Automobile tariffs",
-			breaks: [0.007, 0.02, 0.05, 0.2],
+			breaks: [0.01, 0.02, 0.05, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
 		},
@@ -322,7 +322,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Steel tariffs",
-			breaks: [0.01, 0.04, 0.2, 0.4],
+			breaks: [0.01, 0.05, 0.1, 0.25],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Steel Tariffs on Canada",
 		},
@@ -331,7 +331,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Copper tariffs",
-			breaks: [0.001, 0.004, 0.01, 0.04],
+			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Copper Tariffs on Canada",
 		},
@@ -340,7 +340,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Lumber tariffs",
-			breaks: [0.009, 0.03, 0.08, 0.2],
+			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada",
 		},
@@ -349,7 +349,7 @@
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [0.009, 0.03, 0.08, 0.2],
+			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
 		},
@@ -663,7 +663,8 @@
 				visualizeRoll: true,
 				showZoom: true,
 				showCompass: true
-			}));
+			}),
+  			'bottom-left');
 			
 			map.addSource('choropleth',{
 				type: 'vector',
@@ -1305,7 +1306,7 @@
 							style="fill:#D0D1C9;"
 						/>
 	
-						<text class="legend-label" text-anchor="middle" x="65" y="35">&lt;{(dataLayers[mapSelected].breaks[0]*100).toFixed(1)}%</text>
+						<text class="legend-label" text-anchor="middle" x="65" y="35">&lt;{(dataLayers[mapSelected].breaks[0]*100).toFixed(0)}%</text>
 						<text class="legend-label" text-anchor="middle" x="130" y="35">{(dataLayers[mapSelected].breaks[1]*100).toFixed(0)}%</text>
 						<text class="legend-label" text-anchor="middle" x="195" y="35">{(dataLayers[mapSelected].breaks[2]*100).toFixed(0)}%</text>
 						<text class="legend-label" text-anchor="middle" x="260" y="35">&gt{(dataLayers[mapSelected].breaks[3]*100).toFixed(0)}%</text>
@@ -1452,7 +1453,7 @@
 	}
 
 	#panel {
-		max-width: 420px;
+		max-width: 450px;
 		width: 100%;
 		min-width: 350px;
 		height: 100%;
