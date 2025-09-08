@@ -35,11 +35,11 @@
 		impactType = value;
 	};
 
-	let tariffType = "All tariffs" // see full list below
+	let tariffType = "All goods subject to tariffs" // see full list below
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffList = ["All tariffs", "Automobile tariffs", "Aluminum tariffs", "Steel tariffs", "Copper tariffs", "Lumber tariffs", "Energy and Natural Resources tariffs", "non-CUSMA Compliant tariffs"]; 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -87,9 +87,22 @@
 					map.setLayoutProperty('polygons', 'visibility', 'none');
 					map.setLayoutProperty('centroids', 'visibility', 'visible');
 
-					map.setPaintProperty("centroids", "circle-opacity", 0.8);
+					map.setPaintProperty("centroids", "circle-opacity", 0.5);
+					map.setPaintProperty("centroids", "circle-stroke-width", 1);
+					map.setPaintProperty("centroids", "circle-stroke-opacity", 0.75);
 
 					map.setPaintProperty("centroids", "circle-color", [
+						"case",
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
+						dataLayers[mapSelected].colours[0],
+					]);
+
+					map.setPaintProperty("centroids", "circle-stroke-color", [
 						"case",
 						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
 						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
@@ -105,16 +118,16 @@
 						3, [
 							"case",
 							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-							0
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							0.5
 						],
-						8, [
+						7.9999, [
 							"case",
 							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
 							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
-							0
+							0.5
 						],
-						11, [
+						8, [
 							"case",
 							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
 							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
@@ -123,6 +136,14 @@
 							dataLayers[mapSelected].size[0],
 						],
 					]);
+
+					map.setLayoutProperty(
+						"centroids",
+						"circle-sort-key",
+						["get", dataLayers[mapSelected].dataSource]
+					);
+					
+
 				} else {
 					console.log("no data")
 				}
@@ -150,7 +171,7 @@
 			dataSource: "Total_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "All tariffs",
+			tariffType: "All goods subject to tariffs",
 			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to all types of US Administration's Tariffs on Canada",
@@ -159,7 +180,7 @@
 			dataSource: "Auto_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Automobile tariffs",
+			tariffType: "Automobiles",
 			breaks: [0.01, 0.02, 0.03, 0.06],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -168,7 +189,7 @@
 			dataSource: "Alum_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Aluminum tariffs",
+			tariffType: "Aluminum",
 			breaks: [0.01, 0.02, 0.03, 0.05],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -177,7 +198,7 @@
 			dataSource: "Steel_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Steel tariffs",
+			tariffType: "Steel",
 			breaks: [0.01, 0.02, 0.03, 0.07],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Steel Tariffs on Canada",
@@ -186,7 +207,7 @@
 			dataSource: "Cop_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Copper tariffs",
+			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Copper Tariffs on Canada",
@@ -195,7 +216,7 @@
 			dataSource: "Lum_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Lumber tariffs",
+			tariffType: "Lumber",
 			breaks: [0.01, 0.02, 0.07, 0.15],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -204,16 +225,16 @@
 			dataSource: "Ene_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Energy and Natural Resources tariffs",
+			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.02, 0.03, 0.08],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_1": {
 			dataSource: "CUSMA_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "non-CUSMA Compliant tariffs",
+			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -222,7 +243,7 @@
 			dataSource: "Total_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "All tariffs",
+			tariffType: "All goods subject to tariffs",
 			breaks: [0.04, 0.1, 0.2, 0.4],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
@@ -231,7 +252,7 @@
 			dataSource: "Auto_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Automobile tariffs",
+			tariffType: "Automobiles",
 			breaks: [0.01, 0.04, 0.08, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -240,7 +261,7 @@
 			dataSource: "Alum_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Aluminum tariffs",
+			tariffType: "Aluminum",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -249,7 +270,7 @@
 			dataSource: "Steel_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Steel tariffs",
+			tariffType: "Steel",
 			breaks: [0.01, 0.05, 0.1, 0.3],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Steel Tariffs on Canada",
@@ -258,7 +279,7 @@
 			dataSource: "Cop_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Copper tariffs",
+			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.04, 0.08],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Copper Tariffs on Canada",
@@ -267,7 +288,7 @@
 			dataSource: "Lum_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Lumber tariffs",
+			tariffType: "Lumber",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -276,16 +297,16 @@
 			dataSource: "Ene_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Energy and Natural Resources tariffs",
+			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_2": {
 			dataSource: "CUSMA_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "non-CUSMA Compliant tariffs",
+			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.4],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -294,7 +315,7 @@
 			dataSource: "Total_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "All tariffs",
+			tariffType: "All goods subject to tariffs",
 			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
@@ -303,7 +324,7 @@
 			dataSource: "Auto_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Automobile tariffs",
+			tariffType: "Automobiles",
 			breaks: [0.01, 0.02, 0.05, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -312,7 +333,7 @@
 			dataSource: "Alum_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Aluminum tariffs",
+			tariffType: "Aluminum",
 			breaks: [0.01, 0.03, 0.07, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -321,7 +342,7 @@
 			dataSource: "Steel_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Steel tariffs",
+			tariffType: "Steel",
 			breaks: [0.01, 0.05, 0.1, 0.25],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Steel Tariffs on Canada",
@@ -330,7 +351,7 @@
 			dataSource: "Cop_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Copper tariffs",
+			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Copper Tariffs on Canada",
@@ -339,7 +360,7 @@
 			dataSource: "Lum_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Lumber tariffs",
+			tariffType: "Lumber",
 			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -348,16 +369,16 @@
 			dataSource: "Ene_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Energy and Natural Resources tariffs",
+			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_3": {
 			dataSource: "CUSMA_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "non-CUSMA Compliant tariffs",
+			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -366,8 +387,8 @@
 			dataSource: "Total_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "All tariffs",
-			breaks: [14,50,100,230],
+			tariffType: "All goods subject to tariffs",
+			breaks: [10,50,100,200],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to all types of US Administration's Tariffs on Canada",
@@ -376,8 +397,8 @@
 			dataSource: "Auto_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Automobile tariffs",
-			breaks: [1,10,20,60],
+			tariffType: "Automobiles",
+			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -386,8 +407,8 @@
 			dataSource: "Alum_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Aluminum tariffs",
-			breaks: [3,20,40,110],
+			tariffType: "Aluminum",
+			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -396,8 +417,8 @@
 			dataSource: "Steel_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Steel tariffs",
-			breaks: [2,10,30,80],
+			tariffType: "Steel",
+			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's Steel Tariffs on Canada",
@@ -406,8 +427,8 @@
 			dataSource: "Cop_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Copper tariffs",
-			breaks: [0,1,10,20],
+			tariffType: "Copper",
+			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's Copper Tariffs on Canada",
@@ -416,8 +437,8 @@
 			dataSource: "Lum_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Lumber tariffs",
-			breaks: [0,2,5,10],
+			tariffType: "Lumber",
+			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -426,18 +447,18 @@
 			dataSource: "Ene_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [1,10,20,40],
+			tariffType: "Energy and natural resources",
+			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_B": {
 			dataSource: "CUSMA_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [14,50,100,280],
+			tariffType: "Non-CUSMA-Compliant",
+			breaks: [10,50,100,200],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -446,8 +467,8 @@
 			dataSource: "Total_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "All tariffs",
-			breaks: [313,1200,3100,9700],
+			tariffType: "All goods subject to tariffs",
+			breaks: [500,1000,2500,5000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
@@ -456,8 +477,8 @@
 			dataSource: "Auto_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Automobile tariffs",
-			breaks: [218,790,1900,4400],
+			tariffType: "Automobiles",
+			breaks: [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -466,8 +487,8 @@
 			dataSource: "Alum_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Aluminum tariffs",
-			breaks: [197,710,1600,3300],
+			tariffType: "Aluminum",
+			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -476,8 +497,8 @@
 			dataSource: "Steel_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Steel tariffs",
-			breaks: [180,640,1400,2800],
+			tariffType: "Steel",
+			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's Steel Tariffs on Canada",
@@ -486,8 +507,8 @@
 			dataSource: "Cop_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Copper tariffs",
-			breaks: [19,80,210,380],
+			tariffType: "Copper",
+			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's Copper Tariffs on Canada",
@@ -496,8 +517,8 @@
 			dataSource: "Lum_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Lumber tariffs",
-			breaks: [23,100,210,410],
+			tariffType: "Lumber",
+			breaks: [25,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -506,18 +527,18 @@
 			dataSource: "Ene_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [64,260,590,1300],
+			tariffType: "Energy and natural resources",
+			breaks: [50,100,250,1000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_E": {
 			dataSource: "CUSMA_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [249,900,2500,5800],
+			tariffType: "Non-CUSMA-Compliant",
+			breaks: [500,1000,2500,5000],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -526,8 +547,8 @@
 			dataSource: "Total_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "All tariffs",
-			breaks: [146,350,550,940],
+			tariffType: "All goods subject to tariffs",
+			breaks: [400,700,1000,1500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
@@ -536,8 +557,8 @@
 			dataSource: "Auto_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Automobile tariffs",
-			breaks: [30,90,190,380],
+			tariffType: "Automobiles",
+			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
@@ -546,8 +567,8 @@
 			dataSource: "Alum_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Aluminum tariffs",
-			breaks: [46,120,230,480],
+			tariffType: "Aluminum",
+			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -556,8 +577,8 @@
 			dataSource: "Steel_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Steel tariffs",
-			breaks: [39,100,190,370],
+			tariffType: "Steel",
+			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Steel Tariffs on Canada",
@@ -566,8 +587,8 @@
 			dataSource: "Cop_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Copper tariffs",
-			breaks: [4,20,30,70],
+			tariffType: "Copper",
+			breaks: [10,25,50,100],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Copper Tariffs on Canada",
@@ -576,8 +597,8 @@
 			dataSource: "Lum_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Lumber tariffs",
-			breaks: [15,60,140,270],
+			tariffType: "Lumber",
+			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada",
@@ -586,18 +607,18 @@
 			dataSource: "Ene_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Energy and Natural Resources tariffs",
-			breaks: [28,90,230,570],
+			tariffType: "Energy and natural resources",
+			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Energy and Natural Resources Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_C": {
 			dataSource: "CUSMA_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "non-CUSMA Compliant tariffs",
-			breaks: [124,300,470,760],
+			tariffType: "Non-CUSMA-Compliant",
+			breaks: [400,700,1000,1500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
@@ -850,7 +871,8 @@
 				'source-layer': 'centroids',
 				'layout': {
 					'visibility': 'none',
-				},
+					// "circle-sort-key": ["get", "Total_C"]
+				}
 			});
 
 			
@@ -1173,12 +1195,12 @@
 		</div>
 
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
-		<p style="font-size: 14px; margin-top: -0px;"><i>August 2025</i></p>
+		<p style="font-size: 14px; margin-top: -0px;"><i>September 2025</i></p>
 		
 
 		<div id = "select-wrapper">
 			<div id="destext">
-				<p style="margin-bottom: -5px;">Select the tariff industry:</p>
+				<p style="margin-bottom: -5px;">Select the good/product subject to US tariffs:</p>
 			</div>
 			<Select
 				id = 'select'
@@ -1195,7 +1217,7 @@
 
 		<div id="destext">
 		<p style="margin-bottom: -5px;">
-			Show exposure by the number of businesses, employees based on where they work, or employees based on their home location:
+			Select an indicator:
 		</p>
 		</div>
 		<div class="button-group" style="margin-top: 10px;">
@@ -1221,7 +1243,7 @@
 
 		<div id="destext">
 		<p style="margin-bottom: -5px;">
-			Show exposure as the total businesses or employees, or as a percent of all within the area:
+			Choose how to display this indicator:
 		</p>
 		</div>
 		<div class="button-group">
@@ -1384,13 +1406,48 @@
 
 
 		<div class="datadetail">
+
+			<p>
+				Counts of Employment (home) data are based on estimates from the 2021 Census of Population. Counts of Businesses and Employment (place of work) and are based on estimates from the Canadian Business Register (December 2022).
+			</p>
+			
+
+
 			<h4 style="margin-bottom: 0px;">Data Sources</h4>
 			<p>
-				Layers on this map were created via combinding source data from
-				the list of HS Codes for products tariffed by the US from HTS Chapter 98, HTS Chapter 99 and US Federal Register for Duties on Softwood Lumber (from August 2025). 2025 Canadian HS8-NAICS Concordance Table (Statistics Canada). Province/Territory 2024 Annual Export Data to the World at HS6 level (Statistics Canada). Canadian Business Registry (Statistics Canada, December 2022). And the 2021 Canadian Census (Statistics Canada). 
+				Layers on this map were created by combining data from the following sources:
+				<br>
+				- Canadian Business Registry (Statistics Canada)
+				<br>
+				- Canadian Chamber of Commerce
+				<br>
+				- Canadian Census of Population (Statistics Canada)
+				<br>
+				- Canadian International Merchandise Trade Web Application (Statistics Canada Catalogue No. 71-607-X2021004)
+				<br>
+				- Cargo Systems Messaging Service (United States Customs and Border Protection)
+				<br>
+				- Harmonized Tariff Schedule of the United States (United States International Trade Commission )
+				<br>
+				- International Trade and Development Division (Statistics Canada)
+				<br>
+				- US Department of Commerce
+				<br>
+				- US Census Bureau
+				<br>
+				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>
 			</p>
+			<h4>
+				Project team:
+			</h4>
 			<p>
-				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>. The data processing and geospatial analysis was led by <a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/">Muhammad Khalis Bin Samion</a> and design of this interactive map was led by <a href="https://jamaps.github.io/" target="_blank">Jeff Allen</a>.
+				Data processing and analysis: <a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/">Muhammad Khalis Bin Samion</a>.
+				<br>
+				Interactive map and website design: <a href="https://jamaps.github.io/" target="_blank">Jeff Allen</a>.
+				<br>
+				Data modelling scenarios: Rick DiFrancesco and Eli Easton
+				<br>
+				Scientific direction: Karen Chapple and Tara Vinodrai
 			</p>
 			<br>
 			<br>
