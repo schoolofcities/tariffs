@@ -23,7 +23,7 @@
 	let censusDivisions = "pmtiles/census-divisions.pmtiles";
 	
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
-	let graduated_siz = [5, 7.5, 10, 20, 40];
+	let graduated_siz = [5, 9, 15, 24, 34];
 
 	let metricType = "Percent"; // ["Percent", "Count"]
 	function metricSelect(value) {
@@ -1348,52 +1348,66 @@
 				<div id="legend">
 					<svg width='350' height='200'>
 						<circle
-						class = "box"
-						cx="55"
-						cy="40"
-						r="35"
-						style="fill:{dataLayers[mapSelected].colours[4]};"
+							class="box"
+							cx="55"
+							cy="35"
+							r="{dataLayers[mapSelected].size[4]}"
+							fill="{dataLayers[mapSelected].colours[4]}"
+							fill-opacity="0.5"
+							stroke="{dataLayers[mapSelected].colours[4]}"
+							stroke-width="1px"
+						/>
+						<circle
+							class = "box"
+							cx="55"
+							cy="96"
+							r="{dataLayers[mapSelected].size[3]}"
+							fill="{dataLayers[mapSelected].colours[3]}"
+							fill-opacity="0.5"
+							stroke="{dataLayers[mapSelected].colours[3]}"
+							stroke-width="1px"
 						/>
 
 						<circle
-						class = "box"
-						cx="55"
-						cy="100"
-						r="{dataLayers[mapSelected].size[3]}"
-						style="fill:{dataLayers[mapSelected].colours[3]};"
+							class = "box"
+							cx="55"
+							cy="137"
+							r="{dataLayers[mapSelected].size[2]}"
+							fill="{dataLayers[mapSelected].colours[2]}"
+							fill-opacity="0.5"
+							stroke="{dataLayers[mapSelected].colours[2]}"
+							stroke-width="1px"
 						/>
 
 						<circle
-						class = "box"
-						cx="55"
-						cy="135"
-						r="{dataLayers[mapSelected].size[2]}"
-						style="fill:{dataLayers[mapSelected].colours[2]};"
-						/>
-
-						<circle
-						class = "box"
-						cx="55"
-						cy="157.5"
-						r="{dataLayers[mapSelected].size[1]}"
-						style="fill:{dataLayers[mapSelected].colours[1]};"
+							class = "box"
+							cx="55"
+							cy="164"
+							r="{dataLayers[mapSelected].size[1]}"
+							fill="{dataLayers[mapSelected].colours[1]}"
+							fill-opacity="0.5"
+							stroke="{dataLayers[mapSelected].colours[1]}"
+							stroke-width="1px"
 						/>
 
 						{#if dataLayers[mapSelected].breaks[0] !== 0}
 						<circle
-						class = "box"
-						cx="55"
-						cy="180"
-						r="{dataLayers[mapSelected].size[0]}"
-						style="fill:{dataLayers[mapSelected].colours[0]};"
+							class = "box"
+							cx="55"
+							cy="182"
+							r="{dataLayers[mapSelected].size[0]}"
+							fill="{dataLayers[mapSelected].colours[0]}"
+							fill-opacity="0.5"
+							stroke="{dataLayers[mapSelected].colours[0]}"
+							stroke-width="1px"
 						/>
 						{/if}
 
-						<text class="legend-label" x="100" y="40" dy="0.35em">&gt;{dataLayers[mapSelected].breaks[3]}</text>
-						<text class="legend-label" x="100" y="100" dy="0.35em">{dataLayers[mapSelected].breaks[2] + 1} - {dataLayers[mapSelected].breaks[3]}</text>
-						<text class="legend-label" x="100" y="135" dy="0.35em">{dataLayers[mapSelected].breaks[1] + 1} - {dataLayers[mapSelected].breaks[2]}</text>
-						<text class="legend-label" x="100" y="157.5" dy="0.35em">{dataLayers[mapSelected].breaks[0] + 1} - {dataLayers[mapSelected].breaks[1]}</text>
-						{#if dataLayers[mapSelected].breaks[0] !== 0}<text class="legend-label" x="100" y="180" dy="0.35em">&le;{dataLayers[mapSelected].breaks[0]}</text>{/if}
+						<text class="legend-label" x="100" y="35" dy="0.35em">&gt;{dataLayers[mapSelected].breaks[3]}</text>
+						<text class="legend-label" x="100" y="96" dy="0.35em">{dataLayers[mapSelected].breaks[2] + 1} - {dataLayers[mapSelected].breaks[3]}</text>
+						<text class="legend-label" x="100" y="137" dy="0.35em">{dataLayers[mapSelected].breaks[1] + 1} - {dataLayers[mapSelected].breaks[2]}</text>
+						<text class="legend-label" x="100" y="160" dy="0.35em">{dataLayers[mapSelected].breaks[0] + 1} - {dataLayers[mapSelected].breaks[1]}</text>
+						{#if dataLayers[mapSelected].breaks[0] !== 0}<text class="legend-label" x="100" y="182" dy="0.35em">&le;{dataLayers[mapSelected].breaks[0]}</text>{/if}
 					</svg>
 				</div>
 
@@ -1413,41 +1427,35 @@
 			
 
 
-			<h4 style="margin-bottom: 0px;">Data Sources</h4>
+			<h4 style="margin-bottom: 0px;">Data sources list:</h4>
 			<p>
 				Layers on this map were created by combining data from the following sources:
-				<br>
-				- Canadian Business Registry (Statistics Canada)
-				<br>
-				- Canadian Chamber of Commerce
-				<br>
-				- Canadian Census of Population (Statistics Canada)
-				<br>
-				- Canadian International Merchandise Trade Web Application (Statistics Canada Catalogue No. 71-607-X2021004)
-				<br>
-				- Cargo Systems Messaging Service (United States Customs and Border Protection)
-				<br>
-				- Harmonized Tariff Schedule of the United States (United States International Trade Commission )
-				<br>
-				- International Trade and Development Division (Statistics Canada)
-				<br>
-				- US Department of Commerce
-				<br>
-				- US Census Bureau
-				<br>
+			</p>
+			<ul>
+				<li>Canadian Business Registry (Statistics Canada)</li>
+				<li>Canadian Chamber of Commerce</li>
+				<li>Canadian Census of Population (Statistics Canada)</li>
+				<li>Canadian International Merchandise Trade Web Application (Statistics Canada Catalogue No. 71-607-X2021004)</li>
+				<li>Cargo Systems Messaging Service (United States Customs and Border Protection)</li>
+				<li>Harmonized Tariff Schedule of the United States (United States International Trade Commission )</li>
+				<li>International Trade and Development Division (Statistics Canada)</li>
+				<li>US Department of Commerce</li>
+				<li>US Census Bureau</li>
+			</ul>
+			<p>
 				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>
 			</p>
-			<h4>
+			<h4 style="margin-bottom: 0px;">
 				Project team:
 			</h4>
 			<p>
-				Data processing and analysis: <a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/">Muhammad Khalis Bin Samion</a>.
+				- Data processing and analysis: <a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/">Muhammad Khalis Bin Samion</a>.
 				<br>
-				Interactive map and website design: <a href="https://jamaps.github.io/" target="_blank">Jeff Allen</a>.
+				- Interactive map and website design: <a href="https://jamaps.github.io/" target="_blank">Jeff Allen</a>.
 				<br>
-				Data modelling scenarios: Rick DiFrancesco and Eli Easton
+				- Data modelling scenarios: Rick DiFrancesco and Eli Easton
 				<br>
-				Scientific direction: Karen Chapple and Tara Vinodrai
+				- Scientific direction: Karen Chapple and Tara Vinodrai
 			</p>
 			<br>
 			<br>
@@ -1693,6 +1701,27 @@
 		padding-bottom: 2px;
 		font-size: 14px;
 		line-height: 20px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
+	.datadetail ul {
+		margin-top: -10px;
+		margin-bottom: -10px;
+		margin-left: -28px;
+		list-style-type: circle;
+	}
+
+	.datadetail li {
+		font-family: SourceSerif;
+		font-weight: normal;
+		color: var(--brandGray90);
+		text-align: left;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		font-size: 14px;
+		line-height: 18px;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
