@@ -1,4 +1,8 @@
 node_modules
 .svelte-kit
 **/.ipynb_checkpoints/
+
 analysis/input-data
+
+data/census/98-401-X2021002_eng_CSV
+data/census/lcma000b21a_e
