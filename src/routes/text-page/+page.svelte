@@ -10,6 +10,7 @@
 	import ImageSingle from '$lib/ImageSingle.svelte';
 	import GraphicSingle from '$lib/GraphicSingle.svelte';
 	import GraphicsMultiples from '$lib/GraphicMultiples.svelte';
+	import HorizontalBarChart from '$lib/HorizontalBarChart.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Password from '$lib/Password.svelte';
 
@@ -120,6 +121,8 @@
 		maxWidth="680px"
 		link="no"
 	/>
+
+	<HorizontalBarChart />
 
 	<div class="text">	
 
