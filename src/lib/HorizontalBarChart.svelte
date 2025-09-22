@@ -51,9 +51,7 @@
     let gridBreaks = $derived.by(() => {
         const breaks = TARIFF_BREAKS_COUNT[tariffKeyCount];
         if (!breaks) return [0];
-        const maxBreak = breaks[breaks.length - 1] * 100;
-        const step = maxBreak / 4;
-        return [0, step, step * 2, step * 3, maxBreak];
+        return [0, ...breaks];
     });
 
     let xScale = $derived.by(() => {
@@ -66,6 +64,16 @@
     function numberWithCommas(n) {
         var parts = n.toString().split(".");
         return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
+
+    function getColorForPercentage(pctValue, breakpoints) {
+        if (!breakpoints || breakpoints.length === 0) return GRADUATED_COLORS[0];
+        for (let i = 0; i < breakpoints.length; i++) {
+            if (pctValue <= breakpoints[i]) {
+                return GRADUATED_COLORS[i];
+            }
+        }
+        return GRADUATED_COLORS[breakpoints.length];
     }
 
     onMount(async () => {
@@ -89,11 +97,6 @@
     function tariffTypeSelect(event) {
         tariffType = event.detail.value;
     }
-
-    $effect(() => {
-        // console.log($state.snapshot(cmaPcts));
-        // console.log(cmaCounts);
-    });
 
     $effect(() => {
         // metricType, impactType, tariffType;
@@ -198,6 +201,8 @@
             {#each cmaCountsSorted as cmaData, i}
                 {@const barWidth = xScale(cmaData[tariffKeyCount])}
                 {@const pctValue = cmaPctsSorted.find(item => item.GEO_NAME === cmaData.GEO_NAME)?.[tariffKeyPct] || 0}
+                {@const currentBreakpoints = TARIFF_BREAKS_PCT[tariffKeyPct] || []}
+                {@const boxColor = getColorForPercentage(pctValue, currentBreakpoints)}
                 
                 <!-- Main data bar (always shows count data) -->
                 <line class="bar-data"
@@ -213,8 +218,8 @@
                     y={barTop + (i * barGap) - 8}
                     width="100"
                     height="16"
-                    fill={GRADUATED_COLORS[2]}
-                    stroke={GRADUATED_COLORS[2]}
+                    fill={boxColor}
+                    stroke={boxColor}
                 ></rect>
 
                 <!-- Percentage text -->
