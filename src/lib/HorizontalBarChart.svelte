@@ -1,31 +1,16 @@
 <script>
     import { onMount } from 'svelte';
     import Select from "svelte-select";
+    import { 
+        GRADUATED_COLORS, 
+        TARIFF_LIST, 
+        TARIFF_NAME_CODES, 
+        TARIFF_IMPACT_CODES_PCT, 
+        TARIFF_IMPACT_CODES_COUNT,
+        TARIFF_BREAKS_PCT,
+        TARIFF_BREAKS_COUNT
+    } from './constants.js';
     
-    const GRADUATED_COLORS = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
-    const TARIFF_LIST = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber", "Energy and natural resources", "Non-CUSMA-Compliant"];
-    
-    const TARIFF_NAME_CODES = {
-        "All goods subject to tariffs": 'Total', 
-        "Automobiles": 'Auto', 
-        "Aluminum": 'Alum', 
-        "Steel": 'Steel', 
-        "Copper": 'Cop', 
-        "Lumber": 'Lum', 
-        "Energy and natural resources": 'Ene', 
-        "Non-CUSMA-Compliant": 'CUSMA',
-    }
-    const TARIFF_IMPACT_CODES_PCT = {
-        'Business': "_1",
-        'EmployeeWork': "_2",
-        'EmployeeHome': "_3",
-    }
-    const TARIFF_IMPACT_CODES_COUNT = {
-        'Business': "_B",
-        'EmployeeWork': "_E",
-        'EmployeeHome': "_C",
-    }
-
     let cmaPcts = $state([]);
     let cmaCounts = $state([]);
 
