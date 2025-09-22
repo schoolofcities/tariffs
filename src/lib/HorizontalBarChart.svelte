@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Select from "svelte-select";
+    import { scaleLinear } from 'd3-scale';
     import { 
         GRADUATED_COLORS, 
         TARIFF_LIST, 
@@ -18,15 +19,54 @@
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
     let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
 
+    let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
+    let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
+
     function sortCmaData(data, metric) {
-        const tariffKey = TARIFF_NAME_CODES[tariffType] + (metric === "Percent" ? TARIFF_IMPACT_CODES_PCT[impactType] : TARIFF_IMPACT_CODES_COUNT[impactType]);
+        const curTariffKey = metric === "Percent" ? tariffKeyPct : tariffKeyCount;
         return data
-            ?.filter(item => item[tariffKey])
-            .sort(function(a,b) {return b[tariffKey] - a[tariffKey]})
+            ?.filter(item => item[curTariffKey])
+            .sort(function(a,b) {return b[curTariffKey] - a[curTariffKey]})
     }
 
     let cmaPctsSorted = $derived(sortCmaData(cmaPcts, "Percent"));
     let cmaCountsSorted = $derived(sortCmaData(cmaCounts, "Count"));
+
+    // Chart variables
+    let chartWidth = $state(0);
+    let chartHeight = $derived(24 * cmaCountsSorted.length + 80);
+
+    // Chart parameters
+    let xAxisTop = 34;
+    let xAxisStart = 120; // Increased to accommodate percentage box
+    let regionStart = 0;
+    let barStart = xAxisStart + 1;
+    let barLabelStart = xAxisStart + 5;
+    let barTop = 52;
+    let barLabelTop = 56;
+    let barGap = 24;
+    let chartEndGap = 60;
+
+    // D3 scale setup
+    let gridBreaks = $derived.by(() => {
+        const breaks = TARIFF_BREAKS_COUNT[tariffKeyCount];
+        if (!breaks) return [0];
+        const maxBreak = breaks[breaks.length - 1] * 100;
+        const step = maxBreak / 4;
+        return [0, step, step * 2, step * 3, maxBreak];
+    });
+
+    let xScale = $derived.by(() => {
+        const maxValue = gridBreaks[gridBreaks.length - 1];
+        return scaleLinear()
+            .domain([0, maxValue])
+            .range([0, chartWidth - xAxisStart - chartEndGap]);
+    });
+
+    function numberWithCommas(n) {
+        var parts = n.toString().split(".");
+        return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
 
     onMount(async () => {
         const response = await fetch('json/cma_tariffs_percents_centroids.json');
@@ -57,8 +97,8 @@
 
     $effect(() => {
         // metricType, impactType, tariffType;
-        // console.log(`changed state!! ${metricType}, ${impactType}, ${tariffType}`);
-        console.log($state.snapshot(cmaPctsSorted));
+        // console.log(`changed state!! ${metricType, impactType, tariffType}`);
+        // console.log($state.snapshot(cmaCountsSorted));
         
     })
 </script>
@@ -134,8 +174,66 @@
         </div>
     </div>
 
-    <div class='chart-wrapper'>
+    <div class='chart-wrapper' bind:offsetWidth={chartWidth}>
+        <svg height={chartHeight} width={chartWidth} id="chart">
+            <!-- Grid lines -->
+            {#each gridBreaks as gridValue, i}
+                <line class="grid-primary"
+                    x1={xAxisStart + xScale(gridValue)}
+                    y1={xAxisTop}
+                    x2={xAxisStart + xScale(gridValue)}
+                    y2={chartHeight}
+                ></line>
 
+                <text class="axis-label"
+                    x={xAxisStart + xScale(gridValue)}
+                    y={xAxisTop - 4}
+                    text-anchor="middle"
+                >
+                    {numberWithCommas(Math.round(gridValue))}
+                </text>
+            {/each}
+
+            <!-- Data bars -->
+            {#each cmaCountsSorted as cmaData, i}
+                {@const barWidth = xScale(cmaData[tariffKeyCount])}
+                {@const pctValue = cmaPctsSorted.find(item => item.GEO_NAME === cmaData.GEO_NAME)?.[tariffKeyPct] || 0}
+                
+                <!-- Main data bar (always shows count data) -->
+                <line class="bar-data"
+                    x1={barStart}
+                    y1={barTop + (i * barGap)}
+                    x2={barStart + barWidth}
+                    y2={barTop + (i * barGap)}
+                ></line>
+
+                <!-- Percentage box -->
+                <rect class="bar-classifier-box"
+                    x={regionStart}
+                    y={barTop + (i * barGap) - 8}
+                    width="100"
+                    height="16"
+                    fill={GRADUATED_COLORS[2]}
+                    stroke={GRADUATED_COLORS[2]}
+                ></rect>
+
+                <!-- Percentage text -->
+                <text class="bar-classifier-text"
+                    x={regionStart + 50}
+                    y={barTop + (i * barGap) + 1}
+                    text-anchor="middle"
+                    fill="white"
+                >
+                    {(pctValue).toFixed(2)}%
+                </text>
+
+                <!-- City name -->
+                <text class="bar-label"
+                    x={barLabelStart}
+                    y={barLabelTop + (i * barGap + 2)}
+                >{cmaData.GEO_NAME}</text>
+            {/each}
+        </svg>
     </div>
 </div>
 
@@ -195,5 +293,52 @@
         line-height: 22px;
         font-weight: normal;
         color: var(--brandGray90);
+    }
+
+    .chart-wrapper {
+        margin: 20px 0;
+        min-width: 600px;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    #chart {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: var(--brandWhite);
+    }
+
+    .grid-primary {
+        stroke: var(--brandLightBlue);
+        stroke-width: 0.5px;
+    }
+
+    .axis-label {
+        fill: var(--brandBlack);
+        font-size: 12px;
+        font-family: SourceSerif;
+    }
+
+    .bar-data {
+        stroke: var(--brandDarkBlue);
+        stroke-width: 16;
+        stroke-opacity: 0.6;
+    }
+
+    .bar-classifier-box {
+        stroke-width: 1;
+        stroke-opacity: 1;
+    }
+
+    .bar-classifier-text {
+        font-size: 12px;
+        font-family: TradeGothicBold;
+        font-weight: bold;
+    }
+
+    .bar-label {
+        fill: var(--brandDarkBlue);
+        font-size: 14px;
+        font-family: SourceSerif;
     }
 </style>
