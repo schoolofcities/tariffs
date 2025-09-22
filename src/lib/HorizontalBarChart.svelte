@@ -297,8 +297,9 @@
 
     .chart-wrapper {
         margin: 20px 0;
-        min-width: 600px;
+        min-width: 250px;
         max-width: 100%;
+        width: 100%;
         overflow-x: auto;
     }
 
