@@ -81,15 +81,21 @@
     let chartHeight = $derived(24 * cmaSorted.length + 80);
 
     // Chart parameters
-    let xAxisTop = 34;
-    let xAxisStart = 120; // Increased to accommodate percentage box
-    let regionStart = 0;
-    let barStart = xAxisStart + 1;
-    let barLabelStart = xAxisStart + 5;
-    let barTop = 52;
-    let barLabelTop = 56;
-    let barGap = 24;
-    let chartEndGap = 60;
+    const CHART_PARAMS = {
+        xAxisTop: 34,
+        xAxisStart: 60,
+        regionStart: 0,
+        barTop: 52,
+        barGap: 24,
+        chartEndGap: 60,
+        percentageBoxWidth: 50,
+        percentageBoxHeight: 16,
+        barStrokeWidth: 16
+    };
+
+    const barStart = CHART_PARAMS.xAxisStart + 1;
+    const barLabelStart = CHART_PARAMS.xAxisStart + 5;
+    const barLabelTop = CHART_PARAMS.barTop + 4;
 
     // D3 scale setup
     let gridBreaks = $derived.by(() => {
@@ -105,17 +111,24 @@
         if (scaleType === "Linear") {
             return scaleLinear()
                 .domain([0, maxValue])
-                .range([0, chartWidth - xAxisStart - chartEndGap]);
+                .range([0, chartWidth - CHART_PARAMS.xAxisStart - CHART_PARAMS.chartEndGap]);
         } else {
             return scalePow().exponent(0.2)
                 .domain([0, maxValue])
-                .range([0, chartWidth - xAxisStart - chartEndGap]);
+                .range([0, chartWidth - CHART_PARAMS.xAxisStart - CHART_PARAMS.chartEndGap]);
         }
     });
 
     function numberWithCommas(n) {
         var parts = n.toString().split(".");
         return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
+
+    function formatNumberK(n) {
+        if (n >= 1000) {
+            return (n / 1000) + 'K';
+        }
+        return n.toString();
     }
 
     function getColorForPercentage(pctValue, breakpoints) {
@@ -260,18 +273,18 @@
             <!-- Grid lines -->
             {#each gridBreaks as gridValue, i}
                 <line class="grid-primary"
-                    x1={xAxisStart + xScale(gridValue)}
-                    y1={xAxisTop}
-                    x2={xAxisStart + xScale(gridValue)}
+                    x1={CHART_PARAMS.xAxisStart + xScale(gridValue)}
+                    y1={CHART_PARAMS.xAxisTop}
+                    x2={CHART_PARAMS.xAxisStart + xScale(gridValue)}
                     y2={chartHeight}
                 ></line>
 
                 <text class="axis-label"
-                    x={xAxisStart + xScale(gridValue)}
-                    y={xAxisTop - 4}
+                    x={CHART_PARAMS.xAxisStart + xScale(gridValue)}
+                    y={CHART_PARAMS.xAxisTop - 4}
                     text-anchor="middle"
                 >
-                    {numberWithCommas(Math.round(gridValue))}
+                    {formatNumberK(gridValue)}
                 </text>
             {/each}
 
@@ -282,39 +295,41 @@
                 {@const pctValue = cmaData[tariffKeyPct] || 0}
                 {@const currentBreakpoints = TARIFF_CMA_BREAKS_PCT[tariffKeyPct] || []}
                 {@const boxColor = getColorForPercentage(pctValue, currentBreakpoints)}
+                {@const yPosition = CHART_PARAMS.barTop + (i * CHART_PARAMS.barGap)}
                 
                 <!-- Main data bar (always shows count data) -->
                 <line class="bar-data"
                     x1={barStart}
-                    y1={barTop + (i * barGap)}
+                    y1={yPosition}
                     x2={barStart + barWidth}
-                    y2={barTop + (i * barGap)}
+                    y2={yPosition}
+                    stroke-width={CHART_PARAMS.barStrokeWidth}
                 ></line>
 
                 <!-- Percentage box -->
                 <rect class="bar-classifier-box"
-                    x={regionStart}
-                    y={barTop + (i * barGap) - 8}
-                    width="100"
-                    height="16"
+                    x={CHART_PARAMS.regionStart}
+                    y={yPosition - (CHART_PARAMS.percentageBoxHeight / 2)}
+                    width={CHART_PARAMS.percentageBoxWidth}
+                    height={CHART_PARAMS.percentageBoxHeight}
                     fill={boxColor}
                     stroke={boxColor}
                 ></rect>
 
                 <!-- Percentage text -->
                 <text class="bar-classifier-text"
-                    x={regionStart + 50}
-                    y={barTop + (i * barGap) + 1}
+                    x={CHART_PARAMS.regionStart + (CHART_PARAMS.percentageBoxWidth / 2)}
+                    y={yPosition + 4}
                     text-anchor="middle"
                     fill="white"
                 >
-                    {(pctValue).toFixed(2)}%
+                    {(pctValue).toFixed(0)}%
                 </text>
 
                 <!-- City name -->
                 <text class="bar-label"
                     x={barLabelStart}
-                    y={barLabelTop + (i * barGap + 2)}
+                    y={barLabelTop + (i * CHART_PARAMS.barGap) + 1}
                 >{cmaData.GEO_NAME}</text>
             {/each}
         </svg>
@@ -394,19 +409,18 @@
     }
 
     .grid-primary {
-        stroke: var(--brandLightBlue);
+        stroke: var(--brandDarkBlue);
         stroke-width: 0.5px;
     }
 
     .axis-label {
         fill: var(--brandBlack);
         font-size: 12px;
-        font-family: SourceSerif;
+        font-family: TradeGothicLTLight;
     }
 
     .bar-data {
-        stroke: var(--brandDarkBlue);
-        stroke-width: 16;
+        stroke: var(--brandLightBlue);
         stroke-opacity: 0.6;
     }
 
@@ -417,13 +431,13 @@
 
     .bar-classifier-text {
         font-size: 12px;
-        font-family: TradeGothicBold;
+        font-family: TradeGothicLTLight;
         font-weight: bold;
     }
 
     .bar-label {
-        fill: var(--brandDarkBlue);
+        fill: var(--brandBlack);
         font-size: 14px;
-        font-family: SourceSerif;
+        font-family: TradeGothicLTLight;
     }
 </style>
