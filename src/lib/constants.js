@@ -25,7 +25,7 @@ export const TARIFF_IMPACT_CODES_COUNT = {
     'EmployeeHome': "_C",
 };
 
-export const TARIFF_BREAKS_PCT = {
+export const TARIFF_CMA_BREAKS_PCT = {
     "Total_1": [1.25, 2.5, 5, 10],
     "Auto_1": [0.25, 0.5, 1, 2],
     "Alum_1": [0.25, 0.5, 1, 2],
@@ -52,7 +52,7 @@ export const TARIFF_BREAKS_PCT = {
     "CUSMA_3": [1.25, 2.5, 5, 10],
 };
 
-export const TARIFF_BREAKS_COUNT = {
+export const TARIFF_CMA_BREAKS_COUNT = {
     "Total_B": [2500, 5000, 7500, 10000],
     "Auto_B": [250, 500, 750, 1000],
     "Alum_B": [1250, 2500, 3750, 5000],

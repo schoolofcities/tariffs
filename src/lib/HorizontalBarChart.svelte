@@ -8,33 +8,77 @@
         TARIFF_NAME_CODES, 
         TARIFF_IMPACT_CODES_PCT, 
         TARIFF_IMPACT_CODES_COUNT,
-        TARIFF_BREAKS_PCT,
-        TARIFF_BREAKS_COUNT
+        TARIFF_CMA_BREAKS_PCT,
+        TARIFF_CMA_BREAKS_COUNT
     } from './constants.js';
     
     let cmaPcts = $state([]);
     let cmaCounts = $state([]);
 
-    let metricType = $state("Percent"); // ["Percent", "Count"]
+    let metricType = $state("Count"); // ["Percent", "Count"]
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
     let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
+
+    // Merge datasets once when data loads
+    let cmaData = $derived.by(() => {
+        if (!cmaPcts.length || !cmaCounts.length) return [];
+        return mergeDatasets(cmaPcts, cmaCounts);
+    });
 
     let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
     let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
 
-    function sortCmaData(data, metric) {
-        const curTariffKey = metric === "Percent" ? tariffKeyPct : tariffKeyCount;
-        return data
-            ?.filter(item => item[curTariffKey])
-            .sort(function(a,b) {return b[curTariffKey] - a[curTariffKey]})
+    // Sort merged data based on user selections
+    let cmaSorted = $derived.by(() => {
+        if (!cmaData.length) return [];
+        
+        const sortKey = metricType === "Percent" ? tariffKeyPct : tariffKeyCount;
+        return sortByMetric(cmaData, sortKey);
+    });
+
+    // Helper function to copy non-shared properties
+    function copyUniqueProperties(source, excludeKeys) {
+        const result = {};
+        for (const [key, value] of Object.entries(source)) {
+            if (!excludeKeys.includes(key)) {
+                result[key] = value;
+            }
+        }
+        return result;
     }
 
-    let cmaPctsSorted = $derived(sortCmaData(cmaPcts, "Percent"));
-    let cmaCountsSorted = $derived(sortCmaData(cmaCounts, "Count"));
+    // Function to merge percentage and count datasets
+    function mergeDatasets(pctData, countData) {
+        const sharedKeys = ['CMADGUID', 'GEO_LEVEL', 'GEO_NAME', 'CHAR_POP21', 'geometry'];
+        
+        return pctData.map(pctItem => {
+            const countItem = countData.find(c => c.CMADGUID === pctItem.CMADGUID);
+            if (!countItem) return null;
+            
+            return {
+                // Keep shared attributes
+                CMADGUID: pctItem.CMADGUID,
+                GEO_LEVEL: pctItem.GEO_LEVEL,
+                GEO_NAME: pctItem.GEO_NAME,
+                CHAR_POP21: pctItem.CHAR_POP21,
+                geometry: pctItem.geometry,
+                // Add unique properties from both datasets
+                ...copyUniqueProperties(pctItem, sharedKeys),
+                ...copyUniqueProperties(countItem, sharedKeys)
+            };
+        }).filter(item => item !== null);
+    }
+
+    // Function to sort merged data by selected metric
+    function sortByMetric(mergedData, sortKey) {
+        return mergedData
+            .filter(item => item[sortKey] != null)
+            .sort((a, b) => b[sortKey] - a[sortKey]);
+    }
 
     // Chart variables
     let chartWidth = $state(0);
-    let chartHeight = $derived(24 * cmaCountsSorted.length + 80);
+    let chartHeight = $derived(24 * cmaSorted.length + 80);
 
     // Chart parameters
     let xAxisTop = 34;
@@ -49,7 +93,7 @@
 
     // D3 scale setup
     let gridBreaks = $derived.by(() => {
-        const breaks = TARIFF_BREAKS_COUNT[tariffKeyCount];
+        const breaks = TARIFF_CMA_BREAKS_COUNT[tariffKeyCount];
         if (!breaks) return [0];
         return [0, ...breaks];
     });
@@ -101,7 +145,7 @@
     $effect(() => {
         // metricType, impactType, tariffType;
         // console.log(`changed state!! ${metricType, impactType, tariffType}`);
-        // console.log($state.snapshot(cmaCountsSorted));
+        // console.log($state.snapshot(cmaSorted));
         
     })
 </script>
@@ -198,10 +242,10 @@
             {/each}
 
             <!-- Data bars -->
-            {#each cmaCountsSorted as cmaData, i}
+            {#each cmaSorted as cmaData, i}
                 {@const barWidth = xScale(cmaData[tariffKeyCount])}
-                {@const pctValue = cmaPctsSorted.find(item => item.GEO_NAME === cmaData.GEO_NAME)?.[tariffKeyPct] || 0}
-                {@const currentBreakpoints = TARIFF_BREAKS_PCT[tariffKeyPct] || []}
+                {@const pctValue = cmaData[tariffKeyPct] || 0}
+                {@const currentBreakpoints = TARIFF_CMA_BREAKS_PCT[tariffKeyPct] || []}
                 {@const boxColor = getColorForPercentage(pctValue, currentBreakpoints)}
                 
                 <!-- Main data bar (always shows count data) -->
