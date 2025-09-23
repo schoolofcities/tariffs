@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Select from "svelte-select";
-    import { scaleLinear } from 'd3-scale';
+    import { scaleLinear, scalePow } from 'd3-scale';
     import { 
         GRADUATED_COLORS, 
         TARIFF_LIST, 
@@ -9,24 +9,16 @@
         TARIFF_IMPACT_CODES_PCT, 
         TARIFF_IMPACT_CODES_COUNT,
         TARIFF_CMA_BREAKS_PCT,
-        TARIFF_CMA_BREAKS_COUNT
+        TARIFF_CMA_BREAKS_COUNT_LINEAR,
+        TARIFF_CMA_BREAKS_COUNT_POW,
     } from './constants.js';
     
     let cmaPcts = $state([]);
     let cmaCounts = $state([]);
-
-    let metricType = $state("Count"); // ["Percent", "Count"]
-    let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
-    let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
-
-    // Merge datasets once when data loads
-    let cmaData = $derived.by(() => {
+    let cmaData = $derived.by(() => {  // Merge datasets once when data loads
         if (!cmaPcts.length || !cmaCounts.length) return [];
         return mergeDatasets(cmaPcts, cmaCounts);
     });
-
-    let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
-    let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
 
     // Sort merged data based on user selections
     let cmaSorted = $derived.by(() => {
@@ -35,6 +27,14 @@
         const sortKey = metricType === "Percent" ? tariffKeyPct : tariffKeyCount;
         return sortByMetric(cmaData, sortKey);
     });
+
+    let metricType = $state("Count"); // ["Percent", "Count"]
+    let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
+    let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
+    let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
+
+    let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
+    let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
 
     // Helper function to copy non-shared properties
     function copyUniqueProperties(source, excludeKeys) {
@@ -93,16 +93,24 @@
 
     // D3 scale setup
     let gridBreaks = $derived.by(() => {
-        const breaks = TARIFF_CMA_BREAKS_COUNT[tariffKeyCount];
+        const breaks = scaleType === "Linear" 
+            ? TARIFF_CMA_BREAKS_COUNT_LINEAR[tariffKeyCount]
+            : TARIFF_CMA_BREAKS_COUNT_POW[tariffKeyCount];
         if (!breaks) return [0];
         return [0, ...breaks];
     });
 
     let xScale = $derived.by(() => {
         const maxValue = gridBreaks[gridBreaks.length - 1];
-        return scaleLinear()
-            .domain([0, maxValue])
-            .range([0, chartWidth - xAxisStart - chartEndGap]);
+        if (scaleType === "Linear") {
+            return scaleLinear()
+                .domain([0, maxValue])
+                .range([0, chartWidth - xAxisStart - chartEndGap]);
+        } else {
+            return scalePow().exponent(0.2)
+                .domain([0, maxValue])
+                .range([0, chartWidth - xAxisStart - chartEndGap]);
+        }
     });
 
     function numberWithCommas(n) {
@@ -132,6 +140,10 @@
 
     function metricSelect(value) {
         metricType = value;
+    }
+
+    function scaleSelect(value) {
+        scaleType = value;
     }
 
     function impactTypeSelect(value) {
@@ -170,9 +182,9 @@
         </div>
     
         <div id="destext">
-        <p style="margin-bottom: -5px;">
-            Select an indicator:
-        </p>
+            <p style="margin-bottom: -5px;">
+                Select an indicator:
+            </p>
         </div>
         <div class="button-group" style="margin-top: 10px;">
             <button
@@ -199,9 +211,9 @@
         </div>
     
         <div id="destext">
-        <p style="margin-bottom: -5px;">
-            Choose how to display this indicator:
-        </p>
+            <p style="margin-bottom: -5px;">
+                Choose how to rank this indicator:
+            </p>
         </div>
         <div class="button-group">
             <button
@@ -217,6 +229,28 @@
                 onclick={() => metricSelect("Count")}
             >
                 Total
+            </button>
+        </div>
+
+        <div id="destext">
+            <p style="margin-bottom: -5px;">
+                Choose the scale you want to use: 
+            </p>
+        </div>
+        <div class="button-group">
+            <button
+                class="toggle-button {scaleType === 'Linear' ? 'selected' : ''}"
+                type="button"
+                onclick={() => scaleSelect("Linear")}
+            >
+                Linear
+            </button>
+            <button
+                class="toggle-button {scaleType === 'Power-0.2' ? 'selected' : ''}"
+                type="button"
+                onclick={() => scaleSelect("Power-0.2")}
+            >
+                Power-0.2
             </button>
         </div>
     </div>
@@ -243,7 +277,8 @@
 
             <!-- Data bars -->
             {#each cmaSorted as cmaData, i}
-                {@const barWidth = xScale(cmaData[tariffKeyCount])}
+                {@const countValue = cmaData[tariffKeyCount]}
+                {@const barWidth = xScale(countValue)}
                 {@const pctValue = cmaData[tariffKeyPct] || 0}
                 {@const currentBreakpoints = TARIFF_CMA_BREAKS_PCT[tariffKeyPct] || []}
                 {@const boxColor = getColorForPercentage(pctValue, currentBreakpoints)}
