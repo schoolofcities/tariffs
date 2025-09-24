@@ -6,6 +6,7 @@
         GRADUATED_COLORS, 
         TARIFF_LIST, 
         TARIFF_NAME_CODES, 
+        TARIFF_IMPACT_TEXT,
         TARIFF_IMPACT_CODES_PCT, 
         TARIFF_IMPACT_CODES_COUNT,
         TARIFF_CMA_BREAKS_PCT,
@@ -78,7 +79,8 @@
 
     // Chart variables
     let chartWidth = $state(0);
-    let chartHeight = $derived(24 * cmaSorted.length + 80);
+    let chartHeight = $derived(24 * cmaSorted.length + 40);
+    let legendWidth = $state(0);
 
     // Chart parameters
     const CHART_PARAMS = {
@@ -268,6 +270,73 @@
         </div>
     </div>
 
+    <!-- Legend section -->
+    <div class="legend-section">
+        <div id="destext">
+            <p style="margin-bottom: -5px;">
+                {TARIFF_IMPACT_TEXT[tariffKeyPct]}
+            </p>
+        </div>
+        
+        <div id="legend" bind:offsetWidth={legendWidth}>
+            <svg width='100%' height='40'>
+                {#if legendWidth}
+                    {@const currentBreakpoints = TARIFF_CMA_BREAKS_PCT[tariffKeyPct]}
+                    {@const boxWidth = legendWidth / 5}
+                    <rect
+                        class="box"
+                        width={boxWidth}
+                        height="20"
+                        x="0"
+                        y="0"
+                        style="fill:{GRADUATED_COLORS[0]};"
+                    />
+
+                    <rect
+                        class="box"
+                        width={boxWidth}
+                        height="20"
+                        x={boxWidth}
+                        y="0"
+                        style="fill:{GRADUATED_COLORS[1]};"
+                    />
+
+                    <rect
+                        class="box"
+                        width={boxWidth}
+                        height="20"
+                        x={boxWidth * 2}
+                        y="0"
+                        style="fill:{GRADUATED_COLORS[2]};"
+                    />
+
+                    <rect
+                        class="box"
+                        width={boxWidth}
+                        height="20"
+                        x={boxWidth * 3}
+                        y="0"
+                        style="fill:{GRADUATED_COLORS[3]};"
+                    />
+
+                    <rect
+                        class="box"
+                        width={boxWidth}
+                        height="20"
+                        x={boxWidth * 4}
+                        y="0"
+                        style="fill:{GRADUATED_COLORS[4]};"
+                    />
+
+                    <text class="legend-label" text-anchor="middle" x={boxWidth} y="35">&lt;{currentBreakpoints[0]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 2} y="35">{currentBreakpoints[1]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 3} y="35">{currentBreakpoints[2]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 4} y="35">&gt{currentBreakpoints[3]}%</text>
+                {/if}
+            </svg>
+        </div>
+    </div>
+
     <div class='chart-wrapper' bind:offsetWidth={chartWidth}>
         <svg height={chartHeight} width={chartWidth} id="chart">
             <!-- Grid lines -->
@@ -323,7 +392,7 @@
                     text-anchor="middle"
                     fill="white"
                 >
-                    {(pctValue).toFixed(0)}%
+                    {(pctValue).toFixed(1)}%
                 </text>
 
                 <!-- City name -->
@@ -438,6 +507,17 @@
     .bar-label {
         fill: var(--brandBlack);
         font-size: 14px;
+        font-family: TradeGothicLTLight;
+    }
+
+    .legend-section {
+        margin: 10px 0;
+        padding-top: 5px;
+    }
+
+    .legend-label {
+        font-size: 14px;
+        fill: #000000;
         font-family: TradeGothicLTLight;
     }
 </style>
