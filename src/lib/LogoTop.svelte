@@ -28,7 +28,7 @@
 
 	</a>
 
-	<a href="./" target="_blank" class="research-link">Canada-U.S. Tariff Research</a>
+	<a href="./" target="_blank" class="research-link">Mapping Tariffs</a>
 
 </div>
 

@@ -1069,7 +1069,7 @@
 				const rawValue = properties[mapSelected];
 
 				selectedValue = (rawValue != null && rawValue >= 0)
-					? (rawValue * 100).toFixed(2) + '%'
+					? (rawValue * 100).toFixed(1) + '%'
 					: "No Data";
 
 				selectedZone = currentZone;
