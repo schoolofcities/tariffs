@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Select from "svelte-select";
-    import { scaleLinear, scalePow } from 'd3-scale';
+    import { scaleLinear, scaleLog, scalePow } from 'd3-scale';
     import { 
         GRADUATED_COLORS, 
         TARIFF_LIST, 
@@ -118,6 +118,10 @@
             return scalePow().exponent(0.2)
                 .domain([0, maxValue])
                 .range([0, chartWidth - CHART_PARAMS.xAxisStart - CHART_PARAMS.chartEndGap]);
+            // return scaleLog()
+            //     .domain([0, maxValue])
+            //     .range([0, chartWidth - CHART_PARAMS.xAxisStart - CHART_PARAMS.chartEndGap])
+            //     .base(2);
         }
     });
 
@@ -258,14 +262,14 @@
                 type="button"
                 onclick={() => scaleSelect("Linear")}
             >
-                Linear
+                Linear scale
             </button>
             <button
                 class="toggle-button {scaleType === 'Power-0.2' ? 'selected' : ''}"
                 type="button"
                 onclick={() => scaleSelect("Power-0.2")}
             >
-                Power-0.2
+                Power scale
             </button>
         </div>
     </div>
@@ -279,59 +283,64 @@
         </div>
         
         <div id="legend" bind:offsetWidth={legendWidth}>
-            <svg width='100%' height='40'>
+            <svg width='100%' height='25'>
                 {#if legendWidth}
                     {@const currentBreakpoints = TARIFF_CMA_BREAKS_PCT[tariffKeyPct]}
-                    {@const boxWidth = legendWidth / 5}
+                    {@const boxWidth = legendWidth / 7.1}
                     <rect
                         class="box"
                         width={boxWidth}
-                        height="20"
+                        height="12"
                         x="0"
                         y="0"
+                        stroke="white" stroke-width="1"
                         style="fill:{GRADUATED_COLORS[0]};"
                     />
 
                     <rect
                         class="box"
                         width={boxWidth}
-                        height="20"
+                        height="12"
                         x={boxWidth}
                         y="0"
+                        stroke="white" stroke-width="1"
                         style="fill:{GRADUATED_COLORS[1]};"
                     />
 
                     <rect
                         class="box"
                         width={boxWidth}
-                        height="20"
+                        height="12"
                         x={boxWidth * 2}
                         y="0"
+                        stroke="white" stroke-width="1"
                         style="fill:{GRADUATED_COLORS[2]};"
                     />
 
                     <rect
                         class="box"
                         width={boxWidth}
-                        height="20"
+                        height="12"
                         x={boxWidth * 3}
                         y="0"
+                        stroke="white" stroke-width="1"
                         style="fill:{GRADUATED_COLORS[3]};"
                     />
 
                     <rect
                         class="box"
                         width={boxWidth}
-                        height="20"
+                        height="12"
                         x={boxWidth * 4}
                         y="0"
+                        stroke="white" stroke-width="1"
                         style="fill:{GRADUATED_COLORS[4]};"
                     />
 
-                    <text class="legend-label" text-anchor="middle" x={boxWidth} y="35">&lt;{currentBreakpoints[0]}%</text>
-                    <text class="legend-label" text-anchor="middle" x={boxWidth * 2} y="35">{currentBreakpoints[1]}%</text>
-                    <text class="legend-label" text-anchor="middle" x={boxWidth * 3} y="35">{currentBreakpoints[2]}%</text>
-                    <text class="legend-label" text-anchor="middle" x={boxWidth * 4} y="35">&gt{currentBreakpoints[3]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth} y="25">&lt;{currentBreakpoints[0]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 2} y="25">{currentBreakpoints[1]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 3} y="25">{currentBreakpoints[2]}%</text>
+                    <text class="legend-label" text-anchor="middle" x={boxWidth * 4} y="25">&gt{currentBreakpoints[3]}%</text>
                 {/if}
             </svg>
         </div>
@@ -464,7 +473,8 @@
     }
 
     .chart-wrapper {
-        margin: 20px 0;
+        margin: 0px;
+        margin-top: -20px;
         min-width: 250px;
         max-width: 100%;
         width: 100%;
@@ -478,19 +488,19 @@
     }
 
     .grid-primary {
-        stroke: var(--brandDarkBlue);
+        stroke: var(--brandGray);
         stroke-width: 0.5px;
     }
 
     .axis-label {
         fill: var(--brandBlack);
         font-size: 12px;
-        font-family: TradeGothicLTLight;
+        font-family: OpenSans;
     }
 
     .bar-data {
-        stroke: var(--brandLightBlue);
-        stroke-opacity: 0.6;
+        stroke: var(--brandGray);
+        stroke-opacity: 1;
     }
 
     .bar-classifier-box {
@@ -500,14 +510,14 @@
 
     .bar-classifier-text {
         font-size: 12px;
-        font-family: TradeGothicLTLight;
+        font-family: OpenSans;
         font-weight: bold;
     }
 
     .bar-label {
-        fill: var(--brandBlack);
+        fill: var(--brandGray70);
         font-size: 14px;
-        font-family: TradeGothicLTLight;
+        font-family: OpenSans;
     }
 
     .legend-section {
@@ -518,6 +528,6 @@
     .legend-label {
         font-size: 14px;
         fill: #000000;
-        font-family: TradeGothicLTLight;
+        font-family: OpenSans;
     }
 </style>
