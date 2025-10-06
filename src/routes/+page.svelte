@@ -151,7 +151,7 @@
 		</p>
 
 		<p>
-			<a href="./cma-rankings-chart">Review these same impacts in aggregate across Canadian cities</a>.	
+			<a href="./cma-ranking-charts">Review these same impacts in aggregate across Canadian cities</a>.	
 		</p>
 
 		<p>
