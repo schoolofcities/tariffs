@@ -12,7 +12,7 @@ FONT_MAP = {
 	# Bold variants
 	"Open Sans Bold": "OpenSansBold",
 	"OpenSans Bold": "OpenSansBold",
-	"Bold": "OpenSansBold",  # Catch-all for any font with bold weight
+	# "Bold": "OpenSansBold",  # Catch-all for any font with bold weight
 	
 	# Italic variants
 	"Open Sans Italic": "OpenSansItalic",
@@ -25,7 +25,15 @@ FONT_MAP = {
 	"OpenSans Bold Italic": "OpenSansBoldItalic",
 	"OpenSans BoldItalic": "OpenSansBoldItalic",
 	"Bold Italic": "OpenSansBoldItalic",  # Catch-all
-	"BoldItalic": "OpenSansBoldItalic"  # Catch-all
+	"BoldItalic": "OpenSansBoldItalic",  # Catch-all
+
+	# TradeGothicBold
+	"TradeGothicLT Bold": "TradeGothicBold",
+	"TradeGothicBold": "TradeGothicBold",
+	"TradeGothic Bold": "TradeGothicBold",
+	"Trade Gothic Bold": "TradeGothicBold",
+	"Trade Gothic LT Bold": "TradeGothicBold",
+	"TradeGothic LT Bold": "TradeGothicBold"
 }
 
 def get_svg_pixel_dimensions(root):
@@ -400,9 +408,9 @@ def process_svg(input_svg_path, output_svg_path, font_map):
 from pathlib import Path
 
 def main():
-	city = "halifax-ns"
-	input_dir = "../routes/" + city + "/assets"  
-	output_dir = "../../static/"  + city + "/web-svg"
+	page = "potential-local-impacts"
+	input_dir = "../routes/" + page + "/assets"  
+	output_dir = "../../static/"  + page + "/web-svg"
 
 	for svg_file in Path(input_dir).glob("*.svg"):
 		output_path = Path(output_dir) / svg_file.name

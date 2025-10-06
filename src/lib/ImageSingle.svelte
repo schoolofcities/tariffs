@@ -28,9 +28,9 @@
 		<img src={imageURL} alt={altText} loading="lazy" />
 	{/if}
 	<p 
-		class="img-caption" 
+		class="caption-text" 
 		style="padding-left: {paddingLeft}"
-	>{@html caption} <span id="image-source">{@html source}</span></p>
+	>{@html caption} <span class="caption-source">{@html source}</span></p>
 </div>
 
 <style>
@@ -56,15 +56,6 @@
 		object-position: center;
 	}
 
-	a {
-		display: block;
-		width: 100%;
-	}
-
-	a:hover {
-		opacity: 0.95;
-	}
-
 	a img {
 		width: 100%;
 		height: auto;
@@ -79,7 +70,7 @@
 		width: 100%;
 	}
 
-	.img-caption {
+	.caption-text {
 		font-family: OpenSansBold;
 		font-weight: normal;
 		color: var(--brandGray70);
@@ -90,11 +81,30 @@
 		padding-top: 0px;
 	}
 
-	#image-source {
+	.caption-text a  {
+		font-family: OpenSansBold;
+		font-weight: normal;
+		color: var(--brandGray80);
+	}
+	.caption-text a:hover  {
+		color: var(--brandMedGreen);
+	}
+
+	.caption-source {
 		font-family: OpenSans;
 		font-weight: normal;
-		color: var(--brandGray50);
+		color: var(--brandGray60);
 	}
+
+	.caption-source a  {
+		font-family: OpenSans;
+		font-weight: normal;
+		color: var(--brandGray60);
+	}
+	.caption-source a:hover  {
+		color: var(--brandMedGreen);
+	}
+
 
 	@media screen and (max-width: 600px) {
 		p {

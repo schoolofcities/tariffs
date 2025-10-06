@@ -30,7 +30,7 @@
 		metricType = value;
 	};
 
-	let impactType = "EmployeeHome" // ["EmployeeHome","EmployeeWork", "Business"] 
+	let impactType = "Business" // ["EmployeeHome","EmployeeWork", "Business"] 
 	function impactTypeSelect(value) {
 		impactType = value;
 	};
@@ -1779,6 +1779,16 @@
 		box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 		white-space: nowrap;
 		z-index: 999;
+	}
+
+	a {
+		color: var(--brandBlack);
+		text-decoration: underline;
+		font-family: SourceSerif;
+	}
+
+		a:hover {
+		color: var(--brandMedGreen);
 	}
 
 </style>

@@ -210,20 +210,20 @@ em {
 	font-weight: normal;
 }
 
-a {
+.text a {
 	color: var(--brandBlack);
 	text-decoration: underline;
 	font-family: SourceSerif;
 }
 
-a:hover {
+.text a:hover {
 	color: var(--brandMedGreen);
 }
 
 ul {
-	margin-top: -10px;
-	margin-bottom: -10px;
-	margin-left: 0px;
+	margin-top: -5px;
+	margin-bottom: -5px;
+	margin-left: 10px;
 	list-style-type: circle;
 }
 
@@ -233,9 +233,9 @@ li {
 	color: var(--brandGray90);
 	text-align: left;
 	padding-top: 2px;
-	padding-bottom: 2px;
-	font-size: 16px;
-	line-height: 20px;
+	padding-bottom: 14px;
+	font-size: 17px;
+	line-height: 22px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
@@ -343,4 +343,50 @@ li {
 		font-size: 15px;
 		line-height: 23px;
 	}
+}
+
+
+
+.caption-container {
+	margin-top: 2px;
+	margin-bottom: 0px;
+	padding-top: 2px;
+	width: 100%;
+}
+
+.caption-container p {
+	font-family: OpenSansBold;
+	font-weight: normal;
+	color: var(--brandGray80);
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+	padding-left: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.caption-text a  {
+	font-family: OpenSansBold;
+	font-weight: normal;
+	color: var(--brandGray80);
+}
+.caption-text a:hover  {
+	color: var(--brandMedGreen);
+}
+
+.caption-source {
+	font-family: OpenSans;
+	font-weight: normal;
+	color: var(--brandGray60);
+}
+
+.caption-source a  {
+	font-family: OpenSans;
+	font-weight: normal;
+	color: var(--brandGray60);
+}
+.caption-source a:hover  {
+	color: var(--brandMedGreen);
 }
