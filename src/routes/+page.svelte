@@ -36,30 +36,31 @@
 
 <svelte:head>
 
-	<title>Tariffs | School of Cities</title>
+	<title>Mapping tariffs | School of Cities</title>
 
-	<!-- <meta name="description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
-	<meta name="author" content="Jeff Allen">
+	<meta name="description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
+	<meta name="author" content="School of Cities">
+	<meta rel="canonical" href="https://schoolofcities.github.io/tariffs/">
 
-	<meta property="og:title" content="Design Components" />
-	<meta property="og:description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
+	<meta property="og:title" content="Mapping tariffs" />
+	<meta property="og:description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/design-components/" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" />
+	<meta property="og:url" content="https://schoolofcities.github.io/tariffs/" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Design Components" />
-	<meta name="twitter:description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/design-components/" />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" />  -->
+	<meta name="twitter:title" content="Mapping tariffs" />
+	<meta name="twitter:description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/tariffs/" />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" /> 
 
 </svelte:head>
 
 
 
 
-<Password/>
+<!-- <Password/> -->
 
 
 <main>
@@ -143,11 +144,11 @@
 		</p>
 
 		<p>
-			Since May 2025, <a href="">Tara Vinodrai</a> and <a href="">Karen Chapple</a> have led a team of researchers at the School of Cities to develop interactive mapping and visualization tools that measure and explore the potential impacts of tariffs on jobs and businesses across Canadian cities and communities at the neighbourhood and city level. Our tools illustrate the highly localized and uneven potential impacts of US tariffs reflecting Canada’s underlying urban, regional and sectoral specializations.
+			Since May 2025, <a href="">Tara Vinodrai</a> and <a href="">Karen Chapple</a> have led a team of researchers at the School of Cities to develop interactive mapping and visualization tools that measure and explore the potential impacts of tariffs on jobs and businesses across Canadian cities and communities at the neighbourhood and city level. Our tools illustrate the highly localized and uneven potential impacts of U.S. tariffs reflecting Canada’s underlying urban, regional and sectoral specializations.
 		</p>
 
 		<p>
-			<a href="./map">Examine maps of the potential direct exposure to US tariffs</a> related to specific goods (e.g. automotive, steel, copper, lumber, energy & natural resources) across Canada at the neighbourhood level, measured by 1) businesses 2) employment (based on place of work) and 3) employment (based on place of residence).
+			<a href="./map">Examine maps of the potential direct exposure to U.S. tariffs</a> related to specific goods (e.g. automotive, steel, copper, lumber, energy & natural resources) across Canada at the neighbourhood level, measured by 1) businesses 2) employment (based on place of work) and 3) employment (based on place of residence).
 		</p>
 
 		<p>
@@ -167,27 +168,27 @@
 		</h2>
 
 		<p>
-			<a href="">Tara Vinodrai, PhD</a> is Professor in the Institute for Management and Innovation at the University of Toronto, where she directs the Master of Urban Innovation program.
+			<a href="https://discover.research.utoronto.ca/8035-tara-vinodrai">Tara Vinodrai, PhD</a> is Professor in the Institute for Management and Innovation at the University of Toronto, where she directs the Master of Urban Innovation program.
 		</p>
 
 		<p>
-			<a href="">Karen Chapple, PhD</a> is the Director of the School of Cities and Professor in the Department of Geography & Planning at the University of Toronto.
+			<a href="https://schoolofcities.utoronto.ca/people/karen-chapple/" targe="_blank">Karen Chapple, PhD</a> is the Director of the School of Cities and Professor in the Department of Geography & Planning at the University of Toronto.
 		</p>
 
 		<p>
-			<a href="">Jeff Allen, PhD</a> is a Senior Research Associate and the Lead of Data Visualization at the School of Cities at the University of Toronto. 
+			<a href="https://jamaps.github.io/" target="_blank">Jeff Allen, PhD</a> is a Senior Research Associate and the Lead of Data Visualization at the School of Cities at the University of Toronto. 
 		</p>
 
 		<p>
-			<a href="">Muhammad Khalis Bin Samion</a> completed his honours undergraduate degree at the University of Toronto in human geography and urban studies. He is currently earning a master’s degree in urban spatial science at University College London. 
+			<a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/" target="_blank">Muhammad Khalis Bin Samion</a> completed his honours undergraduate degree at the University of Toronto in human geography and urban studies. He is currently earning a master’s degree in urban spatial science at University College London. 
 		</p>
 
 		<p>
-			<a href="">Eli Easton</a> is a senior undergraduate student at the University of Toronto where he is studying economics and public policy.
+			<a href="https://www.linkedin.com/in/eli-easton-77bb60273/" target="_blank">Eli Easton</a> is a senior undergraduate student at the University of Toronto where he is studying economics and public policy.
 		</p>
 
 		<p>
-			<a href="">Richard DiFrancesco, PhD</a> is Associate Professor in the Department of Geography and Planning at the University of Toronto and has expertise in input-output data and models.
+			<a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank">Richard DiFrancesco, PhD</a> is Associate Professor in the Department of Geography and Planning at the University of Toronto and has expertise in input-output data and models.
 		</p>
 
 	</div>
