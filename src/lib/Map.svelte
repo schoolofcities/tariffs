@@ -18,9 +18,9 @@
 	let addressQuery="";
 	let addressResults="";
 
-	let choropleth = "pmtiles/choropleth.pmtiles";
-	let centroids = "pmtiles/centroids.pmtiles";
-	let censusDivisions = "pmtiles/census-divisions.pmtiles";
+	let choropleth = "pmtiles/choropleth.pmtiles.gz";
+	let centroids = "pmtiles/centroids.pmtiles.gz";
+	let censusDivisions = "pmtiles/census-divisions.pmtiles.gz";
 	
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
