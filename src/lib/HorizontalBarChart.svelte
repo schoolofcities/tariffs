@@ -278,7 +278,7 @@
     <div class="legend-section">
         <div id="destext">
             <p style="margin-bottom: -5px;">
-                {TARIFF_IMPACT_TEXT[tariffKeyPct]}
+                {TARIFF_IMPACT_TEXT[tariffKeyPct]} (as of September 1, 2025)
             </p>
         </div>
         

@@ -143,7 +143,7 @@
 		</p>
 
 		<p>
-			Since May 2025, <a href="">Karen Chapple</a> and <a href="">Tara Vinodrai</a> have led a team of researchers at the School of Cities to develop interactive mapping and visualization tools that measure and explore the potential impacts of tariffs on jobs and businesses across Canadian cities and communities at the neighbourhood and city level. Our tools illustrate the highly localized and uneven potential impacts of US tariffs reflecting Canada’s underlying urban, regional and sectoral specializations.
+			Since May 2025, <a href="">Tara Vinodrai</a> and <a href="">Karen Chapple</a> have led a team of researchers at the School of Cities to develop interactive mapping and visualization tools that measure and explore the potential impacts of tariffs on jobs and businesses across Canadian cities and communities at the neighbourhood and city level. Our tools illustrate the highly localized and uneven potential impacts of US tariffs reflecting Canada’s underlying urban, regional and sectoral specializations.
 		</p>
 
 		<p>
@@ -167,11 +167,11 @@
 		</h2>
 
 		<p>
-			<a href="">Karen Chapple, PhD</a> is the Director of the School of Cities and Professor in the Department of Geography & Planning at the University of Toronto.
+			<a href="">Tara Vinodrai, PhD</a> is Professor in the Institute for Management and Innovation at the University of Toronto, where she directs the Master of Urban Innovation program.
 		</p>
 
 		<p>
-			<a href="">Tara Vinodrai, PhD</a> is Professor in the Institute for Management and Innovation at the University of Toronto, where she directs the Master of Urban Innovation program.
+			<a href="">Karen Chapple, PhD</a> is the Director of the School of Cities and Professor in the Department of Geography & Planning at the University of Toronto.
 		</p>
 
 		<p>

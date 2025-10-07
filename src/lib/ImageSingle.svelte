@@ -50,7 +50,7 @@
 		width: 100%;
 		height: auto;
 		max-height: 80%;
-		min-height: 200px;
+		min-height: 100px;
 		display: block;
 		object-fit: cover;
 		object-position: center;
