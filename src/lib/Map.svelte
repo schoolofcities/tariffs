@@ -1195,8 +1195,10 @@
 		</div>
 
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
-		<p style="font-size: 14px; margin-top: -0px;"><i>September 2025</i></p>
-		
+		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
+			By <a href='' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='' target='_blank'> Jeff Allen</a>, <a href='' target='_blank'>Tara Vinodrai</a>, <a href='' target='_blank'>Karen Chapple</a>.
+			<i>October 2025</i>
+		</p>
 
 		<div id = "select-wrapper">
 			<div id="destext">
@@ -1268,7 +1270,7 @@
 
 				<div id="destext">
 					<p>
-						{dataLayers[mapSelected]?.text}
+						{dataLayers[mapSelected]?.text} (as of September 1, 2025)
 					</p>
 				</div>
 
@@ -1340,7 +1342,7 @@
 			{:else if dataLayers[mapSelected]?.metricType === "Count" && dataLayers[mapSelected]?.colours}
 				<div id="destext">
 					<p>
-						{dataLayers[mapSelected]?.text}
+						{dataLayers[mapSelected]?.text} (as of September 1, 2025)
 					</p></div>
 
 				<!--5, 7.5, 10, 20, 40--> 
@@ -1445,7 +1447,7 @@
 			<p>
 				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>
 			</p>
-			<h4 style="margin-bottom: 0px;">
+			<!-- <h4 style="margin-bottom: 0px;">
 				Project team:
 			</h4>
 			<p>
@@ -1456,7 +1458,7 @@
 				- Data modelling scenarios: Rick DiFrancesco and Eli Easton
 				<br>
 				- Scientific direction: Karen Chapple and Tara Vinodrai
-			</p>
+			</p> -->
 			<br>
 			<br>
 		</div>

@@ -100,13 +100,13 @@
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 
-	<!-- <ImageSingle
-		imageURL="./potential-local-impacts/img/business-impact-all-720.png"
-		caption='Map of Canada showing % potential direct exposure to businesses related to all goods currently subject to tariffs'
-		source='<a href="./map">Click here to view interactive map</a>'
-		maxWidth='720px'
+	<ImageSingle
+		imageURL="./potential-local-impacts/img/ott-mtl-top-bar.png"
+		caption=''
+		source=''
+		maxWidth='685px'
 		link='No'
-	/> -->
+	/>
 
 	<TitleStandard
 		title="Mapping tariffs"
