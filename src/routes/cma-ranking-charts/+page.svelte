@@ -60,7 +60,7 @@
 
 
 
-<!-- <Password/> -->
+<Password/>
 
 
 <main>
