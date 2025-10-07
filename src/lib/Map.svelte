@@ -1196,7 +1196,7 @@
 
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
-			By <a href='' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='' target='_blank'> Jeff Allen</a>, <a href='' target='_blank'>Tara Vinodrai</a>, <a href='' target='_blank'>Karen Chapple</a>.
+			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.
 			<i>October 2025</i>
 		</p>
 

@@ -36,30 +36,31 @@
 
 <svelte:head>
 
-	<title>Tariffs | School of Cities</title>
+	<title>Mapping tariffs | School of Cities</title>
 
-	<!-- <meta name="description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
-	<meta name="author" content="Jeff Allen">
+	<meta name="description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
+	<meta name="author" content="School of Cities">
+	<meta rel="canonical" href="https://schoolofcities.github.io/tariffs/">
 
-	<meta property="og:title" content="Design Components" />
-	<meta property="og:description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
+	<meta property="og:title" content="Mapping tariffs" />
+	<meta property="og:description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/design-components/" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" />
+	<meta property="og:url" content="https://schoolofcities.github.io/tariffs/" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Design Components" />
-	<meta name="twitter:description" content="Repository of design and web components for building data stories, visualizations, maps, and other custom web projects" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/design-components/" />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/design-components/main/static/web-card.png" />  -->
+	<meta name="twitter:title" content="Mapping tariffs" />
+	<meta name="twitter:description" content="Examining potential local impacts on jobs and businesses across Canada via maps and charts" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/tariffs/" />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" /> 
 
 </svelte:head>
 
 
 
 
-<Password/>
+<!-- <Password/> -->
 
 
 <main>
@@ -116,7 +117,7 @@
 	<div class="text">
 
 		<AuthorDate
-			authors="<a href='' target='_blank'>Tara Vinodrai</a>, <a href='' target='_blank'>Karen Chapple</a>, <a href='' target='_blank'>Jeff Allen</a>, Muhammad Khalis Bin Samion, Eli Easton, Rick DiFrancesco"
+			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/eli-easton-77bb60273/'  target='_blank'>Eli Easton</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>"
 			date="October 2025"
 		/>
 	
@@ -131,18 +132,17 @@
 		link="no"
 	/> -->
 
-
 	<div class="text">	
 
 		<p>
-			Since Donald Trump was elected as the 47th President of the United States, tariffs and trade have become hot topics. The US government has continued to announce tariffs on goods exported from Canada and other countries to the United States. For Canada, one of the largest trading partners with the US, the introduction of tariffs has led policymakers, politicians and the public to ask questions about where the impacts might be felt now and in the longer run. From resource-dependent communities to manufacturing hubs, local economies across Canada are tied to the US and the global economy in complex ways. But, what places are most vulnerable to Trump’s tariffs? To answer this question, we created a <a href="./map">mapping and visualization tool</a> to trace out the tariff exposure of local economies across Canada’s vast geography. In doing so, our work offers a window into how jobs and businesses are influenced and how the fortunes of cities and regions across Canada may be altered.
+			Since Donald Trump was elected as the 47th President of the United States, tariffs and trade have become hot topics. The U.S. government has continued to announce tariffs on goods exported from Canada and other countries to the United States. For Canada, one of the largest trading partners with the US, the introduction of tariffs has led policymakers, politicians and the public to ask questions about where the impacts might be felt now and in the longer run. From resource-dependent communities to manufacturing hubs, local economies across Canada are tied to the U.S. and the global economy in complex ways. But, what places are most vulnerable to Trump’s tariffs? To answer this question, we created a <a href="./map">mapping and visualization tool</a> to trace out the tariff exposure of local economies across Canada’s vast geography. In doing so, our work offers a window into how jobs and businesses are influenced and how the fortunes of cities and regions across Canada may be altered.
 		</p>
 
 		<h2>
 			Background: Canada-US Trade
 		</h2>
 		<p>
-			The Canadian economy is deeply integrated with the US economy. In 2023, Canada-US trade surpassed $1.3 trillion (CAD), with approximately $3.5 billion (CAD) worth of goods and services being exchanged daily. Indeed, the United States is Canada’s largest export destination, accounting for 76.4% of Canadian exports, with no other trading partner accounting for more than 4% of export trade. While Canada relies heavily on the US market for sales, there is greater diversity in the source of imports to Canada. Still, almost half of Canada’s imports (49.2%) are from the United States.
+			The Canadian economy is deeply integrated with the U.S. economy. In 2023, Canada-US trade surpassed $1.3 trillion (CAD), with approximately $3.5 billion (CAD) worth of goods and services being exchanged daily. Indeed, the United States is Canada’s largest export destination, accounting for 76.4% of Canadian exports, with no other trading partner accounting for more than 4% of export trade. While Canada relies heavily on the U.S. market for sales, there is greater diversity in the source of imports to Canada. Still, almost half of Canada’s imports (49.2%) are from the United States.
 		</p>
 
 	</div>
@@ -156,7 +156,7 @@
 	<div class="text">
 
 		<p>
-			This pattern holds true over time. The charts below show Canada’s exports to the US and the rest of the world between 2005 and 2024. The proportion of Canada’s exports to the US has decreased slowly over time, from 83.8% in 2005 to 76.4% in 2024. There was a slight decline in the proportion of Canada’s exports to the US between 2018 and 2020, potentially due to the imposition of tariffs by the US under the first Trump administration.
+			This pattern holds true over time. The charts below show Canada’s exports to the U.S. and the rest of the world between 2005 and 2024. The proportion of Canada’s exports to the U.S. has decreased slowly over time, from 83.8% in 2005 to 76.4% in 2024. There was a slight decline in the proportion of Canada’s exports to the U.S. between 2018 and 2020, potentially due to the imposition of tariffs by the U.S. under the first Trump administration.
 		</p>
 
 		<p>
@@ -173,7 +173,7 @@
 	<div class="text">
 
 		<p>
-			Overall, due to the tight integration of supply chains, trade agreements, proximity, and longstanding business relationships, Canada’s trading activities remain tied to the US economy. Given Canada’s dependence on the US market, it is no surprise that the ongoing trade war and escalation of tariffs on various goods is cause for deep concern amongst Canadian politicians, policymakers and the public.
+			Overall, due to the tight integration of supply chains, trade agreements, proximity, and longstanding business relationships, Canada’s trading activities remain tied to the U.S. economy. Given Canada’s dependence on the U.S. market, it is no surprise that the ongoing trade war and escalation of tariffs on various goods is cause for deep concern amongst Canadian politicians, policymakers and the public.
 		</p>
 
 		<h2>
@@ -181,7 +181,7 @@
 		</h2>
 
 		<p>
-			Beginning in February 2025, the US government has announced (as well as retracted and changed) an extensive suite of tariffs targeting Canada and other countries. The unpredictable shifts in tariff actions introduce challenges in keeping track and staying up to date. Several organizations maintain real-time information on tariff announcements affecting Canada and other trading nations (<a href="https://www.piie.com/blogs/realtime-economics/2025/trumps-trade-war-timeline-20-date-guide" target="_blank">for example, here</a>). 
+			Beginning in February 2025, the U.S. government has announced (as well as retracted and changed) an extensive suite of tariffs targeting Canada and other countries. The unpredictable shifts in tariff actions introduce challenges in keeping track and staying up to date. Several organizations maintain real-time information on tariff announcements affecting Canada and other trading nations (<a href="https://www.piie.com/blogs/realtime-economics/2025/trumps-trade-war-timeline-20-date-guide" target="_blank">for example, here</a>). 
 		</p>
 
 		<ul>
@@ -196,7 +196,7 @@
 			(effective: August 1, 2025);</li>
 			<li>An increase to a <a href="https://www.cbc.ca/news/business/canada-response-steel-tariffs-1.7552058" target="_blank">50%
 			tariff on all Canadian steel and aluminum imports</a> to
-			the US from the 25% announced in February 2025 (effective: June 3,
+			the U.S. from the 25% announced in February 2025 (effective: June 3,
 			2025);</li>
 			<li>A <a href="https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/supporting-exporters-through-tariff-challenges.html" target="_blank">25%
 			tariff on automobiles and light trucks</a> imports; for
@@ -214,11 +214,11 @@
 		</ul>
 
 		<p>
-			Additionally, the US government has <a href="https://www.federalregister.gov/documents/2025/09/02/2025-16802/notice-of-implementation-of-the-presidents-executive-order-14324-suspending-duty-free-de-minimis" target="_blank">eliminated <i>de minimis</i> treatment</a> for low-value shipments (defined as those under $800 in value). In other words, shipments to the US from Canada that are under $800 are now subject to tariffs. 
+			Additionally, the U.S. government has <a href="https://www.federalregister.gov/documents/2025/09/02/2025-16802/notice-of-implementation-of-the-presidents-executive-order-14324-suspending-duty-free-de-minimis" target="_blank">eliminated <i>de minimis</i> treatment</a> for low-value shipments (defined as those under $800 in value). In other words, shipments to the U.S. from Canada that are under $800 are now subject to tariffs. 
 		</p>
 
 		<p>
-			In response, the Canadian government has announced retaliatory tariffs and other measures, although not all of these have been implemented. And, trade negotiations and discussions with the US continue. As of September 1, 2025, the Canadian government lifted many of its counter-tariffs noting that many Canadian exporters (with the exceptions of those related to automotive, aluminum, and steel) are able to avoid tariffs through compliance with CUSMA. Canada’s Department of Finance maintains an up-to-date <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">list of Canadian tariffs</a> on US exports.
+			In response, the Canadian government has announced retaliatory tariffs and other measures, although not all of these have been implemented. And, trade negotiations and discussions with the U.S. continue. As of September 1, 2025, the Canadian government lifted many of its counter-tariffs noting that many Canadian exporters (with the exceptions of those related to automotive, aluminum, and steel) are able to avoid tariffs through compliance with CUSMA. Canada’s Department of Finance maintains an up-to-date <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">list of Canadian tariffs</a> on U.S. exports.
 		</p>
 
 		<p>
@@ -226,7 +226,7 @@
 		</p>
 
 		<h2>
-			Measuring the impact of US tariffs on Canada
+			Measuring the impact of U.S. tariffs on Canada
 		</h2>
 
 		<p>
@@ -234,7 +234,7 @@
 		</p>
 
 		<p>
-			Economists and policymakers at banks, think tanks and other organizations have published extensively on the possible impacts on the Canadian economy. At the national level, the <a href="https://www.bankofcanada.ca/publications/mpr/mpr-2025-01-29/in-focus-1/" target="_blank">Bank of Canada</a> has used models to demonstrate how US tariffs may affect inflation and GDP growth.
+			Economists and policymakers at banks, think tanks and other organizations have published extensively on the possible impacts on the Canadian economy. At the national level, the <a href="https://www.bankofcanada.ca/publications/mpr/mpr-2025-01-29/in-focus-1/" target="_blank">Bank of Canada</a> has used models to demonstrate how U.S. tariffs may affect inflation and GDP growth.
 		</p>
 
 		<p>
@@ -244,11 +244,11 @@
 		<h2>Methods</h2>
 
 		<p>
-			In our initial work, we focus on identifying potential direct exposure to tariffs. In other words, we look at where the jobs and businesses are that make goods subject to US tariffs and that are more likely to be exported to the US market. 
+			In our initial work, we focus on identifying potential direct exposure to tariffs. In other words, we look at where the jobs and businesses are that make goods subject to U.S. tariffs and that are more likely to be exported to the U.S. market. 
 		</p>
 
 		<p>
-			Estimating the potential exposure of jobs and business to US tariffs at the local level is a complex task and proved to be a challenging undertaking, especially as the scope and magnitude of US-imposed tariffs are constantly evolving and changing. Our analysis required accessing data, concordance tables, and information from several Canadian and US government agencies, including Statistics Canada, US Customs and Border Protection, the US International Trade Commission, the US Department of Commerce, and the US Census Bureau, amongst others. We identified the specifics goods subject to tariffs, using the Harmonized Tariff Schedule for the United States and matched those goods (classified using HS codes) to specific industries (classified using the North American Industrial Classification System, NAICS). Using this information, we were able to map the location of jobs (based both on where people work and where people live) and businesses at the dissemination area level for all of Canada. To focus on how vulnerable these places were to US-related tariffs, we weight our estimates based on the extent to which the industries involved were oriented to the US market measured by export intensity. 
+			Estimating the potential exposure of jobs and business to U.S. tariffs at the local level is a complex task and proved to be a challenging undertaking, especially as the scope and magnitude of US-imposed tariffs are constantly evolving and changing. Our analysis required accessing data, concordance tables, and information from several Canadian and U.S. government agencies, including Statistics Canada, U.S. Customs and Border Protection, the U.S. International Trade Commission, the U.S. Department of Commerce, and the U.S. Census Bureau, amongst others. We identified the specifics goods subject to tariffs, using the Harmonized Tariff Schedule for the United States and matched those goods (classified using HS codes) to specific industries (classified using the North American Industrial Classification System, NAICS). Using this information, we were able to map the location of jobs (based both on where people work and where people live) and businesses at the dissemination area level for all of Canada. To focus on how vulnerable these places were to US-related tariffs, we weight our estimates based on the extent to which the industries involved were oriented to the U.S. market measured by export intensity. 
 		</p>
 
 		<p>
@@ -276,7 +276,7 @@
 	<div class="text">
 
 		<p>
-			However, our sector-specific results underscore underlying regional specialization patterns across Canada. For example, the following map shows that there are widespread vulnerabilities to workers (based on place of residence) due to US automotive tariffs across the Greater Golden Horseshoe. This is not surprising given the historic presence of the automotive industry in southern Ontario.
+			However, our sector-specific results underscore underlying regional specialization patterns across Canada. For example, the following map shows that there are widespread vulnerabilities to workers (based on place of residence) due to U.S. automotive tariffs across the Greater Golden Horseshoe. This is not surprising given the historic presence of the automotive industry in southern Ontario.
 		</p>
 
 	</div>
@@ -329,7 +329,7 @@
 		</p>
 
 		<p>
-			Overall, our mapping and visualization tools provide a window into the highly localized and uneven impact of US tariffs across Canada’s cities and regions. We invite you to explore our online <a href="./map">mapping and visualization tool</a>, and you can also investigate our <a href="./cma-ranking-charts">city ranking tool</a>. Over the next few months, stay tuned for additional analysis focused on different goods and industry sectors. We will also explore scenarios that visualize the possible long-run impacts of US tariffs on cities and neighbourhoods across Canada.
+			Overall, our mapping and visualization tools provide a window into the highly localized and uneven impact of U.S. tariffs across Canada’s cities and regions. We invite you to explore our online <a href="./map">mapping and visualization tool</a>, and you can also investigate our <a href="./cma-ranking-charts">city ranking tool</a>. Over the next few months, stay tuned for additional analysis focused on different goods and industry sectors. We will also explore scenarios that visualize the possible long-run impacts of U.S. tariffs on cities and neighbourhoods across Canada.
 		</p>
 
 	</div>
