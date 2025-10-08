@@ -174,7 +174,7 @@
 			tariffType: "All goods subject to tariffs",
 			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_1": {
 			dataSource: "Auto_1",
@@ -183,7 +183,7 @@
 			tariffType: "Automobiles",
 			breaks: [0.01, 0.02, 0.03, 0.06],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_1": {
 			dataSource: "Alum_1",
@@ -192,7 +192,7 @@
 			tariffType: "Aluminum",
 			breaks: [0.01, 0.02, 0.03, 0.05],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_1": {
 			dataSource: "Steel_1",
@@ -201,7 +201,7 @@
 			tariffType: "Steel",
 			breaks: [0.01, 0.02, 0.03, 0.07],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_1": {
 			dataSource: "Cop_1",
@@ -210,7 +210,7 @@
 			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_1": {
 			dataSource: "Lum_1",
@@ -219,7 +219,7 @@
 			tariffType: "Lumber",
 			breaks: [0.01, 0.02, 0.07, 0.15],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_1": {
 			dataSource: "Ene_1",
@@ -228,7 +228,7 @@
 			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.02, 0.03, 0.08],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_1": {
 			dataSource: "CUSMA_1",
@@ -237,7 +237,7 @@
 			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.3],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 		"Total_2": {
 			dataSource: "Total_2",
@@ -246,7 +246,7 @@
 			tariffType: "All goods subject to tariffs",
 			breaks: [0.04, 0.1, 0.2, 0.4],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_2": {
 			dataSource: "Auto_2",
@@ -255,7 +255,7 @@
 			tariffType: "Automobiles",
 			breaks: [0.01, 0.04, 0.08, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_2": {
 			dataSource: "Alum_2",
@@ -264,7 +264,7 @@
 			tariffType: "Aluminum",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_2": {
 			dataSource: "Steel_2",
@@ -273,7 +273,7 @@
 			tariffType: "Steel",
 			breaks: [0.01, 0.05, 0.1, 0.3],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_2": {
 			dataSource: "Cop_2",
@@ -282,7 +282,7 @@
 			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.04, 0.08],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_2": {
 			dataSource: "Lum_2",
@@ -291,7 +291,7 @@
 			tariffType: "Lumber",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_2": {
 			dataSource: "Ene_2",
@@ -300,7 +300,7 @@
 			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_2": {
 			dataSource: "CUSMA_2",
@@ -309,7 +309,7 @@
 			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.4],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 		"Total_3": {
 			dataSource: "Total_3",
@@ -318,7 +318,7 @@
 			tariffType: "All goods subject to tariffs",
 			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_3": {
 			dataSource: "Auto_3",
@@ -327,7 +327,7 @@
 			tariffType: "Automobiles",
 			breaks: [0.01, 0.02, 0.05, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_3": {
 			dataSource: "Alum_3",
@@ -336,7 +336,7 @@
 			tariffType: "Aluminum",
 			breaks: [0.01, 0.03, 0.07, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_3": {
 			dataSource: "Steel_3",
@@ -345,7 +345,7 @@
 			tariffType: "Steel",
 			breaks: [0.01, 0.05, 0.1, 0.25],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_3": {
 			dataSource: "Cop_3",
@@ -354,7 +354,7 @@
 			tariffType: "Copper",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_3": {
 			dataSource: "Lum_3",
@@ -363,7 +363,7 @@
 			tariffType: "Lumber",
 			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_3": {
 			dataSource: "Ene_3",
@@ -372,7 +372,7 @@
 			tariffType: "Energy and natural resources",
 			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_3": {
 			dataSource: "CUSMA_3",
@@ -381,7 +381,7 @@
 			tariffType: "Non-CUSMA-Compliant",
 			breaks: [0.05, 0.1, 0.2, 0.5],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 		"Total_B": {
 			dataSource: "Total_B",
@@ -391,7 +391,7 @@
 			breaks: [10,50,100,200],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_B": {
 			dataSource: "Auto_B",
@@ -401,7 +401,7 @@
 			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_B": {
 			dataSource: "Alum_B",
@@ -411,7 +411,7 @@
 			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_B": {
 			dataSource: "Steel_B",
@@ -421,7 +421,7 @@
 			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_B": {
 			dataSource: "Cop_B",
@@ -431,7 +431,7 @@
 			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_B": {
 			dataSource: "Lum_B",
@@ -441,7 +441,7 @@
 			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_B": {
 			dataSource: "Ene_B",
@@ -451,7 +451,7 @@
 			breaks: [5,10,20,50],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_B": {
 			dataSource: "CUSMA_B",
@@ -461,7 +461,7 @@
 			breaks: [10,50,100,200],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 		"Total_E": {
 			dataSource: "Total_E",
@@ -471,7 +471,7 @@
 			breaks: [500,1000,2500,5000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_E": {
 			dataSource: "Auto_E",
@@ -481,7 +481,7 @@
 			breaks: [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_E": {
 			dataSource: "Alum_E",
@@ -491,7 +491,7 @@
 			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_E": {
 			dataSource: "Steel_E",
@@ -501,7 +501,7 @@
 			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_E": {
 			dataSource: "Cop_E",
@@ -511,7 +511,7 @@
 			breaks:  [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_E": {
 			dataSource: "Lum_E",
@@ -521,7 +521,7 @@
 			breaks: [25,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_E": {
 			dataSource: "Ene_E",
@@ -531,7 +531,7 @@
 			breaks: [50,100,250,1000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_E": {
 			dataSource: "CUSMA_E",
@@ -541,7 +541,7 @@
 			breaks: [500,1000,2500,5000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 		"Total_C": {
 			dataSource: "Total_C",
@@ -551,7 +551,7 @@
 			breaks: [400,700,1000,1500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to all types of U.S. Administration's Tariffs on Canada",
 		},
 		"Auto_C": {
 			dataSource: "Auto_C",
@@ -561,7 +561,7 @@
 			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Automobile Tariffs on Canada",
 		},
 		"Alum_C": {
 			dataSource: "Alum_C",
@@ -571,7 +571,7 @@
 			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Aluminum Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Aluminum Tariffs on Canada",
 		},
 		"Steel_C": {
 			dataSource: "Steel_C",
@@ -581,7 +581,7 @@
 			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Steel Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Steel Tariffs on Canada",
 		},
 		"Cop_C": {
 			dataSource: "Cop_C",
@@ -591,7 +591,7 @@
 			breaks: [10,25,50,100],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Copper Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
 		"Lum_C": {
 			dataSource: "Lum_C",
@@ -601,7 +601,7 @@
 			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
 		},
 		"Ene_C": {
 			dataSource: "Ene_C",
@@ -611,7 +611,7 @@
 			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Energy and natural resources tariffs on Canada",
 		},
 		"CUSMA_C": {
 			dataSource: "CUSMA_C",
@@ -621,7 +621,7 @@
 			breaks: [400,700,1000,1500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's non-CUSMA Compliant Tariffs on Canada",
 		},
 	};
 
@@ -1202,7 +1202,7 @@
 
 		<div id = "select-wrapper">
 			<div id="destext">
-				<p style="margin-bottom: -5px;">Select the good/product subject to US tariffs:</p>
+				<p style="margin-bottom: -5px;">Select the good/product subject to U.S. tariffs:</p>
 			</div>
 			<Select
 				id = 'select'
@@ -1441,8 +1441,8 @@
 				<li>Cargo Systems Messaging Service (United States Customs and Border Protection)</li>
 				<li>Harmonized Tariff Schedule of the United States (United States International Trade Commission )</li>
 				<li>International Trade and Development Division (Statistics Canada)</li>
-				<li>US Department of Commerce</li>
-				<li>US Census Bureau</li>
+				<li>U.S. Department of Commerce</li>
+				<li>U.S. Census Bureau</li>
 			</ul>
 			<p>
 				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>

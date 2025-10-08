@@ -157,7 +157,7 @@
 		</li>
 
 		<li>
-			<a href="./potential-local-impacts">Read our backgrounder and blog</a> on Canada-US trade and mapping direct exposure to tariffs.
+			<a href="./potential-local-impacts">Read our backgrounder and blog</a> on Canada-U.S. trade and mapping direct exposure to tariffs.
 		</li>
 
 		<li>
