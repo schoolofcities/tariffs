@@ -147,21 +147,23 @@
 			Since May 2025, <a href="">Tara Vinodrai</a> and <a href="">Karen Chapple</a> have led a team of researchers at the School of Cities to develop interactive mapping and visualization tools that measure and explore the potential impacts of tariffs on jobs and businesses across Canadian cities and communities at the neighbourhood and city level. Our tools illustrate the highly localized and uneven potential impacts of U.S. tariffs reflecting Canada’s underlying urban, regional and sectoral specializations.
 		</p>
 
-		<p>
+		<ul>
+		<li>
 			<a href="./map">Examine maps of the potential direct exposure to U.S. tariffs</a> related to specific goods (e.g. automotive, steel, copper, lumber, energy & natural resources) across Canada at the neighbourhood level, measured by 1) businesses 2) employment (based on place of work) and 3) employment (based on place of residence).
-		</p>
+		</li>
 
-		<p>
+		<li>
 			<a href="./cma-ranking-charts">Review these same impacts in aggregate across Canadian cities</a>.	
-		</p>
+		</li>
 
-		<p>
+		<li>
 			<a href="./potential-local-impacts">Read our backgrounder and blog</a> on Canada-US trade and mapping direct exposure to tariffs.
-		</p>
+		</li>
 
-		<p>
+		<li>
 			<a href="https://github.com/schoolofcities/tariffs" target="_blank">Learn more about our research methodology</a>.
-		</p>
+		</li>
+		</ul>
 
 		<h2>
 			Research team
