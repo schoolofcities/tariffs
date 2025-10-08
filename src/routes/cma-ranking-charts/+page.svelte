@@ -135,7 +135,7 @@
 		/>
 
 		<p>
-			Recent tariffs imposed by U.S. President Donald Trump on Canada and other trading partners have raised important questions about their impact on Canadian jobs, businesses, and urban economies. Since May 2025, Drs. Karen Chapple and Tara Vinodrai have been leading a research team at the School of Cities to ask the question: How vulnerable are Canadian cities to US tariffs? 
+			Recent tariffs imposed by U.S. President Donald Trump on Canada and other trading partners have raised important questions about their impact on Canadian jobs, businesses, and urban economies. Since May 2025, Drs. Karen Chapple and Tara Vinodrai have been leading a research team at the School of Cities to ask the question: How vulnerable are Canadian cities to U.S. tariffs? 
 		</p>
 
 		<p>
@@ -155,19 +155,19 @@
 		</p>
 
 		<p>
-			In Canada, there has been limited analysis at the urban level of the potential impacts of US tariffs. The Canadian Chamber of Commerce developed a <a href="https://businessdatalab.ca/publications/which-canadian-cities-are-most-exposed-to-trumps-tariffs/" target="_blank">a US Tariff Exposure Index</a> for Canada’s 41 Census Metropolitan Areas (CMAs) that extends their national trade model to the urban scale, and incorporates a city’s dependence on the US as an export destination and its US export intensity. The Conference Board of Canada has also tackled this question. They extend their national and provincial modelling of tariff-related scenarios to the urban scale for 24 of Canada’s CMAs. Based on a series of assumptions, they find that Canadian cities range in their exposure to tariffs, depending on their industrial structure.
+			In Canada, there has been limited analysis at the urban level of the potential impacts of U.S. tariffs. The Canadian Chamber of Commerce developed a <a href="https://businessdatalab.ca/publications/which-canadian-cities-are-most-exposed-to-trumps-tariffs/" target="_blank">a U.S. Tariff Exposure Index</a> for Canada’s 41 Census Metropolitan Areas (CMAs) that extends their national trade model to the urban scale, and incorporates a city’s dependence on the U.S. as an export destination and its U.S. export intensity. The Conference Board of Canada has also tackled this question. They extend their national and provincial modelling of tariff-related scenarios to the urban scale for 24 of Canada’s CMAs. Based on a series of assumptions, they find that Canadian cities range in their exposure to tariffs, depending on their industrial structure.
 		</p>
 
 		<p>
-			Missing from this picture is a detailed view of the potential direct impact of US tariffs for specific goods on jobs and businesses at the metropolitan scale and for fine-grained geographies.
+			Missing from this picture is a detailed view of the potential direct impact of U.S. tariffs for specific goods on jobs and businesses at the metropolitan scale and for fine-grained geographies.
 		</p>
 
 		<h2>
-			A new tool for understanding the impact of US tariffs on Canadian cities
+			A new tool for understanding the impact of U.S. tariffs on Canadian cities
 		</h2>
 
 		<p>
-			To advance our understanding of the potential impact of US tariffs on Canada’s cities, we’ve developed an interactive tool (below) that allows users to explore how specific U.S. tariffs—on automotive, steel, lumber, aluminum, and more—could affect Canadian cities. The tool provides metrics on the number and proportion of jobs and businesses potentially exposed to tariffs (see also our <a href="./map">neighbourhood mapping tool</a>).
+			To advance our understanding of the potential impact of U.S. tariffs on Canada’s cities, we’ve developed an interactive tool (below) that allows users to explore how specific U.S. tariffs—on automotive, steel, lumber, aluminum, and more—could affect Canadian cities. The tool provides metrics on the number and proportion of jobs and businesses potentially exposed to tariffs (see also our <a href="./map">neighbourhood mapping tool</a>).
 		</p>
 
 		<br>
@@ -180,15 +180,15 @@
 	<div class="text">	
 
 		<h2>
-			What the data tells us about the vulnerability of Canadian cities to US tariffs
+			What the data tells us about the vulnerability of Canadian cities to U.S. tariffs
 		</h2>
 
 		<p>
-			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of US tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that US tariffs have the potential to impact more than 5,000 businesses, almost 200,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current US tariffs (as of September 1, 2025) for businesses and workers is between 5 and 10% of businesses and workers in Canada’s largest city-regions.
+			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of U.S. tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that U.S. tariffs have the potential to impact more than 5,000 businesses, almost 200,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current U.S. tariffs (as of September 1, 2025) for businesses and workers is between 5 and 10% of businesses and workers in Canada’s largest city-regions.
 		</p>
 
 		<p>
-			In contrast, smaller and mid-sized cities — especially those that are resource-dependent or act as manufacturing hubs — face greater relative exposure. For example, in Windsor, we estimate that 3.6% of businesses and 7.0% of residents (employees by place of residence) face potential to be directly exposed to US steel tariffs. Similarly, in the case of lumber tariffs, businesses in smaller cities like Fredericton, Saint John and Thunder Bay are susceptible. When it comes to aluminum, urban centres in southern Ontario, including Windsor, Guelph, and Kitchener-Waterloo-Cambridge, all appear near the top of the list. And, in the case of energy and natural resources, our analysis shows that the Greater Sudbury CMA has high levels of potential direct exposure.
+			In contrast, smaller and mid-sized cities — especially those that are resource-dependent or act as manufacturing hubs — face greater relative exposure. For example, in Windsor, we estimate that 3.6% of businesses and 7.0% of residents (employees by place of residence) face potential to be directly exposed to U.S. steel tariffs. Similarly, in the case of lumber tariffs, businesses in smaller cities like Fredericton, Saint John and Thunder Bay are susceptible. When it comes to aluminum, urban centres in southern Ontario, including Windsor, Guelph, and Kitchener-Waterloo-Cambridge, all appear near the top of the list. And, in the case of energy and natural resources, our analysis shows that the Greater Sudbury CMA has high levels of potential direct exposure.
 		</p>
 		<p>	
 			The cumulative effect of multiple tariffs is particularly concerning for small and mid-sized cities. For instance, Guelph and Windsor rank among the highest in terms of the proportion of jobs and businesses exposed—echoing  <a href="https://www.conferenceboard.ca/insights/the-true-cost-of-trump-tariffs-city-impacts/" target="_blank">findings</a> from the Conference Board of Canada.
