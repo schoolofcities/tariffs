@@ -33,9 +33,9 @@
 	</a>
 
 	<div class="nav-area">
-		<a href="./" class="research-link">Mapping Tariffs</a>
+		<!-- <a href="./" class="research-link">Mapping Tariffs</a> -->
 		<button class="menu-toggle" on:click={() => (menuOpen = !menuOpen)}>
-			▾
+			<span class="research-link">Mapping Tariffs</span> ▾
 		</button>
 
 		{#if menuOpen}
@@ -79,7 +79,7 @@
 
 	.research-link {
 		font-family: SourceSerifItalic, serif;
-		font-size: 20px;
+		font-size: 18px;
 		text-decoration: underline;
 		text-decoration-thickness: 1px;
 		color: var(--brandDarkBlue);
