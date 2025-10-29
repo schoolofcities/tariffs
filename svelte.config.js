@@ -14,7 +14,8 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-		    base: dev ? "" : "/tariffs",
+		    base: dev ? "" : "",
+			// base: dev ? "" : "/tariffs",
 		}
 	}
 };
