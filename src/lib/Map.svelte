@@ -41,7 +41,7 @@
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "MHDV", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -249,10 +249,10 @@
 			dataSource: "MHDV_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_1": {
 			dataSource: "Ene_1",
@@ -339,10 +339,10 @@
 			dataSource: "MHDV_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [0.01, 0.02, 0.04, 0.08],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_2": {
 			dataSource: "Ene_2",
@@ -429,10 +429,10 @@
 			dataSource: "MHDV_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_3": {
 			dataSource: "Ene_3",
@@ -526,11 +526,11 @@
 			dataSource: "MHDV_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_B": {
 			dataSource: "Ene_B",
@@ -626,11 +626,11 @@
 			dataSource: "MHDV_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [200,500,1000,2000],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_E": {
 			dataSource: "Ene_E",
@@ -726,11 +726,11 @@
 			dataSource: "MHDV_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "MHDV",
+			tariffType: "Medium Heavy Duty Vehicles",
 			breaks: [10,25,50,100],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
 		"Ene_C": {
 			dataSource: "Ene_C",
@@ -833,7 +833,7 @@
 
 			map.addSource('centroids_oct', {
 				type: 'vector',
-				url: 'pmtiles://' + choropleth_oct,
+				url: 'pmtiles://' + centroids_oct,
 			});
 
 			map.addSource('censusDivisions', {
@@ -1040,7 +1040,7 @@
 				'id': 'centroids_oct',
 				'type': 'circle',
 				'source': 'centroids_oct',
-				'source-layer': 'choropleth',
+				'source-layer': 'centroids',
 				'layout': {
 					'visibility': 'none',
 				}
