@@ -18,28 +18,30 @@
 	let addressQuery="";
 	let addressResults="";
 
-	let choropleth = "pmtiles/choropleth.pmtiles.gz";
-	let centroids = "pmtiles/centroids.pmtiles.gz";
-	let censusDivisions = "pmtiles/census-divisions.pmtiles.gz";
-	
+	let choropleth_oct = "/pmtiles/choropleth.pmtiles";
+	let centroids_oct = "/pmtiles/centroids.pmtiles";
+	let choropleth = "/pmtiles/choropleth_v2.pmtiles";
+	let centroids = "/pmtiles/centroids_v2.pmtiles";
+	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
+
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
 
 	let metricType = "Percent"; // ["Percent", "Count"]
 	function metricSelect(value) {
 		metricType = value;
-	};
+	}
 
 	let impactType = "Business" // ["EmployeeHome","EmployeeWork", "Business"] 
 	function impactTypeSelect(value) {
 		impactType = value;
-	};
+	}
 
 	let tariffType = "All goods subject to tariffs" // see full list below
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "MHDV", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -61,17 +63,28 @@
 			map &&
 			map.isStyleLoaded() &&
 			map.getLayer("polygons") &&
-			map.getLayer("centroids")
+			map.getLayer("polygons_oct") &&
+			map.getLayer("centroids") &&
+			map.getLayer("centroids_oct")
 		) {
 			if (mapSelected) {
-				if (mapQuery.metricType === "Percent") {
-					
-					map.setLayoutProperty('polygons', 'visibility', 'visible');
-					map.setLayoutProperty('centroids', 'visibility', 'none');
+				const useOctData = dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
+				const activePolygonLayer = useOctData ? 'polygons_oct' : 'polygons';
+				const inactivePolygonLayer = useOctData ? 'polygons' : 'polygons_oct';
+				const activeCentroidLayer = useOctData ? 'centroids_oct' : 'centroids';
+				const inactiveCentroidLayer = useOctData ? 'centroids' : 'centroids_oct';
+				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
+				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
 
-					map.setPaintProperty("polygons", "fill-opacity", 0.8);
+				// Hide the inactive outline layer
+				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
 
-					map.setPaintProperty("polygons", "fill-color", [
+				if (mapQuery.metricType === "Percent") {				map.setLayoutProperty(activePolygonLayer, 'visibility', 'visible');
+				map.setLayoutProperty(inactivePolygonLayer, 'visibility', 'none');
+				map.setLayoutProperty(activeCentroidLayer, 'visibility', 'none');
+				map.setLayoutProperty(inactiveCentroidLayer, 'visibility', 'none');
+
+				map.setPaintProperty(activePolygonLayer, "fill-opacity", 0.8);					map.setPaintProperty(activePolygonLayer, "fill-color", [
 						"case",
 						["==", ["get", dataLayers[mapSelected].dataSource], null], "#D0D1C9",
 						["step", ["get", dataLayers[mapSelected].dataSource],
@@ -84,14 +97,16 @@
 
 				} else if (mapQuery.metricType === "Count") {
 
-					map.setLayoutProperty('polygons', 'visibility', 'none');
-					map.setLayoutProperty('centroids', 'visibility', 'visible');
+					map.setLayoutProperty(activePolygonLayer, 'visibility', 'none');
+					map.setLayoutProperty(inactivePolygonLayer, 'visibility', 'none');
+					map.setLayoutProperty(activeCentroidLayer, 'visibility', 'visible');
+					map.setLayoutProperty(inactiveCentroidLayer, 'visibility', 'none');
 
-					map.setPaintProperty("centroids", "circle-opacity", 0.5);
-					map.setPaintProperty("centroids", "circle-stroke-width", 1);
-					map.setPaintProperty("centroids", "circle-stroke-opacity", 0.75);
+					map.setPaintProperty(activeCentroidLayer, "circle-opacity", 0.5);
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-width", 1);
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-opacity", 0.75);
 
-					map.setPaintProperty("centroids", "circle-color", [
+					map.setPaintProperty(activeCentroidLayer, "circle-color", [
 						"case",
 						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
 						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
@@ -102,7 +117,7 @@
 						dataLayers[mapSelected].colours[0],
 					]);
 
-					map.setPaintProperty("centroids", "circle-stroke-color", [
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-color", [
 						"case",
 						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
 						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
@@ -113,7 +128,7 @@
 						dataLayers[mapSelected].colours[0],
 					]);
 
-					map.setPaintProperty("centroids", "circle-radius", [
+					map.setPaintProperty(activeCentroidLayer, "circle-radius", [
 						"interpolate", ["linear"], ["zoom"],
 						3, [
 							"case",
@@ -138,7 +153,7 @@
 					]);
 
 					map.setLayoutProperty(
-						"centroids",
+						activeCentroidLayer,
 						"circle-sort-key",
 						["get", dataLayers[mapSelected].dataSource]
 					);
@@ -212,14 +227,32 @@
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_1_old": {
+			dataSource: "Lum_1",
+			metricType: "Percent",
+			impactType: "Business",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [0.01, 0.02, 0.07, 0.15],
+			colours: graduated_col,
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_1": {
 			dataSource: "Lum_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [0.01, 0.02, 0.07, 0.15],
 			colours: graduated_col,
-			text: "Estimated % of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_1": {
+			dataSource: "MHDV_1",
+			metricType: "Percent",
+			impactType: "Business",
+			tariffType: "MHDV",
+			breaks: [0.01, 0.02, 0.03, 0.04],
+			colours: graduated_col,
+			text: "Estimated % of businesses directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_1": {
 			dataSource: "Ene_1",
@@ -284,14 +317,32 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_2_old": {
+			dataSource: "Lum_2",
+			metricType: "Percent",
+			impactType: "EmployeeWork",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [0.01, 0.05, 0.1, 0.2],
+			colours: graduated_col,
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_2": {
 			dataSource: "Lum_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [0.01, 0.05, 0.1, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_2": {
+			dataSource: "MHDV_2",
+			metricType: "Percent",
+			impactType: "EmployeeWork",
+			tariffType: "MHDV",
+			breaks: [0.01, 0.02, 0.04, 0.08],
+			colours: graduated_col,
+			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_2": {
 			dataSource: "Ene_2",
@@ -356,14 +407,32 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_3_old": {
+			dataSource: "Lum_3",
+			metricType: "Percent",
+			impactType: "EmployeeHome",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [0.01, 0.03, 0.08, 0.2],
+			colours: graduated_col,
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_3": {
 			dataSource: "Lum_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [0.01, 0.03, 0.08, 0.2],
 			colours: graduated_col,
-			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_3": {
+			dataSource: "MHDV_3",
+			metricType: "Percent",
+			impactType: "EmployeeHome",
+			tariffType: "MHDV",
+			breaks: [0.01, 0.02, 0.03, 0.04],
+			colours: graduated_col,
+			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_3": {
 			dataSource: "Ene_3",
@@ -433,15 +502,35 @@
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_B_old": {
+			dataSource: "Lum_B",
+			metricType: "Count",
+			impactType: "Business",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [2,5,10,20],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_B": {
 			dataSource: "Lum_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_B": {
+			dataSource: "MHDV_B",
+			metricType: "Count",
+			impactType: "Business",
+			tariffType: "MHDV",
+			breaks: [2,5,10,20],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of businesses directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_B": {
 			dataSource: "Ene_B",
@@ -513,15 +602,35 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_E_old": {
+			dataSource: "Lum_E",
+			metricType: "Count",
+			impactType: "EmployeeWork",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [25,100,250,500],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_E": {
 			dataSource: "Lum_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [25,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_E": {
+			dataSource: "MHDV_E",
+			metricType: "Count",
+			impactType: "EmployeeWork",
+			tariffType: "MHDV",
+			breaks: [200,500,1000,2000],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_E": {
 			dataSource: "Ene_E",
@@ -593,15 +702,35 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
+		"Lum_C_old": {
+			dataSource: "Lum_C",
+			metricType: "Count",
+			impactType: "EmployeeHome",
+			tariffType: "Lumber (before Oct 14)",
+			breaks: [25,100,200,500],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
+		},
 		"Lum_C": {
 			dataSource: "Lum_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Lumber",
+			tariffType: "Lumber (after Oct 14)",
 			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
-			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada",
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
+		},
+		"MHDV_C": {
+			dataSource: "MHDV_C",
+			metricType: "Count",
+			impactType: "EmployeeHome",
+			tariffType: "MHDV",
+			breaks: [10,25,50,100],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's MHDV Tariffs on Canada",
 		},
 		"Ene_C": {
 			dataSource: "Ene_C",
@@ -692,9 +821,19 @@
 				url: 'pmtiles://' + choropleth,
 			});
 
+			map.addSource('choropleth_oct',{
+				type: 'vector',
+				url: 'pmtiles://' + choropleth_oct,
+			});
+
 			map.addSource('centroids', {
 				type: 'vector',
 				url: 'pmtiles://' + centroids,
+			});
+
+			map.addSource('centroids_oct', {
+				type: 'vector',
+				url: 'pmtiles://' + choropleth_oct,
 			});
 
 			map.addSource('censusDivisions', {
@@ -726,6 +865,16 @@
 				'id': 'polygons',
 				'type': 'fill',
 				'source': 'choropleth',
+				'source-layer': 'choropleth',
+				'layout': {
+					'visibility': 'none',
+				},
+			});
+
+			map.addLayer({
+				'id': 'polygons_oct',
+				'type': 'fill',
+				'source': 'choropleth_oct',
 				'source-layer': 'choropleth',
 				'layout': {
 					'visibility': 'none',
@@ -819,6 +968,18 @@
 			});
 
 			map.addLayer({
+				'id': 'outline-hover-oct',
+				'type': 'fill',
+				'source': 'choropleth_oct',
+				'source-layer': 'choropleth',
+				'paint': {
+					'fill-color': '#1E3765',
+					'fill-opacity': 0.5,
+				},
+				'filter': ['==', 'ADADGUID', ''],
+			});
+
+			map.addLayer({
 				id: 'boundaries',
 				type: 'line',
 				source: 'osm',
@@ -872,6 +1033,16 @@
 				'layout': {
 					'visibility': 'none',
 					// "circle-sort-key": ["get", "Total_C"]
+				}
+			});
+
+			map.addLayer({
+				'id': 'centroids_oct',
+				'type': 'circle',
+				'source': 'centroids_oct',
+				'source-layer': 'choropleth',
+				'layout': {
+					'visibility': 'none',
 				}
 			});
 
@@ -1020,6 +1191,7 @@
 			});
 			
 			map.setLayerZoomRange('centroids', 1, 12);
+			map.setLayerZoomRange('centroids_oct', 1, 12);
 
 			mapQuery = {
 				metricType: metricType,
@@ -1052,7 +1224,7 @@
 
 		});
 
-		map.on('mousemove', 'polygons', (e) => {
+		const handlePolygonHover = (e) => {
 			const now = performance.now();
 			if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
 			lastUpdate = now;
@@ -1066,7 +1238,8 @@
 
 			if (currentZone !== selectedZone) {
 
-				const rawValue = properties[mapSelected];
+				const dataSourceField = mapSelected && dataLayers[mapSelected] ? dataLayers[mapSelected].dataSource : null;
+				const rawValue = dataSourceField ? properties[dataSourceField] : null;
 
 				selectedValue = (rawValue != null && rawValue >= 0)
 					? (rawValue * 100).toFixed(1) + '%'
@@ -1074,18 +1247,29 @@
 
 				selectedZone = currentZone;
 
-				map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
+				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
+				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
+				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
+				map.setFilter(activeOutlineLayer, ['==', 'ADADGUID', selectedZone]);
 			}
-		});
+		};
 
-		map.on('mouseleave', 'polygons', () => {
+		const handlePolygonLeave = () => {
 			map.getCanvas().style.cursor = '';
 			selectedZone = "";
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-		});
+			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+		};
 
-		map.on('mousemove', 'centroids', (e) => {
+		map.on('mousemove', 'polygons', handlePolygonHover);
+		map.on('mousemove', 'polygons_oct', handlePolygonHover);
+
+		map.on('mouseleave', 'polygons', handlePolygonLeave);
+		map.on('mouseleave', 'polygons_oct', handlePolygonLeave);
+
+		const handleCentroidHover = (e) => {
 			const now = performance.now();
 			if (now - lastUpdate < 100) return; // Throttle updates to every 100ms
 			lastUpdate = now;
@@ -1099,23 +1283,35 @@
 			const currentZone = properties.ADADGUID;
 
 			if (currentZone !== selectedZone) {
-				const rawValue = properties[mapSelected];
+				const dataSourceField = mapSelected && dataLayers[mapSelected] ? dataLayers[mapSelected].dataSource : null;
+				const rawValue = dataSourceField ? properties[dataSourceField] : null;
 				selectedValue = (rawValue != null && rawValue >= 0)
 					? Math.round(rawValue).toLocaleString()
 					: "No Data";
 
 				selectedZone = currentZone;
 
-				map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
+				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
+				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
+				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
+				map.setFilter(activeOutlineLayer, ['==', 'ADADGUID', selectedZone]);
 			}
-		});
+		};
 
-		map.on('mouseleave', 'centroids', () => {
+		map.on('mousemove', 'centroids', handleCentroidHover);
+		map.on('mousemove', 'centroids_oct', handleCentroidHover);
+
+		const handleCentroidLeave = () => {
 			map.getCanvas().style.cursor = '';
 			selectedZone = "";
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-		});
+			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+		};
+
+		map.on('mouseleave', 'centroids', handleCentroidLeave);
+		map.on('mouseleave', 'centroids_oct', handleCentroidLeave);
 
 	});
 
@@ -1175,8 +1371,6 @@
 	});
 
 </script>
-
-
 
 <div id="container">
 
