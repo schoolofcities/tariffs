@@ -1,5 +1,5 @@
 <script>
-
+		// (as of September 1, 2025)
 	import logoBlueColour from '../assets/sofc-uoft-logo-blue-colour.svg';
 	import "../assets/global-styles.css";
 
@@ -19,11 +19,11 @@
 	let addressResults="";
 
 	// Change these to have the .gz extension after .pmtiles for deployment
-	let choropleth_oct = "/pmtiles/choropleth_oct.pmtiles.gz";
-	let centroids_oct = "/pmtiles/centroids_oct.pmtiles.gz";
-	let choropleth = "/pmtiles/choropleth.pmtiles.gz";
-	let centroids = "/pmtiles/centroids.pmtiles.gz";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles.gz";
+	let choropleth_oct = "/pmtiles/choropleth_oct.pmtiles";
+	let centroids_oct = "/pmtiles/centroids_oct.pmtiles";
+	let choropleth = "/pmtiles/choropleth.pmtiles";
+	let centroids = "/pmtiles/centroids.pmtiles";
+	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
 
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
@@ -42,7 +42,7 @@
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -250,7 +250,7 @@
 			dataSource: "MHDV_1",
 			metricType: "Percent",
 			impactType: "Business",
-			tariffType: "Medium Heavy Duty Vehicles",
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
@@ -340,8 +340,8 @@
 			dataSource: "MHDV_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
-			tariffType: "Medium Heavy Duty Vehicles",
-			breaks: [0.01, 0.02, 0.04, 0.08],
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
+			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
 		},
@@ -430,7 +430,7 @@
 			dataSource: "MHDV_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
-			tariffType: "Medium Heavy Duty Vehicles",
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
 			breaks: [0.01, 0.02, 0.03, 0.04],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
@@ -527,7 +527,7 @@
 			dataSource: "MHDV_B",
 			metricType: "Count",
 			impactType: "Business",
-			tariffType: "Medium Heavy Duty Vehicles",
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
 			breaks: [2,5,10,20],
 			size: graduated_siz,
 			colours: graduated_col,
@@ -627,8 +627,8 @@
 			dataSource: "MHDV_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
-			tariffType: "Medium Heavy Duty Vehicles",
-			breaks: [200,500,1000,2000],
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
+			breaks: [50,100,250,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
@@ -727,8 +727,8 @@
 			dataSource: "MHDV_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
-			tariffType: "Medium Heavy Duty Vehicles",
-			breaks: [10,25,50,100],
+			tariffType: "Trucks (Medium & Heavy Duty Vehicles)",
+			breaks: [25,100,200,500],
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Medium Heavy Duty Vehicles Tariffs on Canada",
@@ -1391,8 +1391,8 @@
 
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
-			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.
-			<i>October 2025</i>
+			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
+			<i>First published October 2025. Updated November 2025.</i>
 		</p>
 
 		<div id = "select-wrapper">
@@ -1465,7 +1465,7 @@
 
 				<div id="destext">
 					<p>
-						{dataLayers[mapSelected]?.text} (as of September 1, 2025)
+						{dataLayers[mapSelected]?.text}
 					</p>
 				</div>
 
@@ -1622,9 +1622,10 @@
 				Counts of Employment (home) data are based on estimates from the 2021 Census of Population. Counts of Businesses and Employment (place of work) and are based on estimates from the Canadian Business Register (December 2022).
 			</p>
 			
-
-
-			<h4 style="margin-bottom: 0px;">Data sources list:</h4>
+			<h4 style="margin-bottom: 0px;">Data sources</h4>
+			<p>
+				All layers on this map are based on tariffs as of September 1, 2025, except for the Lumber and Medium  layers, which were updated in November 25, 2025.
+			</p>
 			<p>
 				Layers on this map were created by combining data from the following sources:
 			</p>
