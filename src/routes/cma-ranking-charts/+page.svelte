@@ -130,8 +130,8 @@
 		<h1>Ranking Canadian urban areas by their potential direct exposure of U.S. tariffs</h1>
 
 		<AuthorDate
-			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
-			date="October 2025"
+			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, & <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
+			date="First published October 2025. Updated November 2025."
 		/>
 
 		<p>
@@ -168,6 +168,10 @@
 
 		<p>
 			To advance our understanding of the potential impact of U.S. tariffs on Canada’s cities, we’ve developed an interactive tool (below) that allows users to explore how specific U.S. tariffs—on automotive, steel, lumber, aluminum, and more—could affect Canadian cities. The tool provides metrics on the number and proportion of jobs and businesses potentially exposed to tariffs (see also our <a href="./map">neighbourhood mapping tool</a>).
+		</p>
+
+		<p>
+			Note that all results are based on tariffs as of September 1, 2025, except for the Lumber and Medium layers, which were updated in November 25, 2025.
 		</p>
 
 		<br>
