@@ -186,6 +186,10 @@
 		</p>
 
 		<p>
+			<a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>  is a Data Analyst Research Assistant at the School of Cities and has completed his undergraduate degree at the University of Toronto Scarborough in Statistics and City Studies.
+		</p>
+
+		<p>
 			<a href="https://www.linkedin.com/in/eli-easton-77bb60273/" target="_blank">Eli Easton</a> is a senior undergraduate student at the University of Toronto where he is studying economics and public policy.
 		</p>
 
