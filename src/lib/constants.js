@@ -1,6 +1,6 @@
 export const GRADUATED_COLORS = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
-export const TARIFF_LIST = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "MHDV", "Energy and natural resources", "Non-CUSMA-Compliant"];
+export const TARIFF_LIST = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"];
 
 export const TARIFF_NAME_CODES = {
     "All goods subject to tariffs": 'Total', 
@@ -10,7 +10,7 @@ export const TARIFF_NAME_CODES = {
     "Copper": 'Cop', 
     "Lumber (before Oct 14)": 'Lum_old', 
     "Lumber (after Oct 14)": 'Lum', 
-    "MHDV": 'MHDV', 
+    "Trucks (Medium & Heavy Duty Vehicles)": 'MHDV', 
     "Energy and natural resources": 'Ene', 
     "Non-CUSMA-Compliant": 'CUSMA',
 };
