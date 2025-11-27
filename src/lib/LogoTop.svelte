@@ -14,7 +14,7 @@
 		{ name: "Homepage", url: "./" },
 		{ name: "Background and findings", url: "./potential-local-impacts" },
 		{ name: "National map", url: "./map" },
-		{ name: "City rankings", url: "./cma-ranking-charts" }
+		{ name: "Metro area rankings", url: "./cma-ranking-charts" }
 	];
 </script>
 

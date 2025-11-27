@@ -83,3 +83,13 @@ tippecanoe -Z 0 -z 12 --output=choropleth.pmtiles --detect-shared-borders --drop
 ```
 tippecanoe -Z 0 -z 12 --output=centroids.pmtiles --drop-rate=0 centroids.geojson
 ```
+
+Note: tippecanoe by default outputs mbtiles, so you may need to install pmtiles and convert it like so:
+```
+wget https://github.com/protomaps/go-pmtiles/releases/download/v1.22.1/go-pmtiles_1.22.1_Linux_x86_64.tar.gz
+
+tar -xzf go-pmtiles_1.22.1_Linux_x86_64.tar.gz
+
+pmtiles convert choropleth.mbtiles choropleth.pmtiles
+```
+
