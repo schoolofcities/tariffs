@@ -19,11 +19,15 @@
 	let addressResults="";
 
 	// Change these to have the .gz extension after .pmtiles for deployment
-	let choropleth_oct = "/pmtiles/choropleth_oct.pmtiles.gz";
-	let centroids_oct = "/pmtiles/centroids_oct.pmtiles.gz";
-	let choropleth = "/pmtiles/choropleth.pmtiles.gz";
-	let centroids = "/pmtiles/centroids.pmtiles.gz";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles.gz";
+	// ADA pmtiles (new_ada = after Oct 14, old_ada = before Oct 14 for lumber)
+	let choropleth_ada = "/pmtiles/new_ada/choropleth.pmtiles";
+	let centroids_ada = "/pmtiles/new_ada/centroids.pmtiles";
+	let choropleth_ada_oct = "/pmtiles/old_ada/choropleth_oct.pmtiles";
+	let centroids_ada_oct = "/pmtiles/old_ada/centroids_oct.pmtiles";
+	// CSD pmtiles
+	let choropleth_csd = "/pmtiles/csd/choropleth_csd.pmtiles";
+	let centroids_csd = "/pmtiles/csd/centroids_csd.pmtiles";
+	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
 
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
@@ -31,6 +35,11 @@
 	let metricType = "Percent"; // ["Percent", "Count"]
 	function metricSelect(value) {
 		metricType = value;
+	}
+
+	let geoType = "ADA"; // ["ADA", "CSD"]
+	function geoTypeSelect(value) {
+		geoType = value;
 	}
 
 	let impactType = "Business" // ["EmployeeHome","EmployeeWork", "Business"] 
@@ -42,7 +51,14 @@
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffListADA = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffListCSD = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	$: selectTariffList = geoType === "CSD" ? selectTariffListCSD : selectTariffListADA;
+	
+	// If switching to CSD while "Lumber (before Oct 14)" is selected, reset to "Lumber (after Oct 14)"
+	$: if (geoType === "CSD" && tariffType === "Lumber (before Oct 14)") {
+		tariffType = "Lumber (after Oct 14)";
+	} 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -65,25 +81,50 @@
 			map.isStyleLoaded() &&
 			map.getLayer("polygons") &&
 			map.getLayer("polygons_oct") &&
+			map.getLayer("polygons_csd") &&
 			map.getLayer("centroids") &&
-			map.getLayer("centroids_oct")
+			map.getLayer("centroids_oct") &&
+			map.getLayer("centroids_csd")
 		) {
 			if (mapSelected) {
 				const useOctData = dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
-				const activePolygonLayer = useOctData ? 'polygons_oct' : 'polygons';
-				const inactivePolygonLayer = useOctData ? 'polygons' : 'polygons_oct';
-				const activeCentroidLayer = useOctData ? 'centroids_oct' : 'centroids';
-				const inactiveCentroidLayer = useOctData ? 'centroids' : 'centroids_oct';
-				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
-				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
+				const useCSD = geoType === "CSD";
+				
+				// Determine active layers based on geoType and tariffType
+				let activePolygonLayer, activeCentroidLayer, activeOutlineLayer;
+				if (useCSD) {
+					activePolygonLayer = 'polygons_csd';
+					activeCentroidLayer = 'centroids_csd';
+					activeOutlineLayer = 'outline-hover-csd';
+				} else if (useOctData) {
+					activePolygonLayer = 'polygons_oct';
+					activeCentroidLayer = 'centroids_oct';
+					activeOutlineLayer = 'outline-hover-oct';
+				} else {
+					activePolygonLayer = 'polygons';
+					activeCentroidLayer = 'centroids';
+					activeOutlineLayer = 'outline-hover';
+				}
+				
+				// All polygon/centroid layers
+				const allPolygonLayers = ['polygons', 'polygons_oct', 'polygons_csd'];
+				const allCentroidLayers = ['centroids', 'centroids_oct', 'centroids_csd'];
+				const allOutlineLayers = ['outline-hover', 'outline-hover-oct', 'outline-hover-csd'];
+				const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
 
-				// Hide the inactive outline layer
-				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
+				// Hide all outline layers
+				allOutlineLayers.forEach(layer => {
+					if (map.getLayer(layer)) {
+						const field = layer.includes('csd') ? 'CSDDGUID' : 'ADADGUID';
+						map.setFilter(layer, ['==', field, '']);
+					}
+				});
 
-				if (mapQuery.metricType === "Percent") {				map.setLayoutProperty(activePolygonLayer, 'visibility', 'visible');
-				map.setLayoutProperty(inactivePolygonLayer, 'visibility', 'none');
-				map.setLayoutProperty(activeCentroidLayer, 'visibility', 'none');
-				map.setLayoutProperty(inactiveCentroidLayer, 'visibility', 'none');
+				if (mapQuery.metricType === "Percent") {
+					// Hide all polygon/centroid layers, then show active
+					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					map.setLayoutProperty(activePolygonLayer, 'visibility', 'visible');
 
 				map.setPaintProperty(activePolygonLayer, "fill-opacity", 0.8);					map.setPaintProperty(activePolygonLayer, "fill-color", [
 						"case",
@@ -97,11 +138,10 @@
 					]);
 
 				} else if (mapQuery.metricType === "Count") {
-
-					map.setLayoutProperty(activePolygonLayer, 'visibility', 'none');
-					map.setLayoutProperty(inactivePolygonLayer, 'visibility', 'none');
+					// Hide all polygon/centroid layers, then show active
+					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
 					map.setLayoutProperty(activeCentroidLayer, 'visibility', 'visible');
-					map.setLayoutProperty(inactiveCentroidLayer, 'visibility', 'none');
 
 					map.setPaintProperty(activeCentroidLayer, "circle-opacity", 0.5);
 					map.setPaintProperty(activeCentroidLayer, "circle-stroke-width", 1);
@@ -175,6 +215,7 @@
 		mapQuery;   // track metricType, impactType, tariffType
 		mapSelected;
 		map;
+		geoType;
 		updateMap();
 	}
 
@@ -817,24 +858,37 @@
 			}),
   			'bottom-left');
 			
+			// ADA sources (new_ada)
 			map.addSource('choropleth',{
 				type: 'vector',
-				url: 'pmtiles://' + choropleth,
-			});
-
-			map.addSource('choropleth_oct',{
-				type: 'vector',
-				url: 'pmtiles://' + choropleth_oct,
+				url: 'pmtiles://' + choropleth_ada,
 			});
 
 			map.addSource('centroids', {
 				type: 'vector',
-				url: 'pmtiles://' + centroids,
+				url: 'pmtiles://' + centroids_ada,
+			});
+
+			// ADA sources (old_ada - before Oct 14)
+			map.addSource('choropleth_oct',{
+				type: 'vector',
+				url: 'pmtiles://' + choropleth_ada_oct,
 			});
 
 			map.addSource('centroids_oct', {
 				type: 'vector',
-				url: 'pmtiles://' + centroids_oct,
+				url: 'pmtiles://' + centroids_ada_oct,
+			});
+
+			// CSD sources
+			map.addSource('choropleth_csd',{
+				type: 'vector',
+				url: 'pmtiles://' + choropleth_csd,
+			});
+
+			map.addSource('centroids_csd', {
+				type: 'vector',
+				url: 'pmtiles://' + centroids_csd,
 			});
 
 			map.addSource('censusDivisions', {
@@ -877,6 +931,16 @@
 				'type': 'fill',
 				'source': 'choropleth_oct',
 				'source-layer': 'choropleth',
+				'layout': {
+					'visibility': 'none',
+				},
+			});
+
+			map.addLayer({
+				'id': 'polygons_csd',
+				'type': 'fill',
+				'source': 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
 				'layout': {
 					'visibility': 'none',
 				},
@@ -981,6 +1045,18 @@
 			});
 
 			map.addLayer({
+				'id': 'outline-hover-csd',
+				'type': 'fill',
+				'source': 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				'paint': {
+					'fill-color': '#1E3765',
+					'fill-opacity': 0.5,
+				},
+				'filter': ['==', 'CSDDGUID', ''],
+			});
+
+			map.addLayer({
 				id: 'boundaries',
 				type: 'line',
 				source: 'osm',
@@ -1042,6 +1118,16 @@
 				'type': 'circle',
 				'source': 'centroids_oct',
 				'source-layer': 'centroids',
+				'layout': {
+					'visibility': 'none',
+				}
+			});
+
+			map.addLayer({
+				'id': 'centroids_csd',
+				'type': 'circle',
+				'source': 'centroids_csd',
+				'source-layer': 'centroids_csd',
 				'layout': {
 					'visibility': 'none',
 				}
@@ -1193,6 +1279,7 @@
 			
 			map.setLayerZoomRange('centroids', 1, 12);
 			map.setLayerZoomRange('centroids_oct', 1, 12);
+			map.setLayerZoomRange('centroids_csd', 1, 12);
 
 			mapQuery = {
 				metricType: metricType,
@@ -1235,7 +1322,9 @@
 			if (!e.features.length) return;
 
 			const properties = e.features[0].properties;
-			const currentZone = properties.ADADGUID;
+			const useCSD = geoType === "CSD";
+			const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
+			const currentZone = properties[guidField];
 
 			if (currentZone !== selectedZone) {
 
@@ -1249,10 +1338,18 @@
 				selectedZone = currentZone;
 
 				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
-				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
-				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
-				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
-				map.setFilter(activeOutlineLayer, ['==', 'ADADGUID', selectedZone]);
+				// Clear all outline layers
+				map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
+				map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+				map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
+				// Set active outline
+				if (useCSD) {
+					map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', selectedZone]);
+				} else if (useOctData) {
+					map.setFilter('outline-hover-oct', ['==', 'ADADGUID', selectedZone]);
+				} else {
+					map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+				}
 			}
 		};
 
@@ -1262,13 +1359,16 @@
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
 			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+			map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 		};
 
 		map.on('mousemove', 'polygons', handlePolygonHover);
 		map.on('mousemove', 'polygons_oct', handlePolygonHover);
+		map.on('mousemove', 'polygons_csd', handlePolygonHover);
 
 		map.on('mouseleave', 'polygons', handlePolygonLeave);
 		map.on('mouseleave', 'polygons_oct', handlePolygonLeave);
+		map.on('mouseleave', 'polygons_csd', handlePolygonLeave);
 
 		const handleCentroidHover = (e) => {
 			const now = performance.now();
@@ -1280,8 +1380,9 @@
 			if (!e.features.length) return;
 
 			const properties = e.features[0].properties;
-			
-			const currentZone = properties.ADADGUID;
+			const useCSD = geoType === "CSD";
+			const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
+			const currentZone = properties[guidField];
 
 			if (currentZone !== selectedZone) {
 				const dataSourceField = mapSelected && dataLayers[mapSelected] ? dataLayers[mapSelected].dataSource : null;
@@ -1293,15 +1394,24 @@
 				selectedZone = currentZone;
 
 				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
-				const activeOutlineLayer = useOctData ? 'outline-hover-oct' : 'outline-hover';
-				const inactiveOutlineLayer = useOctData ? 'outline-hover' : 'outline-hover-oct';
-				map.setFilter(inactiveOutlineLayer, ['==', 'ADADGUID', '']);
-				map.setFilter(activeOutlineLayer, ['==', 'ADADGUID', selectedZone]);
+				// Clear all outline layers
+				map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
+				map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+				map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
+				// Set active outline
+				if (useCSD) {
+					map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', selectedZone]);
+				} else if (useOctData) {
+					map.setFilter('outline-hover-oct', ['==', 'ADADGUID', selectedZone]);
+				} else {
+					map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
+				}
 			}
 		};
 
 		map.on('mousemove', 'centroids', handleCentroidHover);
 		map.on('mousemove', 'centroids_oct', handleCentroidHover);
+		map.on('mousemove', 'centroids_csd', handleCentroidHover);
 
 		const handleCentroidLeave = () => {
 			map.getCanvas().style.cursor = '';
@@ -1309,10 +1419,12 @@
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
 			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
+			map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 		};
 
 		map.on('mouseleave', 'centroids', handleCentroidLeave);
 		map.on('mouseleave', 'centroids_oct', handleCentroidLeave);
+		map.on('mouseleave', 'centroids_csd', handleCentroidLeave);
 
 	});
 
@@ -1455,6 +1567,26 @@
 				on:click={() => metricSelect("Count")}
 			>
 				Total
+			</div>
+		</div>
+
+		<div id="destext">
+		<p style="margin-bottom: -5px;">
+			Choose geographic unit:
+		</p>
+		</div>
+		<div class="button-group">
+			<div
+				class="toggle-button {geoType === 'ADA' ? 'selected' : ''}"
+				on:click={() => geoTypeSelect("ADA")}
+			>
+				Aggregate dissemination area
+			</div>
+			<div
+				class="toggle-button {geoType === 'CSD' ? 'selected' : ''}"
+				on:click={() => geoTypeSelect("CSD")}
+			>
+				Census subdivision
 			</div>
 		</div>
 
