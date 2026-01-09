@@ -6,3 +6,46 @@ analysis/input-data
 
 data/census/98-401-X2021002_eng_CSV
 data/census/lcma000b21a_e
+data/census/lcsd000b21a_e
+data/census/*.csv
+
+# Large files - ignore everywhere
+*.mbtiles
+*.geojson
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Keep small geojson files in static/docs for map features
+!static/geojson/populated-places-canada.geojson
+!static/geojson/province-points.geojson
+!static/geojson/province-state-lines.geojson
+!docs/geojson/populated-places-canada.geojson
+!docs/geojson/province-points.geojson
+!docs/geojson/province-state-lines.geojson
+
+# Old _oct system files (no longer needed - using unified ada_all/csd_all)
+analysis/old/
+*_oct.*
+**/*_oct.*
+
+# Analysis folder large files
+analysis/CSD/*.geojson
+analysis/CSD/*.shp
+analysis/CSD/*.shx
+analysis/CSD/*.dbf
+analysis/CSD/*.prj
+analysis/CSD/*.cpg
+analysis/mhdv_softlumber/
+
+# Old pmtiles structures (replaced by ada_all and csd_all)
+static/pmtiles/csd/
+static/pmtiles/new_ada/
+static/pmtiles/old_ada/
+
+# Temporary/test pmtiles
+static/pmtiles/centroids_11.pmtiles
+static/pmtiles/centroids_25.pmtiles
+static/pmtiles/choropleth_11.pmtiles

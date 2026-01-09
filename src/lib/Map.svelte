@@ -19,14 +19,12 @@
 	let addressResults="";
 
 	// Change these to have the .gz extension after .pmtiles for deployment
-	// ADA pmtiles (new_ada = after Oct 14, old_ada = before Oct 14 for lumber)
-	let choropleth_ada = "/pmtiles/new_ada/choropleth.pmtiles";
-	let centroids_ada = "/pmtiles/new_ada/centroids.pmtiles";
-	let choropleth_ada_oct = "/pmtiles/old_ada/choropleth_oct.pmtiles";
-	let centroids_ada_oct = "/pmtiles/old_ada/centroids_oct.pmtiles";
-	// CSD pmtiles
-	let choropleth_csd = "/pmtiles/csd/choropleth_csd.pmtiles";
-	let centroids_csd = "/pmtiles/csd/centroids_csd.pmtiles";
+	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
+	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles";
+	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles";
+	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
+	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles";
+	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles";
 	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
 
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
@@ -51,14 +49,7 @@
 	function tariffTypeSelect(event) {
 		tariffType = event.detail.value;
 	}
-	const selectTariffListADA = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
-	const selectTariffListCSD = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (after Oct 14)", "Medium Heavy Duty Vehicles", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
-	$: selectTariffList = geoType === "CSD" ? selectTariffListCSD : selectTariffListADA;
-	
-	// If switching to CSD while "Lumber (before Oct 14)" is selected, reset to "Lumber (after Oct 14)"
-	$: if (geoType === "CSD" && tariffType === "Lumber (before Oct 14)") {
-		tariffType = "Lumber (after Oct 14)";
-	} 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	let mapQuery;
 	$: mapQuery = {
@@ -80,26 +71,19 @@
 			map &&
 			map.isStyleLoaded() &&
 			map.getLayer("polygons") &&
-			map.getLayer("polygons_oct") &&
 			map.getLayer("polygons_csd") &&
 			map.getLayer("centroids") &&
-			map.getLayer("centroids_oct") &&
 			map.getLayer("centroids_csd")
 		) {
 			if (mapSelected) {
-				const useOctData = dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
 				const useCSD = geoType === "CSD";
 				
-				// Determine active layers based on geoType and tariffType
+				// Determine active layers based on geoType
 				let activePolygonLayer, activeCentroidLayer, activeOutlineLayer;
 				if (useCSD) {
 					activePolygonLayer = 'polygons_csd';
 					activeCentroidLayer = 'centroids_csd';
 					activeOutlineLayer = 'outline-hover-csd';
-				} else if (useOctData) {
-					activePolygonLayer = 'polygons_oct';
-					activeCentroidLayer = 'centroids_oct';
-					activeOutlineLayer = 'outline-hover-oct';
 				} else {
 					activePolygonLayer = 'polygons';
 					activeCentroidLayer = 'centroids';
@@ -107,9 +91,9 @@
 				}
 				
 				// All polygon/centroid layers
-				const allPolygonLayers = ['polygons', 'polygons_oct', 'polygons_csd'];
-				const allCentroidLayers = ['centroids', 'centroids_oct', 'centroids_csd'];
-				const allOutlineLayers = ['outline-hover', 'outline-hover-oct', 'outline-hover-csd'];
+				const allPolygonLayers = ['polygons', 'polygons_csd'];
+				const allCentroidLayers = ['centroids', 'centroids_csd'];
+				const allOutlineLayers = ['outline-hover', 'outline-hover-csd'];
 				const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
 
 				// Hide all outline layers
@@ -269,8 +253,8 @@
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_1_old": {
-			dataSource: "Lum_1",
+		"LumOld_1": {
+			dataSource: "LumOld_1",
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Lumber (before Oct 14)",
@@ -278,8 +262,8 @@
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_1": {
-			dataSource: "Lum_1",
+		"LumNew_1": {
+			dataSource: "LumNew_1",
 			metricType: "Percent",
 			impactType: "Business",
 			tariffType: "Lumber (after Oct 14)",
@@ -359,8 +343,8 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_2_old": {
-			dataSource: "Lum_2",
+		"LumOld_2": {
+			dataSource: "LumOld_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "Lumber (before Oct 14)",
@@ -368,8 +352,8 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_2": {
-			dataSource: "Lum_2",
+		"LumNew_2": {
+			dataSource: "LumNew_2",
 			metricType: "Percent",
 			impactType: "EmployeeWork",
 			tariffType: "Lumber (after Oct 14)",
@@ -449,8 +433,8 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_3_old": {
-			dataSource: "Lum_3",
+		"LumOld_3": {
+			dataSource: "LumOld_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Lumber (before Oct 14)",
@@ -458,8 +442,8 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_3": {
-			dataSource: "Lum_3",
+		"LumNew_3": {
+			dataSource: "LumNew_3",
 			metricType: "Percent",
 			impactType: "EmployeeHome",
 			tariffType: "Lumber (after Oct 14)",
@@ -544,8 +528,8 @@
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_B_old": {
-			dataSource: "Lum_B",
+		"LumOld_B": {
+			dataSource: "LumOld_B",
 			metricType: "Count",
 			impactType: "Business",
 			tariffType: "Lumber (before Oct 14)",
@@ -554,8 +538,8 @@
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_B": {
-			dataSource: "Lum_B",
+		"LumNew_B": {
+			dataSource: "LumNew_B",
 			metricType: "Count",
 			impactType: "Business",
 			tariffType: "Lumber (after Oct 14)",
@@ -644,8 +628,8 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_E_old": {
-			dataSource: "Lum_E",
+		"LumOld_E": {
+			dataSource: "LumOld_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
 			tariffType: "Lumber (before Oct 14)",
@@ -654,8 +638,8 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_E": {
-			dataSource: "Lum_E",
+		"LumNew_E": {
+			dataSource: "LumNew_E",
 			metricType: "Count",
 			impactType: "EmployeeWork",
 			tariffType: "Lumber (after Oct 14)",
@@ -744,8 +728,8 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Copper Tariffs on Canada",
 		},
-		"Lum_C_old": {
-			dataSource: "Lum_C",
+		"LumOld_C": {
+			dataSource: "LumOld_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
 			tariffType: "Lumber (before Oct 14)",
@@ -754,8 +738,8 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
 		},
-		"Lum_C": {
-			dataSource: "Lum_C",
+		"LumNew_C": {
+			dataSource: "LumNew_C",
 			metricType: "Count",
 			impactType: "EmployeeHome",
 			tariffType: "Lumber (after Oct 14)",
@@ -858,7 +842,7 @@
 			}),
   			'bottom-left');
 			
-			// ADA sources (new_ada)
+			// ADA sources (ada_all - contains both LumOld and LumNew)
 			map.addSource('choropleth',{
 				type: 'vector',
 				url: 'pmtiles://' + choropleth_ada,
@@ -869,18 +853,7 @@
 				url: 'pmtiles://' + centroids_ada,
 			});
 
-			// ADA sources (old_ada - before Oct 14)
-			map.addSource('choropleth_oct',{
-				type: 'vector',
-				url: 'pmtiles://' + choropleth_ada_oct,
-			});
-
-			map.addSource('centroids_oct', {
-				type: 'vector',
-				url: 'pmtiles://' + centroids_ada_oct,
-			});
-
-			// CSD sources
+			// CSD sources (csd_all - contains both LumOld and LumNew)
 			map.addSource('choropleth_csd',{
 				type: 'vector',
 				url: 'pmtiles://' + choropleth_csd,
@@ -920,16 +893,6 @@
 				'id': 'polygons',
 				'type': 'fill',
 				'source': 'choropleth',
-				'source-layer': 'choropleth',
-				'layout': {
-					'visibility': 'none',
-				},
-			});
-
-			map.addLayer({
-				'id': 'polygons_oct',
-				'type': 'fill',
-				'source': 'choropleth_oct',
 				'source-layer': 'choropleth',
 				'layout': {
 					'visibility': 'none',
@@ -1033,18 +996,6 @@
 			});
 
 			map.addLayer({
-				'id': 'outline-hover-oct',
-				'type': 'fill',
-				'source': 'choropleth_oct',
-				'source-layer': 'choropleth',
-				'paint': {
-					'fill-color': '#1E3765',
-					'fill-opacity': 0.5,
-				},
-				'filter': ['==', 'ADADGUID', ''],
-			});
-
-			map.addLayer({
 				'id': 'outline-hover-csd',
 				'type': 'fill',
 				'source': 'choropleth_csd',
@@ -1110,16 +1061,6 @@
 				'layout': {
 					'visibility': 'none',
 					// "circle-sort-key": ["get", "Total_C"]
-				}
-			});
-
-			map.addLayer({
-				'id': 'centroids_oct',
-				'type': 'circle',
-				'source': 'centroids_oct',
-				'source-layer': 'centroids',
-				'layout': {
-					'visibility': 'none',
 				}
 			});
 
@@ -1278,7 +1219,6 @@
 			});
 			
 			map.setLayerZoomRange('centroids', 1, 12);
-			map.setLayerZoomRange('centroids_oct', 1, 12);
 			map.setLayerZoomRange('centroids_csd', 1, 12);
 
 			mapQuery = {
@@ -1337,16 +1277,12 @@
 
 				selectedZone = currentZone;
 
-				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
 				// Clear all outline layers
 				map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-				map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
 				map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 				// Set active outline
 				if (useCSD) {
 					map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', selectedZone]);
-				} else if (useOctData) {
-					map.setFilter('outline-hover-oct', ['==', 'ADADGUID', selectedZone]);
 				} else {
 					map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
 				}
@@ -1358,16 +1294,13 @@
 			selectedZone = "";
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
 			map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 		};
 
 		map.on('mousemove', 'polygons', handlePolygonHover);
-		map.on('mousemove', 'polygons_oct', handlePolygonHover);
 		map.on('mousemove', 'polygons_csd', handlePolygonHover);
 
 		map.on('mouseleave', 'polygons', handlePolygonLeave);
-		map.on('mouseleave', 'polygons_oct', handlePolygonLeave);
 		map.on('mouseleave', 'polygons_csd', handlePolygonLeave);
 
 		const handleCentroidHover = (e) => {
@@ -1393,16 +1326,12 @@
 
 				selectedZone = currentZone;
 
-				const useOctData = mapSelected && dataLayers[mapSelected] && dataLayers[mapSelected].tariffType === "Lumber (before Oct 14)";
 				// Clear all outline layers
 				map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-				map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
 				map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 				// Set active outline
 				if (useCSD) {
 					map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', selectedZone]);
-				} else if (useOctData) {
-					map.setFilter('outline-hover-oct', ['==', 'ADADGUID', selectedZone]);
 				} else {
 					map.setFilter('outline-hover', ['==', 'ADADGUID', selectedZone]);
 				}
@@ -1410,7 +1339,6 @@
 		};
 
 		map.on('mousemove', 'centroids', handleCentroidHover);
-		map.on('mousemove', 'centroids_oct', handleCentroidHover);
 		map.on('mousemove', 'centroids_csd', handleCentroidHover);
 
 		const handleCentroidLeave = () => {
@@ -1418,12 +1346,10 @@
 			selectedZone = "";
 			selectedValue = "";
 			map.setFilter('outline-hover', ['==', 'ADADGUID', '']);
-			map.setFilter('outline-hover-oct', ['==', 'ADADGUID', '']);
 			map.setFilter('outline-hover-csd', ['==', 'CSDDGUID', '']);
 		};
 
 		map.on('mouseleave', 'centroids', handleCentroidLeave);
-		map.on('mouseleave', 'centroids_oct', handleCentroidLeave);
 		map.on('mouseleave', 'centroids_csd', handleCentroidLeave);
 
 	});
