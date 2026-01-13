@@ -84,10 +84,12 @@
 					activePolygonLayer = 'polygons_csd';
 					activeCentroidLayer = 'centroids_csd';
 					activeOutlineLayer = 'outline-hover-csd';
+					map.setPaintProperty('outline', 'line-opacity', 0.05); // changes appearance of ADA boundaries
 				} else {
 					activePolygonLayer = 'polygons';
 					activeCentroidLayer = 'centroids';
 					activeOutlineLayer = 'outline-hover';
+					map.setPaintProperty('outline', 'line-opacity', 0.2);  // changes appearance of ADA boundaries
 				}
 				
 				// All polygon/centroid layers
@@ -920,17 +922,17 @@
 				}
 			});
 
-			map.addLayer({
-				'id': 'streets',
-				'type': 'line',
-				'source': 'osm',
-				'source-layer': 'streets',
-				'paint': {
-					'line-color': 'black',
-					'line-width': 1,
-					'line-opacity': 0.04
-				}
-			});
+			// map.addLayer({
+			// 	'id': 'streets',
+			// 	'type': 'line',
+			// 	'source': 'osm',
+			// 	'source-layer': 'streets',
+			// 	'paint': {
+			// 		'line-color': 'black',
+			// 		'line-width': 1,
+			// 		'line-opacity': 0.04
+			// 	}
+			// });
 
 			map.addLayer({
 				id: 'ne_water_fill',
@@ -979,7 +981,23 @@
 						3, 1,  
 						16, 2
 					],
-					'line-opacity': 0.25
+					'line-opacity': 0.15
+				}
+			});
+
+			map.addLayer({
+				id: 'outline-csd',
+				type: 'line',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'line-color': '#808080',
+					'line-width': [
+						'interpolate', ['linear'], ['zoom'],
+						4, 0,  
+						17, 3
+					],
+					'line-opacity': 0.4
 				}
 			});
 
@@ -1506,13 +1524,13 @@
 				class="toggle-button {geoType === 'ADA' ? 'selected' : ''}"
 				on:click={() => geoTypeSelect("ADA")}
 			>
-				Aggregate dissemination area
+				Aggregate dissemination areas
 			</div>
 			<div
 				class="toggle-button {geoType === 'CSD' ? 'selected' : ''}"
 				on:click={() => geoTypeSelect("CSD")}
 			>
-				Census subdivision
+				Census subdivisions (municipalities)
 			</div>
 		</div>
 
@@ -1890,7 +1908,6 @@
 		border: 1px solid var(--brandGray);
 		border-radius: 5px;
 		cursor: pointer;
-		font-size: 14px;
 		opacity: 0.5;
 		background-color: var(--brandWhite);
 		color: var(--brandDarkGray);
