@@ -9,7 +9,7 @@ As of August 2025, the Tariffs include the following:
 3)	50% tariffs on aluminum, and its derivative products (HTS 9903.85.02, 9903.85.04, 9903.85.07, 9903.85.08)
 4)	25% tariffs on automobiles, and its parts (HTS 9903.94.01, 9903.94.03, 9903.94.05)
 5)	50% tariffs on semi-finished copper and intensive copper derivative products (HTS 9903.78.01)
-6)	Duties on softwood lumber (This is included because it remains an economic measure that the US continues to impose on Canada, even if it has not been explicitly threatened as a tariff as of July 2025)
+6)	10% tariffs on softwood lumber (into effect October 14, 2025)
 7)	35% tariffs on all Canadian products not covered by CUSMA
 
 Data on employees (by primary residence) are derived from Census 2021 data
@@ -27,6 +27,7 @@ Employees (by work location) are defined from the employee ranges provided in th
 -	500 + -->	550 employees
 
 ## DATA SOURCES
+#### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
 1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
 2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
 3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
