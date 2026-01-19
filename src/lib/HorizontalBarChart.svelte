@@ -31,6 +31,7 @@
 
     let metricType = $state("Count"); // ["Percent", "Count"]
     let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
+    let geoType = $state("CMA"); // ["CMA"] - ADA/CSD data not yet available for bar charts
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
     let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
 
@@ -165,6 +166,10 @@
         scaleType = value;
     }
 
+    function geoTypeSelect(value) {
+        geoType = value;
+    }
+
     function impactTypeSelect(value) {
         impactType = value;
     }
@@ -198,6 +203,22 @@
                 listOffset = {10}
                 on:change = {tariffTypeSelect}
             />
+        </div>
+
+        <div id="destext">
+            <p style="margin-bottom: -5px;">
+                Select a geographic level:
+            </p>
+        </div>
+        <div class="button-group" style="margin-top: 10px;">
+            <button
+                class="toggle-button {geoType === 'CMA' ? 'selected' : ''}"
+                type="button"
+                onclick={() => geoTypeSelect("CMA")}
+            >
+                Census Metropolitan Areas
+            </button>
+            <!-- ADA/CSD options can be added when JSON data is available -->
         </div>
     
         <div id="destext">
