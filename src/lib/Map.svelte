@@ -20,12 +20,12 @@
 
 	// Change these to have the .gz extension after .pmtiles for deployment
 	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles";
-	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles";
+	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles.gz";
+	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles.gz";
 	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
-	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles";
-	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
+	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles.gz";
+	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles.gz";
+	let censusDivisions = "/pmtiles/census-divisions.pmtiles.gz";
 
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
@@ -1448,7 +1448,7 @@
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
 			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
-			<i>First published October 2025. Updated November 2025.</i>
+			<i>First published October 2025. Updated January 2026.</i>
 		</p>
 
 		<div id = "select-wrapper">
