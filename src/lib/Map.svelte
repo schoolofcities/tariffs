@@ -18,10 +18,12 @@
 	let addressQuery="";
 	let addressResults="";
 
-	// Change these to have the .gz extension after .pmtiles for deployment
+	// **Change these to have the .gz extension after .pmtiles for deployment**
+
 	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
 	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles.gz";
 	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles.gz";
+
 	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
 	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles.gz";
 	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles.gz";
