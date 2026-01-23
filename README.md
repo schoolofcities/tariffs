@@ -73,19 +73,20 @@ All data can be found and downloaded from the 'analysis' folder, with the except
 
 11)	[Refer to Jupter notebook] Results from Step 10 are then processed to be appended to the choropleth and centroid maps. They will both be saved as GeoJSON files.
 
-12)	Convert the GeoJSON files into PMTiles via Windows Subsystem for Linux with the following codes:
+12)	Convert the GeoJSON files into MBTiles, then PMTiles via Windows Subsystem for Linux with the following codes:
     
 _For Choropleth Map (note: adjust the simplification value accordingly if there's more data to be added)_
 ```
-tippecanoe -Z 0 -z 12 --output=choropleth.pmtiles --detect-shared-borders --drop-fraction-as-needed --coalesce --simplification=6 --drop-densest-as-needed choropleth.geojson
+tippecanoe -Z 0 -z 12 --output=choropleth.mbtiles --detect-shared-borders --drop-fraction-as-needed --coalesce --simplification=6 --drop-densest-as-needed choropleth.geojson
 ```
 	
  _For Centroid Map_
 ```
-tippecanoe -Z 0 -z 12 --output=centroids.pmtiles --drop-rate=0 centroids.geojson
+tippecanoe -Z 0 -z 12 --output=centroids.mbtiles --drop-rate=0 centroids.geojson
 ```
 
-Note: tippecanoe by default outputs mbtiles, so you may need to install pmtiles and convert it like so:
+13) Tippecanoe by default outputs mbtiles, so you may need to install pmtiles and convert it like so:
+
 ```
 wget https://github.com/protomaps/go-pmtiles/releases/download/v1.22.1/go-pmtiles_1.22.1_Linux_x86_64.tar.gz
 
@@ -93,4 +94,6 @@ tar -xzf go-pmtiles_1.22.1_Linux_x86_64.tar.gz
 
 pmtiles convert choropleth.mbtiles choropleth.pmtiles
 ```
+
+14) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
 
