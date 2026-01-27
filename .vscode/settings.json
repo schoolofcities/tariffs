@@ -1,6 +1,0 @@
-{
-    "editor.formatOnSave": false,
-    "[svelte]": {
-        "editor.formatOnSave": false
-    }
-}
