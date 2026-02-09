@@ -17,7 +17,7 @@
 {#if !isAuthenticated}
 	<div class="overlay">
 		<div class="password-box">
-			<h3>This page is under development :)</h3><br>
+			<h3>This page is under development :) Please do not share without permission.</h3><br>
 		<input
 			type="password"
 			bind:value={password}
