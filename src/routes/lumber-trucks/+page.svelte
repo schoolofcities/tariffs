@@ -255,7 +255,7 @@
 		</p>
 
 		<p>
-			AD and CVD rates have been imposed since the 1980s. However, from 2019 to 2023, AD & CVD rates of imported softwood lumber increased significantly with rates reaching <a href="https://www.congress.gov/crs-product/R48781?">17% in 2019 to 35% in 2023 for AD</a>, with combined AD/CVD rates pushing in the 40 percentile range depending on the company. 
+			AD and CVD rates have been imposed since the 1980s. However, from 2019 to 2023, these rates of imported softwood lumber increased significantly with rates reaching <a href="https://www.congress.gov/crs-product/R48781?">17% in 2019 to 35% in 2023 for AD</a>, with combined AD/CVD rates pushing in the 40th percentile range depending on the year & company. 
 			Meanwhile, MHDVs used to remain safe under Section 232 national security tariffs until these tariffs.
 		</p>
 
