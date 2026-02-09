@@ -60,7 +60,7 @@
 
 
 
-<!-- <Password/> -->
+<Password/>
 
 
 <main>
@@ -135,10 +135,16 @@
 
 		<p>
 			Canada's softwood lumber and medium heavy duty vehicle (truck) industries are some of the country's biggest export items. 
-			We are one of the largest producers of softwood lumber across the world, which <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm"> was valued at $10 billion in 2020</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of U.S.'s softwood lumber imports</a>. 
+		</p>
+
+		<p>	
+			Canada is one of the largest producers of softwood lumber across the world, which <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm"> was valued at $10 billion in 2020</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of U.S.'s softwood lumber imports</a>. 
 			Softwood, fast growing trees that have a wide range of uses in framing material and furniture, accounts for <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">98%</a> of all lumber types in Canada and is a major industry across the interior regions of provinces. 
 			Especially in British Columbia, the softwood industry fills in <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">~46% of Canada's lumber exports</a> to the U.S.. 
 			<!-- B.C., Quebec, Ontario, Alberta, and New Brunswick account for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">95% of softwood lumber production</a>. -->
+		</p>
+
+		<p>	
 			Medium heavy duty vehicles (MHDVs) consist of garbage trucks, long haul trucks and delivery vehicles ranging from classes 2B to 8 (8,501 - 33,000+ lbs). 
 			This sector is often grouped with all vehicles and parts, which accounted for <a href="https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2023-06-13-ciit?">13.2% of the share of exported merchandises to the U.S.</a>, the second largest category.
 		</p>
@@ -149,25 +155,23 @@
 		<p>
 			The Canadian lumber economy is deeply integrated with the U.S. materials industry.
 			In 2020, nearly 70% of all softwood lumber production was exported, with <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">84% of those exports to the U.S.</a> due to the demand for lumber in housing and construction.
+		</p>
+
+		<p>	
 			Despite Canada being the primary source of imported lumber (<a href="https://wits.worldbank.org/CountryProfile/en/Country/USA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/44-49_Wood">~40% of U.S. wood product imports</a>), the U.S. has imposed duties over the past four decades to protect their domestic lumber industry. 
 			Canadian lumber companies have fought against anti-dumping (AD) and countervailing duties (CVD) through NAFTA, WTO, U.S. courts, and more recently, CUSMA. 
-			Canada and the U.S. have agreed upon a <a href="https://www.treaty-accord.gc.ca/text-texte.aspx?id=105072&lang=eng">Softwood Lumber Agreement</a> (SLA) from 2006-2015, which proved stable for Canadians; however, the duties returned in 2017 19 months after the agreement expired.
+			Canada and the U.S. have agreed upon a <a href="https://www.treaty-accord.gc.ca/text-texte.aspx?id=105072&lang=eng">Softwood Lumber Agreement</a> (SLA) from 2006-2015, which proved stable for Canadians; however, the duties returned in 2017, 19 months after the agreement expired.
 			During COVID-19, <a href="https://www150.statcan.gc.ca/n1/pub/62f0014m/62f0014m2022011-eng.htm?">the producer price of softwood lumber more than tripled</a> because of an increase in demand for single detached home construction driven by excess household savings and low interest rates.
 			Since then, lumber has been <a href="https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2025-08">falling in exports since 2020</a>, a trend exacerbated by the tariffs.
-			
+		</p>
+
+		<p>	
 			The chart below shows Canada’s lumber exports to the U.S. in dollar amounts for HS code 4407, which is mainly softwood lumber. While the proportion of Canada’s exports to the U.S. compared to the world has remained consistent from 2019 - 2024, it dropped in 2025 due to Trump's second administration. 
 
 			For exports to the U.S., Global Affairs Canada <a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng">reported an estimated $6.06 billion</a> in exports in 2025 (calculated from the monthly U.S. exports report).
 		</p>
 
-		<p>
-			Tensions between Canada and U.S.'s automotive and truck industry have increased since Trump's presidency. 
-			Canada makes roughly <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">4% of U.S. auto parts</a> and builds <a href="https://www.cvma.ca/wp-content/uploads/2025/03/CVMA-5-facts-about-Canada-US-auto-trade.pdf">9% of U.S. vehicles</a>, but is a key component in keeping their assembly factories running. 
-			For example, in 2023, <a href="https://edco.on.ca/wp-content/uploads/EN_Canada-U.S.-Core-Facts_Feb-21-2025-update.pdf?">50% of Canadian auto exports went to Michigan alone</a>, where many of Windsor's engine plants supply Ford's assembly plants. 
-			Automotive tariffs (passenger vehicles and light trucks) were placed in effect in spring 2025 with medium and heavy duty vehicle tariffs coming into effect later in the fall.
-			In anticipation of the tariffs to MHDVs, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260108/dq260108a-eng.htm">October sales rose 24.7%</a> compared to September 2025. 
-			In November 2025, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260129/dq260129a-eng.htm">MHDV exports fell 53.8% compared to October 2025</a>, denoting significant changes due to the tariffs. The broader automotive sector was also affected by semiconductor shortages, resulting in a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">15.9% decline in motor vehicle manufacturing sales, a 6.3% decline in motor vehicle parts sales month over month, and motor vehicle sales down 20.7% from November 2024.</a> 
-		</p>
+		
 
 	</div>
 
@@ -188,6 +192,30 @@
 			A focus on domestic investment and diversification is in motion with an emphasis on <a href="https://www.pm.gc.ca/en/news/news-releases/2025/11/26/prime-minister-carney-announces-new-measures-protect-and-transform">building with local lumber</a>.
 		</p>
 
+		</div>
+
+			<ImageSingle
+				imageURL="./lumber-trucks/img/estimated_exports_lumber_2025.png"
+				caption='Estimated export value of Canadian softwood lumber by foot board measure and monthly reference price'
+				source='<br><a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng">Global Affairs Canada on softwood lumber</a>'
+				maxWidth='680px'
+				link='No'
+			/>
+
+			<div class="text">
+
+		<p>
+			Tensions between Canada and U.S.'s automotive and truck industry have increased since Trump's presidency. 
+			Canada makes roughly <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">4% of U.S. auto parts</a> and builds <a href="https://www.cvma.ca/wp-content/uploads/2025/03/CVMA-5-facts-about-Canada-US-auto-trade.pdf">9% of U.S. vehicles</a>, but is a key component in keeping their assembly factories running. 
+			For example, in 2023, <a href="https://edco.on.ca/wp-content/uploads/EN_Canada-U.S.-Core-Facts_Feb-21-2025-update.pdf?">50% of Canadian auto exports went to Michigan alone</a>, where many of Windsor's engine plants supply Ford's assembly plants. 
+		</p>
+
+		<p>
+			Automotive tariffs (passenger vehicles and light trucks) were placed in effect in spring 2025 with medium and heavy duty vehicle tariffs coming into effect later in the fall.
+			In anticipation of the tariffs to MHDVs, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260108/dq260108a-eng.htm">October sales rose 24.7%</a> compared to September 2025. 
+			In November 2025, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260129/dq260129a-eng.htm">MHDV exports fell 53.8% compared to October 2025</a>, denoting significant changes due to the tariffs. The broader automotive sector was also affected by semiconductor shortages, resulting in a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">15.9% decline in motor vehicle manufacturing sales, a 6.3% decline in motor vehicle parts sales month over month, and motor vehicle sales down 20.7% from November 2024.</a> 
+		</p>
+
 		<p>
 			On November 1st, 2025, <a href="https://www.reuters.com/legal/legalindustry/truck-tariffs-signal-broader-us-supply-chain-rebuild--pracin-2025-11-10/">medium and heavy duty vehicle and bus tariffs were imposed</a>. 
 			This category not only includes the MHDVs, but also buses, which now covers the vast majority of manufactured vehicles.
@@ -195,17 +223,7 @@
 			On February 5, 2026, Carney announced a push for <a href="https://www.ttnews.com/articles/canada-scrap-eve-rules">an import credit system</a>, which would alleviate tariffs for companies that meet a certain production threshold. This follows a $2.3 billion program for Canadians to purchase EV vehicles in partnerships with Chinese automakers.
 		</p>
 
-	</div>
-
-	<ImageSingle
-		imageURL="./lumber-trucks/img/estimated_exports_lumber_2025.png"
-		caption='Estimated export value of Canadian softwood lumber by foot board measure and monthly reference price'
-		source='<br><a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng">Global Affairs Canada on softwood lumber</a>'
-		maxWidth='680px'
-		link='No'
-	/>
-
-	<div class="text">
+	
 
 		<p>
 			Similar to the findings in our <a href="/potential-local-impacts">preliminary findings</a>, Canada’s lumber and truck industry is highly tied to the U.S. due to the geographic convenience and demand of U.S. imports.
@@ -289,9 +307,10 @@
 		</h2>
 
 		<p>
+			Using our  <a href="./map">mapping and visualization tool</a> we can trace potential tariff vulnerabilities across Canada. 
+			The new softwood lumber tariffs widely affected interior regions of provinces, most notably the B.C. Interior, Northern Québec, Northern Ontario, and the Maritimes.
 		</p>
-		Using our  <a href="./map">mapping and visualization tool</a> we can trace potential tariff vulnerabilities across Canada. 
-		The new softwood lumber tariffs widely affected interior regions of provinces, most notably the B.C. Interior, Northern Québec, Northern Ontario, and the Maritimes.
+		
 
 	</div>
 
