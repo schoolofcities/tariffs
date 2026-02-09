@@ -13,7 +13,7 @@
 	const links = [
 		{ name: "Homepage", url: "./" },
 		{ name: "Background and findings", url: "./potential-local-impacts" },
-		{ name: "Lumber and Trucks", url: "./lumber-trucks" },
+		// { name: "Lumber and Trucks", url: "./lumber-trucks" },
 		{ name: "National map", url: "./map" },
 		{ name: "Metro area rankings", url: "./cma-ranking-charts" }
 	];
