@@ -206,11 +206,12 @@
 			tariff on non-CUSMA compliant auto parts</a> (effective:
 			May 3, 2025);</li>
 			<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/07/adjusting-imports-of-copper-into-the-united-states/" target="_blank">50%
-			tariff on copper</a> (effective: August 1, 2025); and</li>
-			<li><a href="https://globalnews.ca/news/11324819/softwood-lumber-duties/" target="_blank">Duties
-			of approximately 35% on Canadian softwood lumber</a> (at
-			time of writing, we note that lumber tariffs are <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">set
-			to increase</a> and widen in their scope).</li>
+			tariff on copper</a> (effective: August 1, 2025); </li>
+			<li><a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">Duties
+			of approximately 45% on Canadian softwood lumber (10% new tariffs, 35% anti-dumping & countervailing)</a> 
+			There was a 25% tariff on upholstered furniture, kitchen cabinets, and vanities looped under this section as well which was <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">planned to be increased</a> for January 1, 2026, 
+			but <a href="https://www.whitehouse.gov/fact-sheets/2025/12/fact-sheet-president-donald-j-trump-adjusts-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">the increase has been delayed</a>; and</li>
+			<li>A <a href="https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/supporting-exporters-through-tariff-challenges.html"> 25%</a> tariff on medium and heavy duty vehicles (trucks) (effective November 1, 2025); </li>	
 		</ul>
 
 		<p>
