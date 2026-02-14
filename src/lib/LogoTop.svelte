@@ -13,7 +13,9 @@
 	const links = [
 		{ name: "Homepage", url: "./" },
 		{ name: "Background and findings", url: "./potential-local-impacts" },
-		// { name: "Lumber and Trucks", url: "./lumber-trucks" },
+		{ name: "Lumber", url: "./lumber" },
+		{ name: "Trucks", url: "./trucks" },
+		{ name: "Current tariffs", url: "./current-tariffs" },
 		{ name: "National map", url: "./map" },
 		{ name: "Metro area rankings", url: "./cma-ranking-charts" }
 	];

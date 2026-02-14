@@ -160,9 +160,17 @@
 			<a href="./potential-local-impacts">Read our backgrounder and blog</a> on Canada-U.S. trade and mapping direct exposure to tariffs.
 		</li>
 
-		<!-- <li>
-			<a href="./lumber-trucks">An update on lumber and trucks</a> — potential local impacts on softwood lumber and medium & heavy duty vehicle tariffs.
-		</li> -->
+		<li>
+			<a href="./lumber">Read about the impact of lumber tariffs</a> on Canadian cities, with a focus on softwood lumber exports.
+		</li>
+
+		<li>
+			<a href="./trucks">Read about the impact of truck tariffs</a> on medium & heavy duty vehicle manufacturing and exports.
+		</li>
+
+		<li>
+			<a href="./current-tariffs">View the current list of U.S. tariffs on Canada</a>.
+		</li>
 
 		<li>
 			<a href="https://github.com/schoolofcities/tariffs" target="_blank">Learn more about our research methodology</a>.
