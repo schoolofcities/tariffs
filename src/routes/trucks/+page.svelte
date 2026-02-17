@@ -58,7 +58,7 @@
 </svelte:head>
 
 
-<!-- <Password/> -->
+<Password/>
 
 
 <main>
@@ -66,7 +66,7 @@
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/lumberhorizontal.png"
+		imageURL="./lumber-trucks/img/truckscover.png"
 		caption=''
 		source=''
 		maxWidth='685px'
