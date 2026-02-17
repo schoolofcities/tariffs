@@ -36,7 +36,7 @@
 
 <svelte:head>
 
-	<title>The Impacts of Lumber Tariffs on Canadian Cities | School of Cities</title>
+	<title>The impacts of lumber tariffs on Canadian cities | School of Cities</title>
 
 	<meta name="description" content="An update on potential local lumber impacts on jobs and businesses across Canada via maps and charts" />
 	<meta name="author" content="School of Cities">
@@ -66,7 +66,7 @@
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/lumberhorizontal.png"
+		imageURL="./lumber/img/lumberhorizontal.png"
 		caption=''
 		source=''
 		maxWidth='685px'
@@ -74,7 +74,7 @@
 	/>
 
 	<TitleStandard
-		title="The Impacts of Lumber Tariffs on Canadian Cities"
+		title="The impacts of lumber tariffs on Canadian cities"
 		subtitle="An update on potential local lumber impacts on jobs and businesses across Canada"
 	/>
 
@@ -94,13 +94,13 @@
 		</p>
 
 		<p>	
-			Canada is one of the world's largest producers of softwood lumber, which <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm"> was valued at $10 billion in 2020</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of U.S.'s softwood lumber imports</a>. 
-			Softwood, fast growing trees that have a wide range of uses in framing material and furniture, accounts for <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">98%</a> of all lumber types in Canada and is a major industry across the interior regions of provinces, especially in British Columbia, where the softwood industry accounts for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">~46% of Canada's lumber exports</a> to the U.S.. 
+			Canada is one of the world's largest producers of softwood lumber, which <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm"> was valued at $10 billion</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of the United States' softwood lumber imports</a> in 2020. 
+			Softwood, fast growing trees that have a wide range of uses in framing material and furniture, accounts for <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">98%</a> of all lumber types in Canada and is a major industry across the interior regions of provinces — especially in British Columbia, where the softwood industry accounts for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">~46% of Canada's lumber exports</a> to the U.S.. 
 			<!-- B.C., Quebec, Ontario, Alberta, and New Brunswick account for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">95% of softwood lumber production</a>. -->
 		</p>
 
 		<h2>
-			Background: Canada-US Lumber Trade
+			Background: Canada-U.S. lumber trade
 		</h2>
 		<p>
 			The Canadian lumber economy is deeply integrated with the U.S. materials industry.
@@ -108,29 +108,29 @@
 		</p>
 
 		<p>	
-			Despite Canada being its primary source of imported lumber (<a href="https://wits.worldbank.org/CountryProfile/en/Country/USA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/44-49_Wood">~40% of U.S. wood product imports</a>), the U.S. has imposed duties over the past four decades to protect their domestic lumber industry. 
+			Despite Canada being its primary source of imported lumber (<a href="https://wits.worldbank.org/CountryProfile/en/Country/USA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/44-49_Wood">~40% of U.S. wood product imports</a>), the U.S. has imposed duties over the past four decades to leverage their domestic lumber industry. 
 			Canadian lumber companies have fought against anti-dumping (AD) and countervailing duties (CVD) through NAFTA, WTO, U.S. courts, and more recently, CUSMA. 
-			Canada and the U.S. have agreed upon a <a href="https://www.treaty-accord.gc.ca/text-texte.aspx?id=105072&lang=eng">Softwood Lumber Agreement</a> (SLA) from 2006-2015, which proved stability for Canadians; however, the duties returned in 2017, 19 months after the agreement expired.
+			Both countries have agreed upon a <a href="https://www.treaty-accord.gc.ca/text-texte.aspx?id=105072&lang=eng">Softwood Lumber Agreement</a> (SLA) from 2006-2015, which proved stability for Canadians; however, the duties returned in 2017, 19 months after the agreement expired.
 			During COVID-19, <a href="https://www150.statcan.gc.ca/n1/pub/62f0014m/62f0014m2022011-eng.htm?">the producer price of softwood lumber more than tripled</a> because of an increase in demand for single detached home construction driven by excess household savings and low interest rates.
 			Since then, lumber has been <a href="https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2025-08">falling in exports</a>, a trend exacerbated by the tariffs.
 		</p>
 
 		<p>	
 			The chart below (Figure 1) shows Canada’s lumber exports to the U.S. in dollar amounts for HS code 4407, which is mainly softwood lumber. 
-			While proportion of Canada’s exports to the U.S. compared to the world has remained consistent from 2019 - 2024, the <a href="https://tradingeconomics.com/commodity/lumber">dollar value fluctuated</a> due to inflation, COVID-19, and supply & demand.
+			While the proportion of Canada’s exports to the U.S. compared to the world has remained consistent from 2019 - 2024, the <a href="https://tradingeconomics.com/commodity/lumber">dollar value of lumber fluctuated</a> due to inflation, COVID-19, and supply & demand, leading to rises and falls.
 			
 		</p>
 
 		<GraphicSingle
-			svg360="./lumber-trucks/web-svg/slw_yearly_export_value-360.svg"
-			svg720="./lumber-trucks/web-svg/slw_yearly_export_value-720.svg"
+			svg360="./lumber/web-svg/slw_yearly_export_value-360.svg"
+			svg720="./lumber/web-svg/slw_yearly_export_value-720.svg"
 			caption="Figure 1: Estimated Yearly Export Value of Softwood Lumber to the U.S."
 			source='Source: <a href="https://comtradeplus.un.org/" target="_blank">United Nations Trade Statistics</a>'
 		/>
 
 		<p>
-			The value of lumber rose more than tripled from mid-2020 to June 2021 because of a <a href="https://www.fastmarkets.com/insights/lumber-market-price-demand-and-capacity/">home improvement boom</a> from houseowners with excess time and disposable income due to having positions less impacted by layoffs.
-			After the price surges caused <a href="https://fortune.com/2021/07/20/lumber-prices-2021-chart-price-of-lumber-july-2021-update-cost-of-wood/">houseowners to decrease their DIY projects and mills to catch up on supply</a>, lumber returned to the pre-pandemic price range in July 2021. In November 2021, a <a href="https://www.cbc.ca/news/canada/british-columbia/landslides-disaster-logging-wildfires-study-1.7490041">historic landslide event</a> that killed 5 and forced 18,000 people to evacuate, seized supply from Canada's largest softwood exporter, causing prices to surge again.
+			Due to the price surges from the home improvement boom in 2021, <a href="https://fortune.com/2021/07/20/lumber-prices-2021-chart-price-of-lumber-july-2021-update-cost-of-wood/">houseowners decreased their DIY projects and mills caught up on supply</a>. 
+			Lumber briefly returned to the pre-pandemic price range in July 2021, but in November, a <a href="https://www.cbc.ca/news/canada/british-columbia/landslides-disaster-logging-wildfires-study-1.7490041">historic landslide event</a> that killed 5 and forced 18,000 people to evacuate, seized supply from Canada's largest softwood exporter, causing prices to surge again.
 			After supply recovered in 2022, the <a href="https://www.congress.gov/crs-product/IN12388">Federal Reserve hiked up interest rates to over 5% to combat inflation</a>, which plummeted demand. 
 			Therefore, the lack of demand decreased the overall export valuation of softwood lumber.
 		</p>
@@ -143,17 +143,15 @@
 	<div class="text">
 
 		<p>
-			This pattern holds true in 2025 as seen in Figure 2. 
+			Economic fluctuation between the borders affects lumber value as seen in Figure 2.
 			On October 14, 2025, Trump's second administration imposed a 10% global tariff on softwood lumber with 25% on certain furniture & kitchen cabinet items. This 25% was set to increase to 30% for furniture and 50% for kitchen cabinets, but was <a href="https://www.whitehouse.gov/presidential-actions/2025/12/amendments-to-adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">delayed until January 2027</a>. 
 			Across all countries, the Canadian forestry industry experienced <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260130/dq260130a-eng.htm">a 3 month consecutive decline in late 2025</a>.
 			For exports to the U.S., Global Affairs Canada <a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng">reported an estimated $6.06 billion</a> in softwood lumber exports in 2025 (calculated from the monthly U.S. exports report).
-			In response, the Carney government retaliated with <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html">their own tariffs</a> and is bolstering the sector by granting loans to help companies pivot into new markets <a href="https://www.cbc.ca/news/canada/british-columbia/bc-canada-lumber-understanding-china-carney-visit-9.7047096">export overseas such as China</a>.
-			A focus on domestic investment and diversification is in motion with an emphasis on <a href="https://www.pm.gc.ca/en/news/news-releases/2025/11/26/prime-minister-carney-announces-new-measures-protect-and-transform">building with local lumber</a>.
 		</p>
 
 			<GraphicSingle
-					svg360="./lumber-trucks/web-svg/slw_monthly_2025-360.svg"
-					svg720="./lumber-trucks/web-svg/slw_monthly_2025-720.svg"
+					svg360="./lumber/web-svg/slw_monthly_2025-360.svg"
+					svg720="./lumber/web-svg/slw_monthly_2025-720.svg"
 					caption="Figure 2: Estimated Monthly Export Value of Softwood Lumber to the U.S. in 2025"
 					source='Source: <a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng" target="_blank">Global Affairs Canada on softwood lumber</a>'
 			/>
@@ -165,7 +163,8 @@
 
 
 		<p>
-			Similar to the findings in our <a href="/potential-local-impacts">preliminary analysis</a>, Canada’s lumber and truck industry is highly tied to the U.S. due to the geographic convenience and demand of U.S. imports.
+			In response, the Carney government retaliated with <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html">their own tariffs</a> and is bolstering the sector by granting loans to help companies pivot into new markets <a href="https://www.cbc.ca/news/canada/british-columbia/bc-canada-lumber-understanding-china-carney-visit-9.7047096">export overseas such as China</a>.
+			A focus on domestic investment and diversification is in motion with an emphasis on <a href="https://www.pm.gc.ca/en/news/news-releases/2025/11/26/prime-minister-carney-announces-new-measures-protect-and-transform">building with local lumber</a>.
 		</p>
 
 		<h2>
@@ -173,13 +172,9 @@
 		</h2>
 
 		<p>
+			Similar to the findings in our <a href="/potential-local-impacts">preliminary analysis</a>, Canada’s lumber and truck industry is highly tied to the U.S. due to the geographic convenience and demand of U.S. imports.
 			The U.S. government continues to enact and change plans with tariffs as negotiations continue. 
 			See our <a href="../current-tariffs">current tariffs</a> page for a full list of tariffs currently in place.
-		</p>
-
-		<p>
-			The U.S. government remains to enact de-minimis and the Canadian government continues to <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforce retaliatory tariffs on steel, aluminum and autos</a>. 
-			The Canadian government has <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">provided relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a>, with $1 billion going into it over 3 years from September 5 , 2025.
 		</p>
 
 		<p>
@@ -197,18 +192,18 @@
 		</h2>
 
 		<p>
-			For British Columbia, Canada's largest exporter of lumber, the quantity of exported softwood lumber has dropped year over year since 2019. Even in 2025, across January to October, export volume dropped another ~10%.
+			For British Columbia, Canada's largest exporter of lumber, the quantity of exported softwood lumber has dropped year over year since 2019. Even in 2025, across January to October, <a href="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/forest-industry-economics/forest-product-exports/forests_product_exports_-_2025-10.pdf">export volume dropped another ~10%</a>.
 		</p>
 
 		<GraphicSingle
-			svg360="./lumber-trucks/web-svg/slw_quan_share_BC-360.svg"
-			svg720="./lumber-trucks/web-svg/slw_quan_share_BC-720.svg"
+			svg360="./lumber/web-svg/slw_quan_share_BC-360.svg"
+			svg720="./lumber/web-svg/slw_quan_share_BC-720.svg"
 			caption='Figure 3: British Columbia quantity of softwood lumber in x1000m<sup>3</sup> and percentage of lumber exported to the U.S. year over year.'
 			source='Source: <a href="https://www2.gov.bc.ca/gov/content/industry/forestry/competitive-forest-industry/forest-industry-economics/forest-product-exports" target="_blank">B.C. forest product exports</a>'
 		/>
 		
 		<p>
-			While the percent share of exports to the U.S. hasn't dropped, the quantity of exports follow a similar pattern to the global lumber exports (4407) shown in the first graph.
+			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the global lumber exports (4407) shown in the first graph. We can also infer that while lumber fell from 2019 to 2020, B.C. tried to keep up with high demand in 2021.
 		</p>
 
 		<h2>
@@ -224,7 +219,7 @@
 	</div>
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/beforeafter.png"
+		imageURL="./lumber/img/beforeafter.png"
 		caption='Figure 4: Jobs in the lumber industry before and after October 14, 2025, when softwood lumber tariffs were enacted.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
@@ -240,7 +235,7 @@
 	</div>
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/interiorbcemployeeshome.png"
+		imageURL="./lumber/img/interiorbcemployeeshome.png"
 		caption='Figure 5: Proportion of employees by place of residence estimated to be vulnerable in the B.C. Interior region.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
@@ -255,7 +250,7 @@
 	</div>
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/newbrunswickcsd.png"
+		imageURL="./lumber/img/newbrunswickcsd.png"
 		caption='Figure 6: Proportion of businesses estimated as vulnerable in New Brunswick by census subdivision.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'

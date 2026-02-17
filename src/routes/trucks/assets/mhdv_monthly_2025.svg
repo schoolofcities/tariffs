@@ -21,15 +21,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.94894712"
-     inkscape:cx="403.60521"
-     inkscape:cy="291.37556"
-     inkscape:window-width="1920"
-     inkscape:window-height="991"
-     inkscape:window-x="-9"
+     inkscape:zoom="1.3420139"
+     inkscape:cx="515.64295"
+     inkscape:cy="279.05822"
+     inkscape:window-width="2400"
+     inkscape:window-height="1261"
+     inkscape:window-x="2391"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg65" />
+     inkscape:current-layer="g65" />
   <defs
      id="defs15">
     <rect
@@ -459,29 +459,32 @@
          style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.92800013px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">0.7bn</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 84.75 54.75)"
        font-size="16"
        font-family="Segoe UI"
        font-weight="bold"
        id="text33"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.92800013px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="662"
-         x="567.6719"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.196px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="81.852051"
+       y="55.540348"><tspan
+         y="552.04034"
+         x="507.60596"
          id="tspan33"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.92800013px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Month</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Month</tspan></text>
     <text
        fill="#252423"
        xml:space="preserve"
-       transform="matrix(0,-0.75,0.75,0,84.75,54.75)"
+       transform="rotate(-90)"
        font-size="16px"
        font-family="'Segoe UI'"
        font-weight="bold"
        id="text34"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.92800013px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="-62"
-         x="-395.5625"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#252423;stroke-width:0.75"
+       x="-68.162682"
+       y="86.985443"><tspan
+         y="40.485447"
+         x="-364.83456"
          id="tspan34"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.92800013px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Dollars in Billions CAD</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Dollars in Billions CAD</tspan></text>
   </g>
   <g
      clip-path="url(#clip_14)"

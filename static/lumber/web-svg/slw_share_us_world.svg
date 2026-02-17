@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="996" height="576" viewBox="0 0 996 576">
+  <g id="background">
+    <image x="0.0" y="0.0" width="996.0" height="576.0" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,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QEBYBwAAAACAgLAOAAAAAAABYR0AAAAAAALCOgAAAAAABIR1AAAAAAAICOsAAAAAABAQ1gEAAAAAICCsAwAAAABAQFgHAAAAAICAsA4AAAAAAAFhHQAAAAAAAsI6AAAAAAAEhHUAAAAAAAgI6wAAAAAAEBDWAQAAAAAgIKwDAAAAAEBAWAcAAAAAgICwDgAAAAAAAWEdAAAAAAACwjoAAAAAAASEdQAAAAAACAjrAAAAAAAQENYBAAAAACAgrAMAAAAAQEBYBwAAAACAgLAOAAAAAAABYR0AAAAAAALCOgAAAAAABIR1AAAAAAAICOsAAAAAABAQ1gEAAAAAICCsAwAAAABAQFgHAAAAAICAsA4AAAAAAAFhHQAAAAAAAsI6AAAAAAAEhHUAAAAAAAgI6wAAAAAAEBDWAQAAAAAgIKwDAAAAAEBAWAcAAAAAgICwDgAAAAAAAWEdAAAAAAACwjoAAAAAAASEdQAAAAAACAjrAAAAAAAQENYBAAAAACAgrAMAAAAAQEBYBwAAAACAgLAOAAAAAAABYR0AAAAAAALCOgAAAAAABIR1AAAAAAAICOsAAAAAABAQ1gEAAAAAICCsAwAAAABAQFgHAAAAAICAsA4AAAAAAAFhHQAAAAAAAsI6AAAAAAAEhHUAAAAAAAgI6wAAAAAAEBDWAQAAAAAgIKwDAAAAAEBAWAcAAAAAgICwDgAAAAAAAWEdAAAAAAACwjoAAAAAAASEdQAAAAAACAjrAAAAAAAQENYBAAAAACAgrAMAAAAAQEBYBwAAAACAgLAOAAAAAAABYR0AAAAAAALCOgAAAAAABIR1AAAAAAAICOsAAAAAABAQ1gEAAAAAICCsAwAAAABAQFgHAAAAAICAsA4AAAAAAAFhHQAAAAAAAsI6AAAAAAAEhHUAAAAAAAgI6wAAAAAAEBDWAQAAAAAgIKwDAAAAAEBAWAcAAAAAgICwDgAAAAAAAWEdAAAAAAACwjoAAAAAAASEdQAAAAAACAjrAAAAAAAQENYBAAAAACAgrAMAAAAAQEBYBwAAAACAgLAOAAAAAAABYR0AAAAAAALCOgAAAAAABIR1AAAAAAAICOsAAAAAABAQ1gEAAAAAICCsAwAAAABAQFgHAAAAAICAsA4AAAAAAAFhHQAAAAAAAsI6AAAAAAAEhHUAAAAAAAgI6wAAAAAAEBDWAQAAAAAgIKwDAAAAAICwDgAAAAAAB8MT6wAAAAAAEBDWAQAAAAAgIKwDAAAAAEBAWAcAAAAAgICwDgAAAAAAAWH9aKjrent7q+0poAV1Xd/+8FZd15/6+tbm5tbmZjcPw3HQ5Xuw4fDOzs4+Lg7mTXfuwf0fhrnX8Xuw4fA+Lg7mTafuQW9LoTuE9aOhLIvJvXttTwEtKMtibfVaWRaf+vqtW+Nbt8bdPAzHQZfvwYbDs7Lcx8XBvOnOPbj/wzD3On4PNhzex8XBvOnUPehtKXTH/7V3/yB613cAx+9iE0ysSYxVkdQq0UCcitCACC0hFkq2DA5ZMgldSsQlYyCQMYuY2SlLBodsmRQnkabU1Tb/LhYTuRPJNbkjnL08hbrEU8O9CU9/z3N5vcYfn+H7fPl9fw/P+35ws14PmRYX3v/owpmPh14FjN0bR/YfOXV4Gjf6269unTxweuhVwNhtemzTe1+cmtKNPnP0g0ufXR16FTB2R0+/tf/wa9O40RfPf372+IdDrwLGbu/re46dfXtKN/rdfSfurd4behUwdic/Ob5r985p3OhzJ85/eu7i0KuAsTt07OChd96cGZQ31gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIAslnsAAABDKSURBVBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAACAQ1gEAAAAAIBDWAQAAAAAgENYBAAAAAEBYBwAAAACA8fDGOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATCOgAAAAAABMI6AAAAAAAEwjoAAAAAAATC+nQYjUbLS0tDrwIGMBqNFubnR6PRmut3/mcyh+FRMMln8AHDq6ur6/hwsNFMzhlc/zBseBN+Bh8wvI4PBxvNRJ1BP0thcgjr02FlZWVx8dbQq4ABrKys/OvLuZWVlTXXv1mY/2ZhfjKH4VEwyWfwAcPffbf2IjwKJucMrn8YNrwJP4MPGF7Hh4ONZqLOoJ+lMDlmvR4yLS68/9GFMx8PvQoYuzeO7D9y6vA0bvS3X906eeD00KuAsdv02Kb3vjg1pRt95ugHlz67OvQqYOyOnn5r/+HXpnGjL57//OzxD4deBYzd3tf3HDv79pRu9Lv7TtxbvTf0KmDsTn5yfNfundO40edOnP/03MWhVwFjd+jYwUPvvDkzKG+sAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAQCCsAwAAAABAIKwDAAAAAEAgrAMAAAAAgLAOAAAAAADj4Y11AAAAAAAIhHUAAAAAAAiEdQAAAAAACIR1AAAAAAAIhHUAAAAAAAiEdQAAAAAACIR1AAAAAAAIhHUAAAAAAAiEdQAAAAAACIR1AAAAAAAQ1gEAAAAAYDy8sQ4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAIGwDgAAAAAAgbAOAAAAAACBsA4AAAAAAMEvyjCDGY1Gu17e8cc//2HN9ZWVlZmZmS1btqy5vry0tO2JJwzbjWm8N/bu33P/xdFotDA//8yzz87Ozt5//c7t2zMzM7988snJGd66/fFDxw5+P7y8vLxt27Y1wz+5G4btxtTdG7ObZifzDK5n+LeHXn1l/0tDbZ1hu/F/uzd273v+YU7KgMO79z3//ZepY+W5sbGfok//+qnJPIPrGf7TXw7MjGamYp8N242HuTe2bn/8YU7KgMOv/n7vtu1bp+Lnv2G7se0h7o09v/vBL7thjJgGd+/e/fvf/nr37t011+euXpm7esXw+Hbj+ty1xVu37LO7zhmc2CfSwsL8l9fnBl+GYbvh3vi5k7K6+p/L//zH7du3nRTPDU/Rif1OuXnjq28W5gdfhmG74d74uZOytLR05fIlJ8Vzw1N0kr9Trl65tHTnzuDLeNSGBzc7Gv3wb83Afb68Prdz51Pbd+ywKzCZFhdv/Xtx8YXfvDj0QoCfdu/e6rUrV1548aUfv3UCTIivb97YvHnz0796ZuiFAD9teXn565s39rz8ig2CiXXt6uXnnnv+x+9fs7EJ6wAAAAAAEPjnpQAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAEAjrAAAAAAAQCOsAAAAAABAI6wAAAAAAIKwDAAAAAMB4eGMdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAAJhHQAAAAAAAmEdAAAAAAACYR0AAAAAAGbW77/GABPt7cgmZgAAAABJRU5ErkJggg=="/>
+  </g>
+  <g id="foreground">
+    <g clip-path="url(#clip_10)">
+      <text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 18 18)" font-size="12" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 18 18)" font-size="12" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_10)">
+      <text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 18 18)" font-size="12" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="22" x="593.5 599.7754 606.8074 615.4834 621.7594 625.9354 629.22348 636.0994 639.29147 642.57949 650.99148 657.26748 662.35549 668.31948 672.38748 679.41946" style="font-weight: normal; font-style: normal;">
+          <tspan y="22" x="593.5 599.7754 606.8074 615.4834 621.7594 625.9354 629.22348 636.0994 639.29147 642.57949 650.99148 657.26748 662.35549 668.31948 672.38748 679.41946" style="font-weight: normal; font-style: normal;">Power BI Desktop</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_12)">
+      <text fill="#252423" xml:space="preserve" transform="matrix(.75 0 0 .75 24.75 18)" font-size="26.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text fill="#252423" xml:space="preserve" transform="matrix(.75 0 0 .75 24.75 18)" font-size="26.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_12)">
+      <text fill="#252423" xml:space="preserve" transform="matrix(.75 0 0 .75 24.75 18)" font-size="26.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="29" x="5 19.944169 35.993494 50.34021 60.845384 75.268848 82.623767 98.51822 108.737018 116.091938 132.7284 147.07376 163.20253 177.5479 194.05419 201.6304 215.97577 232.10454 239.45946 253.08885 269.21763 293.6386 310.1709 324.59437 335.20368 342.5586 356.74775 371.47065 388.00294 404.30097 415.67829 426.05329 437.78215 445.13706 455.35585 471.65388 482.26319 489.6181 508.8971 516.1218 531.06607 538.2908 545.6457 560.0952 571.82406 579.04879 586.4037 612.4779 628.7759 639.38528 646.9614" style="font-weight: normal; font-style: normal;">
+          <tspan y="29" x="5 19.944169 35.993494 50.34021 60.845384 75.268848 82.623767 98.51822 108.737018 116.091938 132.7284 147.07376 163.20253 177.5479 194.05419 201.6304 215.97577 232.10454 239.45946 253.08885 269.21763 293.6386 310.1709 324.59437 335.20368 342.5586 356.74775 371.47065 388.00294 404.30097 415.67829 426.05329 437.78215 445.13706 455.35585 471.65388 482.26319 489.6181 508.8971 516.1218 531.06607 538.2908 545.6457 560.0952 571.82406 579.04879 586.4037 612.4779 628.7759 639.38528 646.9614" style="font-weight: normal; font-style: normal;">Share of Canadian Lumber Exports for U.S. vs. World</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 518.625)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 518.625)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 518.625)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">0.0</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 414.63233)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 414.63233)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 414.63233)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">0.2</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 310.63969)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 310.63969)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 310.63969)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">0.4</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 206.64702)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 206.64702)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 206.64702)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">0.6</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 102.65437)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 102.65437)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 102.65437)" font-size="14.66" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.703125" x="-30.84375 -22.411393 -18.438599" style="font-weight: normal; font-style: normal;">0.8</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="662" x="586.0469 594.3203 602.9763 611.5843" style="font-weight: normal; font-style: normal;">
+          <tspan y="662" x="586.0469 594.3203 602.9763 611.5843" style="font-weight: normal; font-style: normal;">Year</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text fill="#252423" xml:space="preserve" transform="matrix(0 -.75 .75 0 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text fill="#252423" xml:space="preserve" transform="matrix(0 -.75 .75 0 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_13)">
+      <text fill="#252423" xml:space="preserve" transform="matrix(0 -.75 .75 0 71.25 54.75)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="-44" x="-370.875 -361.52345 -352.86744 -346.5625 -338.8825 -330.2265 -320.5465 -314.3225 -309.9065 -300.3672 -294.2392 -289.82319 -281.64845 -275.28044 -266.67243 -256.76844" style="font-weight: normal; font-style: normal;">
+          <tspan y="-44" x="-370.875 -361.52345 -352.86744 -346.5625 -338.8825 -330.2265 -320.5465 -314.3225 -309.9065 -300.3672 -294.2392 -289.82319 -281.64845 -275.28044 -266.67243 -256.76844" style="font-weight: normal; font-style: normal;">Percent of Trade</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.90087 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.90087 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.90087 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2019</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.5905 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.5905 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.5905 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2020</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 445.28019 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 445.28019 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 445.28019 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2021</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.96987 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.96987 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.96987 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2022</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.6595 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.6595 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.6595 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2023</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 912.3491 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 912.3491 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_14)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 912.3491 519)" font-size="16" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">
+          <tspan y="19" x="-18.40625 -9.206249 -.006248474 9.193752" style="font-weight: normal; font-style: normal;">2024</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.52587 130.75667)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.52587 130.75667)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 133.52587 130.75667)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.73</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 911.9741 67.70946)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 911.9741 67.70946)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 911.9741 67.70946)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.85</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.59487 63.998884)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.59487 63.998884)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 600.59487 63.998884)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.85</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 444.90519 70.79475)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 444.90519 70.79475)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 444.90519 70.79475)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.84</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.2845 67.11116)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.2845 67.11116)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 756.2845 67.11116)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.85</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.2155 78.573429)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.2155 78.573429)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;"/>
+      </text>
+    </g>
+    <g clip-path="url(#clip_16)">
+      <text xml:space="preserve" transform="matrix(.75 0 0 .75 289.2155 78.573429)" font-size="13.33" style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
+        <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">
+          <tspan y="4.671875" x="-13.296875 -5.629532 -2.0171662 5.650177" style="font-weight: normal; font-style: normal;">0.83</tspan>
+        </tspan>
+      </text>
+    </g>
+  </g>
+</svg>
