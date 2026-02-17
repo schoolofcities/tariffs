@@ -53,6 +53,8 @@
 
 </svelte:head>
 
+<Password/>
+
 <main>
 
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
