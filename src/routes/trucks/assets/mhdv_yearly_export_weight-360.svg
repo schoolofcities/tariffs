@@ -5,7 +5,7 @@
    height="208"
    viewBox="0 0 996 576"
    id="svg47"
-   sodipodi:docname="mhdv_yearly_export_weight.svg"
+   sodipodi:docname="mhdv_yearly_export_weight-360.svg"
    inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -21,15 +21,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.94894712"
-     inkscape:cx="404.65901"
-     inkscape:cy="369.35672"
-     inkscape:window-width="360"
-     inkscape:window-height="208"
-     inkscape:window-x="-9"
+     inkscape:zoom="3.7957885"
+     inkscape:cx="173.08657"
+     inkscape:cy="97.081278"
+     inkscape:window-width="2400"
+     inkscape:window-height="1261"
+     inkscape:window-x="2391"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g31" />
+     inkscape:current-layer="g25" />
   <defs
      id="defs15">
     <clipPath
@@ -287,7 +287,7 @@
          y="29"
          x="5"
          id="tspan24"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.66px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Yearly Export Weight of Medium and Heavy Duty Vehicles to the U.S.</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.3846px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Yearly Export Quantity of Medium and Heavy Duty Vehicles to the U.S.</tspan></text>
   </g>
   <g
      clip-path="url(#clip_13)"
@@ -377,31 +377,6 @@
          x="-36.390626"
          id="tspan29"
          style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.65999985px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">40K</tspan></text>
-    <text
-       xml:space="preserve"
-       transform="matrix(.75 0 0 .75 75.75 54.75)"
-       font-size="16"
-       font-family="Segoe UI"
-       font-weight="bold"
-       id="text30"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="662"
-         x="583.0469"
-         id="tspan30"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Year</tspan></text>
-    <text
-       fill="#252423"
-       xml:space="preserve"
-       transform="matrix(0,-0.75,0.75,0,75.75,54.75)"
-       font-size="16"
-       font-family="Segoe UI"
-       font-weight="bold"
-       id="text31"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="-50"
-         x="-366.875"
-         id="tspan31"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Weight (kg)</tspan></text>
   </g>
   <g
      clip-path="url(#clip_14)"
@@ -548,75 +523,109 @@
      id="g47">
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 137.71553 198.06829)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text42"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="133.33821"
+       y="198.06828"><tspan
+         y="201.57219"
+         x="124.34993"
          id="tspan42"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">30K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">30K</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 912.2844 63.75367)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text43"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="907.9071"
+       y="63.75367"><tspan
+         y="67.257576"
+         x="898.91882"
          id="tspan43"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">43K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">43K</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 447.5431 293.73603)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text44"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="443.16577"
+       y="293.73602"><tspan
+         y="297.23993"
+         x="434.17749"
          id="tspan44"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">21K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">21K</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 757.37069 143.79842)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text45"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="752.99335"
+       y="143.79842"><tspan
+         y="147.30232"
+         x="744.00507"
          id="tspan45"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">35K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">35K</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 292.6293 291.09803)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text46"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="288.25198"
+       y="291.09802"><tspan
+         y="294.60193"
+         x="279.2637"
          id="tspan46"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">21K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">21K</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(.75 0 0 .75 602.4569 271.0201)"
        font-size="13.33"
        font-family="Segoe UI"
        font-weight="bold"
        id="text47"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="4.671875"
-         x="-11.984375"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+       x="598.07959"
+       y="271.02011"><tspan
+         y="274.52402"
+         x="589.09131"
          id="tspan47"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:13.32999929px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">23K</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">23K</tspan></text>
   </g>
+  <text
+     fill="#252423"
+     xml:space="preserve"
+     transform="rotate(-90)"
+     font-size="16"
+     font-family="Segoe UI"
+     font-weight="bold"
+     id="text31"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1539px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+     x="-75.907051"
+     y="75.75"><tspan
+       y="38.25"
+       x="-351.06329"
+       id="tspan31"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1539px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Quantity (units)</tspan></text>
+  <text
+     xml:space="preserve"
+     font-size="16"
+     font-family="Segoe UI"
+     font-weight="bold"
+     id="text30"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1538px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+     x="71.372681"
+     y="60.586426"><tspan
+       y="557.08643"
+       x="508.65784"
+       id="tspan30"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1539px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Year</tspan></text>
 </svg>

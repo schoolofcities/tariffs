@@ -408,12 +408,15 @@ def process_svg(input_svg_path, output_svg_path, font_map):
 from pathlib import Path
 
 def main():
-	page = "potential-local-impacts"
-	input_dir = "../routes/" + page + "/assets"  
-	output_dir = "../../static/"  + page + "/web-svg"
+	page = "lumber"
+	script_dir = Path(__file__).parent
+	input_dir = script_dir / "../routes" / page / "assets"
+	output_dir = script_dir / "../../static" / page / "web-svg"
 
-	for svg_file in Path(input_dir).glob("*.svg"):
-		output_path = Path(output_dir) / svg_file.name
+	output_dir.mkdir(parents=True, exist_ok=True)
+
+	for svg_file in input_dir.glob("*.svg"):
+		output_path = output_dir / svg_file.name
 		process_svg(svg_file, output_path, FONT_MAP)
 
 if __name__ == "__main__":

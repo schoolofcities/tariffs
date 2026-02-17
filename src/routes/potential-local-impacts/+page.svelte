@@ -139,7 +139,7 @@
 		</p>
 
 		<h2>
-			Background: Canada-US Trade
+			Background: Canada-U.S. trade
 		</h2>
 		<p>
 			The Canadian economy is deeply integrated with the U.S. economy. In 2023, Canada-US trade surpassed $1.3 trillion (CAD), with approximately $3.5 billion (CAD) worth of goods and services being exchanged daily. Indeed, the United States is Canada’s largest export destination, accounting for 76.4% of Canadian exports, with no other trading partner accounting for more than 4% of export trade. While Canada relies heavily on the U.S. market for sales, there is greater diversity in the source of imports to Canada. Still, almost half of Canada’s imports (49.2%) are from the United States.
@@ -177,8 +177,12 @@
 		</p>
 
 		<h2>
-			Current tariff landscape
+			Current tariff landscape (as of September 2025)
 		</h2>
+
+		<p>
+			<a href="/current-tariffs">Click here</a> for the most up-to-date list.
+		</p>
 
 		<p>
 			Beginning in February 2025, the U.S. government has announced (as well as retracted and changed) an extensive suite of tariffs targeting Canada and other countries. The unpredictable shifts in tariff actions introduce challenges in keeping track and staying up to date. Several organizations maintain real-time information on tariff announcements affecting Canada and other trading nations (<a href="https://www.piie.com/blogs/realtime-economics/2025/trumps-trade-war-timeline-20-date-guide" target="_blank">for example, here</a>). 
