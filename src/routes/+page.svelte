@@ -102,7 +102,7 @@
 
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/allgoodsada.png"
+		imageURL="./lumber/img/allgoodsada.png"
 		caption=''
 		source=''
 		maxWidth='680px'
@@ -160,7 +160,7 @@
 			<a href="./potential-local-impacts">Read our backgrounder and blog</a> on Canada-U.S. trade and mapping direct exposure to tariffs.
 		</li>
 
-		<li>
+		<!-- <li>
 			<a href="./lumber">Read about the impact of lumber tariffs</a> on Canadian cities, with a focus on softwood lumber exports.
 		</li>
 
@@ -170,7 +170,7 @@
 
 		<li>
 			<a href="./current-tariffs">View the current list of U.S. tariffs on Canada</a>.
-		</li>
+		</li> -->
 
 		<li>
 			<a href="https://github.com/schoolofcities/tariffs" target="_blank">Learn more about our research methodology</a>.
