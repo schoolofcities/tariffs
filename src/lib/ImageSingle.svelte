@@ -109,6 +109,7 @@
 	@media screen and (max-width: 600px) {
 		p {
 			padding-left: 15px;
+			padding-right: 15px;
 		}
 	}
 
