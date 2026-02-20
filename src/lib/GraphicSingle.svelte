@@ -72,7 +72,7 @@
 		<p 
 			class="caption-text" 
 			style="padding-left: {paddingLeft}"
-		>{@html caption} <span class="caption-source"> <br> {@html source}</span></p>
+		>{@html caption} <span class="caption-source">{@html source}</span></p>
 	{/if}
 </div>
 
@@ -107,7 +107,7 @@
 		color: var(--brandGray70);
 		font-size: 12px;
 		line-height: 18px;
-		margin-top: 2px;
+		margin-top: -10px;
 		margin-bottom: 0px;
 		padding-top: 0px;
 	}

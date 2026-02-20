@@ -58,7 +58,7 @@
 </svelte:head>
 
 
-<Password/>
+<!-- <Password/> -->
 
 
 <main>
@@ -90,11 +90,11 @@
 	<div class="text">	
 
 		<p>
-			Canada's medium heavy duty vehicle (truck) industry is highly reliant on U.S. exports.
+			Canada's Medium Heavy Duty Vehicles (MHDVs) industry is highly reliant on U.S. exports.
 		</p>
 
 		<p>	
-			Medium heavy duty vehicles (MHDVs) consist of garbage trucks, long haul trucks and delivery vehicles ranging from classes 3 to 8 (8,501 - 33,000+ lbs). 
+			MHDVs consist of garbage trucks, long haul trucks and delivery vehicles ranging from classes 3 to 8 (8,501 - 33,000+ lbs). 
 			In terms of trade, this sector is often grouped with all vehicles and parts, which accounts for <a href="https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2023-06-13-ciit?">13.2% of the share of exported merchandises to the U.S.</a>, the second largest category.
 			In 2024, <a href="https://wits.worldbank.org/trade/comtrade/en/country/CAN/year/2024/tradeflow/Exports/partner/ALL/product/870990">87.1% of work truck parts</a> were exported to the U.S..
 		</p>
@@ -117,13 +117,12 @@
 		</p>
 
 		<p>
-			Figure 1 depicts this phenomenon through the yearly exports of medium and heavy duty vehicle sales to the U.S..
+			The chart below depicts this phenomenon through the yearly exports of medium and heavy duty vehicle sales to the U.S..
 		</p>
 
 		<GraphicSingle
 			svg360="./trucks/web-svg/mhdv_yearly_export_value-360.svg"
 			svg720="./trucks/web-svg/mhdv_yearly_export_value-720.svg"
-			caption="Figure 1: Yearly Export Value of Medium and Heavy Duty Vehicles to the U.S."
 			source='Source: <a href="https://www.trade.gov/data-visualization/medium-and-heavy-duty-truck-trade-data-visualization">U.S. International Trade Administration - Medium and Heavy Duty Truck Trade Data</a>'
 		/>
 
@@ -131,7 +130,7 @@
 
 	
 	
-	<div class="text">
+	<!-- <div class="text">
 		<p>
 			Breaking it down by weight in Figure 2, we can see a 22.8% increase in quantity from 2023 to 2024, but a 32.6% increase in value from Figure 1.
 			This can be potentially explained by Class 8 (>35,000 ton) vehicles dominating in expenses instead of medium duty vehicles because of the new zero emission mandates.
@@ -144,7 +143,7 @@
 			source='Source: <a href="https://www.trade.gov/data-visualization/medium-and-heavy-duty-truck-trade-data-visualization">U.S. International Trade Administration - Medium and Heavy Duty Truck Trade Data</a>'
 		/>
 
-	</div>
+	</div> -->
 
 	
 	<div class="text">
@@ -177,13 +176,13 @@
 
 
 		<p>
-			Figure 3 represents the prebuy surge and drop for 2025 using export values of trucks via the CUSMA agreement, which reached $5.41 billion by November 2025 (around on par with 2024 numbers). 
+			The char below represents the prebuy surge and drop for 2025 using export values of trucks via the CUSMA agreement, which reached $5.41 billion by November 2025, which was around on par with 2024 numbers.
 		</p>
 
 			<GraphicSingle
 				svg360="./trucks/web-svg/mhdv_monthly_2025-360.svg"
 				svg720="./trucks/web-svg/mhdv_monthly_2025-720.svg"
-				caption="Figure 3: Monthly CUSMA related Exports from Canada"
+				caption=""
 				source='Source: <a href="https://www150.statcan.gc.ca/t1/tbl1/en/cv!recreate.action?pid=1210017401&selectedNodeIds=3D32,4D108,4D109&checkedLevels=0D1,1D1&refPeriods=20250701,20251101&dimensionLayouts=layout2,layout3,layout3,layout2,layout2&vectorDisplay=false" target="_blank">Statistics Canada - Merchandise imports and exports</a>'
 			/>
 
@@ -240,14 +239,14 @@
 		<p>
 			Using our  <a href="./map">mapping and visualization tool</a> we can trace potential tariff vulnerabilities across Canada. 
 			The medium heavy duty vehicle section highlights the regional specialization of manufacturing dependent cities.
-			For example, in Figure 4, the Greater Golden Horseshoe displays the proportion of workers (as place of work) potentially affected by the truck tariffs. 
+			For example, the Greater Golden Horseshoe displays the proportion of workers (as place of work) potentially affected by the truck tariffs. 
 		</p>
 
 	</div>
 
 	<ImageSingle
 		imageURL="./trucks/img/csdtrucksemployeeswork.png"
-		caption='Figure 4: Potential direct exposure of tariffs to employees (work) in the truck industry by census subdivision in Southern Ontario.'
+		caption='Potential direct exposure of tariffs to employees (work) in the truck industry by census subdivision in Southern Ontario.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'
@@ -257,14 +256,14 @@
 		
 		<p>
 			Truck manufacturing plants were heavily affected.
-			Employees in regions like Woodstock live and work at medium and heavy duty truck assembly facilities like <a href="https://comtruck.ca/locations/woodstock/">Comtruck</a> and <a href="https://www.hinocanada.com/about-us/woodstock-plant-milestones/">Hino Canada</a> can be seen affected through their primary residence (Figure 5).
+			Employees in regions like Woodstock live and work at medium and heavy duty truck assembly facilities like <a href="https://comtruck.ca/locations/woodstock/">Comtruck</a> and <a href="https://www.hinocanada.com/about-us/woodstock-plant-milestones/">Hino Canada</a> can be seen affected through their primary residence .
 		</p>
 		
 	</div>
 
 	<ImageSingle
 		imageURL="./trucks/img/mhdvemployeeshome.png"
-		caption='Figure 5: Employees affected (by primary residence) in Western Ontario.'
+		caption='Employees affected (by primary residence) in Western Ontario.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'
@@ -273,13 +272,13 @@
 	<div class="text">
 
 		<p>
-			Windsor is a <a href="https://www.futureautolabourforce.ca/wp-content/uploads/2020/06/Regional-Profiles_Provincial-Ontario.pdf">major original equipment manufacturer</a> in the automotive industry. Companies like Stellantis, OPmobility Canada, Linamar produce parts such as steering wheels and braking technology for U.S. companies to then assemble (Figure 6).
+			Windsor is a <a href="https://www.futureautolabourforce.ca/wp-content/uploads/2020/06/Regional-Profiles_Provincial-Ontario.pdf">major original equipment manufacturer</a> in the automotive industry. Companies like Stellantis, OPmobility Canada, Linamar produce parts such as steering wheels and braking technology for U.S. companies to then assemble .
 		</p>
 	</div>
 
 	<ImageSingle
 		imageURL="./trucks/img/mhdvwindsoremployeeshomecsd.png"
-		caption='Figure 6: Total number of affected employees by their primary residence by census subdivision.'
+		caption='Total number of affected employees by their primary residence by census subdivision.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'
@@ -295,7 +294,7 @@
 	<ImageSingle
 		imageURL="./trucks/img/mhdvemployeesworkmontreal.png"
 		source='<br><a href="./map">Click here to view interactive map</a>'
-		caption='Figure 7: Total affected employees (by place of work) in Montréal.'
+		caption='Total affected employees (by place of work) in Montréal.'
 		maxWidth='680px'
 		link='No'
 	/>
