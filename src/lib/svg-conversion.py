@@ -408,7 +408,7 @@ def process_svg(input_svg_path, output_svg_path, font_map):
 from pathlib import Path
 
 def main():
-	page = "lumber"
+	page = "trucks"
 	script_dir = Path(__file__).parent
 	input_dir = script_dir / "../routes" / page / "assets"
 	output_dir = script_dir / "../../static" / page / "web-svg"
