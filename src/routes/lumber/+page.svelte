@@ -116,7 +116,7 @@
 		</p>
 
 		<p>	
-			The chart below (Figure 1) shows Canada’s lumber exports to the U.S. in dollar amounts for HS code 4407, which is mainly softwood lumber. 
+			The chart below shows Canada’s lumber exports to the U.S. in dollar amounts for HS code 4407, which is mainly softwood lumber. 
 			While the proportion of Canada’s exports to the U.S. compared to the world has remained consistent from 2019 - 2024, the <a href="https://tradingeconomics.com/commodity/lumber">dollar value of lumber fluctuated</a> due to inflation, COVID-19, and supply & demand, leading to rises and falls.
 			
 		</p>
@@ -124,7 +124,6 @@
 		<GraphicSingle
 			svg360="./lumber/web-svg/slw_yearly_export_value-360.svg"
 			svg720="./lumber/web-svg/slw_yearly_export_value-720.svg"
-			caption="Figure 1: Estimated Yearly Export Value of Softwood Lumber to the U.S."
 			source='Source: <a href="https://comtradeplus.un.org/" target="_blank">United Nations Trade Statistics</a>'
 		/>
 
@@ -143,7 +142,7 @@
 	<div class="text">
 
 		<p>
-			Economic fluctuation between the borders affects lumber value as seen in Figure 2.
+			Economic fluctuation between the borders affects lumber value as seen in the figure below. In August 2025, the <a href="https://www.trade.gov/press-release/commerce-department-announces-final-results-softwood-lumber-canada-countervailing">U.S. Department of Commerce doubled CVDs</a>, lowering imports from Canada.
 			On October 14, 2025, Trump's second administration imposed a 10% global tariff on softwood lumber with 25% on certain furniture & kitchen cabinet items. This 25% was set to increase to 30% for furniture and 50% for kitchen cabinets, but was <a href="https://www.whitehouse.gov/presidential-actions/2025/12/amendments-to-adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">delayed until January 2027</a>. 
 			Across all countries, the Canadian forestry industry experienced <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260130/dq260130a-eng.htm">a 3 month consecutive decline in late 2025</a>.
 			For exports to the U.S., Global Affairs Canada <a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng">reported an estimated $6.06 billion</a> in softwood lumber exports in 2025 (calculated from the monthly U.S. exports report).
@@ -152,7 +151,6 @@
 			<GraphicSingle
 					svg360="./lumber/web-svg/slw_monthly_2025-360.svg"
 					svg720="./lumber/web-svg/slw_monthly_2025-720.svg"
-					caption="Figure 2: Estimated Monthly Export Value of Softwood Lumber to the U.S. in 2025"
 					source='Source: <a href="https://www.international.gc.ca/controls-controles/softwood-bois_oeuvre/index.aspx?view=d&lang=eng" target="_blank">Global Affairs Canada on softwood lumber</a>'
 			/>
 
@@ -198,7 +196,6 @@
 		<GraphicSingle
 			svg360="./lumber/web-svg/slw_quan_share_BC-360.svg"
 			svg720="./lumber/web-svg/slw_quan_share_BC-720.svg"
-			caption='Figure 3: British Columbia quantity of softwood lumber in x1000m<sup>3</sup> and percentage of lumber exported to the U.S. year over year.'
 			source='Source: <a href="https://www2.gov.bc.ca/gov/content/industry/forestry/competitive-forest-industry/forest-industry-economics/forest-product-exports" target="_blank">B.C. forest product exports</a>'
 		/>
 		
@@ -212,7 +209,7 @@
 
 		<p>
 			Using our  <a href="./map">mapping and visualization tool</a> we can trace potential tariff vulnerabilities across Canada. 
-			The new softwood lumber tariffs widely affected interior regions of provinces, most notably the B.C. Interior, Northern Québec, Northern Ontario, and the Maritimes (Figure 4).
+			The new softwood lumber tariffs widely affected interior regions of provinces, most notably the B.C. Interior, Northern Québec, Northern Ontario, and the Maritimes.
 		</p>
 		
 		
@@ -220,7 +217,7 @@
 
 	<ImageSingle
 		imageURL="./lumber/img/beforeafter.png"
-		caption='Figure 4: Jobs in the lumber industry before and after October 14, 2025, when softwood lumber tariffs were enacted.'
+		caption='Jobs in the lumber industry before and after October 14, 2025, when softwood lumber tariffs were enacted.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'
@@ -236,7 +233,7 @@
 
 	<ImageSingle
 		imageURL="./lumber/img/interiorbcemployeeshome.png"
-		caption='Figure 5: Proportion of employees by place of residence estimated to be vulnerable in the B.C. Interior region.'
+		caption='Proportion of employees by place of residence estimated to be vulnerable in the B.C. Interior region.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'
@@ -244,14 +241,14 @@
 
 	<div class="text">
 		<p>
-			Finally, here is an example of New Brunswick's impacted businesses across census subdivisions before and after October 14 (Figure 6). 
+			Finally, here is an example of New Brunswick's impacted businesses across census subdivisions before and after October 14. 
 			Due to the tough financial pressure on lumber companies across the province, Susan Holt, the Premier, has <a href="https://www.ctvnews.ca/atlantic/new-brunswick/article/nb-premier-says-province-needs-tariff-deal-on-softwood-lumber-soon/">advocated for progress on negotiations</a>.
 		</p>
 	</div>
 
 	<ImageSingle
 		imageURL="./lumber/img/newbrunswickcsd.png"
-		caption='Figure 6: Proportion of businesses estimated as vulnerable in New Brunswick by census subdivision.'
+		caption='Proportion of businesses estimated as vulnerable in New Brunswick by census subdivision.'
 		source='<br><a href="./map">Click here to view interactive map</a>'
 		maxWidth='680px'
 		link='No'

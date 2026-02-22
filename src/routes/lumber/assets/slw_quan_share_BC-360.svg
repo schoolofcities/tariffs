@@ -21,13 +21,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="3.7957885"
-     inkscape:cx="169.39827"
-     inkscape:cy="107.09237"
-     inkscape:window-width="2400"
-     inkscape:window-height="1261"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
+     inkscape:zoom="2.6840278"
+     inkscape:cx="169.70763"
+     inkscape:cy="117.54722"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg66" />
   <defs
@@ -298,7 +298,8 @@
   </g>
   <g
      clip-path="url(#clip_12)"
-     id="g27">
+     id="g27"
+     transform="translate(0,7.2222111)">
     <text
        fill="#252423"
        xml:space="preserve"
@@ -311,7 +312,7 @@
          y="29"
          x="5"
          id="tspan26"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.3846px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Quantity and % Share of Exports from B.C.</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.3846px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Quantity and share of exports from B.C. to the U.S.</tspan></text>
   </g>
   <g
      clip-path="url(#clip_13)"
@@ -769,12 +770,6 @@
          x="556.14307"
          id="tspan58"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">16.5K</tspan></text>
-    <path
-       transform="matrix(.75,0,0,.75,134.5086,246.48749)"
-       d="M-11.667343-9.95H11.667343C12.197775-9.949999 12.708018-9.848505 13.198074-9.645517 13.68813-9.442529 14.120695-9.153499 14.495769-8.778426 14.87084-8.403353 15.15987-7.9707887 15.362859-7.480732 15.565846-6.9906766 15.667341-6.480432 15.667343-5.95V5.95C15.667341 6.480432 15.565846 6.9906766 15.362859 7.480732 15.15987 7.9707887 14.87084 8.403353 14.495769 8.778426 14.120695 9.153499 13.68813 9.442529 13.198074 9.645517 12.708018 9.848505 12.197775 9.949999 11.667343 9.95H-11.667343C-12.197775 9.949999-12.708018 9.848505-13.198074 9.645517-13.68813 9.442529-14.120695 9.153499-14.495769 8.778426-14.87084 8.403353-15.15987 7.9707887-15.362859 7.480732-15.565846 6.9906766-15.667341 6.480432-15.667343 5.95V-5.95C-15.667341-6.480432-15.565846-6.9906766-15.362859-7.480732-15.15987-7.9707887-14.87084-8.403353-14.495769-8.778426-14.120695-9.153499-13.68813-9.442529-13.198074-9.645517-12.708018-9.848505-12.197775-9.949999-11.667343-9.95Z"
-       fill="#ffffff"
-       fill-opacity=".7"
-       id="path59" />
     <text
        xml:space="preserve"
        font-size="13.33"
@@ -826,12 +821,6 @@
          x="566.52228"
          id="tspan61"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">81</tspan></text>
-    <path
-       transform="matrix(.75,0,0,.75,428.30174,174.5475)"
-       d="M-11.667343-9.95H11.667343C12.197775-9.949999 12.708018-9.848505 13.198074-9.645517 13.68813-9.442529 14.120695-9.153499 14.495769-8.778426 14.87084-8.403353 15.15987-7.9707887 15.362859-7.480732 15.565846-6.9906766 15.667341-6.480432 15.667343-5.95V5.95C15.667341 6.480432 15.565846 6.9906766 15.362859 7.480732 15.15987 7.9707887 14.87084 8.403353 14.495769 8.778426 14.120695 9.153499 13.68813 9.442529 13.198074 9.645517 12.708018 9.848505 12.197775 9.949999 11.667343 9.95H-11.667343C-12.197775 9.949999-12.708018 9.848505-13.198074 9.645517-13.68813 9.442529-14.120695 9.153499-14.495769 8.778426-14.87084 8.403353-15.15987 7.9707887-15.362859 7.480732-15.565846 6.9906766-15.667341 6.480432-15.667343 5.95V-5.95C-15.667341-6.480432-15.565846-6.9906766-15.362859-7.480732-15.15987-7.9707887-14.87084-8.403353-14.495769-8.778426-14.120695-9.153499-13.68813-9.442529-13.198074-9.645517-12.708018-9.848505-12.197775-9.949999-11.667343-9.95Z"
-       fill="#ffffff"
-       fill-opacity=".7"
-       id="path62" />
     <text
        xml:space="preserve"
        font-size="13.33"
@@ -864,12 +853,6 @@
          x="715.62311"
          id="tspan63"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">77</tspan></text>
-    <path
-       transform="matrix(.75,0,0,.75,281.40519,192.00749)"
-       d="M-11.667343-9.95H11.667343C12.197775-9.949999 12.708018-9.848505 13.198074-9.645517 13.68813-9.442529 14.120695-9.153499 14.495769-8.778426 14.87084-8.403353 15.15987-7.9707887 15.362859-7.480732 15.565846-6.9906766 15.667341-6.480432 15.667343-5.95V5.95C15.667341 6.480432 15.565846 6.9906766 15.362859 7.480732 15.15987 7.9707887 14.87084 8.403353 14.495769 8.778426 14.120695 9.153499 13.68813 9.442529 13.198074 9.645517 12.708018 9.848505 12.197775 9.949999 11.667343 9.95H-11.667343C-12.197775 9.949999-12.708018 9.848505-13.198074 9.645517-13.68813 9.442529-14.120695 9.153499-14.495769 8.778426-14.87084 8.403353-15.15987 7.9707887-15.362859 7.480732-15.565846 6.9906766-15.667341 6.480432-15.667343 5.95V-5.95C-15.667341-6.480432-15.565846-6.9906766-15.362859-7.480732-15.15987-7.9707887-14.87084-8.403353-14.495769-8.778426-14.120695-9.153499-13.68813-9.442529-13.198074-9.645517-12.708018-9.848505-12.197775-9.949999-11.667343-9.95Z"
-       fill="#ffffff"
-       fill-opacity=".7"
-       id="path64" />
     <text
        xml:space="preserve"
        font-size="13.33"
@@ -884,57 +867,6 @@
          id="tspan64"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.7692px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">72</tspan></text>
   </g>
-  <g
-     clip-path="url(#clip_18)"
-     id="g66">
-    <path
-       transform="matrix(.75,0,0,.75,33.45,61.23)"
-       d="M-5 0C-4.9999997 .6630411-4.873132 1.3008467-4.619397 1.9134169-4.365662 2.5259872-4.0043747 3.0666927-3.5355337 3.5355337-3.0666927 4.0043747-2.5259872 4.365662-1.9134169 4.619397-1.3008467 4.873132-.6630411 4.9999997 0 5 .6630411 4.9999997 1.3008467 4.873132 1.9134169 4.619397 2.5259872 4.365662 3.0666927 4.0043747 3.5355337 3.5355337 4.0043747 3.0666927 4.365662 2.5259872 4.619397 1.9134169 4.873132 1.3008467 4.9999997 .6630411 5 0 4.9999997-.6630411 4.873132-1.3008467 4.619397-1.9134169 4.365662-2.5259872 4.0043747-3.0666927 3.5355337-3.5355337 3.0666927-4.0043747 2.5259872-4.365662 1.9134169-4.619397 1.3008467-4.873132 .6630411-4.9999997 0-5-.6630411-4.9999997-1.3008467-4.873132-1.9134169-4.619397-2.5259872-4.365662-3.0666927-4.0043747-3.5355337-3.5355337-4.0043747-3.0666927-4.365662-2.5259872-4.619397-1.9134169-4.873132-1.3008467-4.9999997-.6630411-5 0"
-       fill="#f1c500"
-       id="path65" />
-    <text
-       xml:space="preserve"
-       transform="matrix(.75 0 0 .75 24.75 18)"
-       font-size="16"
-       font-family="Segoe UI"
-       font-weight="bold"
-       id="text65"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="64"
-         x="19.1875"
-         id="tspan65"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Quantity in x1,000 m3</tspan></text>
-    <path
-       transform="matrix(.75,0,0,.75,173.7,61.23)"
-       d="M-5 0C-4.9999997 .6630411-4.873132 1.3008467-4.619397 1.9134169-4.365662 2.5259872-4.0043747 3.0666927-3.5355337 3.5355337-3.0666927 4.0043747-2.5259872 4.365662-1.9134169 4.619397-1.3008467 4.873132-.6630411 4.9999997 0 5 .6630411 4.9999997 1.3008467 4.873132 1.9134169 4.619397 2.5259872 4.365662 3.0666927 4.0043747 3.5355337 3.5355337 4.0043747 3.0666927 4.365662 2.5259872 4.619397 1.9134169 4.873132 1.3008467 4.9999997 .6630411 5 0 4.9999997-.6630411 4.873132-1.3008467 4.619397-1.9134169 4.365662-2.5259872 4.0043747-3.0666927 3.5355337-3.5355337 3.0666927-4.0043747 2.5259872-4.365662 1.9134169-4.619397 1.3008467-4.873132 .6630411-4.9999997 0-5-.6630411-4.9999997-1.3008467-4.873132-1.9134169-4.619397-2.5259872-4.365662-3.0666927-4.0043747-3.5355337-3.5355337-4.0043747-3.0666927-4.365662-2.5259872-4.619397-1.9134169-4.873132-1.3008467-4.9999997-.6630411-5 0"
-       fill="#0d534d"
-       id="path66" />
-    <text
-       xml:space="preserve"
-       transform="matrix(.75 0 0 .75 24.75 18)"
-       font-size="16"
-       font-family="Segoe UI"
-       font-weight="bold"
-       id="text66"
-       style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         y="64"
-         x="206"
-         id="tspan66"
-         style="-inkscape-font-specification:'TradeGothic, Bold';font-family:TradeGothic;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Export % Share to the U.S. vs. World</tspan></text>
-  </g>
-  <text
-     xml:space="preserve"
-     font-size="16"
-     font-family="Segoe UI"
-     font-weight="bold"
-     id="text38"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1538px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-     x="75.75"
-     y="90.4842"><tspan
-       y="560.73419"
-       x="489.78516"
-       id="tspan38"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.1539px;font-family:TradeGothic;-inkscape-font-specification:'TradeGothic, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Year</tspan></text>
   <text
      fill="#252423"
      xml:space="preserve"
