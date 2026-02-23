@@ -8,10 +8,8 @@ analysis/input-data
 
 data/census/98-401-X2021002_eng_CSV
 data/census/lcma000b21a_e
-data/census/lcsd000b21a_e
-data/census/*.csv
 
-# Large files - ignore everywhere
+# Large files - only keep pmtiles
 *.mbtiles
 *.geojson
 *.shp

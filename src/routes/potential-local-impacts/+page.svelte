@@ -139,7 +139,7 @@
 		</p>
 
 		<h2>
-			Background: Canada-US Trade
+			Background: Canada-U.S. trade
 		</h2>
 		<p>
 			The Canadian economy is deeply integrated with the U.S. economy. In 2023, Canada-US trade surpassed $1.3 trillion (CAD), with approximately $3.5 billion (CAD) worth of goods and services being exchanged daily. Indeed, the United States is Canada’s largest export destination, accounting for 76.4% of Canadian exports, with no other trading partner accounting for more than 4% of export trade. While Canada relies heavily on the U.S. market for sales, there is greater diversity in the source of imports to Canada. Still, almost half of Canada’s imports (49.2%) are from the United States.
@@ -177,8 +177,12 @@
 		</p>
 
 		<h2>
-			Current tariff landscape
+			Current tariff landscape (as of September 2025)
 		</h2>
+
+		<p>
+			<a href="/current-tariffs">Click here</a> for the most up-to-date list.
+		</p>
 
 		<p>
 			Beginning in February 2025, the U.S. government has announced (as well as retracted and changed) an extensive suite of tariffs targeting Canada and other countries. The unpredictable shifts in tariff actions introduce challenges in keeping track and staying up to date. Several organizations maintain real-time information on tariff announcements affecting Canada and other trading nations (<a href="https://www.piie.com/blogs/realtime-economics/2025/trumps-trade-war-timeline-20-date-guide" target="_blank">for example, here</a>). 
@@ -206,11 +210,12 @@
 			tariff on non-CUSMA compliant auto parts</a> (effective:
 			May 3, 2025);</li>
 			<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/07/adjusting-imports-of-copper-into-the-united-states/" target="_blank">50%
-			tariff on copper</a> (effective: August 1, 2025); and</li>
-			<li><a href="https://globalnews.ca/news/11324819/softwood-lumber-duties/" target="_blank">Duties
-			of approximately 35% on Canadian softwood lumber</a> (at
-			time of writing, we note that lumber tariffs are <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">set
-			to increase</a> and widen in their scope).</li>
+			tariff on copper</a> (effective: August 1, 2025); </li>
+			<li><a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">Duties
+			of approximately 45% on Canadian softwood lumber (10% new tariffs, 35% anti-dumping & countervailing)</a> 
+			There was a 25% tariff on upholstered furniture, kitchen cabinets, and vanities looped under this section as well which was <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">planned to be increased</a> for January 1, 2026, 
+			but <a href="https://www.whitehouse.gov/fact-sheets/2025/12/fact-sheet-president-donald-j-trump-adjusts-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">the increase has been delayed</a>; and</li>
+			<li>A <a href="https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/supporting-exporters-through-tariff-challenges.html"> 25%</a> tariff on medium and heavy duty vehicles (trucks) (effective November 1, 2025); </li>	
 		</ul>
 
 		<p>

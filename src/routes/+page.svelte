@@ -102,7 +102,7 @@
 
 
 	<ImageSingle
-		imageURL="./lumber-trucks/img/allgoodsada.png"
+		imageURL="./lumber/img/allgoodsada.png"
 		caption=''
 		source=''
 		maxWidth='680px'
@@ -161,7 +161,15 @@
 		</li>
 
 		<!-- <li>
-			<a href="./lumber-trucks">An update on lumber and trucks</a> — potential local impacts on softwood lumber and medium & heavy duty vehicle tariffs.
+			<a href="./lumber">Read about the impact of lumber tariffs</a> on Canadian cities, with a focus on softwood lumber exports.
+		</li>
+
+		<li>
+			<a href="./trucks">Read about the impact of truck tariffs</a> on medium & heavy duty vehicle manufacturing and exports.
+		</li>
+
+		<li>
+			<a href="./current-tariffs">View the current list of U.S. tariffs on Canada</a>.
 		</li> -->
 
 		<li>
