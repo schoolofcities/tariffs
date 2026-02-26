@@ -81,7 +81,11 @@
 	<div class="text">
 
 		<AuthorDate
-			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>"
+			authors="<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
+			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
+			<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, 
+			<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>
+			"
 			date="February 2026"
 		/>
 	
@@ -90,8 +94,20 @@
 	<div class="text">	
 
 		<p>
-			Canada's lumber industry is a big export item for Canada.
+			Canada's lumber industry is a big export item for Canada. 
+			This article will cover the shaky history of the Canada-U.S. lumber trade, 
+			recent economic shortcomings due to the softwood lumber tariffs, 
+			and potential implications on local businesses and employees through our mapping tool.
+			Ever since countervailing duties and anti-dumping rates increased drastically over the past decade, 
+			Canadian lumber companies have been fighting for better trade conditions.
+			With new tariffs imposed on softwood lumber in October 2025, 
+			businesses across the country now face up to 45% in total tariffs and duties, 
+			devastating mills by rendering exports to our southern neighbour even less profitable than ever before. 
 		</p>
+
+		<h2>
+			Background: Canada-U.S. lumber trade
+		</h2>
 
 		<p>	
 			Canada is one of the world's largest producers of softwood lumber, which <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm"> was valued at $10 billion</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of the United States' softwood lumber imports</a> in 2020. 
@@ -99,9 +115,6 @@
 			<!-- B.C., Quebec, Ontario, Alberta, and New Brunswick account for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">95% of softwood lumber production</a>. -->
 		</p>
 
-		<h2>
-			Background: Canada-U.S. lumber trade
-		</h2>
 		<p>
 			The Canadian lumber economy is deeply integrated with the U.S. materials industry.
 			In 2020, nearly 70% of all softwood lumber production was exported, with <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">84% of those exports to the U.S.</a> due to the demand for lumber in housing and construction.
@@ -200,7 +213,10 @@
 		/>
 		
 		<p>
-			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the global lumber exports (4407) shown in the first graph. We can also infer that while lumber fell from 2019 to 2020, B.C. tried to keep up with high demand in 2021.
+			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the global lumber exports (4407) shown in the first graph. 
+			We can also infer that while lumber fell from 2019 to 2020 due to the landslides, B.C. rebounded by meeting the high demand in 2021.
+			B.C.'s mills have been struggling to keep up with the exhorbant duties and tariffs such as <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">Crofton Mills closing</a> in December 2025. 
+			To retaliate, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">challenge the 10% tariff</a> against the U.S. in court. 
 		</p>
 
 		<h2>
