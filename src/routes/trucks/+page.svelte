@@ -81,7 +81,11 @@
 	<div class="text">
 
 		<AuthorDate
-			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>"
+			authors="<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
+			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
+			<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, 
+			<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>
+			"
 			date="February 2026"
 		/>
 	
@@ -91,17 +95,25 @@
 
 		<p>
 			Canada's Medium Heavy Duty Vehicles (MHDVs) industry is highly reliant on U.S. exports.
+			This blog post covers the increase in demand for newer trucks due to environmental regulations,
+			the decrease in exports due to the Trump administration's tariffs on Section 232, 
+			and the struggle that Canadian truck manufacturing locals are facing today. 
+			Once a well protected sector, Canadian MHDV exports to the U.S. encountered a 25% tariff last November, 
+			dramatically weakening the auto relationship with states like Michigan. 
+			Our statistical findings and mapping visualization tool reinforces the toil that these tariffs have on Canadians.
+			From Ontario families being displaced from manufacturing plants to the Canadian government seeking relationships with other countries, 
+			Canada is adapting to the changes.
 		</p>
+
+		<h2>
+			Background: Canada-U.S. automotive & trucks trade
+		</h2>
 
 		<p>	
 			MHDVs consist of garbage trucks, long haul trucks and delivery vehicles ranging from classes 3 to 8 (8,501 - 33,000+ lbs). 
 			In terms of trade, this sector is often grouped with all vehicles and parts, which accounts for <a href="https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2023-06-13-ciit?">13.2% of the share of exported merchandises to the U.S.</a>, the second largest category.
 			In 2024, <a href="https://wits.worldbank.org/trade/comtrade/en/country/CAN/year/2024/tradeflow/Exports/partner/ALL/product/870990">87.1% of work truck parts</a> were exported to the U.S..
 		</p>
-
-		<h2>
-			Background: Canada-U.S. automotive & trucks trade
-		</h2>
 
 		<p>
 			The trucks trade between Canada and U.S. had been protected under Section 232 of the Trade Expansion Act since 1962. 
