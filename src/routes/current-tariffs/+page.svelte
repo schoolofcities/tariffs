@@ -121,14 +121,14 @@
 	</p>
 
 	<p>
-		As of February 2026, the U.S. government remains to enact de-minimis and the Canadian government continues to <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforce retaliatory tariffs on steel, aluminum and autos</a>. 
-		In response, the Canadian government has <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">provided relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a>, with $1 billion funding this program over 3 years from September 5, 2025.
+		As of February 2026, the U.S. government continues to enact <i>de minimis</i> and threaten further tariffs.
+		The Canadian government endures these challenges by <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforcing retaliatory tariffs on steel, aluminum and autos</a>, and <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">providing relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a> ($1 billion in funding over 3 years).
 	</p>
 
 	<p>
-		On February 20, 2026, the <a href="https://www.cbc.ca/news/world/livestory/scotus-tariff-ruling-9.7099048">U.S. Supreme Court ruled a 6-3 decision</a> against Trump's authority in using emergency powers under the 1977 International Emergency Economic Powers Act (IEEPA).
-		Although this is a win for Canada, Trump's reaction to this decision has been quite volatile, imposing a <a href="https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/">tariff of 10%</a> over 150 days under Section 122 of the Trade Act beginning February 24, 2026.
-		However, Canada remains largely unaffected by this due to CUSMA being exempt from this global tariff.
+		On February 20, 2026, the <a href="https://www.cbc.ca/news/world/livestory/scotus-tariff-ruling-9.7099048">U.S. Supreme Court ruled against the Trump administration's use of emergency powers to impose tariffs</a> under the 1977 International Emergency Economic Powers Act (IEEPA).
+		Although this is a win for Canada, Trump's reaction was to impose a <a href="https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/">tariff of 10%</a>, effective as of February 24, 2026 and initially lasting for 150 days under Section 122 of the Trade Act.
+		Canada remains largely unaffected by this latest manoeuvre to CUSMA's exemption from this global tariff.
 	</p>
 
 	</div>
