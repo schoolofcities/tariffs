@@ -212,8 +212,8 @@
 		<p>
 			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the fall in global lumber exports shown in the first graph (using the harmonized system code 4407). 
 			We can also infer that while lumber quantity fell from 2019 to 2020 due to the landslides, B.C. rebounded by meeting the high demand in 2021.
-			B.C.'s mills have been struggling to keep up with the exhorbant duties and tariffs such as <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">Crofton Mills closing</a> in December 2025. 
-			To retaliate, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">challenge the 10% tariff</a> against the U.S. in court. 
+			Recently, B.C. mills have been struggling to keep up with duties and tariffs. For example, Domtar, a pulp mill company, <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">closed their operations, laying off 350 workers</a> in Crofton, B.C. this February. 
+			In response, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">build a court case to challenge the softwood lumber tariff</a> against the U.S.. 
 		</p>
 
 		<h2>
