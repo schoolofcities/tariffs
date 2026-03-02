@@ -161,11 +161,11 @@
 		</li>
 
 		<!-- <li>
-			<a href="./lumber">Read about the impact of lumber tariffs</a> on Canadian cities, with a focus on softwood lumber exports.
+			<a href="./lumber">Read our blog on the effect of softwood lumber tariffs</a> on Canadian jobs and businesses.
 		</li>
 
 		<li>
-			<a href="./trucks">Read about the impact of truck tariffs</a> on medium & heavy duty vehicle manufacturing and exports.
+			<a href="./trucks">Read our blog about the impact of truck tariffs</a> on medium & heavy duty vehicle manufacturing and exports.
 		</li>
 
 		<li>
