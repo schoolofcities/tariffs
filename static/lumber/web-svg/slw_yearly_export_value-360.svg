@@ -1,390 +1,101 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   version="1.1"
-   width="360"
-   height="208"
-   viewBox="0 0 996 576"
-   id="svg46"
-   sodipodi:docname="slw_yearly_export_value-360.svg"
-   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs23" />
-  <sodipodi:namedview
-     id="namedview23"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.7434383"
-     inkscape:cx="174.41617"
-     inkscape:cy="108.44057"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g36" />
-  <g
-     id="background">
-    <image
-       x="0.0"
-       y="0.0"
-       width="996.0"
-       height="576.0"
-       preserveAspectRatio="xMidYMid meet"
-       href="data:image/png;base64,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"
-       id="image1" />
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" width="360" height="290" viewBox="0 0 498 401.53846" id="svg46" sodipodi:docname="slw_yearly_export_value-360.svg" inkscape:version="1.4.2 (1:1.4.2+202505120738+ebf0e940d0)">
+  <g id="background">
+    <image x="0.0" y="0.0" width="498.0" height="401.53846" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAJECAIAAACwwoSeAAAABmJLR0QA/wD/AP+gvaeTAAAMkUlEQVR4nO3cS4yddQGH4dNhWtqmWgUEvIREK8QVbokRTQjRsJO4MG4NK8PGuEAxakKjJiSixsSFcaMGo5UYUxBivASlaUQDDIZbCbQgYrVXSmZae5k5LqZpXMC0KX3nmzN9ntW5fDnfbzGLN+d/MmvG4/EIAKA0NfQAAGD1ExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAALnpoQfA+RsvjF+6d+cVN2x527VXX5APnN2z/x+/fPSCfNSke/cnr3/nh68ZegWweggOJtien+54/Is/2/SBKz+x46tT6y7AH/Psi/ueufs3b/1zVoH1V20WHMAF5EiFSXXwLy/OfOkXo9Fodve+HZ/5/tBzAFiK4GBSPf/DPy6cnF98fGDnC//d//qwewBYguBgIs3u2f+vB58cjUaj8Wg0Gi3MLzz9ze3DTgJgCYKDiTTz5W3jU/Oj0Wi05vQrL9278/DMywNOAmAJgoPJs+9Pz/3790+dSY1F44XxzJ3bRuPxQKMAWIrgYMKMTy3MfGXbaHT6MOX/Hfzr7n9uf2L5JwFwVoKDCfPCjx5+/bm9b/bu37923/yxE8u5B4BzITiYJCcOzz17z4NLXHD01cPP/+APy7YHgHMkOJgkT3/r/hOH5pa+Ztf3fnts72vLsweAcyQ4mBhzLx/Y/ZNHznrZqaPHn/32Q8uwB4Bz51+bMzGmLl278b2XnTxydPHp+NT8ydnjp9+anpretP7MlRve844B9gHw5gQHE2PD1ZtveWzrmaf7Htn151u/u/j48hs++PFff2GgXQCcnSMVACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACA3PTQA4DVae7w0df+c2ToFSvCFddcfunGdUOvgIEJDiDx2P1P3rf1gaFXrAi3//hz131ky9ArYGCOVACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyE0PPQDO08b3XXbd529efLxpy5XDjgFgaYKDSbXp/e+6/q5PD70CgHPiSAUAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyE0PPYC3arwwPnrk2NArVoS169eu27B26BUAvAHBMfEOvHJo6833DL1iRbjpto9+6o5bhl4BwBtwpAIA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkpoceAMBZPPCd3+38+d+GXrEi3LH99s1XvX3oFZwPwQGw0h2fPT57aG7oFSvCwvzC0BM4T4IDgIvIEw89dfCVQ0OvGN7U1JqbbrtxOe8oOAC4iDz6q8efeXjX0CuGd8naS5Y5OPxoFADIDfYNx9c/dvdQt15RPnTjtZ/9xq1DrwCA1mDBcXjvkaFuvaL4IRgAFwNHKgBATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAA5wQEA5AQHAJATHABATnAAADnBAQDkBAcAkBMcAEBOcAAAOcEBAOQEBwCQExwAQE5wAAC5NePxeOgNAMAq5xsOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAAByggMAyAkOACAnOACAnOAAAHKCAwDICQ4AICc4AICc4AAAcoIDAMgJDgAgJzgAgJzgAABy/wPmYNfNK/BOlAAAAABJRU5ErkJggg=="/>
   </g>
-  <g
-     id="foreground">
-    <g
-       clip-path="url(#clip_10)"
-       id="g23">
-      <text
-         fill="#ffffff"
-         xml:space="preserve"
-         transform="matrix(.75 0 0 .75 18 18)"
-         font-size="12"
-         id="text1"
-         style="font-family: Segoe UI; font-weight: normal; font-style: normal;">
-        <text
-   fill="#ffffff"
-   xml:space="preserve"
-   transform="matrix(.75 0 0 .75 18 18)"
-   font-size="12"
-   id="text22"
-   style="font-family: Segoe UI; font-weight: normal; font-style: normal;" />
-        <tspan
-   y="22"
-   x="593.5 599.7754 606.8074 615.4834 621.7594 625.9354 629.22348 636.0994 639.29147 642.57949 650.99148 657.26748 662.35549 668.31948 672.38748 679.41946"
-   id="tspan1"
-   style="font-weight: normal; font-style: normal;">
-          <tspan
-   y="22"
-   x="593.5 599.7754 606.8074 615.4834 621.7594 625.9354 629.22348 636.0994 639.29147 642.57949 650.99148 657.26748 662.35549 668.31948 672.38748 679.41946"
-   id="tspan22"
-   style="font-weight: normal; font-style: normal;">Power BI Desktop</tspan>
-        </tspan>
-      </text>
-    </g>
-    <text
-       xml:space="preserve"
-       font-size="13.33"
-       id="text2"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.5385px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ab1368;fill-opacity:1;stroke-width:0.729915"
-       x="176.77335"
-       y="168.26991"><tspan
-   sodipodi:role="line"
-   id="tspan2"
-   x="176.77335"
-   y="168.26991"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.5385px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.729915">Price rise     </tspan>    </text>
-    <g
-       clip-path="url(#clip_12)"
-       id="g25"
-       transform="translate(0,-5.0470075)">
-      <text
-         fill="#252423"
-         xml:space="preserve"
-         font-size="26.66"
-         id="text3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.2308px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#252423;stroke-width:0.75"
-         x="17.684189"
-         y="15.981197">         <text
-   fill="#252423"
-   xml:space="preserve"
-   transform="matrix(0.75,0,0,0.75,24.75,18)"
-   font-size="26.66"
-   id="text24"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.3077px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#252423;stroke-width:0.75" />         <tspan
-   y="37.731197"
-   x="21.434189"
-   id="tspan3"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.2308px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="37.731197"
-   x="21.434189"
-   id="tspan24"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.2308px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">Estimated yearly export value of softwood lumber to the U.S.</tspan>        </tspan>      </text>
-    </g>
-    <g
-       clip-path="url(#clip_14)"
-       id="g36">
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text4"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="95.653938"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text31"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="95.653938"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="81.849243"
-   id="tspan4"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="81.849243"
-   id="tspan31"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2019</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="249.53328"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text32"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="249.53328"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="235.72859"
-   id="tspan5"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="235.72859"
-   id="tspan32"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2020</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="403.4126"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text33"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="403.4126"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="389.60791"
-   id="tspan6"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="389.60791"
-   id="tspan33"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2021</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text7"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="557.29181"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text34"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="557.29181"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="543.48712"
-   id="tspan7"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="543.48712"
-   id="tspan34"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2022</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="711.17108"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text35"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="711.17108"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="697.36639"
-   id="tspan8"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="697.36639"
-   id="tspan35"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2023</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="16"
-         id="text9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-         x="865.05042"
-         y="527.05286">         <text
-   xml:space="preserve"
-   font-size="16"
-   id="text36"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
-   x="865.05042"
-   y="527.05286" />         <tspan
-   y="541.30286"
-   x="851.24573"
-   id="tspan9"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">           <tspan
-   y="541.30286"
-   x="851.24573"
-   id="tspan36"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8462px;font-family:TradeGothicBold;-inkscape-font-specification:'TradeGothicBold, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2024</tspan>        </tspan>      </text>
-    </g>
-    <g
-       clip-path="url(#clip_16)"
-       id="g46"
-       transform="translate(-26.825356,-4.1269778)">
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text11"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="92.193718"
-         y="302.58408">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text41"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="92.193718"
-   y="302.58408" />         <tspan
-   sodipodi:role="line"
-   id="tspan11"
-   x="92.193718"
-   y="302.58408"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan10"
-   x="92.193718"
-   y="302.58408"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$8.5B</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text13"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.5385px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="857.46326"
-         y="299.12738">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text42"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="857.46326"
-   y="299.12738" />         <tspan
-   sodipodi:role="line"
-   id="tspan13"
-   x="857.46326"
-   y="299.12738"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan12"
-   x="857.46326"
-   y="299.12738"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$8.7B</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text15"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="393.76187"
-         y="69.980789">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text43"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="393.76187"
-   y="69.980789" />         <tspan
-   sodipodi:role="line"
-   id="tspan15"
-   x="393.76187"
-   y="69.980789"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan14"
-   x="393.76187"
-   y="69.980789"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$18.1B</tspan>       </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text17"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="705.6474"
-         y="294.83072">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text44"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="705.6474"
-   y="294.83072" />         <tspan
-   sodipodi:role="line"
-   id="tspan17"
-   x="705.6474"
-   y="294.83072"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan16"
-   x="705.6474"
-   y="294.83072"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$8.8B</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text19"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="238.85085"
-         y="255.556">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text45"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="238.85085"
-   y="255.556" />         <tspan
-   sodipodi:role="line"
-   id="tspan19"
-   x="238.85085"
-   y="255.556"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan18"
-   x="238.85085"
-   y="255.556"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$10.5B</tspan>        </tspan>      </text>
-      <text
-         xml:space="preserve"
-         font-size="13.33"
-         id="text21"
-         style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-         x="546.60938"
-         y="151.7975">         <text
-   xml:space="preserve"
-   font-size="13.33"
-   id="text46"
-   style="font-style:normal;font-variant:normal;font-stretch:normal;font-size:29.53846155px;font-family:TradeGothicBold;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;-inkscape-font-specification:'TradeGothicBold, Normal';font-weight:normal"
-   x="546.60938"
-   y="151.7975" />         <tspan
-   sodipodi:role="line"
-   id="tspan21"
-   x="546.60938"
-   y="151.7975"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">           <tspan
-   sodipodi:role="line"
-   id="tspan20"
-   x="546.60938"
-   y="151.7975"
-   style="font-style:normal;font-weight:normal;-inkscape-font-specification:'TradeGothicBold, Normal';font-family:TradeGothicBold;font-stretch:normal;font-variant:normal;font-size:29.53846155px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">$14.6B</tspan>        </tspan>      </text>
-    </g>
+  <g id="foreground">
+    <text xml:space="preserve" style="font-size: 25.8462px; line-height: 31.59px; font-family: sans-serif; display: inline; fill: #5e5c64; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="26.324793" y="47.128624" id="text4-3-0">
+      <text xml:space="preserve" style="font-size: 25.8462px; line-height: 31.59px; font-family: sans-serif; display: inline; fill: #5e5c64; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="26.324793" y="47.128624" id="text4-3-0"/>
+      <tspan sodipodi:role="line" style="font-style: normal; font-variant: normal; font-stretch: normal; font-size: 25.8462px; line-height: 31.59px; font-family: TradeGothicBold; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="26.324793" y="47.128624" id="tspan1-0">
+        <tspan sodipodi:role="line" style="font-style: normal; font-variant: normal; font-stretch: normal; font-size: 25.8462px; line-height: 31.59px; font-family: TradeGothicBold; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="26.324793" y="47.128624" id="tspan1-0">Estimated yearly export value of softwood </tspan>
+      </tspan>
+      <tspan sodipodi:role="line" style="font-style: normal; font-variant: normal; font-stretch: normal; font-size: 25.8462px; line-height: 31.59px; font-family: TradeGothicBold; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="26.324793" y="79.498375" id="tspan8">
+        <tspan sodipodi:role="line" style="font-style: normal; font-variant: normal; font-stretch: normal; font-size: 25.8462px; line-height: 31.59px; font-family: TradeGothicBold; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="26.324793" y="79.498375" id="tspan8">lumber to the U.S.</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="22.029909" y="247.44635" id="text4-7-9-4-7">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="22.029909" y="247.44635" id="text4-7-9-4-7"/>
+      <tspan id="tspan4-4-6-2-65" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="22.029909" y="247.44635" sodipodi:role="line">
+        <tspan id="tspan4-4-6-2-65" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="22.029909" y="247.44635" sodipodi:role="line">$8.5 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="93.400192" y="221.86426" id="text4-7-9-4-7-2">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="93.400192" y="221.86426" id="text4-7-9-4-7-2"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="93.400192" y="221.86426">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="93.400192" y="221.86426">$10.5 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10.1861px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="73.835411" y="167.80145" id="text4-7-9-4-7-2-9">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10.1861px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="73.835411" y="167.80145" id="text4-7-9-4-7-2-9"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-4" style="font-variant: normal; font-stretch: normal; font-size: 10.1861px; font-family: OpenSansBoldItalic; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="73.835411" y="167.80145">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-4" style="font-variant: normal; font-stretch: normal; font-size: 10.1861px; font-family: OpenSansBoldItalic; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="73.835411" y="167.80145">Softwood lumber</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10.1861px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="111.69411" y="178.98381" id="text4-7-9-4-7-2-9-2">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 10.1861px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="111.69411" y="178.98381" id="text4-7-9-4-7-2-9-2"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-4-9" style="font-variant: normal; font-stretch: normal; font-size: 10.1861px; font-family: OpenSansBoldItalic; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="111.69411" y="178.98381">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-4-9" style="font-variant: normal; font-stretch: normal; font-size: 10.1861px; font-family: OpenSansBoldItalic; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #ab1368; fill-opacity: 1; stroke-width: 1.73077;" x="111.69411" y="178.98381">price rise</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="171.44823" y="124.20034" id="text4-7-9-4-7-2-7">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="171.44823" y="124.20034" id="text4-7-9-4-7-2-7"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="171.44823" y="124.20034">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="171.44823" y="124.20034">$18.1 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="249.28984" y="168.48047" id="text4-7-9-4-7-2-7-1">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="249.28984" y="168.48047" id="text4-7-9-4-7-2-7-1"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="249.28984" y="168.48047">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="249.28984" y="168.48047">$14.6 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="324.5018" y="244.10059" id="text4-7-9-4-7-2-7-1-3">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="324.5018" y="244.10059" id="text4-7-9-4-7-2-7-1-3"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2-1" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="324.5018" y="244.10059">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2-1" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="324.5018" y="244.10059">$8.8 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="410.28839" y="245.93536" id="text4-7-9-4-7-2-7-1-3-4">
+      <text xml:space="preserve" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; line-height: 28.6964px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; display: inline; fill: #000000; stroke-width: 1.73077;" x="410.28839" y="245.93536" id="text4-7-9-4-7-2-7-1-3-4"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2-1-7" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="410.28839" y="245.93536">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-65-8-3-2-1-7" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.2615px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="410.28839" y="245.93536">$8.7 billion</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="41.7332" y="379.32797" id="text4-7-9-4">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="41.7332" y="379.32797" id="text4-7-9-4"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="41.7332" y="379.32797">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="41.7332" y="379.32797">2019</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="118.4529" y="378.4252" id="text4-7-9-4-3">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="118.4529" y="378.4252" id="text4-7-9-4-3"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-6" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="118.4529" y="378.4252">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-6" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="118.4529" y="378.4252">2020</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="195.22884" y="378.4252" id="text4-7-9-4-3-3">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="195.22884" y="378.4252" id="text4-7-9-4-3-3"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-6-4" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="195.22884" y="378.4252">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-6-4" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="195.22884" y="378.4252">2021</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="271.97665" y="378.4252" id="text4-7-9-4-3-39">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="271.97665" y="378.4252" id="text4-7-9-4-3-39"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-6-7" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="271.97665" y="378.4252">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-6-7" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="271.97665" y="378.4252">2022</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="348.75964" y="378.4252" id="text4-7-9-4-3-5">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="348.75964" y="378.4252" id="text4-7-9-4-3-5"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-6-8" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="348.75964" y="378.4252">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-6-8" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="348.75964" y="378.4252">2023</tspan>
+      </tspan>
+    </text>
+    <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="426.32611" y="378.4252" id="text4-7-9-4-3-0">
+      <text xml:space="preserve" style="font-size: 12.9801px; line-height: 40.5564px; font-family: sans-serif; display: inline; fill: #000000; stroke-width: 1.73077; font-weight: normal; font-style: normal;" x="426.32611" y="378.4252" id="text4-7-9-4-3-0"/>
+      <tspan sodipodi:role="line" id="tspan4-4-6-2-6-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="426.32611" y="378.4252">
+        <tspan sodipodi:role="line" id="tspan4-4-6-2-6-2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14.396px; font-family: OpenSans; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-east-asian: normal; fill: #000000; stroke-width: 1.73077;" x="426.32611" y="378.4252">2024</tspan>
+      </tspan>
+    </text>
   </g>
 </svg>
