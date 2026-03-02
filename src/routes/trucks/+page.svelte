@@ -82,8 +82,8 @@
 
 		<AuthorDate
 			authors="<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
-			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, 
+			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>
 			"
 			date="February 2026"
@@ -98,10 +98,16 @@
 			This blog post covers the increase in demand for newer trucks due to environmental regulations,
 			the decrease in exports due to the Trump administration's tariffs,  
 			and the struggles that Canadian truck manufacturing are facing today. 
-			Once a well protected sector, Canadian MHDV exports were hit with a 25% tariff last November, 
-			dramatically weakening the relationship with U.S. states involved in the auto industry. 
-			Our statistical findings and mapping visualization tool underscore the toll of these tariffs on Canadians and the adaptations that Canadians are making, 
-			from Ontarians being displaced from where they live to the federal government seeking relationships with other countries.
+		</p>
+
+		<p>
+			Once a well protected sector, Canadian MHDV exports were hit with a 25% tariff in November 2025, 
+			dramatically weakening relationships with U.S. states involved in the auto industry. 
+		</p>
+
+		<p>
+			Our maps and analysis underscore the toll of these tariffs on Canadians and the adaptations that Canadians are making, 
+			from Ontario jobs moving to the U.S. and the Canadian federal government seeking relationships with other countries.
 		</p>
 
 		<h2>
@@ -119,6 +125,10 @@
 			Under the Obama administration, the U.S. Environmental Protection Agency (EPA) <a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/regulations-greenhouse-gas-emissions-commercial-trucks">issued greenhouse gas emissions standards</a> across the MHDV models for 2014-2018 and 2019-2027, called Phase 1 and Phase 2 respectively.
 			The sector was able to meet these standards well until 2020, <a href="https://link.springer.com/article/10.1007/s10479-021-04397-2">when the COVID-19 pandemic caused lapses in the overall manufacturing industry</a>.
 			Then, in 2021, <a href="https://www.cbc.ca/news/business/covid-car-industry-analysis-1.6216265">a semi-conductor shortage</a> dropped manufacturing and sales levels across the entire automotive sector, including trucks.
+		</p>
+
+		<p>
+
 			In 2023, Canada and the U.S. announced a <a href="https://www.pm.gc.ca/en/news/statements/2023/03/24/prime-minister-trudeau-and-president-biden-joint-statement">$250 million investment</a> to support semiconductor projects, so that manufacturers could acquire the semiconductors to get through backlogged orders. 
 			Additionally, the U.S. EPA set out Phase 3 regulations that year, which pushed stronger GHG emission standards across MHDVs (as an exmaple, the 
 			<a href="https://www.fleetowner.com/perspectives/ideaxchange/blog/21263561/navigating-the-carb-prebuy-for-truck-procurement-what-fleets-need-to-know">California Air Resources Board mandating zero emission truck purchases</a> from January 1, 2024).

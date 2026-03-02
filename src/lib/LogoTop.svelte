@@ -13,9 +13,9 @@
 	const links = [
 		{ name: "Homepage", url: "./" },
 		{ name: "Background and findings", url: "./potential-local-impacts" },
-		{ name: "Lumber", url: "./lumber" },
-		{ name: "Trucks", url: "./trucks" },
-		{ name: "Current tariffs", url: "./current-tariffs" },
+		// { name: "Update on lumber tariffs (02/2026)", url: "./lumber" },
+		// { name: "Update on truck tariffs (02/2026)", url: "./trucks" },
+		// { name: "Current tariff landscape", url: "./current-tariffs" },
 		{ name: "National map", url: "./map" },
 		{ name: "Metro area rankings", url: "./cma-ranking-charts" }
 	];

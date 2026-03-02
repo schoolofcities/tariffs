@@ -82,8 +82,8 @@
 
 		<AuthorDate
 			authors="<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
-			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, 
+			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>
 			"
 			date="February 2026"
@@ -124,7 +124,7 @@
 		</p>
 
 		<p>	
-			The chart below shows Canada’s lumber exports to the U.S. in dollar amounts for HS code 4407, which is mainly softwood lumber. 
+			The chart below shows Canada’s lumber exports to the U.S. in dollar amounts for  softwood lumber (based on HS code 4407). 
 			While the proportion of Canada’s exports to the U.S. compared to the rest of the world remained consistent from 2019 - 2024, the <a href="https://tradingeconomics.com/commodity/lumber">dollar value of lumber fluctuated</a> due to inflation, the pandemic, and supply & demand, leading to rises and falls.
 			
 		</p>
@@ -141,7 +141,6 @@
 			Just as supply was recovering in 2022, the <a href="https://www.congress.gov/crs-product/IN12388">Federal Reserve increased interest rates to over 5% to combat inflation</a>, which plummeted demand, and decreased the overall export valuation of softwood lumber.
 		</p>
 			
-
 	</div>
 
 

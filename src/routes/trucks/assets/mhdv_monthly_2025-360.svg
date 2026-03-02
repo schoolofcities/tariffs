@@ -21,11 +21,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="3.7957884"
-     inkscape:cx="287.16037"
-     inkscape:cy="140.55051"
+     inkscape:zoom="1.8978942"
+     inkscape:cx="192.31841"
+     inkscape:cy="179.14592"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -48,6 +48,12 @@
   </sodipodi:namedview>
   <defs
      id="defs15">
+    <rect
+       x="247.76877"
+       y="280"
+       width="134.76045"
+       height="50.89305"
+       id="rect1" />
     <rect
        x="472.62906"
        y="43.732677"
@@ -898,6 +904,11 @@
        inkscape:transform-center-y="1.7828073"
        transform="matrix(0.38989281,0.67531416,-0.67531416,0.38989281,132.8092,-396.9851)"
        inkscape:transform-center-x="1.0616475e-06" />
+    <text
+       xml:space="preserve"
+       transform="matrix(1.3846154,0,0,1.3846154,-0.23077071,0)"
+       id="text1"
+       style="line-height:0.95;font-family:'Open Sans';font-size:10.29997253px;-inkscape-font-specification:'Open Sans, Normal';text-orientation:auto;direction:rtl;white-space:pre;shape-inside:url(#rect1)" />
   </g>
   <text
      xml:space="preserve"
