@@ -172,14 +172,14 @@
 		<p>
 			Automotive tariffs (passenger vehicles and light trucks) were placed in effect in spring 2025, with medium and heavy duty vehicle tariffs coming into effect in the fall.
 			On October 17, 2025, the Trump administration <a href="https://www.whitehouse.gov/presidential-actions/2025/10/adjusting-imports-of-medium-and-heavy-duty-vehicles-medium-and-heavy-duty-vehicle-parts-and-buses-into-the-united-states/">announced tariffs</a> on medium and heavy duty vehicles (25%) and busses (10%) effective November 1, 2025.
-			This category shook the industry as it not only includes the MHDVs but also buses, and so now covers the vast majority of manufactured vehicles.
+			This category shook the industry as it not only includes the MHDVs but also buses and <a href="https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=247787&CVD=247863&CPV=4121221&CST=01012012&CLV=4&MLV=4">special purpose vehicles</a>, and so now covers the vast majority of manufactured vehicles.
 			In anticipation of these new tariffs, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260108/dq260108a-eng.htm">October sales rose 24.7%</a> compared to September 2025. 
 		</p>
 
 		<p>
 			In November 2025, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260129/dq260129a-eng.htm">Canadian MHDV exports fell 53.8% </a> compared to October 2025, undoubtedly due to the tariffs. 
 			The broader automotive sector was also affected by recent semiconductor shortages, resulting in a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">6.3% decline</a> in motor vehicle parts sales month over month.
-			The sector also saw a 15.9% decline in motor vehicle manufacturing sales (finished vehicles sold direct to consumers or shipped to the U.S.) from the previous month, which is down 20.7% from November 2024.
+			The sector also saw a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">15.9%</a> decline in motor vehicle manufacturing sales (finished vehicles sold direct to consumers or shipped to the U.S.) from the previous month, which is down <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">20.7%</a> from November 2024.
 		</p>
 
 		<p>
