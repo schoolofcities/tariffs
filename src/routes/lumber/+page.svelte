@@ -138,7 +138,7 @@
 		<p>
 			Due to the price surges from the home improvement boom in 2021, <a href="https://fortune.com/2021/07/20/lumber-prices-2021-chart-price-of-lumber-july-2021-update-cost-of-wood/">houseowners decreased their DIY projects and mills were able to catch up on supply</a>. 
 			Lumber briefly returned to the pre-pandemic price range in July 2021, but in November an <a href="https://www.cbc.ca/news/canada/british-columbia/landslides-disaster-logging-wildfires-study-1.7490041">historic landslide event in B.C.,</a> that killed 5 people and forced 18,000 to evacuate, ceased supply from Canada's largest softwood exporter, causing prices to surge again.
-			Just as supply was recovering in 2022, the <a href="https://www.congress.gov/crs-product/IN12388">Federal Reserve increased interest rates to over 5% to combat inflation</a>, which plummeted demand and decreased the overall export valuation of softwood lumber.
+			Just as supply was recovering in 2022, the <a href="https://www.bankofcanada.ca/rates/interest-rates/us-rates-lookup/?lookupPage=lookup_us_interest.php&startRange=2016-03-06&rangeType=dates&dFrom=2019-01-01&dTo=2026-03-06&rangeWeeklyValue=60&rangeMonthlyValue=60&submit_button=Submit">Federal Reserve increased interest rates to over 5% to combat inflation</a>, which plummeted demand and decreased the overall export valuation of softwood lumber.
 		</p>
 			
 	</div>
@@ -211,7 +211,7 @@
 		<p>
 			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the fall in global lumber exports shown in the first graph (using the harmonized system code 4407). 
 			We can also infer that while lumber quantity fell from 2019 to 2020 due to the landslides, B.C. rebounded by meeting the high demand in 2021.
-			Recently, B.C. mills have been struggling to keep up with duties and tariffs. For example, Domtar, a pulp mill company, <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">closed their operations, laying off 350 workers</a> in Crofton, B.C. this February. 
+			Recently, B.C. mills have been struggling to keep up with duties and tariffs. For example, in February 2026, Domtar, a pulp mill company, <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">closed their operations in Crofton, B.C., laying off 350 workers</a>. 
 			In response, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">build a court case against the U.S. to challenge the softwood lumber tariff</a>. 
 		</p>
 
