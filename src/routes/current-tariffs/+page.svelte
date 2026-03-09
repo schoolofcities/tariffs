@@ -83,11 +83,10 @@
 
 	<div class="text">	
 	<ul>
-		<li><a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">Duties
-		of approximately 45% on Canadian softwood lumber (10% new tariffs, 35% anti-dumping & countervailing)</a> 
-		There was a 25% tariff on upholstered furniture, kitchen cabinets, and vanities looped under this section as well which was <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">planned to be increased</a> for January 1, 2026, 
-		but <a href="https://www.whitehouse.gov/fact-sheets/2025/12/fact-sheet-president-donald-j-trump-adjusts-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">has since been delayed</a>;</li>
-		<li>A <a href="https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/supporting-exporters-through-tariff-challenges.html"> 25% tariff on medium and heavy duty vehicles (trucks) and 10% on busses</a> (effective November 1, 2025); </li>	
+		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">10% tariff on softwood lumber</a>, totalling <a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">duties
+		of approximately 45% on Canadian softwood lumber</a> (10% tariffs, 35% anti-dumping & countervailing) (effective October 14, 2025);</li>
+		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">25% tariff on upholstered furniture, kitchen cabinets, and vanities</a>, (effective October 14, 2025);</li>
+		<li>A <a href="https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/supporting-exporters-through-tariff-challenges.html"> 25% tariff on medium and heavy duty vehicles (trucks) and 10% on busses and other vehicles</a> (effective November 1, 2025); </li>	
 		<li>Increased <a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-amends-duties-to-address-the-flow-of-illicit-drugs-across-our-northern-border/" target="_blank">tariffs
 		on non-CUSMA compliant Canadian goods to 35%</a> from 25%
 		announced in February 2025 (effective: August 1, 2025);</li>
@@ -120,6 +119,11 @@
 		On September 1, 2025, the Canadian government lifted many of its counter-tariffs noting that many Canadian exporters (with the exceptions of those related to automotive, aluminum, and steel) are able to avoid tariffs through compliance with CUSMA. Canada’s Department of Finance maintains an up-to-date <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">list of Canadian tariffs</a> on U.S. exports.
 	</p>
 
+	<p>
+		On December 31, 2025, the U.S. <a href="https://www.whitehouse.gov/fact-sheets/2025/12/fact-sheet-president-donald-j-trump-adjusts-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">delayed a planned increase to the 25% tariff on upholstered furniture, and kitchen cabinets and vanities</a> set for January 1, 2026, 
+		which would have <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/" target="_blank">increased to 35% and 50% respectively</a>.
+	</p>
+	 
 	<p>
 		As of February 2026, the U.S. government continues to enact <i>de minimis</i> and threaten further tariffs.
 		The Canadian government endures these challenges by <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforcing retaliatory tariffs on steel, aluminum and autos</a>, and <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">providing relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a> ($1 billion in funding over 3 years).

@@ -75,7 +75,7 @@
 
 	<TitleStandard
 		title="The impacts of lumber tariffs on Canadian cities"
-		subtitle="An update on potential local lumber impacts on jobs and businesses across Canada"
+		subtitle="An update on the potential local impacts of lumber tariffs on jobs and businesses across Canada"
 	/>
 
 	<div class="text">
@@ -95,9 +95,9 @@
 
 		<p>
 			Lumber is a big export item for Canada. 
-			This blog provides an overview of the history of the Canada-U.S. lumber trade, 
-			recent economic challenges due to the softwood lumber tariffs, 
-			and their potential implications for local businesses and employees through our mapping tool.
+			This blog provides an overview of the history of the Canada-U.S. lumber trade and examines
+			recent economic challenges due to the softwood lumber tariffs 
+			and their potential implications for local businesses and employees.
 			Canadian lumber companies have advocated for better trade conditions since countervailing duties and anti-dumping rates started to increase over a decade ago, but with 
 			new tariffs imposed on softwood lumber in October 2025, 
 			businesses across the country are now facing up to 45% in total tariffs and duties. 
@@ -109,15 +109,15 @@
 		</h2>
 
 		<p>	
-			Canada is one of the world's largest producers of softwood lumber. In 2020, the industry <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">was valued at $10 billion</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of the United States' softwood lumber imports</a> in 2020. 
-			Softwood — fast growing trees that have a wide range of uses in framing material and furniture — accounts for <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">98%</a> of all lumber types in Canada and is a major industry across the interior regions of provinces, especially in British Columbia, where the softwood industry accounts for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">~46% of Canada's lumber exports</a> to the U.S.. 
+			Canada is one of the world's largest producers of softwood lumber. In 2020, the industry <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">was valued at $10 billion</a> and supplied <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">80% of the United States' softwood lumber imports</a>. 
+			Softwood – fast growing trees that have a wide range of uses in framing material and furniture – accounts for <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2022023-eng.htm">98%</a> of all lumber types in Canada and is a major industry across the interior regions of provinces, especially in British Columbia, where the softwood industry accounts for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">~46% of Canada's lumber exports</a> to the U.S.. 
 			<!-- B.C., Quebec, Ontario, Alberta, and New Brunswick account for <a href="https://edac.ca/wp-content/uploads/2025/02/Canada-U.S.-Core-Facts-January-2025.pdf?">95% of softwood lumber production</a>. -->
 			In 2020, nearly 70% of all softwood lumber production was exported, with <a href="https://natural-resources.canada.ca/forest-forestry/forest-industry-trade/canada-s-softwood-lumber-industry">84% of those exports going to the U.S.</a> due to the demand for lumber in housing and construction.
 		</p>
 
 		<p>	
-			Despite Canada being its primary source of imported lumber (<a href="https://wits.worldbank.org/CountryProfile/en/Country/USA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/44-49_Wood">~40% of U.S. wood product imports</a>), the U.S. has imposed duties over the past four decades to leverage their domestic lumber industry. 
-			Canadian lumber companies have fought against anti-dumping (AD) and countervailing duties (CVD) through NAFTA, WTO, U.S. courts, and more recently, CUSMA. 
+			Despite Canada being its primary source of imported lumber (<a href="https://wits.worldbank.org/CountryProfile/en/Country/USA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/44-49_Wood">~40% of U.S. wood product imports</a>), the U.S. has imposed duties over the past four decades in order to leverage their domestic lumber industry. 
+			Canadian lumber companies have fought against anti-dumping (AD) and countervailing duties (CVD) through NAFTA, WTO, U.S. courts and, more recently, CUSMA. 
 			Both countries were bound by the <a href="https://www.treaty-accord.gc.ca/text-texte.aspx?id=105072&lang=eng">Softwood Lumber Agreement</a> (SLA) from 2006-2015, which provided stability for Canadians; however, the duties returned in 2017, 19 months after the agreement expired.
 			During the COVID-19 pandemic, <a href="https://www150.statcan.gc.ca/n1/pub/62f0014m/62f0014m2022011-eng.htm?">the producer price of softwood lumber more than tripled</a> because of an increase in demand for single detached home construction driven by excess household savings and low interest rates.
 			Since then, lumber has been <a href="https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2025-08">falling in exports</a>, a trend exacerbated by the tariffs.
@@ -136,9 +136,9 @@
 		/>
 
 		<p>
-			Due to the price surges from the home improvement boom in 2021, <a href="https://fortune.com/2021/07/20/lumber-prices-2021-chart-price-of-lumber-july-2021-update-cost-of-wood/">houseowners decreased their DIY projects and mills caught up on supply</a>. 
-			Lumber briefly returned to the pre-pandemic price range in July 2021, but in November, a <a href="https://www.cbc.ca/news/canada/british-columbia/landslides-disaster-logging-wildfires-study-1.7490041">historic landslide event in B.C.</a> that killed 5 people and forced 18,000 to evacuate, ceased supply from Canada's largest softwood exporter, causing prices to surge again.
-			Just as supply was recovering in 2022, the <a href="https://www.congress.gov/crs-product/IN12388">Federal Reserve increased interest rates to over 5% to combat inflation</a>, which plummeted demand, and decreased the overall export valuation of softwood lumber.
+			Due to the price surges from the home improvement boom in 2021, <a href="https://fortune.com/2021/07/20/lumber-prices-2021-chart-price-of-lumber-july-2021-update-cost-of-wood/">houseowners decreased their DIY projects and mills were able to catch up on supply</a>. 
+			Lumber briefly returned to the pre-pandemic price range in July 2021, but in November an <a href="https://www.cbc.ca/news/canada/british-columbia/landslides-disaster-logging-wildfires-study-1.7490041">historic landslide event in B.C.,</a> that killed 5 people and forced 18,000 to evacuate, ceased supply from Canada's largest softwood exporter, causing prices to surge again.
+			Just as supply was recovering in 2022, the <a href="https://www.bankofcanada.ca/rates/interest-rates/us-rates-lookup/?lookupPage=lookup_us_interest.php&startRange=2016-03-06&rangeType=dates&dFrom=2019-01-01&dTo=2026-03-06&rangeWeeklyValue=60&rangeMonthlyValue=60&submit_button=Submit">Federal Reserve increased interest rates to over 5% to combat inflation</a>, which plummeted demand and decreased the overall export valuation of softwood lumber.
 		</p>
 			
 	</div>
@@ -177,20 +177,20 @@
 
 		<p>
 			Similar to the findings in our <a href="/potential-local-impacts">preliminary analysis</a>, 
-			Canada’s lumber industry is highly tied to the U.S. due to the geographic convenience and the demands of U.S. imports.
+			Canada’s lumber industry is tightly tied to the U.S. due to the geographic convenience and the demands of U.S. imports.
 			While negotiations continue, the U.S. government is still enacting and changing tariff plans. 
 			See our <a href="../current-tariffs">current tariffs</a> page for a full list of tariffs currently in place.
 		</p>
 
 		<p>
-			AD and CVD rates have been imposed since the 1980s. However, from 2019 to 2023, these rates increased significantly for imported softwood lumber — AD
-			rates reached <a href="https://www.congress.gov/crs-product/R48781?">17% in 2019 and 35% in 2023</a>, with combined AD/CVD rates pushing in the 40th percentile range depending on the year and company. 
-			These tariffs have directly impacted softwood lumber, which used to be protected by Section 232 of the Trade Expansion Act — an act granting the U.S. President to impose tariffs on goods that threaten national security.
+			AD and CVD rates have been imposed since the 1980s. However, from 2019 to 2023, these rates increased significantly for imported softwood lumber – AD
+			rates reached <a href="https://www.congress.gov/crs-product/R48781?">17% in 2019 and 35% in 2023</a>, with combined AD/CVD rates pushing into the 40th percentile range depending on the year and company. 
+			These tariffs have directly impacted softwood lumber, which used to be protected by Section 232 of the Trade Expansion Act – an act granting the U.S. President permission to impose tariffs on goods that threaten national security.
 		</p>
 
 		<p>
-			In 2026, the situation remains unpredictable — for example, there have been recent last minute tariff changes to upholstered furniture, kitchen cabinets and vanities.
-			Lumber was <a href="https://natural-resources.canada.ca/domestic-international-markets/current-lumber-pulp-panel-prices#softwood">up in price in January 2026</a> according to the <a href="https://madisonsreport.com/lumber-market-updates/">Madison's Lumber Reporter</a> — a weekly newsletter on Canadian & US lumber — but producers are hesitant to push production due to the ongoing uncertainties.
+			In 2026, the situation remains unpredictable — for example, there have been recent last minute tariff changes to upholstered furniture, kitchen cabinets, and vanities.
+			Lumber was <a href="https://natural-resources.canada.ca/domestic-international-markets/current-lumber-pulp-panel-prices#softwood">up in price in January 2026</a> according to the <a href="https://madisonsreport.com/lumber-market-updates/">Madison's Lumber Reporter</a> – a weekly newsletter on Canadian & U.S. lumber — but producers are hesitant to push production due to the ongoing uncertainties.
 		</p>
 
 		<h2>
@@ -211,8 +211,8 @@
 		<p>
 			Note that the percent share of exports to the U.S. hasn't fluctuated much and that lumber quantity fell from 2022, similar to the fall in global lumber exports shown in the first graph (using the harmonized system code 4407). 
 			We can also infer that while lumber quantity fell from 2019 to 2020 due to the landslides, B.C. rebounded by meeting the high demand in 2021.
-			Recently, B.C. mills have been struggling to keep up with duties and tariffs. For example, Domtar, a pulp mill company, <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">closed their operations, laying off 350 workers</a> in Crofton, B.C. this February. 
-			In response, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">build a court case to challenge the softwood lumber tariff</a> against the U.S.. 
+			Recently, B.C. mills have been struggling to keep up with duties and tariffs. For example, in February 2026, Domtar, a pulp mill company, <a href="https://www.cbc.ca/news/canada/british-columbia/crofton-mill-closure-reaction-9.7002235">closed their operations in Crofton, B.C., laying off 350 workers</a>. 
+			In response, David Eby, the Premier of B.C., seeks to <a href="https://www.thestar.com/business/eby-says-b-c-could-fight-lumber-tariffs-in-u-s-courts/article_c75860b1-40b7-5886-b5c7-389b1bba6418.html">build a court case against the U.S. to challenge the softwood lumber tariff</a>. 
 		</p>
 
 		<h2>
@@ -270,9 +270,9 @@
 
 		<p>
 			Our maps show that the impacts of the tariffs are consistent with export reports across the lumber industry. 
-			Logging dependent cities like Quesnel, B.C., Campbell River, B.C., Prince George, B.C., Kapuskasing, Ont., and La Tuque, Que. are feeling the brunt of these effects today.
+			Logging-dependent cities like Quesnel, B.C., Campbell River, B.C., Prince George, B.C., Kapuskasing, Ont., and La Tuque, Que. are feeling the brunt of these effects today.
 			The supply chain, constrained by log shortages and adjacent tariffs in steel and automotives, is hindering lumber exports in many avenues.
-			While the Canadian government does recognize and supports the industry through financial aid, the future remains uncertain due to the bilateral interdependency of the U.S. and Canada.
+			While the Canadian government recognizes and supports the industry through financial aid, the future remains uncertain due to the bilateral interdependency of the U.S. and Canada.
 		</p>
 
 		<p>

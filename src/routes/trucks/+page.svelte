@@ -75,7 +75,7 @@
 
 	<TitleStandard
 		title="The impacts of truck tariffs on Canadian cities"
-		subtitle="An update on potential local truck tariff impacts on jobs and businesses across Canada"
+		subtitle="An update on the potential local impacts of truck tariffs on jobs and businesses across Canada"
 	/>
 
 	<div class="text">
@@ -115,7 +115,7 @@
 		</h2>
 
 		<p>	
-			MHDVs consist of garbage trucks, long haul trucks and delivery vehicles ranging from classes 3 to 8 (8,501 - 33,000+ lbs). 
+			MHDVs consist of garbage trucks, long haul trucks, and delivery vehicles ranging from classes 3 to 8 (8,501 - 33,000+ lbs). 
 			In terms of trade, this sector is often grouped with all vehicles and parts, which account for <a href="https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2023-06-13-ciit?">13.2% of the total share of exported merchandises to the U.S.</a>, the second largest category.
 			In 2024, <a href="https://wits.worldbank.org/trade/comtrade/en/country/CAN/year/2024/tradeflow/Exports/partner/ALL/product/870990">87.1% of work truck parts</a> were exported to the U.S..
 		</p>
@@ -124,16 +124,16 @@
 			The trucks trade between Canada and the U.S. had been protected under Section 232 of the Trade Expansion Act since 1962. 
 			Under the Obama administration, the U.S. Environmental Protection Agency (EPA) <a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/regulations-greenhouse-gas-emissions-commercial-trucks">issued greenhouse gas emissions standards</a> across the MHDV models for 2014-2018 and 2019-2027, called Phase 1 and Phase 2 respectively.
 			The sector was able to meet these standards well until 2020, <a href="https://link.springer.com/article/10.1007/s10479-021-04397-2">when the COVID-19 pandemic caused lapses in the overall manufacturing industry</a>.
-			Then, in 2021, <a href="https://www.cbc.ca/news/business/covid-car-industry-analysis-1.6216265">a semi-conductor shortage</a> dropped manufacturing and sales levels across the entire automotive sector, including trucks.
+			Then, in 2021, <a href="https://www.cbc.ca/news/business/covid-car-industry-analysis-1.6216265">a semiconductor shortage</a> dropped manufacturing and sales levels across the entire automotive sector, including trucks.
 		</p>
 
 		<p>
 
-			In 2023, Canada and the U.S. announced a <a href="https://www.pm.gc.ca/en/news/statements/2023/03/24/prime-minister-trudeau-and-president-biden-joint-statement">$250 million investment</a> to support semiconductor projects, so that manufacturers could acquire the semiconductors to get through backlogged orders. 
-			Additionally, the U.S. EPA set out Phase 3 regulations that year, which pushed stronger GHG emission standards across MHDVs (as an exmaple, the 
-			<a href="https://www.fleetowner.com/perspectives/ideaxchange/blog/21263561/navigating-the-carb-prebuy-for-truck-procurement-what-fleets-need-to-know">California Air Resources Board mandating zero emission truck purchases</a> from January 1, 2024).
+			In 2023, Canada and the U.S. announced a <a href="https://www.pm.gc.ca/en/news/statements/2023/03/24/prime-minister-trudeau-and-president-biden-joint-statement">$250 million investment</a> to support semiconductor projects, so that manufacturers could acquire the semiconductors needed to get through backlogged orders. 
+			Additionally, the U.S. EPA set out Phase 3 regulations that year, which pushed stronger GHG emission standards across MHDVs (as an example, the 
+			<a href="https://www.fleetowner.com/perspectives/ideaxchange/blog/21263561/navigating-the-carb-prebuy-for-truck-procurement-what-fleets-need-to-know">California Air Resources Board mandated zero emission truck purchases</a> from January 1, 2024).
 			This regulation applied to commercial fleets that generate more than $50 million in gross revenue or have 50 or more fleets.
-			To meet this target, a rush for 2023 compliant vehicle procurement caused a pre-buy spike in imports, which carried over in 2024.
+			To meet this target, a rush for 2023 compliant vehicle procurement caused a pre-buy spike in imports, which carried over into 2024.
 			
 		</p>
 
@@ -170,23 +170,23 @@
 	<div class="text">
 
 		<p>
-			Automotive tariffs (passenger vehicles and light trucks) were placed in effect in spring 2025 with medium and heavy duty vehicle tariffs coming into effect later in the fall.
+			Automotive tariffs (passenger vehicles and light trucks) were placed in effect in spring 2025, with medium and heavy duty vehicle tariffs coming into effect in the fall.
 			On October 17, 2025, the Trump administration <a href="https://www.whitehouse.gov/presidential-actions/2025/10/adjusting-imports-of-medium-and-heavy-duty-vehicles-medium-and-heavy-duty-vehicle-parts-and-buses-into-the-united-states/">announced tariffs</a> on medium and heavy duty vehicles (25%) and busses (10%) effective November 1, 2025.
-			This category shook the industry as it not only includes the MHDVs, but also buses, and so now covers the vast majority of manufactured vehicles.
+			This category shook the industry as it not only includes the MHDVs but also buses and <a href="https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=247787&CVD=247863&CPV=4121221&CST=01012012&CLV=4&MLV=4">special purpose vehicles</a>, and so now covers the vast majority of manufactured vehicles.
 			In anticipation of these new tariffs, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260108/dq260108a-eng.htm">October sales rose 24.7%</a> compared to September 2025. 
 		</p>
 
 		<p>
 			In November 2025, <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260129/dq260129a-eng.htm">Canadian MHDV exports fell 53.8% </a> compared to October 2025, undoubtedly due to the tariffs. 
 			The broader automotive sector was also affected by recent semiconductor shortages, resulting in a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">6.3% decline</a> in motor vehicle parts sales month over month.
-			The sector also saw a 15.9% decline in motor vehicle manufacturing sales (finished vehicles sold direct to consumers or shipped to the U.S.) from the previous month, which is down 20.7% from November 2024.
+			The sector also saw a <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">15.9%</a> decline in motor vehicle manufacturing sales (finished vehicles sold direct to consumers or shipped to the U.S.) from the previous month, which is down <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260115/dq260115a-eng.htm">20.7%</a> from November 2024.
 		</p>
 
 		<p>
-			Now 3 months into 2026, fleet companies are preparing for the 2027 mandate announced by the EPA, which will require <a href="https://www.fleetowner.com/emissions-efficiency/article/55315480/epa27-isnt-dead-yet-will-your-fleet-be-prepared">significant reductions in nitric oxide (NOx) emissions.</a>
+			Now three months into 2026, fleet companies are preparing for the 2027 mandate announced by the EPA, which will require <a href="https://www.fleetowner.com/emissions-efficiency/article/55315480/epa27-isnt-dead-yet-will-your-fleet-be-prepared">significant reductions in nitric oxide (NOx) emissions.</a>
 			This has caused <a href="https://www.fleetowner.com/equipment/article/55355309/class-8-orders-top-10-year-average-fleet-risks-persist">Class 8 vehicles (heaviest category) to reach an all time high in orders</a>.
 			Companies like Linamar are <a href="https://www.bnnbloomberg.ca/business/2025/11/12/linamar-reports-1692m-in-q3-profit-up-from-the-previous-year/">avoiding tariffs through meeting Canada-United States-Mexico Agreement (CUSMA)</a> thresholds, but parts regarding NOx / EPA compliance systems are <a href="https://www.ccjdigital.com/regulations/emissions/article/15771994/epa-rejects-trucking-industry-plea-will-keep-2027-nox-rule-timeline?">strained by the EPA 2027 standards</a>.
-			With the tariffs on Canada now in place, our relationship with U.S. truck assemblers and original equipment manufacturers is weakened as companies must either supply parts to comply under CUSMA or pay the tariffed rates.
+			With the tariffs on Canada now in place, our relationship with U.S. truck assemblers and original equipment manufacturers is weakened, as companies must either supply parts to comply under CUSMA or pay the tariffed rates.
 		</p>
 
 		</div>
@@ -208,13 +208,13 @@
 			/>
 
 		<p>
-			To further the incentive of to centralize U.S. manufacturing, the government has offered <a href="https://www.supplychaindive.com/news/trump-truck-bus-tariffs-nov-1/803171/">tariff relief of 3.75% per year</a> if companies finish their truck builds in the U.S..
+			To further the incentive to centralize U.S. manufacturing, the government has offered <a href="https://www.supplychaindive.com/news/trump-truck-bus-tariffs-nov-1/803171/">tariff relief of 3.75% per year</a> if companies finish their truck builds in the U.S..
 			On February 5, 2026, Carney announced a push for <a href="https://www.ttnews.com/articles/canada-scrap-eve-rules">an import credit system</a>, which would alleviate tariffs for companies that meet a certain production threshold. This follows a $2.3 billion program for Canadians to purchase EV vehicles in partnerships with Chinese automakers.
 		</p>
 
 
 		<p>
-			Similar to our <a href="../potential-local-impacts">preliminary findings</a>, Canada's truck industry is highly tied to the U.S. due to the geographic convenience and demand of U.S. imports.
+			Similar to our <a href="../potential-local-impacts">preliminary findings</a>, Canada's truck industry is strongly tied to the U.S. due to the geographic convenience and demand of U.S. imports.
 		</p>
 
 		<h2>
@@ -226,9 +226,9 @@
 		</p>
 
 		<p>
-			In 2026, the situation remains unpredictable. Trucks — once protected under Section 232 of the Trade Expansion Act — are seeing unprecedented effects from the tariffs. On one hand, layoffs are rampant in the industry due to the dependency on Canadian auto exports to the U.S.. 
+			In 2026, the situation remains unpredictable. Trucks – once protected under Section 232 of the Trade Expansion Act – are seeing unprecedented effects from the tariffs. On one hand, layoffs are rampant in the industry due to the dependency on Canadian auto exports to the U.S.. 
 			On the other hand, the demand for greener vehicles (such as EVs) and <a href="https://cleanenergycanada.org/wp-content/uploads/2024/05/ZEMHDV-AvailabilityCatalogue-V7-Online-1.pdf">zero emission vehicle compliant policies</a> may motivate production in this sector.
-			The question remains: What is the outlook on Canada's auto industry, and are consumers, commercial clients and government entities ready for the greener future that is promised?
+			The question remains: What is the outlook for Canada's auto industry, and are consumers, commercial clients, and government entities ready for the greener future that is promised?
 		</p>
 
 		<h2>
@@ -257,7 +257,7 @@
 
 		<p>
 			Using our  <a href="./map">mapping and visualization tool</a> we can trace potential tariff vulnerabilities across Canada. 
-			The medium heavy duty vehicle section highlights the regional specialization of manufacturing dependent cities.
+			The medium heavy duty vehicle section highlights the regional specialization of manufacturing-dependent cities.
 			For example, the Greater Golden Horseshoe (GGH) map displays the proportion of workers (as place of work) potentially affected by the truck tariffs. 
 		</p>
 
@@ -275,7 +275,7 @@
 		
 		<p>
 			Truck manufacturing plants have been heavily affected.
-			Employees in regions like Woodstock work at medium and heavy duty truck assembly facilities like <a href="https://comtruck.ca/locations/woodstock/">Comtruck</a> and <a href="https://www.hinocanada.com/about-us/woodstock-plant-milestones/">Hino Canada</a> — the impacts on them can seen affected through their primary residence .
+			Employees in regions like Woodstock work at medium and heavy duty truck assembly facilities like <a href="https://comtruck.ca/locations/woodstock/">Comtruck</a> and <a href="https://www.hinocanada.com/about-us/woodstock-plant-milestones/">Hino Canada</a> – the impacts on them can be seen through their primary residence.
 		</p>
 		
 	</div>
@@ -322,7 +322,7 @@
 
 		<p>
 			Our maps show that the impacts of the tariffs are consistent with export reports across the truck industry.
-			Truck manufacturing regions like Guelph, Windsor and Ingersoll are facing a decrease in manufacturing.
+			Truck manufacturing regions like Guelph, Windsor, and Ingersoll are facing a decrease in manufacturing.
 			The supply chain, constrained by adjacent tariffs in steel and automotives, is hindering truck exports in many ways.
 			While the Canadian government supports the MHDV industry through financial aid, 
 			the industry remains volatile and unpredictable due to the codependency of truck production between Canada & the U.S..
