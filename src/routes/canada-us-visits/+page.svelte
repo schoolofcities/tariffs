@@ -1,10 +1,12 @@
-<!-- <Password/> -->
+<Password/>
 
 <script>
 	import '../../assets/global-styles.css';
 	import Logo from '$lib/LogoTop.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import AuthorDate from '$lib/AuthorDate.svelte';
+	import TitleStandard from '$lib/TitleStandard.svelte';
+	import Password from '$lib/Password.svelte';
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { scaleLinear, line } from "d3";
@@ -78,7 +80,7 @@
 	const canadianProvinces = ['BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NB', 'NS', 'PE', 'NL', 'YT', 'NT', 'NU'];
 
 	// US Metro coordinates lookup (major metros - will be populated from data)
-	const usMetroCoords = {
+	const usMetroCoords = Object.fromEntries(Object.entries({
 		"New York-Newark-Jersey City, NY-NJ-PA": [-74.006, 40.7128],
 		"Los Angeles-Long Beach-Anaheim, CA": [-118.2437, 34.0522],
 		"Chicago-Naperville-Elgin, IL-IN-WI": [-87.6298, 41.8781],
@@ -119,6 +121,7 @@
 		"Providence-Warwick, RI-MA": [-71.4128, 41.824],
 		"Milwaukee-Waukesha, WI": [-87.9065, 43.0389],
 		"Jacksonville, FL": [-81.6557, 30.3322],
+		"Jacksonville, NC": [-77.4302, 34.7541],
 		"Oklahoma City, OK": [-97.5164, 35.4676],
 		"Raleigh-Cary, NC": [-78.6382, 35.7796],
 		"Memphis, TN-MS-AR": [-90.049, 35.1495],
@@ -248,6 +251,32 @@
 		"Yakima, WA": [-120.5059, 46.6021],
 		"Bellingham, WA": [-122.4788, 48.7519],
 		"Medford, OR": [-122.8756, 42.3265],
+		"Allentown-Bethlehem-Easton, PA-NJ": [-75.47, 40.61],
+		"Billings, MT": [-108.5, 45.78],
+		"Cedar Rapids, IA": [-91.67, 41.98],
+		"Coeur d'Alene, ID": [-116.78, 47.68],
+		"Columbia, MO": [-92.33, 38.95],
+		"Elkhart-Goshen, IN": [-85.98, 41.68],
+		"Fargo, ND-MN": [-96.79, 46.88],
+		"Gainesville, GA": [-83.82, 34.3],
+		"Hattiesburg, MS": [-89.29, 31.33],
+		"Houma-Thibodaux, LA": [-90.72, 29.6],
+		"Jackson, MI": [-84.4, 42.25],
+		"Kalamazoo-Portage, MI": [-85.67, 42.29],
+		"Lake Havasu City-Kingman, AZ": [-114.32, 34.52],
+		"Lafayette-West Lafayette, IN": [-86.88, 40.42],
+		"Las Cruces, NM": [-106.76, 32.31],
+		"Manchester-Nashua, NH": [-71.46, 42.99],
+		"Montgomery, AL": [-86.3, 32.38],
+		"Muskegon, MI": [-86.25, 43.23],
+		"Naples-Marco Island, FL": [-81.79, 26.14],
+		"Panama City, FL": [-85.66, 30.16],
+		"Poughkeepsie-Newburgh-Middletown, NY": [-73.93, 41.7],
+		"Rochester, MN": [-92.48, 44.01],
+		"Torrington, CT Micro Area": [-73.12, 41.8],
+		"Urban Honolulu, HI": [-157.86, 21.31],
+		"Wausau-Weston, WI": [-89.63, 44.96],
+		"York-Hanover, PA": [-76.73, 39.96],
 		"Ocala, FL": [-82.1401, 29.1872],
 		"Waco, TX": [-97.1467, 31.5493],
 		"Springfield, IL": [-89.6501, 39.7817],
@@ -321,6 +350,10 @@
 		"Tupelo, MS Micro Area": [-88.7034, 34.2576],
 		"Daphne-Fairhope-Foley, AL": [-87.9036, 30.4985],
 		"Greeley, CO": [-104.7091, 40.4233]
+	}).sort(([a], [b]) => a.localeCompare(b)));
+
+	const metroNameAliases = {
+		"Louisville, KY-IN": "Louisville/Jefferson County, KY-IN"
 	};
 
 	// State variables
@@ -489,7 +522,9 @@
 			center: [-98, 39], // Center of US
 			zoom: 3,
 			minZoom: 2,
-			maxZoom: 10
+			maxZoom: 10,
+			pitch: 5,
+			attributionControl: false
 		});
 
 		map.dragRotate.disable();
@@ -511,7 +546,11 @@
 		if (filteredMetroMetrics.length === 0) return;
 
 		// Calculate max normalized value for sizing
-		const maxNormalized = d3Max(filteredMetroMetrics, m => m.avg2) || 0.001;
+		const maxNormalized = globalMaxNormalized;
+		const sizeBin1 = maxNormalized * 0.2;
+		const sizeBin2 = maxNormalized * 0.4;
+		const sizeBin3 = maxNormalized * 0.6;
+		const sizeBin4 = maxNormalized * 0.8;
 
 		// Create GeoJSON from metro metrics
 		const geojson = {
@@ -553,13 +592,13 @@
 			source: 'metros',
 			paint: {
 				'circle-radius': [
-					'interpolate', ['linear'],
+					'step',
 					['get', 'avg2'],
-					0, 7,  
-					maxNormalized * 0.25, 15, 
-					maxNormalized * 0.5, 25,  
-					maxNormalized * 0.75, 37,  
-					maxNormalized, 55  
+					5,
+					sizeBin1, 10,
+					sizeBin2, 20,
+					sizeBin3, 27,
+					sizeBin4, 30
 				],
 				'circle-color': [
 					'interpolate', ['linear'],
@@ -587,16 +626,19 @@
 				const props = e.features[0].properties;
 				const change = parseFloat(props.percentChange).toFixed(2);
 				const changeColor = change >= 0 ? positiveColor : negativeColor;
+				const avg1Display = formatLegendVolume(parseFloat(props.avg1));
+				const avg2Display = formatLegendVolume(parseFloat(props.avg2));
 				
 				currentPopup = new maplibregl.Popup()
 					.setLngLat(e.lngLat)
 					.setHTML(`
 						<div style="color: #333; font-family: Roboto, sans-serif;">
 							<strong>${props.metro}</strong><br>
-							<span style="color: ${changeColor}; font-weight: bold;">${change >= 0 ? '+' : ''}${change}%</span> YoY change
+							<span style="color: ${changeColor}; font-weight: bold;">${change >= 0 ? '+' : ''}${change}%</span> YoY change<br>
+							
 						</div>
 					`)
-					.addTo(map);
+					.addTo(map); // <span>Year 1 normalized: ${avg1Display}</span><br> <span>Year 2 normalized: ${avg2Display}</span>
 
 				// Clear reference when popup is closed
 				currentPopup.on('close', () => {
@@ -619,24 +661,86 @@
 		if (usMetroCoords[metroName]) {
 			return usMetroCoords[metroName];
 		}
-		
-		// Try partial match (first part before comma)
-		const shortName = metroName.split(',')[0].trim();
+
+		const normalizedMetro = metroName.replace(' Micro Area', '').trim();
+		const aliasedMetro = metroNameAliases[normalizedMetro] || normalizedMetro;
+		if (usMetroCoords[aliasedMetro]) {
+			return usMetroCoords[aliasedMetro];
+		}
+
+		const metroStateMatch = aliasedMetro.match(/,\s*([A-Z]{2})/);
+		const metroState = metroStateMatch ? metroStateMatch[1] : null;
+		const shortName = aliasedMetro.split(',')[0].trim();
+
+		const stateMatched = [];
 		for (const [key, coords] of Object.entries(usMetroCoords)) {
-			if (key.startsWith(shortName + ',') || key.startsWith(shortName + '-')) {
-				return coords;
+			const keyShort = key.split(',')[0].trim();
+			if (keyShort !== shortName) continue;
+			if (!metroState) {
+				stateMatched.push(coords);
+				continue;
+			}
+			const keyStateMatch = key.match(/,\s*([A-Z]{2})(?:-|$)/);
+			const keyState = keyStateMatch ? keyStateMatch[1] : null;
+			if (keyState === metroState) {
+				stateMatched.push(coords);
 			}
 		}
-		
-		// Try finding by city name
+
+		if (stateMatched.length === 1) {
+			return stateMatched[0];
+		}
+
+		// If the metro includes a state, do not fall back to another state's metro.
+		if (metroState) {
+			return null;
+		}
+
 		for (const [key, coords] of Object.entries(usMetroCoords)) {
-			const keyCity = key.split(',')[0].split('-')[0].trim();
-			if (keyCity === shortName) {
+			if (key.startsWith(shortName + ',')) {
 				return coords;
 			}
 		}
 		
 		return null;
+	}
+
+	function getMetroDisplayName(metroName) {
+		const match = metroName.match(/^(.+?),\s*([A-Z]{2})/);
+		if (match) {
+			return `${match[1]}, ${match[2]}`;
+		}
+		return metroName;
+	}
+
+	function getMetroLabelLines(metroName, maxCharsPerLine = 22) {
+		const label = getMetroDisplayName(metroName);
+		if (label.length <= maxCharsPerLine) {
+			return { line1: label, line2: '' };
+		}
+
+		// Prefer breaking near the target length at a natural separator.
+		const separators = [' ', '-', '/'];
+		let breakAt = -1;
+		for (let i = maxCharsPerLine; i >= Math.max(8, maxCharsPerLine - 10); i--) {
+			if (separators.includes(label[i])) {
+				breakAt = i;
+				break;
+			}
+		}
+
+		if (breakAt === -1) {
+			breakAt = maxCharsPerLine;
+		}
+
+		let line1 = label.slice(0, breakAt).trim();
+		let line2 = label.slice(breakAt).trim();
+
+		if (line2.length > maxCharsPerLine) {
+			line2 = `${line2.substring(0, maxCharsPerLine - 1)}...`;
+		}
+
+		return { line1, line2 };
 	}
 
 	// Update map when metrics change
@@ -781,6 +885,28 @@
 	$: metrosRising = filteredMetroMetrics.filter(m => m.percentChange > 0).length;
 	$: metrosFalling = filteredMetroMetrics.filter(m => m.percentChange < 0).length;
 	$: meanChange = filteredMetroMetrics.length > 0 ? mean(filteredMetroMetrics, m => m.percentChange) : 0;
+	$: globalMaxNormalized = d3Max(metroMetrics, m => m.avg2) || 0.001;
+	$: maxLegendVolume = d3Max(filteredMetroMetrics, m => m.avg2) || 0;
+	$: legendSizeBins = [
+		maxLegendVolume * 0.2,
+		maxLegendVolume * 0.4,
+		maxLegendVolume * 0.6,
+		maxLegendVolume * 0.8,
+		maxLegendVolume
+	];
+
+	function formatLegendVolume(value) {
+		if (!Number.isFinite(value) || value <= 0) return '0';
+		if (value < 0.001) return value.toExponential(2);
+		if (value < 0.1) return value.toFixed(4);
+		if (value < 1) return value.toFixed(3);
+		return value.toFixed(2);
+	}
+
+	function legendCircleDiameterPx(mapRadius) {
+		const scale = 0.34;
+		return Math.max(8, Math.round(mapRadius * 2 * scale));
+	}
 
 	function toggleRegion(region) {
 		if (selectedRegions.includes(region)) {
@@ -798,37 +924,49 @@
 <Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 <main>
-	<div class="text">
-		<h1>Trips from Canada to the U.S.</h1>
-		<p>
-			By 
-		</p>
-
-		<AuthorDate
-			authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
-			date="Published April 2026."
-		/>
+	
 		
+		<TitleStandard
+			title="Trips from Canada to the U.S."
+			subtitle="An analysis of Canadians' visits to the United States"
+		/>
+
+		<div class="text">
+			<AuthorDate
+				authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
+				date="Published April 2026."
+			/>
+
 		<p>
-			With an increasing Canadian choice sentiment, the Canada Border Services Agency has been seeing a fall in Canada to U.S. visits.
-            To investigate this phenomenon, cell phone activity (footfall) data across Canada and the U.S. provides more granular observations on these visits.
+			With an increasing Canadian choice sentiment among Canadians, the Canada Border Services Agency has been seeing a fall in visits from Canada to the U.S..
+            To investigate this phenomenon, we collected cell phone activity (footfall) data across Canada and the U.S., providing insights on which metro areas Canadians are visiting in the U.S. and how that has changed over time.
 		</p>
 
         <p>
 			This page analyzes Canadian travel to U.S. metro areas using geolocation data from March 2024 to March 2026. 
 			The data shows normalized trips (ratio of trips to total Canadian devices) to understand year-over-year trends in border travel.
+			
 		</p>
 
-		{#if !isLoading && metroMetrics.length > 0}
+		{#if !isLoading}
 		<h2>Key findings</h2>
-		<p>
-			‣ Out of <span class="bold">{totalMetros}</span> U.S. metro areas in the selected region(s), 
-			<span class="bold">{metrosRising}</span> saw increased Canadian visits and 
-			<span class="bold">{metrosFalling}</span> saw declines comparing Year 2 (03/2025-03/2026) to Year 1 (03/2024-03/2025).
-			<br />
-			‣ The mean change in normalized trips across all metros was 
-			<span class="bold">{meanChange?.toFixed(1) ?? "..."}%</span>.
-		</p>
+		<div class="finding-lines">
+			<p class="finding-line">
+				‣ {totalMetros > 0
+					? `Out of ${totalMetros} U.S. metro areas in the selected region(s), ${metrosRising} saw increased Canadian visits and ${metrosFalling} saw declines comparing Year 2 (03/2025-03/2026) to Year 1 (03/2024-03/2025).`
+					: 'No metro areas are selected. Use the region filters above to show summary metrics.'}
+			</p>
+			<p class="finding-line">
+				‣ {totalMetros > 0
+					? `The mean change in normalized trips across all metros was ${meanChange?.toFixed(1) ?? "..."}%.`
+					: 'Select one or more regions to display map, rankings, and trend summaries.'}
+			</p>
+			<p class="finding-line">
+				‣ {totalMetros > 0
+					? 'These results are based on normalized trip volume for U.S. metro areas visited by Canadian devices.'
+					: 'If no metrics appear, clear and reselect your region filters.'}
+			</p>
+		</div>
 		{/if}
 	</div>
 
@@ -841,7 +979,7 @@
 
 	<div class="text" style="margin-bottom: 0px;">
 		<!-- Region Selector (always visible) -->
-		<div class="region-selector">
+		<!-- <div class="region-selector"> -->
 			<h5>Select Regions:</h5>
 			<div class="region-controls">
 				<button class="region-control-btn" on:click={() => selectedRegions = [...regionOptions]}>
@@ -862,7 +1000,9 @@
 					</button>
 				{/each}
 			</div>
-		</div>
+
+			<br>
+		<!-- </div> -->
 
 		<!-- View Toggle -->
 		<div class="view-toggle">
@@ -911,31 +1051,57 @@
 	<!-- Map View -->
 	{#if viewMode === "map"}
 	<div class="map-section">
-		<div class="text">
 			<h4>Canada to U.S. Trip Map</h4>
 			
 			<!-- Color Legend -->
 			 
 			<div class="color-legend">
 			<span>Year-over-Year Change</span>
-				<div class="legend-bar">
-					<div class="legend-gradient"></div>
-				</div>
-				<div class="legend-labels">
-					<span>-70% (Large Decline)</span>
-					<span>0% (Neutral)</span>
-					<span>+70% (Large Increase)</span>
+			<div class="legend-bar">
+				<div class="legend-gradient"></div>
+			</div>
+			<div class="legend-labels">
+				<span>-70% (Large Decline)</span>
+				<span>0% (Neutral)</span>
+				<span>+70% (Large Increase)</span>
+			</div>
+			<div class="size-legend">
+				<!-- <span>Circle size = normalized trip volume</span> -->
+				<div class="size-items">
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
+						<!-- <span>0 to {formatLegendVolume(legendSizeBins[0])}</span> -->
+						<span>small trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(15)}px;height:${legendCircleDiameterPx(15)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[0])} to {formatLegendVolume(legendSizeBins[1])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[1])} to {formatLegendVolume(legendSizeBins[2])}</span> -->
+						 <span>medium trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(37)}px;height:${legendCircleDiameterPx(37)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[2])} to {formatLegendVolume(legendSizeBins[3])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[3])} to {formatLegendVolume(legendSizeBins[4])}</span> -->
+						<span>large trip volume</span>
+					</div>
 				</div>
 			</div>
 			
 			<p class="map-legend-text">
-				Circle size represents normalized trip volume. Click on a circle for details.
+				Circle size represents normalized trip volume for Year 2. Click on a circle for details.
 			</p>
 		</div>
 		<div class="map-container" bind:this={mapContainer}></div>
 	</div>
 	{/if}
-
+	
 	<!-- Rankings and Trends Views -->
 	{#if viewMode !== "map"}
 	<div class="text">
@@ -967,11 +1133,15 @@
 				</div>
 
 				{#each filteredRankings as metro, i}
+					{@const label = getMetroLabelLines(metro.metro)}
 					<div class="chart-wrapper">
 						<div class="left">
 							<svg width={metroLabelWidth} height={chartHeight} class="region-bar">
 								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke="var(--brandMedBlue)" stroke-width="3"/>
-								<text x="12" y="31" class="textCity">{i + 1}. {metro.metro.split(',')[0]}</text>
+								<text x="12" y={label.line2 ? 24 : 31} class="textCity {label.line2 ? 'textCitySmall' : ''}">{i + 1}. {label.line1}</text>
+								{#if label.line2}
+									<text x="20" y="38" class="textCity textCitySmall">{label.line2}</text>
+								{/if}
 							</svg>
 						</div>
 
@@ -1001,6 +1171,8 @@
 										width={Math.min((metro.percentChange / rankingsPositiveRange) * rankingPositiveMaxWidth, rankingPositiveMaxWidth)}
 										height="20" 
 										fill={getBarColor(metro.percentChange)}
+										stroke="#111"
+										stroke-width="0.8"
 										opacity="0.8"
 									/>
 								{:else}
@@ -1010,6 +1182,8 @@
 										width={Math.min((Math.abs(metro.percentChange) / rankingsNegativeRange) * rankingNegativeMaxWidth, rankingNegativeMaxWidth)}
 										height="20" 
 										fill={getBarColor(metro.percentChange)}
+										stroke="#111"
+										stroke-width="0.8"
 										opacity="0.8"
 									/>
 								{/if}
@@ -1068,11 +1242,15 @@
 				</div>
 
 				{#each filteredTrends as metro, i}
+					{@const label = getMetroLabelLines(metro.metro)}
 					<div class="chart-wrapper" style="height: 53px;">
 						<div class="left">
 							<svg width={metroLabelWidth} height={chartHeight} class="region-bar">
 								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke="var(--brandMedBlue)" stroke-width="3"/>
-								<text x="12" y="31" class="textCity">{i + 1}. {metro.metro.split(',')[0]}</text>
+								<text x="12" y={label.line2 ? 24 : 31} class="textCity {label.line2 ? 'textCitySmall' : ''}">{i + 1}. {label.line1}</text>
+								{#if label.line2}
+									<text x="20" y="38" class="textCity textCitySmall">{label.line2}</text>
+								{/if}
 							</svg>
 						</div>
 
@@ -1139,9 +1317,7 @@
 		</div>
 	{/if}
 	{/if}
-
 	<div class="text">
-		<br>
 		<h4>More Information</h4>
 		<p>
 			The data comes from geolocation-based trip analysis tracking Canadian devices traveling to U.S. metro areas. 
@@ -1149,7 +1325,7 @@
 			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
 		</p>
 		<p>
-			You can download the normalized trip data <a href="/us_can_normalized_trips.csv">from this link</a>.
+			You can download the normalized trip data <a href="/canada-us-visits/us_normalized_trips.csv">from this link</a>.
 		</p>
 		<br>
 	</div>
@@ -1167,6 +1343,7 @@
 		max-width: 1920px;
 		position: relative;
 	}
+
 
 	/* Map styles */
 	.map-section {
@@ -1253,7 +1430,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
-		margin-right: -10px;
 	}
 
 	.region-toggle-button {
@@ -1309,6 +1485,36 @@
 		margin-top: 5px;
 		font-size: 12px;
 		color: var(--brandGray90);
+	}
+
+	.size-legend {
+		margin-top: 10px;
+		font-size: 12px;
+		color: var(--brandGray90);
+	}
+
+	.size-items {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+		margin-top: 6px;
+	}
+
+	.size-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.legend-circle {
+		display: inline-block;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.85);
+		border: 1.5px solid #4d5d7a;
+	}
+
+	.legend-circle {
+		flex: 0 0 auto;
 	}
 
 	.charts-scroll-container {
@@ -1385,6 +1591,7 @@
 
 	.arrow {
 		margin: auto 0;
+		margin-left: 6px;
 		width: 32px;
 		height: 40px;
 		display: flex;
@@ -1411,6 +1618,10 @@
 		color: var(--brandBlack);
 	}
 
+
+	.textCitySmall {
+		font-size: 11px;
+	}
 	.bar-container {
 		flex: 1;
 		display: flex;
@@ -1464,7 +1675,7 @@
 
 	.clear-search {
 		position: absolute;
-		right: 10px;
+		right: -40px;
 		top: 50%;
 		transform: translateY(-50%);
 		background: none;
