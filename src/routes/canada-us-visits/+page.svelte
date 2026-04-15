@@ -366,8 +366,8 @@
 	let bigMetrosOnly = false;
 	
 	// View toggle: "map", "rankings" or "trends"
-	let viewMode = "map";
-	
+	let viewMode = "trends";
+
 	// Map variables
 	let map;
 	let mapContainer;
@@ -1011,10 +1011,10 @@
 				<span class="toggle-label">View:</span>
 				<button
 					class="toggle-btn"
-					class:active={viewMode === "map"}
-					on:click={() => (viewMode = "map")}
+					class:active={viewMode === "trends"}
+					on:click={() => (viewMode = "trends")}
 				>
-					Map
+					Trend Lines
 				</button>
 				<button
 					class="toggle-btn"
@@ -1025,10 +1025,10 @@
 				</button>
 				<button
 					class="toggle-btn"
-					class:active={viewMode === "trends"}
-					on:click={() => (viewMode = "trends")}
+					class:active={viewMode === "map"}
+					on:click={() => (viewMode = "map")}
 				>
-					Trend Lines
+					Map
 				</button>
 			</div>
 		</div>
@@ -1058,60 +1058,6 @@
 			</button>
 		</div>
 	</div>
-
-	<!-- Map View -->
-	{#if viewMode === "map"}
-	<div class="map-section">
-			<h4>Canada to U.S. Trip Map</h4>
-			
-			<!-- Color Legend -->
-			 
-			<div class="color-legend">
-			<span>Year-over-Year Change</span>
-			<div class="legend-bar">
-				<div class="legend-gradient"></div>
-			</div>
-			<div class="legend-labels">
-				<span>-70% (Large Decline)</span>
-				<span>0% (Neutral)</span>
-				<span>+70% (Large Increase)</span>
-			</div>
-			<div class="size-legend">
-				<!-- <span>Circle size = normalized trip volume</span> -->
-				<div class="size-items">
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
-						<!-- <span>0 to {formatLegendVolume(legendSizeBins[0])}</span> -->
-						<span>small trip volume</span>
-					</div>
-					<!-- <div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(15)}px;height:${legendCircleDiameterPx(15)}px;`}></span>
-						<span>{formatLegendVolume(legendSizeBins[0])} to {formatLegendVolume(legendSizeBins[1])}</span>
-					</div> -->
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
-						<!-- <span>{formatLegendVolume(legendSizeBins[1])} to {formatLegendVolume(legendSizeBins[2])}</span> -->
-						 <span>medium trip volume</span>
-					</div>
-					<!-- <div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(37)}px;height:${legendCircleDiameterPx(37)}px;`}></span>
-						<span>{formatLegendVolume(legendSizeBins[2])} to {formatLegendVolume(legendSizeBins[3])}</span>
-					</div> -->
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
-						<!-- <span>{formatLegendVolume(legendSizeBins[3])} to {formatLegendVolume(legendSizeBins[4])}</span> -->
-						<span>large trip volume</span>
-					</div>
-				</div>
-			</div>
-			
-			<p class="map-legend-text">
-				Circle size represents normalized trip volume for Year 2. Click on a circle for details.
-			</p>
-		</div>
-		<div class="map-container" bind:this={mapContainer}></div>
-	</div>
-	{/if}
 	
 	<!-- Rankings and Trends Views -->
 	{#if viewMode !== "map"}
@@ -1321,6 +1267,60 @@
 			</div>
 		</div>
 	{/if}
+	{/if}
+
+	<!-- Map View -->
+	{#if viewMode === "map"}
+	<div class="map-section">
+			<h4>Canada to U.S. Trip Map</h4>
+			
+			<!-- Color Legend -->
+			 
+			<div class="color-legend">
+			<span>Year-over-Year Change</span>
+			<div class="legend-bar">
+				<div class="legend-gradient"></div>
+			</div>
+			<div class="legend-labels">
+				<span>-70% (Large Decline)</span>
+				<span>0% (Neutral)</span>
+				<span>+70% (Large Increase)</span>
+			</div>
+			<div class="size-legend">
+				<!-- <span>Circle size = normalized trip volume</span> -->
+				<div class="size-items">
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
+						<!-- <span>0 to {formatLegendVolume(legendSizeBins[0])}</span> -->
+						<span>small trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(15)}px;height:${legendCircleDiameterPx(15)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[0])} to {formatLegendVolume(legendSizeBins[1])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[1])} to {formatLegendVolume(legendSizeBins[2])}</span> -->
+						 <span>medium trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(37)}px;height:${legendCircleDiameterPx(37)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[2])} to {formatLegendVolume(legendSizeBins[3])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[3])} to {formatLegendVolume(legendSizeBins[4])}</span> -->
+						<span>large trip volume</span>
+					</div>
+				</div>
+			</div>
+			
+			<p class="map-legend-text">
+				Circle size represents normalized trip volume for Year 2. Click on a circle for details.
+			</p>
+		</div>
+		<div class="map-container" bind:this={mapContainer}></div>
+	</div>
 	{/if}
 	<div class="text">
 		<h4>More Information</h4>
@@ -1634,6 +1634,15 @@
 		font-size: 14px;
 		font-weight: normal;
 		color: var(--brandBlack);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.textLabelSmall {
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 10px;
+		font-weight: normal;
+		font-variant-numeric: tabular-nums;
+		fill: var(--brandBlack);
 	}
 
 
@@ -1652,7 +1661,8 @@
 	}
 
 	.chart-header {
-		margin-left: 6px;
+		margin-left: 0;
+		flex: 1;
 		display: flex;
 		align-items: center;
 		justify-content: center;
