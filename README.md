@@ -28,9 +28,9 @@ Employees (by work location) are defined from the employee ranges provided in th
 
 ## MAP DATA
 
-Downloadable GeoJSON outputs for the map are available in this repository:
-- [choropleth_csd.geojson](analysis/outputs/geojson/choropleth_csd.geojson) - for the census subdivision area geometries and values
-- [choropleth.geojson](analysis/outputs/geojson/choropleth.geojson) - for the aggregated dissemination area geometries and values
+Downloadable CSV outputs for the map are available here:
+- [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
+- [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values
 
 ## DATA SOURCES
 #### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
