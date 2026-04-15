@@ -26,6 +26,12 @@ Employees (by work location) are defined from the employee ranges provided in th
 -	200 to 499 -->	350 employees
 -	500 + -->	550 employees
 
+## MAP DATA
+
+Downloadable GeoJSON outputs for the map are available in this repository:
+- [choropleth_csd.geojson](analysis/outputs/geojson/choropleth_csd.geojson) - for the census subdivision area geometries and values
+- [choropleth.geojson](analysis/outputs/geojson/choropleth.geojson) - for the aggregated dissemination area geometries and values
+
 ## DATA SOURCES
 #### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
 1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
