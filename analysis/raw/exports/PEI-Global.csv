@@ -1,0 +1,543 @@
+﻿Period,Commodity,Province,Country,State,Value ($),Quantity,Unit of measure
+1/1/2024,"0101.29 - Horses, live, other than pure-bred breeding",Prince Edward Island,The world,N/A,103341,24,Number
+1/1/2024,"0103.91 - Swine, live, o/t pure-bred breeding weighing less than 50 kg",Prince Edward Island,The world,N/A,2178204,19119,Number
+1/1/2024,"0302.34 - Tunas,bigeye,fresh/chilled,o/t fish of No 03.04,o/t offal of Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,43457,1367,Weight in kilograms
+1/1/2024,"0305.41 - Salmon,smoked,Pacific,Atlantic & Danube,including fillets,o/t edible fish offal",Prince Edward Island,The world,N/A,473130,9486,Weight in kilograms
+1/1/2024,"0305.69 - Fish, nes, salted or in brine, but not dried or smoked, o/t edible fish offal",Prince Edward Island,The world,N/A,563267,125170,Weight in kilograms
+1/1/2024,"0306.32 - Lobsters, live, fresh or chilled",Prince Edward Island,The world,N/A,11223319,440090,Weight in kilograms
+1/1/2024,"0307.22 - Scallops,including molluscs of the family Pectinidae, shelled or not, frozen",Prince Edward Island,The world,N/A,42721,1342,Weight in kilograms
+1/1/2024,"0703.10 - Onions and shallots, fresh or chilled",Prince Edward Island,The world,N/A,198324,225932,Weight in kilograms
+1/1/2024,1008.50 - Quinoa,Prince Edward Island,The world,N/A,151186,35604,Weight in kilograms
+1/1/2024,"1515.90 - Fixed vegetable fats & oils,nes & their fractions,w/n refined,not chemically mod",Prince Edward Island,The world,N/A,10345194,447625,Weight in kilograms
+1/1/2024,"1605.56 - Clams, cockles and arkshells, prepared or preserved",Prince Edward Island,The world,N/A,77646,4319,Weight in kilograms
+1/1/2024,"1904.90 - Cereals, o/t maize (corn), in grain or flake form,pre-cooked or o/w prepared,nes",Prince Edward Island,The world,N/A,50912,6097,Weight in kilograms
+1/1/2024,"2004.10 - Potatoes, prepared or preserved other than by vinegar or acetic acid, frozen",Prince Edward Island,The world,N/A,714013017,294345407,Weight in kilograms
+1/1/2024,"2007.99 - Jams,fruit jellies,marmalades,fruit or nut purée and pastes,cooked,w/n sweet,nes",Prince Edward Island,The world,N/A,3059,375,Weight in kilograms
+1/1/2024,2529.30 - Leucite; nepheline and nepheline syenite,Prince Edward Island,The world,N/A,20009,20,Weight in metric tonne
+1/1/2024,"2907.29 - Polyphenols, nes; pheno-alcohols",Prince Edward Island,The world,N/A,2125235,335466,Weight in kilograms
+1/1/2024,"2938.90 - Glycosides,nat/repro by synthesis,their salts,ethers,esters & o derivatives,nes",Prince Edward Island,The world,N/A,79465,33,Weight in kilograms
+1/1/2024,"3206.49 - Inorganic colouring matter, nes, and preparations based thereon",Prince Edward Island,The world,N/A,18164,6086,Weight in kilograms
+1/1/2024,"3402.50 - Surface-active preparations, washing and cleaning prep, put up for retail sale",Prince Edward Island,The world,N/A,10338156,0,Blank
+1/1/2024,"3402.90 - Surface-active preparations, washing and cleaning preparations, nes",Prince Edward Island,The world,N/A,2895524,66500,Weight in kilograms
+1/1/2024,"3907.29 - Polyethers, nes, in primary forms",Prince Edward Island,The world,N/A,1424,1,Weight in kilograms
+1/1/2024,"3919.90 - Self-adhesive plates, sheets, film, etc, of plastic, nes",Prince Edward Island,The world,N/A,21054,1392,Weight in kilograms
+1/1/2024,"3921.19 - Film and sheet, etc, cellular, of plastics, nes",Prince Edward Island,The world,N/A,5,1,Weight in kilograms
+1/1/2024,"3923.10 - Boxes, cases, crates and similar articles, of plastic",Prince Edward Island,The world,N/A,787648,0,Blank
+1/1/2024,"4420.19 - Statuettes and other ornaments, of wood, o/t of tropical wood",Prince Edward Island,The world,N/A,4554,0,Blank
+1/1/2024,"4820.90 - Office supplies, nes, of paper",Prince Edward Island,The world,N/A,55,0,Blank
+1/1/2024,"4821.10 - Paper labels of all kinds, printed",Prince Edward Island,The world,N/A,186015,0,Blank
+1/1/2024,"4911.99 - Printed matter, nes",Prince Edward Island,The world,N/A,41864,0,Blank
+1/1/2024,"5109.10 - Yarn of wool/fine animal hair, >=85% by weight of such fibres, put up for retail",Prince Edward Island,The world,N/A,5434,11,Weight in kilograms
+1/1/2024,"5609.00 - Articles of yarn, strip, twine, cordage, rope and cables, nes",Prince Edward Island,The world,N/A,3536,0,Blank
+1/1/2024,"5906.10 - Rubberized textile fabrics, adhesive tape, of a width <= 20 cm, o/t of No 59.02",Prince Edward Island,The world,N/A,448,9,Weight in kilograms
+1/1/2024,"6305.33 - Sacks and bags, for packing of goods, of polyethylene/polypropylene strips, nes",Prince Edward Island,The world,N/A,27863,0,Blank
+1/1/2024,"6406.90 - Parts of footwear,nes; removable in-soles & sim;gaiters,leggings & sim,parts t/o",Prince Edward Island,The world,N/A,8,0,Blank
+1/1/2024,"7113.19 - Articles of jewellery & pts thereof,of o prec met,w/n plated/clad w precious met",Prince Edward Island,The world,N/A,104533,0,Blank
+1/1/2024,"7208.27 - Flat rolled prod, i/nas,in coil,hr,n clad, pickled, >= 600 mm wide, thick < 3 mm",Prince Edward Island,The world,N/A,49469,32,Weight in metric tonne
+1/1/2024,"7318.29 - Non threaded articles,screws,bolts, nuts and similar articles, of iron/steel,nes",Prince Edward Island,The world,N/A,261015,0,Blank
+1/1/2024,"7415.21 - Washers, copper, including spring washers",Prince Edward Island,The world,N/A,3694,0,Blank
+1/1/2024,"8207.70 - Tools for milling, interchangeable, for hand tools/machine-tools, of base metal",Prince Edward Island,The world,N/A,37256,0,Blank
+1/1/2024,"8412.29 - Hydraulic power engines and motors, nes",Prince Edward Island,The world,N/A,82671,5,Number
+1/1/2024,"8415.83 - Air cond machines, nes, not incorporating refrigerating unit",Prince Edward Island,The world,N/A,41565,17,Number
+1/1/2024,"8418.99 - Parts, of refrigerating or freezing equipment, or of heat pumps, nes",Prince Edward Island,The world,N/A,400,0,Blank
+1/1/2024,"8431.49 - Parts,of cranes,work-trucks,shovels and other construction machinery,of No 84.26",Prince Edward Island,The world,N/A,108005,0,Blank
+1/1/2024,"8445.19 - Textile preparing machines, nes",Prince Edward Island,The world,N/A,522317,28,Number
+1/1/2024,"8451.90 - Parts of washing/cleaning/drying/ironing/dyeing machines, etc, o/t No 84.50",Prince Edward Island,The world,N/A,12303,0,Blank
+1/1/2024,"8479.50 - Industrial robots, not elsewhere specified or included",Prince Edward Island,The world,N/A,1478055,0,Blank
+1/1/2024,"8479.89 - Machines,for treating metal,o/t cold isostatic presses,having indiv function,nes",Prince Edward Island,The world,N/A,258870,0,Blank
+1/1/2024,"8481.40 - Valves, safety or relief",Prince Edward Island,The world,N/A,374367,0,Blank
+1/1/2024,"8517.79 - Parts,of telephone sets,incl smartphones & o tel f cell networks/o wireless ntw",Prince Edward Island,The world,N/A,46831,0,Blank
+1/1/2024,8526.91 - Radio navigational aid apparatus,Prince Edward Island,The world,N/A,4497,0,Blank
+1/1/2024,"8542.31 - Processors & cntlr, EIC, w/n combi w mem/convrt/logic crt/ampli/clock/o circuits",Prince Edward Island,The world,N/A,748,2,Number
+1/1/2024,"8544.30 - Ignition wiring sets & other wiring sets of a kind used in vehicles,aircraft,etc",Prince Edward Island,The world,N/A,1276358,0,Blank
+1/1/2024,"8544.42 - Electric conductors, insulated, for a voltage <= 1,000 V, fitted with connectors",Prince Edward Island,The world,N/A,299660,0,Blank
+1/1/2024,"8708.29 - Parts and accessories,of bodies,for the motor vehicles of Nos 87.01 to 87.05,nes",Prince Edward Island,The world,N/A,268205,0,Blank
+1/1/2024,"8716.40 - Trailers and semi-trailers, nes",Prince Edward Island,The world,N/A,40668,2,Number
+1/1/2024,"9015.80 - Instruments & appl for surveying,hydrographic,ocean,hydrological,meteo/geoph,nes",Prince Edward Island,The world,N/A,205614,0,Blank
+1/1/2024,9018.11 - Electro-cardiographs,Prince Edward Island,The world,N/A,45093,0,Blank
+1/1/2024,"9021.29 - Artificial pts of body,worn,carried/implanted body,compensate defect/disability",Prince Edward Island,The world,N/A,3181,0,Blank
+1/1/2024,9027.10 - Gas or smoke analysis apparatus,Prince Edward Island,The world,N/A,21464,0,Blank
+1/1/2024,"9032.89 - Automatic regulating or controlling instruments and apparatus, nes",Prince Edward Island,The world,N/A,3020665,0,Blank
+1/1/2024,"9403.20 - Furniture, metal, nes",Prince Edward Island,The world,N/A,11909,0,Blank
+1/1/2024,"9504.50 - Video game consoles and machines, o/t those of No 9504.30",Prince Edward Island,The world,N/A,156,0,Blank
+1/1/2024,"9701.99 - Collages and similar decorative plaques, of an age less than/equal to 100 years",Prince Edward Island,The world,N/A,9520,0,Blank
+1/1/2024,9802.00 - Repairs,Prince Edward Island,The world,N/A,438455293,0,Blank
+1/1/2024,"0305.42 - Herring, smoked, including fillets, o/t edible fish offal",Prince Edward Island,The world,N/A,74514,20991,Weight in kilograms
+1/1/2024,"0511.91 - Fish,shellfish & aqua invert prod,nes, & dead animals of Ch 3,not for human cons",Prince Edward Island,The world,N/A,1428994,641963,Weight in kilograms
+1/1/2024,"0601.10 - Bulbs, tubers, tuberous roots, corms, crowns and rhizomes, dormant",Prince Edward Island,The world,N/A,264137,0,Blank
+1/1/2024,"1201.90 - Soya beans, other than seed for sowing, whether or not broken, nes",Prince Edward Island,The world,N/A,50618,40800,Weight in kilograms
+1/1/2024,"1214.90 - Swedes,mangolds,fodder roots,hay,clover, sainfoin,forage kale,etc,pelleted/not",Prince Edward Island,The world,N/A,137218,123,Weight in metric tonne
+1/1/2024,"1302.19 - Vegetable saps and extracts, nes, o/t extracted oleoresins of No 33.01",Prince Edward Island,The world,N/A,110966,720,Weight in kilograms
+1/1/2024,"1605.53 - Mussels, prepared or preserved",Prince Edward Island,The world,N/A,7250788,874475,Weight in kilograms
+1/1/2024,"2520.20 - Plasters, w/n coloured, with or without small qty of accelerators or retarders",Prince Edward Island,The world,N/A,25170,4000,Weight in kilograms
+1/1/2024,"2844.43 - Radioactive elements,isotopes & compounds,nes; o alloys,dspr,ceramic prod & mixt",Prince Edward Island,The world,N/A,3728,0,Blank
+1/1/2024,"2941.90 - Antibiotics, nes",Prince Edward Island,The world,N/A,2726502,22642,Weight in kilograms
+1/1/2024,"3004.10 - Medi,cont penicillins/deriv w penicillanic acid struct, streptomycins/deriv,frs",Prince Edward Island,The world,N/A,63639,0,Blank
+1/1/2024,"3004.90 - Medicaments,nes,therap/prophltc uses,doses/pack f retail sale,o/t No 30.02/05/06",Prince Edward Island,The world,N/A,3082051,2853,Weight in kilograms
+1/1/2024,"3102.40 - Ammonium nitrate mixed with cal carb or non frt subts, in pack weighing > 10 kg",Prince Edward Island,The world,N/A,13944,19000,Weight in kilograms
+1/1/2024,"3401.30 - Surface-active prep,f washing the skin,liq/cream,w/n cont soap,put up f ret sale",Prince Edward Island,The world,N/A,333,42,Weight in kilograms
+1/1/2024,"3507.90 - Enzymes and prepared enzymes, nes",Prince Edward Island,The world,N/A,2875426,4000,Weight in kilograms
+1/1/2024,"3907.99 - Polyesters, nes, in primary forms",Prince Edward Island,The world,N/A,376,12,Weight in kilograms
+1/1/2024,"3914.00 - Ion-exchangers based on polymers of Nos 39.01 to 39.13, in primary forms",Prince Edward Island,The world,N/A,24566,1916,Weight in kilograms
+1/1/2024,"3917.32 - Tubes, pipes and hoses, nes, plastic, not reinforced, etc, without fittings",Prince Edward Island,The world,N/A,17612,3043,Weight in kilograms
+1/1/2024,"3917.33 - Tubes,pipes & hoses,of plastic,not reinforced/combi w o materials,w fittings,nes",Prince Edward Island,The world,N/A,4699,577,Weight in kilograms
+1/1/2024,"3917.40 - Fittings, of plastic, for tubes, pipes and hoses",Prince Edward Island,The world,N/A,966,0,Blank
+1/1/2024,"3920.10 - Film and sheet, etc, non-cellular, etc, of polymers of ethylene",Prince Edward Island,The world,N/A,2151,244,Weight in kilograms
+1/1/2024,"3924.90 - Household and toilet articles, nes, of plastics",Prince Edward Island,The world,N/A,5639,0,Blank
+1/1/2024,"4101.50 - Bovine/equine hides,whole,fresh or wet-salted or other wise preserved,wt > 16 kg",Prince Edward Island,The world,N/A,674802,18315,Number
+1/1/2024,"4819.50 - Containers, packing, nes, including record sleeves, of paper",Prince Edward Island,The world,N/A,4851,0,Blank
+1/1/2024,"4910.00 - Calendars of any kind, printed, including calendar blocks",Prince Edward Island,The world,N/A,7,0,Blank
+1/1/2024,"6110.30 - Pullovers,cardigans and similar articles,of man-made fibres,knitted or crocheted",Prince Edward Island,The world,N/A,384,6,Number
+1/1/2024,"7307.29 - Fittings pipe or tube of stainless steel, nes",Prince Edward Island,The world,N/A,455,0,Blank
+1/1/2024,"7318.15 - Screws and bolts, whether/not with their nuts or washers,threaded, of iron/steel",Prince Edward Island,The world,N/A,127358,0,Blank
+1/1/2024,"7320.20 - Springs, helical, iron or steel",Prince Edward Island,The world,N/A,26714,0,Blank
+1/1/2024,"8204.20 - Wrench sockets including ratchet handles extensions and spinners, of base metal",Prince Edward Island,The world,N/A,15,0,Blank
+1/1/2024,"8205.70 - Vices, clamps and the like, of base metal",Prince Edward Island,The world,N/A,3420,0,Blank
+1/1/2024,"8207.50 - Tools for drilling,o/t rock dril,interchan,for hand tools/mach-tls,of base metal",Prince Edward Island,The world,N/A,22320,0,Blank
+1/1/2024,"8207.90 - Screwdriver bits,lapping tools & o interchan tools,for hand/mach-tls,of base met",Prince Edward Island,The world,N/A,1234,0,Blank
+1/1/2024,"8302.30 - Mountings, fittings and similar articles of base metal, for motor vehicles, nes",Prince Edward Island,The world,N/A,13690,0,Blank
+1/1/2024,"8308.20 - Tubular or bifurcated rivets, of base metal",Prince Edward Island,The world,N/A,20921,0,Blank
+1/1/2024,8413.91 - Parts of pumps for liquid whether or not fitted with a measuring device,Prince Edward Island,The world,N/A,174884,0,Blank
+1/1/2024,"8414.90 - Parts, of vac pumps,air/o gas comp,fans,blowers,hoods,gas-tight biolog safe cab",Prince Edward Island,The world,N/A,45817,0,Blank
+1/1/2024,8419.40 - Distilling or rectifying plant,Prince Edward Island,The world,N/A,101084,0,Blank
+1/1/2024,"8421.39 - Filtering or purifying machinery and apparatus, for gases, nes",Prince Edward Island,The world,N/A,99,0,Blank
+1/1/2024,"8422.90 - Pts, of dish washing,cleaning or drying container, packing or wrapping mach, etc",Prince Edward Island,The world,N/A,28507,0,Blank
+1/1/2024,"8423.30 - Constant weight scales, including hopper scales",Prince Edward Island,The world,N/A,153400,0,Blank
+1/1/2024,"8431.31 - Parts, of lifts, skip hoist or escalators",Prince Edward Island,The world,N/A,26786,0,Blank
+1/1/2024,"8442.30 - Mchy,app,equip,f preparing/making printing plates/cylinders/other printing comp",Prince Edward Island,The world,N/A,105041,9,Number
+1/1/2024,"8467.29 - Tools, nes, hand-held, with self-contained electric motor",Prince Edward Island,The world,N/A,56704,1,Number
+1/1/2024,"8471.49 - Other apdm, presented in the form of systems",Prince Edward Island,The world,N/A,178481,0,Blank
+1/1/2024,"8483.40 - Gears and gearing, ball/rolr screws, gear boxes, speed changers/torque convrt",Prince Edward Island,The world,N/A,596850,0,Blank
+1/1/2024,"8483.50 - Flywheels and pulleys, including pulley blocks",Prince Edward Island,The world,N/A,6619,0,Blank
+1/1/2024,"8501.10 - Electric motors, of an output not exceeding 37.5 W",Prince Edward Island,The world,N/A,54601,738,Number
+1/1/2024,"8515.29 - Electric machines and apparatus for resistance welding of metal, nes",Prince Edward Island,The world,N/A,13131,4,Number
+1/1/2024,"8515.80 - Electric/laser/ultrasonic mach, etc, for weld/cut, nes,or for hot spray of metal",Prince Edward Island,The world,N/A,25311,0,Blank
+1/1/2024,8531.20 - Indicator panels incorp liquid crystal devices (LCD)/light-emitting diodes (LED),Prince Edward Island,The world,N/A,206549,0,Blank
+1/1/2024,"8537.20 - Boards, panels, including numerical control panels, for a voltage > 1,000 V",Prince Edward Island,The world,N/A,1688702,0,Blank
+1/1/2024,"8538.10 - Boards, panels, etc, for goods of No 85.37, not equipped with their app",Prince Edward Island,The world,N/A,184447,0,Blank
+1/1/2024,"8701.95 - Tractors, of an engine power > 130 kW, o/t of No 87.09, nes",Prince Edward Island,The world,N/A,421901,1,Number
+1/1/2024,"8708.94 - Steering wheels,columns,boxes & parts t/o,f motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,4898,0,Blank
+1/1/2024,"8708.99 - Parts and accessories, for the motor vehicles of Nos 87.01 to 87.05, nes",Prince Edward Island,The world,N/A,177658,0,Blank
+1/1/2024,"8709.90 - Pts,f works tck,s-prop,n fit w lift/hnld equip,f docks/etc; pts,f rail sta trac",Prince Edward Island,The world,N/A,5387,0,Blank
+1/1/2024,"8711.10 - Motorcycles,incl mopeds,with internal combustion piston engine,cyl cap <= 50 cc",Prince Edward Island,The world,N/A,500,1,Number
+1/1/2024,"8712.00 - Bicycles and other cycles, including delivery tricycles, not motorized",Prince Edward Island,The world,N/A,4200,1,Number
+1/1/2024,"8807.30 - Parts, nes, of aeroplanes, helicopters or unmanned aircraft",Prince Edward Island,The world,N/A,159814,0,Blank
+1/1/2024,8905.90 - Floating docks and vessels which perform special functions,Prince Edward Island,The world,N/A,218975,12,Number
+1/1/2024,"9005.80 - Monoculars, other optical telescopes, astronomical inst and mountings, nes",Prince Edward Island,The world,N/A,3165,0,Blank
+1/1/2024,"9030.31 - Multimeters,w/o recording device,meas/chk vltge/curr/etc,o/t semicon wafers/dev",Prince Edward Island,The world,N/A,14516,0,Blank
+1/1/2024,"9306.30 - Cartridges, nes, and parts thereof",Prince Edward Island,The world,N/A,78319,0,Blank
+1/1/2024,"9405.42 - Luminaires & ltng fittings,elec, o/t photovoltaic,dsnd f use solely w LED lt src",Prince Edward Island,The world,N/A,224876,0,Blank
+1/1/2024,"9405.99 - Luminaires and lighting fittings,incl searchlights and spotlights and parts, nes",Prince Edward Island,The world,N/A,69409,0,Blank
+1/1/2024,"9701.91 - Paintings, drawings and pastels, of an age less than or equal to 100 years",Prince Edward Island,The world,N/A,97401,0,Blank
+1/1/2024,"9703.10 - Original sculpture and statuary, in any material, of an age exceeding 100 years",Prince Edward Island,The world,N/A,3101,0,Blank
+1/1/2024,"0302.21 - Halibut,fresh/chilled,o/t fish of No 03.04,o/t fish offal of Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,199509,10149,Weight in kilograms
+1/1/2024,"0302.44 - Mackerel, fresh/chilled, o/t fish of No 03.04, o/t offal of Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,13263,12940,Weight in kilograms
+1/1/2024,"0302.89 - Fish, nes, fresh/chilled, o/t fish of No 03.04, o/t offal Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,24004,3339,Weight in kilograms
+1/1/2024,"0604.20 - Foliage,branches,o pts of plants,w/o flowers/buds,etc,f bouquets/orn purp,fresh",Prince Edward Island,The world,N/A,124924,0,Blank
+1/1/2024,"0704.90 - Cabbages, kohlrabi, kale and similar edible brassicas, nes, fresh or chilled",Prince Edward Island,The world,N/A,446493,352432,Weight in kilograms
+1/1/2024,"1212.29 - Seaweeds and o algae,fresh/chd/frz/dr,w/n ground,o/t fit for human consumption",Prince Edward Island,The world,N/A,394422,0,Blank
+1/1/2024,"1604.20 - Prepared/preserved, of fish, nes",Prince Edward Island,The world,N/A,38923,2658,Weight in kilograms
+1/1/2024,"1605.10 - Crab, prepared or preserved",Prince Edward Island,The world,N/A,9754385,476604,Weight in kilograms
+1/1/2024,1702.20 - Maple sugar and maple syrup,Prince Edward Island,The world,N/A,60934,4836,Weight in kilograms
+1/1/2024,"1902.30 - Pasta, nes",Prince Edward Island,The world,N/A,36,8,Weight in kilograms
+1/1/2024,1905.31 - Sweet biscuits,Prince Edward Island,The world,N/A,115046,7002,Weight in kilograms
+1/1/2024,"2008.99 - Fruits & o edible pts of plants,nes,prepr/presvd,w/n sugared/sweetened/spirited",Prince Edward Island,The world,N/A,22500,3582,Weight in kilograms
+1/1/2024,"2306.90 - Veg oil-cake and other solid residues, nes, whether or not ground or in pellets",Prince Edward Island,The world,N/A,2303,12600,Weight in kilograms
+1/1/2024,"2919.90 - Phosphoric esters, their salts and their derivatives, nes",Prince Edward Island,The world,N/A,310280,79,Weight in kilograms
+1/1/2024,2932.20 - Lactones,Prince Edward Island,The world,N/A,942407,583,Weight in kilograms
+1/1/2024,"2936.27 - Vitamin C and its derivatives, unmixed",Prince Edward Island,The world,N/A,812093,27591,Weight in kilograms
+1/1/2024,"2937.19 - Polypeptide/protein/glycoprotein hormones, their derivs & struct analogue, nes",Prince Edward Island,The world,N/A,4654341,4377,Weight in kilograms
+1/1/2024,"3002.15 - Immunological products, put up in measured doses/forms/packings, for retail sale",Prince Edward Island,The world,N/A,69421,188,Weight in kilograms
+1/1/2024,"3208.90 - Paints & varni, based on polymers, dissolv in a non aqueous solv, nes",Prince Edward Island,The world,N/A,242,22,Volume in litres
+1/1/2024,"3822.11 - Malaria,diag/lab reagents backing,prep diag/lab reagents w/n backing,w/n in kits",Prince Edward Island,The world,N/A,15885,0,Blank
+1/1/2024,"3824.99 - Chemical products and preparations, of the chemical or allied industries, nes",Prince Edward Island,The world,N/A,333972,20317,Weight in kilograms
+1/1/2024,3904.61 - Polytetrafluoroethylene,Prince Edward Island,The world,N/A,2154,127,Weight in kilograms
+1/1/2024,"3923.21 - Sacks and bags, including cones, of polymers of ethylene",Prince Edward Island,The world,N/A,28779,0,Blank
+1/1/2024,"3923.29 - Sacks and bags, including cones, of plastics, nes",Prince Edward Island,The world,N/A,158542,0,Blank
+1/1/2024,"3923.30 - Carboys, bottles, flasks and similar articles, of plastics",Prince Edward Island,The world,N/A,110737,0,Blank
+1/1/2024,"3923.50 - Stoppers, lids, caps and other closures, of plastics",Prince Edward Island,The world,N/A,39323,0,Blank
+1/1/2024,"3926.40 - Statuettes and other ornamental articles, of plastics",Prince Edward Island,The world,N/A,20741,0,Blank
+1/1/2024,"3926.90 - Articles of plastics, nes and articles of other materials of Nos 39.01 to 39.14",Prince Edward Island,The world,N/A,400552,0,Blank
+1/1/2024,"4016.99 - Articles of vulcanized rubber, nes, other than hard rubber",Prince Edward Island,The world,N/A,1338,0,Blank
+1/1/2024,"4201.00 - Saddlery and harness, for any animal, of any material",Prince Edward Island,The world,N/A,2769,0,Blank
+1/1/2024,"4702.00 - Chemical wood pulp, dissolving grades",Prince Edward Island,The world,N/A,598825,611,Metric tonne air dry
+1/1/2024,"6107.21 - Men's or boys' nightshirts and pyjamas, of cotton, knitted or crocheted",Prince Edward Island,The world,N/A,152,14,Number
+1/1/2024,"6206.40 - Women's/girls' blouses,shirts & shirt-blouses, m-m fibres, not knitted/crocheted",Prince Edward Island,The world,N/A,2832,109,Number
+1/1/2024,"6305.10 - Sacks and bags, for packing of goods, of jute/other textile bast fibres",Prince Edward Island,The world,N/A,20877,0,Blank
+1/1/2024,"6403.91 - Footwear,outer soles of rubber/plastics/leather,uppers of leather,covg ankle,nes",Prince Edward Island,The world,N/A,13742,1000,Number of pairs
+1/1/2024,"7304.19 - Line pipe, or iron/steel, nes, seamless, of a kind used for oil or gas pipelines",Prince Edward Island,The world,N/A,8224,0,Weight in metric tonne
+1/1/2024,"7312.10 - Stranded wire, ropes and cables of iron or steel, not electrically insulated",Prince Edward Island,The world,N/A,50161,1,Weight in metric tonne
+1/1/2024,"7610.90 - Structures & parts, alum,e.g. plate,rods,etc,for struct,o/t prefabricated bldgs",Prince Edward Island,The world,N/A,139984,0,Blank
+1/1/2024,"8208.90 - Knives & blades,for leather/paper/tobacco machines & o industries,of base metal",Prince Edward Island,The world,N/A,60926,0,Blank
+1/1/2024,"8411.21 - Turbo-propellers, of a power not exceeding 1,100 kW",Prince Edward Island,The world,N/A,31278442,51,Number
+1/1/2024,"8413.60 - Pumps, rotary positive displacement, for liquid, nes",Prince Edward Island,The world,N/A,2270281,448,Number
+1/1/2024,8414.10 - Vacuum pumps,Prince Edward Island,The world,N/A,28204,2,Number
+1/1/2024,"8419.50 - Heat exchange units, non-domestic, non-electric",Prince Edward Island,The world,N/A,334950,0,Blank
+1/1/2024,"8419.90 - Pts,f mchy/plant/lab equip,f treat by chang of temp & insta/strg wat heat,n-elec",Prince Edward Island,The world,N/A,599397,0,Blank
+1/1/2024,"8421.31 - Intake air filters, for internal combustion engines",Prince Edward Island,The world,N/A,50024,0,Blank
+1/1/2024,"8421.99 - Parts, for filtering or purifying mchy and apparatus for liquids or gases, nes",Prince Edward Island,The world,N/A,77936,0,Blank
+1/1/2024,"8422.20 - Machinery for cleaning or drying bottles or containers, nes",Prince Edward Island,The world,N/A,37733,2,Number
+1/1/2024,8438.50 - Machinery for the preparation of meat or poultry,Prince Edward Island,The world,N/A,776016,0,Blank
+1/1/2024,8445.11 - Textile carding machines,Prince Edward Island,The world,N/A,527344,8,Number
+1/1/2024,"8448.39 - Parts and accessories of machines of No 84.45, or of their aux machines, nes",Prince Edward Island,The world,N/A,69189,0,Blank
+1/1/2024,"8471.30 - Portable adpm, wt <= 10 kg, with cpu, keyboard and display",Prince Edward Island,The world,N/A,7134,0,Blank
+1/1/2024,"8482.50 - Bearing, other cylindrical roller bearings, including cage and roller assemblies",Prince Edward Island,The world,N/A,823214,0,Blank
+1/1/2024,8511.50 - Generators and alternators,Prince Edward Island,The world,N/A,4196,0,Blank
+1/1/2024,"8523.80 - Media, for recording sound/other phenomena, o/t products of Chapter 37, nes",Prince Edward Island,The world,N/A,47502,0,Blank
+1/1/2024,"8536.20 - Automatic circuit breakers for a voltage not exceeding 1,000 volts",Prince Edward Island,The world,N/A,805,0,Blank
+1/1/2024,"8542.39 - Electronic integrated circuits, nes",Prince Edward Island,The world,N/A,40208,20223,Number
+1/1/2024,8609.00 - Cargo containers designed to be carried by one or more modes of transport,Prince Edward Island,The world,N/A,90323,0,Blank
+1/1/2024,"8703.80 - Motor vehicles, with only electric motor for propulsion",Prince Edward Island,The world,N/A,11400,2,Number
+1/1/2024,"8708.92 - Silencers,mufflers,exhaust pipes,parts t/o,f motor vehicles of Nos 87.01-87.05",Prince Edward Island,The world,N/A,3156,0,Blank
+1/1/2024,"8708.95 - Safety airbags w inflator syst & parts, for motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,21538,0,Blank
+1/1/2024,"9013.90 - Parts & acc,lasers,o/t laser diodes;other optical appliances and instruments,nes",Prince Edward Island,The world,N/A,1358,0,Blank
+1/1/2024,"9025.80 - Hydrometers,similar floating inst,baro,hygro,psychr,comb of inst of No 90.25,nes",Prince Edward Island,The world,N/A,87,1,Number
+1/1/2024,"9031.80 - Inst,app & machines,f measuring/checking,nes in this Chapter; profile projectors",Prince Edward Island,The world,N/A,846539,0,Blank
+1/1/2024,"9306.90 - Munitions of war & pts thereof & other ammunitions & projectiles & pts t/o, nes",Prince Edward Island,The world,N/A,4481,0,Blank
+1/1/2024,"0202.20 - Bovine cuts bone in, frozen",Prince Edward Island,The world,N/A,69431,12853,Weight in kilograms
+1/1/2024,"0202.30 - Bovine cuts boneless, frozen",Prince Edward Island,The world,N/A,1027780,160590,Weight in kilograms
+1/1/2024,"0203.29 - Swine cuts, frozen, nes",Prince Edward Island,The world,N/A,78802,20007,Weight in kilograms
+1/1/2024,"0302.35 - Tunas,Atlantic & Pacific bluefin,fresh/chd,o/t No 03.04,o/t Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,6329695,206993,Weight in kilograms
+1/1/2024,"0303.91 - Livers, roes and milt, of fish, frozen",Prince Edward Island,The world,N/A,332596,16329,Weight in kilograms
+1/1/2024,"0307.39 - Mussels, dried/salted/brine/smoked, w/n cooked before/during smoking",Prince Edward Island,The world,N/A,859756,112878,Weight in kilograms
+1/1/2024,"0307.71 - Clams, cockles and ark shells, live, fresh or chilled, in shell or not",Prince Edward Island,The world,N/A,1827756,244729,Weight in kilograms
+1/1/2024,"0406.90 - Cheese, nes",Prince Edward Island,The world,N/A,31567,1414,Weight in kilograms
+1/1/2024,"0709.99 - Vegetables, fresh or chilled, nes",Prince Edward Island,The world,N/A,5038,6248,Weight in kilograms
+1/1/2024,"0902.20 - Green tea, not fermented, in packages exceeding 3 kg",Prince Edward Island,The world,N/A,10050,324,Weight in kilograms
+1/1/2024,"1105.20 - Potato flakes, granules and pellets",Prince Edward Island,The world,N/A,1413054,413092,Weight in kilograms
+1/1/2024,"1211.20 - Ginseng roots, for perfumery/pharmacy/insect/fung/sim,fresh/chilled/frozen/dried",Prince Edward Island,The world,N/A,30050,399,Weight in kilograms
+1/1/2024,"2005.20 - Potatoes, prepared or preserved, o/t by vinegar/acetic acid/sugar, not frozen",Prince Edward Island,The world,N/A,26857428,7060119,Weight in kilograms
+1/1/2024,"2106.90 - Food preparations, nes",Prince Edward Island,The world,N/A,23844963,0,Blank
+1/1/2024,"2703.00 - Peat, including peat litter, whether or not agglomerated",Prince Edward Island,The world,N/A,1309763,4574,Weight in metric tonne
+1/1/2024,"2931.90 - Other organo-inorganic compounds, nes",Prince Edward Island,The world,N/A,6102924,412469,Weight in kilograms
+1/1/2024,"2934.99 - Nucleic acids & their salts, w/n chem defined,nes; o heterocyclic compounds, nes",Prince Edward Island,The world,N/A,10831078,22,Weight in kilograms
+1/1/2024,3214.10 - Mastics; painters' fillings,Prince Edward Island,The world,N/A,6634,982,Weight in kilograms
+1/1/2024,"3913.90 - Natural polymers and modified natural polymers, nes, in primary forms",Prince Edward Island,The world,N/A,982397,21823,Weight in kilograms
+1/1/2024,"3917.31 - Tubes, pipes & hoses, flexible, plastic, minimum burst pressure of 27.6 MPa",Prince Edward Island,The world,N/A,349,6,Weight in kilograms
+1/1/2024,"3918.10 - Floor, wall and ceiling coverings, etc, of polymers of vinyl chloride",Prince Edward Island,The world,N/A,1660,2,Area in square metres
+1/1/2024,"3926.20 - Articles of apparel & clothing access,incl gloves,mittens & mitts,of platics,nes",Prince Edward Island,The world,N/A,3098828,0,Blank
+1/1/2024,"4005.10 - Rubber compounded with carbon black or silica, unvulcanized",Prince Edward Island,The world,N/A,10423,1895,Weight in kilograms
+1/1/2024,"4009.22 - Tubes, pipes and hoses, vulcanized rubber, reinforced with metal, with fittings",Prince Edward Island,The world,N/A,9185,0,Blank
+1/1/2024,"4016.93 - Gaskets, washers and other seals, of vulcanized rubber",Prince Edward Island,The world,N/A,155101,0,Blank
+1/1/2024,"4202.21 - Handbags, with outer surface of leather or of composition leather",Prince Edward Island,The world,N/A,3418,28,Number of dozens
+1/1/2024,"5907.00 - Textile fabrics impreg,ctd,cov,nes; painted canvas,e.g. theatrical scenery,etc",Prince Edward Island,The world,N/A,29,3,Weight in kilograms
+1/1/2024,"6114.30 - Garments, nes, of man-made fibres, knitted or crocheted",Prince Edward Island,The world,N/A,1037,11,Number
+1/1/2024,"6405.90 - O footwear,o/t with uppers of leather/compstn leather,o/t w upper of tex mat,nes",Prince Edward Island,The world,N/A,392,1,Number of pairs
+1/1/2024,"6804.21 - Millstones,grindstones, etc, of agglomerated synthetic or natural diamond",Prince Edward Island,The world,N/A,2924,0,Blank
+1/1/2024,"6805.20 - Natural or artificial abrasive, powder/grain, on paper or paperboard base only",Prince Edward Island,The world,N/A,180,0,Blank
+1/1/2024,"7005.21 - Float glass,surf grd/polish glass,in sht,non -wired,coloured throughout mass,etc",Prince Edward Island,The world,N/A,3222,28,Area in square metres
+1/1/2024,7008.00 - Multiple-walled insulating units of glass,Prince Edward Island,The world,N/A,85677,596,Number
+1/1/2024,"7110.19 - Platinum, in semi-manufactured forms, nes",Prince Edward Island,The world,N/A,3642,58,Weight in grams
+1/1/2024,"7318.16 - Nuts, threaded, of iron or steel",Prince Edward Island,The world,N/A,285371,0,Blank
+1/1/2024,"7419.80 - Articles of copper, o/t cast, moulded, stamped or forged but not further worked",Prince Edward Island,The world,N/A,342675,0,Blank
+1/1/2024,"7904.00 - Bars, rods, profiles and wire, of zinc",Prince Edward Island,The world,N/A,1045,283,Weight in kilograms
+1/1/2024,"8204.11 - Wrenches, hand-operated, with non-adjustable jaws, of base metal",Prince Edward Island,The world,N/A,187,0,Blank
+1/1/2024,"8302.49 - Mountings, fittings and similar articles of base metal, nes",Prince Edward Island,The world,N/A,79064,0,Blank
+1/1/2024,8411.91 - Parts of turbo-jets or turbo-propellers,Prince Edward Island,The world,N/A,133815901,0,Blank
+1/1/2024,"8413.19 - Pumps, for liquids, fitted or designed to be fitted with a measuring device, nes",Prince Edward Island,The world,N/A,14224,3,Number
+1/1/2024,"8413.30 - Pumps, fuel/lubricating/cooling medium, for internal combustion piston engines",Prince Edward Island,The world,N/A,2688,3,Number
+1/1/2024,"8419.89 - Machinery, plant or laboratory equip for treat of mat by a change of temp, nes",Prince Edward Island,The world,N/A,17452,0,Blank
+1/1/2024,"8421.21 - Filtering or purifying machinery and apparatus, for water",Prince Edward Island,The world,N/A,17011,7,Number
+1/1/2024,"8424.10 - Fire extinguishers, whether or not charged",Prince Edward Island,The world,N/A,154,0,Blank
+1/1/2024,"8433.40 - Straw or fodder balers, including pick-up balers",Prince Edward Island,The world,N/A,22479,1,Number
+1/1/2024,"8438.80 - Machinery, nes,f ind prep/mfr of food/drink,o/t f extr/prep veg/microb fats/oils",Prince Edward Island,The world,N/A,167978,0,Blank
+1/1/2024,"8437.10 - Machines for cleaning,sorting or grading seed, grain/dried leguminous vegetables",Prince Edward Island,The world,N/A,131861,0,Blank
+1/1/2024,8445.20 - Textile spinning machines,Prince Edward Island,The world,N/A,665938,11,Number
+1/1/2024,"8449.00 - Machinery for the mfr or fin of felt or nonwovens, incl hat making machinery",Prince Edward Island,The world,N/A,44982,0,Blank
+1/1/2024,"8468.20 - Gas-operated machinery for welding, nes",Prince Edward Island,The world,N/A,19422,0,Blank
+1/1/2024,"8473.30 - Pts & access,f adpm,units t/o,magnt/opt readers,mach f transcr, of No 84.71,nes",Prince Edward Island,The world,N/A,8414,0,Blank
+1/1/2024,"8480.71 - Moulds, injection or compression types, for rubber or plastics",Prince Edward Island,The world,N/A,663440,0,Blank
+1/1/2024,"8482.80 - Bearings, roller, including combined ball/roller bearings, nes",Prince Edward Island,The world,N/A,68783,0,Blank
+1/1/2024,"8483.10 - Transmission shafts and cranks, including cam shafts and crank shafts",Prince Edward Island,The world,N/A,278022,0,Blank
+1/1/2024,"8483.30 - Bearing housings, not incorporating ball or roller bearings;plain shaft bearings",Prince Edward Island,The world,N/A,268359,0,Blank
+1/1/2024,"8483.90 - Toothed wheels,chain sprockets & other transmis elements present separ; parts",Prince Edward Island,The world,N/A,3269100,0,Blank
+1/1/2024,"8501.61 - AC generators(alternators),electric,o/t photovoltaic generators,output <= 75 kVA",Prince Edward Island,The world,N/A,11714,3,Number
+1/1/2024,"8504.40 - Static electric converters, nes",Prince Edward Island,The world,N/A,361128,0,Blank
+1/1/2024,"8511.80 - Glow plugs and other ignition or starting equipment, nes",Prince Edward Island,The world,N/A,1423559,0,Blank
+1/1/2024,8516.80 - Electric heating resistors,Prince Edward Island,The world,N/A,3613,0,Blank
+1/1/2024,"8523.49 - Optical media, magnetic, recorded, nes, o/t of Chapter 37",Prince Edward Island,The world,N/A,17212,0,Blank
+1/1/2024,8525.50 - Transmission apparatus for radio-teleph/telegr/broad or tv,Prince Edward Island,The world,N/A,1247,0,Blank
+1/1/2024,"8528.52 - Monitors, nes, connecting to and used with data processing machines of No 84.71",Prince Edward Island,The world,N/A,41902,7,Number
+1/1/2024,"8528.59 - Monitors, other than cathode-ray tube monitors, nes",Prince Edward Island,The world,N/A,4779,0,Blank
+1/1/2024,"8533.29 - Electrical resistors, fixed, other than heating resistors, nes",Prince Edward Island,The world,N/A,11725,0,Blank
+1/1/2024,8531.10 - Burglar or fire alarms and similar apparatus,Prince Edward Island,The world,N/A,19413,0,Blank
+1/1/2024,"8543.90 - Parts,of electrical machines & app,having individual functions,nes in Chapter 85",Prince Edward Island,The world,N/A,18711,0,Blank
+1/1/2024,"8544.70 - Optical fibre cables, made up of individually sheathed fibres",Prince Edward Island,The world,N/A,1416901,0,Blank
+1/1/2024,"8703.22 - Mtr veh,transp pers,only spk-ign int combu piston eng,cyl > 1,000 <=1,500 cc,nes",Prince Edward Island,The world,N/A,14690,4,Number
+1/1/2024,"8707.90 - Bodies, including cabs, for the motor vehicles of Nos 87.01 to 87.05, nes",Prince Edward Island,The world,N/A,856999,28,Number
+1/1/2024,"8716.39 - Trailers and semi-trailers, nes, for the transport of goods",Prince Edward Island,The world,N/A,9168589,109,Number
+1/1/2024,"8716.90 - Trailer and other vehicle parts, nes",Prince Edward Island,The world,N/A,1464938,0,Blank
+1/1/2024,"8804.00 - Parachutes, paragliders and parts and accessories thereof",Prince Edward Island,The world,N/A,5350,0,Blank
+1/1/2024,"8901.90 - Cargo vessels, nes, and other vessels for the transport of both persons & goods",Prince Edward Island,The world,N/A,124575,3,Number
+1/1/2024,"9021.10 - Orthopaedic/fracture appl,implanted in the body, to compensate defect/disability",Prince Edward Island,The world,N/A,998,0,Blank
+1/1/2024,9029.20 - Speed indicators and tachometers; stroboscopes,Prince Edward Island,The world,N/A,8090,0,Blank
+1/1/2024,"9202.90 - String musical instruments, nes",Prince Edward Island,The world,N/A,2986,2,Number
+1/1/2024,"9401.99 - Parts, of seats, o/t of wood or those of No 94.02, nes",Prince Edward Island,The world,N/A,41827,0,Blank
+1/1/2024,"9403.40 - Kitchen furniture, wooden, nes",Prince Edward Island,The world,N/A,1528,0,Blank
+1/1/2024,"9603.40 - Paint, distemper, varnish or similar brushes, nes; paint pads and rollers",Prince Edward Island,The world,N/A,2808,0,Blank
+1/1/2024,"9706.90 - Antiques, of an age exceeding 100 years, but less than of equal to 250 years",Prince Edward Island,The world,N/A,3043,0,Blank
+1/1/2024,"9806.10 - Settlers/migrants' personal and household effects, valued at $2,000 CDN or more",Prince Edward Island,The world,N/A,7944,0,Blank
+1/1/2024,9901.00 - Low value export transactions and confidential commodities,Prince Edward Island,The world,N/A,9750114,0,Blank
+1/1/2024,"0201.10 - Bovine carcasses and half carcasses, fresh or chilled",Prince Edward Island,The world,N/A,15500,1434,Weight in kilograms
+1/1/2024,"0106.19 - Mammals, live, nes",Prince Edward Island,The world,N/A,4062,1,Number
+1/1/2024,"0302.32 - Tunas,yellowfin,fresh/chilled,o/t fish of No 03.04,o/t offal Nos 0302.91-0302.99",Prince Edward Island,The world,N/A,20293,559,Weight in kilograms
+1/1/2024,"0303.14 - Trout, frozen, o/t fish of No 03.04, o/t fish offal of Nos 0303.91-0303.99",Prince Edward Island,The world,N/A,10706,680,Weight in kilograms
+1/1/2024,"0307.72 - Clams, cockles and ark shells, frozen, whether in shell or not",Prince Edward Island,The world,N/A,53059,8065,Weight in kilograms
+1/1/2024,"0402.99 - Milk and cream, sweetened, nes",Prince Edward Island,The world,N/A,1484372,450066,Weight in kilograms
+1/1/2024,"1105.10 - Potato flour, meal and powder",Prince Edward Island,The world,N/A,1496092,1007429,Weight in kilograms
+1/1/2024,"1212.91 - Sugar beet, fresh, chilled, frozen or dried, whether or not ground",Prince Edward Island,The world,N/A,28490,23269,Weight in kilograms
+1/1/2024,"2004.90 - Vegetables,nes and mixtures,prepared/preserved o/t by vinegar/acetic acid,frozen",Prince Edward Island,The world,N/A,64650,23417,Weight in kilograms
+1/1/2024,"2009.89 - Juice any o single fruit/veg, nes, unferm,n cont spirit,w/n cont add sugar/sweet",Prince Edward Island,The world,N/A,22866,2235,Volume in litres
+1/1/2024,"2104.10 - Soups and broths, preparations thereof",Prince Edward Island,The world,N/A,126212,11140,Weight in kilograms
+1/1/2024,"2309.90 - Animal feed preparations, nes",Prince Edward Island,The world,N/A,1917031,1001939,Weight in kilograms
+1/1/2024,"2932.99 - Heterocyclic compounds with oxygen hetero-atom(s) only, nes",Prince Edward Island,The world,N/A,857382,59881,Weight in kilograms
+1/1/2024,3305.10 - Hair shampoos,Prince Edward Island,The world,N/A,9444,0,Blank
+1/1/2024,3405.40 - Scouring pastes and powders and other scouring preparations,Prince Edward Island,The world,N/A,51,0,Blank
+1/1/2024,"3907.21 - Bis(polyoxyethylene) methylphosphonate, in primary forms",Prince Edward Island,The world,N/A,3046,605,Weight in kilograms
+1/1/2024,"3920.20 - Film and sheet, etc, non-cellular, etc, of polymers of propylene",Prince Edward Island,The world,N/A,795,152,Weight in kilograms
+1/1/2024,"4012.20 - Pneumatic tires, used",Prince Edward Island,The world,N/A,1220,1,Number
+1/1/2024,"4808.10 - Paper and paperboard,corrugated,w/n perforated,in rolls/sheets,o/t of No 48.03",Prince Edward Island,The world,N/A,19394,10,Weight in metric tonne
+1/1/2024,"4819.10 - Cartons, boxes and cases, of corrugated paper or paperboard",Prince Edward Island,The world,N/A,1072726,0,Blank
+1/1/2024,"5105.29 - Wool tops and other combed wool, other than combed wool in fragments",Prince Edward Island,The world,N/A,2190,80,Weight in kilograms
+1/1/2024,"5911.90 - Textile products and articles for technical uses, nes",Prince Edward Island,The world,N/A,1662,0,Blank
+1/1/2024,"6301.20 - Blankets, other than electric, and travelling rugs, of wool or fine animal hair",Prince Edward Island,The world,N/A,104943,0,Blank
+1/1/2024,"6403.40 - Footwear,outer soles rbr/plastics/leather/comp leath,upper leather,metal toe cap",Prince Edward Island,The world,N/A,1523,5,Number of pairs
+1/1/2024,"7019.69 - Mechanically bonded fabrics, nes, of glass fibres, including glass wool",Prince Edward Island,The world,N/A,4740,0,Blank
+1/1/2024,7019.80 - Glass wool and articles of glass wool,Prince Edward Island,The world,N/A,34697,0,Blank
+1/1/2024,"7103.91 - Rubies, sapphires and emeralds, otherwise worked",Prince Edward Island,The world,N/A,10506,0,Blank
+1/1/2024,"7306.40 - Tubes, pipe & hollow profiles, stainless steel, welded, of circ cross sect,nes",Prince Edward Island,The world,N/A,15814,7,Weight in metric tonne
+1/1/2024,"7310.21 - Cans, iron or steel, cap <50 litres, to be closed by crimping or soldering,nes",Prince Edward Island,The world,N/A,60431,0,Blank
+1/1/2024,"7318.23 - Rivets, of iron or steel",Prince Edward Island,The world,N/A,8204,0,Blank
+1/1/2024,"7326.19 - Articles of iron or steel, forged or stamped, but not further worked",Prince Edward Island,The world,N/A,9290,0,Blank
+1/1/2024,"7508.90 - Articles of nickel, nes",Prince Edward Island,The world,N/A,175000,0,Blank
+1/1/2024,"7602.00 - Waste and scrap, of aluminum",Prince Edward Island,The world,N/A,1001712,425657,Weight in kilograms
+1/1/2024,"7616.99 - Articles of aluminum, nes",Prince Edward Island,The world,N/A,19759,0,Blank
+1/1/2024,"8207.20 - Dies,for drawing/extruding metal,interchangeable,for hand/mach-tls,of base metal",Prince Edward Island,The world,N/A,4635,0,Blank
+1/1/2024,"8411.11 - Turbo-jets, of a thrust not exceeding 25 kN",Prince Edward Island,The world,N/A,9317690,12,Number
+1/1/2024,"8411.22 - Turbo-propellers, of a power exceeding 1,100 kW",Prince Edward Island,The world,N/A,11784662,5,Number
+1/1/2024,"8413.81 - Pumps for liquids, nes",Prince Edward Island,The world,N/A,8302,1,Number
+1/1/2024,"8422.30 - Mach for fil/clos/seal/labelling btle/can/box/bag/ctnr,nes;mach for aerating bev",Prince Edward Island,The world,N/A,203333,2,Number
+1/1/2024,"8424.89 - Mech appl,w/n hand-op, for projecting/dispersing/spraying liquids/powders,nes",Prince Edward Island,The world,N/A,242017,0,Blank
+1/1/2024,"8428.39 - Continuous-action elevators/conveyors, for goods/materials, nes",Prince Edward Island,The world,N/A,101199,115,Number
+1/1/2024,"8428.90 - Machinery, for lifting, handling, loading or unloading, nes",Prince Edward Island,The world,N/A,127837,2,Number
+1/1/2024,"8432.31 - No-till direct seeders, planters and transplanters,for agriculture/hort/forestry",Prince Edward Island,The world,N/A,751297,352,Number
+1/1/2024,"8438.90 - Parts,of mach,nes,for ind prep/mfr of food/drink,o/t for extr/prep veg fats/oils",Prince Edward Island,The world,N/A,6821834,0,Blank
+1/1/2024,8445.13 - Textile drawing or roving machines,Prince Edward Island,The world,N/A,164637,9,Number
+1/1/2024,"8451.80 - Mach f wringing/dressing/finishing/coating or impreg tex yarns,etc,o/t No 84.50",Prince Edward Island,The world,N/A,126062,13,Number
+1/1/2024,"8466.20 - Work holders, for use with mach of Nos 84.56 to 84.65",Prince Edward Island,The world,N/A,15533,0,Blank
+1/1/2024,"8483.60 - Clutches and shaft couplings, including universal joints",Prince Edward Island,The world,N/A,19311,0,Blank
+1/1/2024,8487.10 - Ships' or boats' propellers and blades therefor,Prince Edward Island,The world,N/A,40775,0,Blank
+1/1/2024,"8517.62 - Machines,f reception/conversion/transmission/regeneration of voice/images/o data",Prince Edward Island,The world,N/A,50193,0,Blank
+1/1/2024,8525.60 - Transmission apparatus incorporating reception apparatus,Prince Edward Island,The world,N/A,8490,0,Blank
+1/1/2024,"8536.90 - Electrical apparatus,f making connections to/in electrical circuits,<=1,000V,nes",Prince Edward Island,The world,N/A,41932,0,Blank
+1/1/2024,8544.20 - Co-axial cable and other co-axial electric conductors,Prince Edward Island,The world,N/A,2990,0,Blank
+1/1/2024,"8708.93 - Clutches and parts, for the motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,3290,0,Blank
+1/1/2024,"8907.90 - Buoys, beacons, coffer-dams, pontoons and other floating structures",Prince Edward Island,The world,N/A,1180100,0,Blank
+1/1/2024,"9017.80 - Instruments for measuring length, for use in the hand, nes",Prince Edward Island,The world,N/A,0,0,Blank
+1/1/2024,"9401.71 - Seats, with metal frames,upholstered, o/t those of No 94.02, nes",Prince Edward Island,The world,N/A,1782,0,Blank
+1/1/2024,"9405.11 - Lum & ltng fttgs,chandeliers,o elec ceiling/wall, dsnd f use solely w LED lt src",Prince Edward Island,The world,N/A,1465,0,Blank
+1/1/2024,"9405.29 - Luminaires,of electric table, desk, bedside or floor-standing,o/t LED lt sources",Prince Edward Island,The world,N/A,416,0,Blank
+1/1/2024,"9506.29 - Water-skis, surf-boards & other water-sport equipment, other than sailboards,nes",Prince Edward Island,The world,N/A,7123,0,Blank
+1/1/2024,"9506.99 - Articles & equip for sports & outdoor games, nes, & swimming & paddling pools",Prince Edward Island,The world,N/A,2503,0,Blank
+1/1/2024,9807.00 - Private donations and gifts,Prince Edward Island,The world,N/A,54156,0,Blank
+1/1/2024,"0202.10 - Bovine carcasses and half carcasses, frozen",Prince Edward Island,The world,N/A,343701,97785,Weight in kilograms
+1/1/2024,"0304.43 - Fillets, of flat fish, fresh or chilled",Prince Edward Island,The world,N/A,102174,8530,Weight in kilograms
+1/1/2024,"0306.14 - Crabs, frozen, in shell or not, including in shell cooked in water, etc",Prince Edward Island,The world,N/A,31126426,1364029,Weight in kilograms
+1/1/2024,"0307.31 - Mussels, shelled or not, live, fresh or chilled",Prince Edward Island,The world,N/A,36409496,8155267,Weight in kilograms
+1/1/2024,"0602.90 - Plants, live, including their roots, nes, and mushroom spawn",Prince Edward Island,The world,N/A,3753226,0,Blank
+1/1/2024,"0701.90 - Potatoes, fresh or chilled, nes",Prince Edward Island,The world,N/A,188498800,174640,Weight in metric tonne
+1/1/2024,"0710.80 - Vegetables, frozen, nes",Prince Edward Island,The world,N/A,728,440,Weight in kilograms
+1/1/2024,"0811.90 - Fruits & edible nuts,uncooked,steam or boil in water,sweetened or not,frozen,nes",Prince Edward Island,The world,N/A,60020742,11069861,Weight in kilograms
+1/1/2024,"1207.99 - Oil seeds and oleaginous fruits, nes, whether or not broken",Prince Edward Island,The world,N/A,29199,12484,Weight in kilograms
+1/1/2024,"1209.25 - Rye grass seeds, for sowing",Prince Edward Island,The world,N/A,206026,65405,Weight in kilograms
+1/1/2024,"1211.90 - Plants, parts,seeds & fruits,nes,f perfumery/pharm/insect/fung/sim,fr/chd/frz/dr",Prince Edward Island,The world,N/A,2190,1,Weight in kilograms
+1/1/2024,"1212.21 - Seaweeds and o algae,fresh/chd/frozen/dried,w/n ground,fit for human consumption",Prince Edward Island,The world,N/A,93290,0,Blank
+1/1/2024,"1605.40 - Crustaceans, prepared or preserved, nes",Prince Edward Island,The world,N/A,4959026,282617,Weight in kilograms
+1/1/2024,"1905.90 - Communion wafers,empty cachets f pharm use and sim products & bakers' wares,nes",Prince Edward Island,The world,N/A,61593,6126,Weight in kilograms
+1/1/2024,"2501.00 - Salt, incl tab & denatured & pure sodium chloride, w/n in aqueous sol;sea water",Prince Edward Island,The world,N/A,8753,18,Weight in metric tonne
+1/1/2024,"2845.90 - Isotopes and their compounds, inorganic/organic, w/n chemically defined, nes",Prince Edward Island,The world,N/A,43629,1,Weight in kilograms
+1/1/2024,"2930.90 - Organo-sulphur compounds, nes",Prince Edward Island,The world,N/A,30728956,37718,Weight in kilograms
+1/1/2024,"2933.99 - Heterocyclic compounds with nitrogen hetero-atom(s) only, nes",Prince Edward Island,The world,N/A,72665,14,Weight in kilograms
+1/1/2024,"3002.42 - Vaccines, for veterinary medecine",Prince Edward Island,The world,N/A,43382094,96659,Weight in kilograms
+1/1/2024,"3003.90 - Medicaments, nes,mix,therap/prophltc uses,not for retail sale,o/t No 30.02/05/06",Prince Edward Island,The world,N/A,366672,3241,Weight in kilograms
+1/1/2024,"3402.42 - Non-ionic, organic surface-active agent, whether or not put up for retail sale",Prince Edward Island,The world,N/A,297528,35371,Weight in kilograms
+1/1/2024,"3405.90 - Polishes, creams and similar preparations, o/t waxes of No 34.04, nes",Prince Edward Island,The world,N/A,520,0,Blank
+1/1/2024,"3810.10 - Pickling prep f metal surfaces; soldering, brazing/welding powders & pastes,etc",Prince Edward Island,The world,N/A,184,39,Weight in kilograms
+1/1/2024,"3917.39 - Tubes, pipes and hoses, nes, plastic",Prince Edward Island,The world,N/A,18284,12,Weight in kilograms
+1/1/2024,"3925.20 - Doors, windows and their frames and thresholds for doors, of plastics",Prince Edward Island,The world,N/A,35469,0,Blank
+1/1/2024,"5607.49 - Twine, nes, cordage, ropes and cables, of polyethylene or polypropylene",Prince Edward Island,The world,N/A,179437,13449,Weight in kilograms
+1/1/2024,"5607.50 - Twine, cordage, ropes and cables, of other synthetic fibres",Prince Edward Island,The world,N/A,18128,1694,Weight in kilograms
+1/1/2024,"6805.30 - Natural or artificial abrasive, powder or grain, on a base of other materials",Prince Edward Island,The world,N/A,26335,0,Blank
+1/1/2024,"6810.11 - Building blocks and bricks, of cement, concrete or artificial stone",Prince Edward Island,The world,N/A,5568,0,Blank
+1/1/2024,"6810.19 - Tiles, flagstones and similar articles, of cement, concrete or artificial stone",Prince Edward Island,The world,N/A,5525,0,Blank
+1/1/2024,"6910.90 - Ceramic sinks,wash basins,baths,bidets,urinals and similar sanitary fixtures,nes",Prince Edward Island,The world,N/A,791,0,Blank
+1/1/2024,"6911.90 - Household articles, nes, and toilet articles, of porcelain or china",Prince Edward Island,The world,N/A,2236,0,Blank
+1/1/2024,"7019.90 - Glass fibres, including glass wool and articles thereof, nes",Prince Edward Island,The world,N/A,6381,0,Blank
+1/1/2024,"7212.30 - Flat rolled prod, i/nas, <600mm wide, o/w plated or coated with zinc",Prince Edward Island,The world,N/A,2484,1,Weight in metric tonne
+1/1/2024,"7308.90 - Structures & parts of structures,i or s,o/t prefabricated buildings of No 94.06",Prince Edward Island,The world,N/A,1006110,0,Blank
+1/1/2024,"7318.21 - Washers, spring or lock, iron or steel",Prince Edward Island,The world,N/A,85417,0,Blank
+1/1/2024,"7604.29 - Bars, rods and other profiles, aluminium alloyed",Prince Edward Island,The world,N/A,6746,660,Weight in kilograms
+1/1/2024,"7608.20 - Tubes and pipes, aluminium alloys",Prince Edward Island,The world,N/A,603,180,Weight in kilograms
+1/1/2024,8302.10 - Hinges of base metal,Prince Edward Island,The world,N/A,38,0,Blank
+1/1/2024,8413.92 - Parts of liquid elevators,Prince Edward Island,The world,N/A,4519,0,Blank
+1/1/2024,8414.80 - Air or other gas compressors,Prince Edward Island,The world,N/A,10486,1,Number
+1/1/2024,"8418.69 - Refrigerating or freezing equipment, nes",Prince Edward Island,The world,N/A,887364,0,Blank
+1/1/2024,"8423.81 - Weighing machinery having a maximum weighing capacity <= 30 kg, nes",Prince Edward Island,The world,N/A,9157,2,Number
+1/1/2024,8426.19 - Transporter or bridge cranes,Prince Edward Island,The world,N/A,14188,1,Number
+1/1/2024,8429.51 - Front end shovel loaders,Prince Edward Island,The world,N/A,54208,1,Number
+1/1/2024,"8431.43 - Parts, of boring or sinking machinery of No 8430.41 or 8430.49",Prince Edward Island,The world,N/A,629578,0,Blank
+1/1/2024,8433.53 - Root or tuber harvesting machines,Prince Edward Island,The world,N/A,1282383,28,Number
+1/1/2024,"8433.90 - Parts of harvesting, threshing and other agricultural and mowing machinery",Prince Edward Island,The world,N/A,262498,0,Blank
+1/1/2024,8438.40 - Brewery machinery,Prince Edward Island,The world,N/A,513098,0,Blank
+1/1/2024,8471.80 - Other units of automatic data processing machines,Prince Edward Island,The world,N/A,6325,0,Blank
+1/1/2024,"8471.90 - Other data processing machines, nes",Prince Edward Island,The world,N/A,7280,0,Blank
+1/1/2024,"8481.10 - Valves, pressure reducing",Prince Edward Island,The world,N/A,238535,0,Blank
+1/1/2024,"8481.90 - Parts of taps, cocks, valves or similar appliances",Prince Edward Island,The world,N/A,881007,0,Blank
+1/1/2024,8511.10 - Spark plugs,Prince Edward Island,The world,N/A,1027,0,Blank
+1/1/2024,"8530.10 - Electrical signalling, safety or traffic control equip for railways/tramways",Prince Edward Island,The world,N/A,55517,0,Blank
+1/1/2024,"8538.90 - Parts for use with the apparatus of Nos 85.35, 85.36 or 85.37, nes",Prince Edward Island,The world,N/A,32740,0,Blank
+1/1/2024,8540.91 - Parts of cathode-ray tubes,Prince Edward Island,The world,N/A,548280,0,Blank
+1/1/2024,8607.19 - Axles and wheels and parts,Prince Edward Island,The world,N/A,9815,0,Blank
+1/1/2024,"8703.21 - Motor vehicle,transp pers,only spk-ign int combu pst eng,cyl cap <= 1,000 cc,nes",Prince Edward Island,The world,N/A,38050,9,Number
+1/1/2024,"8703.23 - Mtr veh,transp pers,only spk-ign int combu piston eng,cyl  >1,500 <=3,000 cc,nes",Prince Edward Island,The world,N/A,171361,13,Number
+1/1/2024,"8703.24 - Motor veh,transp pers,only spark-ign int combu piston eng,cyl cap > 3,000 cc,nes",Prince Edward Island,The world,N/A,90809,8,Number
+1/1/2024,8902.00 - Fishing vessels and factory ships,Prince Edward Island,The world,N/A,887633,1,Number
+1/1/2024,"9015.90 - P&a,f surveying/hydrographic/ocean/hydrol/meteo/geoph inst & appl & rangefinders",Prince Edward Island,The world,N/A,7594,0,Blank
+1/1/2024,9024.10 - Machines and appliances for testing the mechanical properties of metals,Prince Edward Island,The world,N/A,54000,0,Blank
+1/1/2024,"9031.20 - Test benches for measuring/checking instruments, appliances & machines, nes",Prince Edward Island,The world,N/A,948407,0,Blank
+1/1/2024,9032.81 - Hydraulic or pneumatic automatic regulating/controlling instruments & apparatus,Prince Edward Island,The world,N/A,528602,0,Blank
+1/1/2024,"9403.30 - Office furniture, wooden, nes",Prince Edward Island,The world,N/A,21269,0,Blank
+1/1/2024,"9403.60 - Furniture, wooden, nes",Prince Edward Island,The world,N/A,22221,0,Blank
+1/1/2024,"9403.89 - Furniture, of other materials, including cane, osier or similar materials, nes",Prince Edward Island,The world,N/A,2570,0,Blank
+1/1/2024,"9506.70 - Ice skates and roller skates, including skating boots with skates attached",Prince Edward Island,The world,N/A,3552,0,Blank
+1/1/2024,"9701.21 - Paintings, drawings and pastels, of an age exceeding 100 years",Prince Edward Island,The world,N/A,12005,0,Blank
+1/1/2024,"9703.90 - Original sculpture and statuary, in any material, nes",Prince Edward Island,The world,N/A,9582,0,Blank
+1/1/2024,"0201.30 - Bovine cuts boneless, fresh or chilled",Prince Edward Island,The world,N/A,35651,2414,Weight in kilograms
+1/1/2024,"0103.92 - Swine, live, o/t pure-bred breeding, weighing 50 kg or more",Prince Edward Island,The world,N/A,234942,1165,Number
+1/1/2024,"0301.94 - Atlantic and Pacific bluefin tunas, live",Prince Edward Island,The world,N/A,4319,1136,Weight in kilograms
+1/1/2024,"0303.89 - Fish, frozen, nes o/t fish of No 03.04, o/t fish offal of Nos 0303.91-0303.99",Prince Edward Island,The world,N/A,33915,2994,Weight in kilograms
+1/1/2024,"0306.11 - Rock lobster & o sea crawfish,frz,in shell or not,incl in shell ckd in water,etc",Prince Edward Island,The world,N/A,10875,1743,Weight in kilograms
+1/1/2024,"0306.12 - Lobsters, frz, in shell or not, incl in shell ckd in water, etc",Prince Edward Island,The world,N/A,222024012,5381001,Weight in kilograms
+1/1/2024,"0307.11 - Oysters, live, fresh or chilled, in shell or not",Prince Edward Island,The world,N/A,36712717,2883209,Weight in kilograms
+1/1/2024,"0603.19 - Cut flowers and flower buds, for bouquets or ornamental purposes, fresh, nes",Prince Edward Island,The world,N/A,3971200,0,Blank
+1/1/2024,"0701.10 - Potatoes seed, fresh or chilled",Prince Edward Island,The world,N/A,1657898,2265,Weight in metric tonne
+1/1/2024,"0702.00 - Tomatoes, fresh or chilled",Prince Edward Island,The world,N/A,3439,1147,Weight in kilograms
+1/1/2024,"0710.22 - Beans, frozen",Prince Edward Island,The world,N/A,43221,12698,Weight in kilograms
+1/1/2024,"0810.40 - Cranberries, bilberries and other fruits of the genus Vaccinium, fresh",Prince Edward Island,The world,N/A,6346620,1634714,Weight in kilograms
+1/1/2024,1108.13 - Potato starch,Prince Edward Island,The world,N/A,2010351,4449126,Weight in kilograms
+1/1/2024,"1603.00 - Extracts & juices of meat,fish,crustaceans,molluscs,other aquatic invertebrates",Prince Edward Island,The world,N/A,157165,20793,Weight in kilograms
+1/1/2024,"1605.30 - Lobster, prepared or preserved",Prince Edward Island,The world,N/A,70533510,1097446,Weight in kilograms
+1/1/2024,"2523.90 - Hydraulic cements, nes",Prince Edward Island,The world,N/A,7589,1,Weight in metric tonne
+1/1/2024,"3002.12 - Antisera & other blood fractions, w/n modified/obtained by biotechnological proc",Prince Edward Island,The world,N/A,344519,437,Weight in kilograms
+1/1/2024,3301.90 - Conc & aqueous distls of essential oils; terpenic by-products of essential oils,Prince Edward Island,The world,N/A,41659,990,Weight in kilograms
+1/1/2024,"3403.99 - Lubricating preparations and similar preparations, not containing pet oils, nes",Prince Edward Island,The world,N/A,30,20,Weight in kilograms
+1/1/2024,"3808.99 - Rodenticides,similar products,nes,put up f retail sale/as preparations/articles",Prince Edward Island,The world,N/A,91538,2974,Weight in kilograms
+1/1/2024,3822.90 - Certified reference materials,Prince Edward Island,The world,N/A,256040,0,Blank
+1/1/2024,"3920.51 - Film and sheet, etc, non-cellular, etc, of poly(methyl methacrylate)",Prince Edward Island,The world,N/A,194,17,Weight in kilograms
+1/1/2024,"4009.41 - Tubes, pipes and hoses vulcanized rubber, reinforced, nes, without fittings",Prince Edward Island,The world,N/A,7424,0,Blank
+1/1/2024,"4010.19 - Conveyor belts or belting, of vulcanized rubber, nes",Prince Edward Island,The world,N/A,100259,0,Blank
+1/1/2024,"4707.10 - Waste and scrap, of unbleached kraft or corrugated paper and paperboard",Prince Edward Island,The world,N/A,31019,212,Weight in metric tonne
+1/1/2024,"4707.20 - Waste and scrap, of paper/paperboard, made of bl chem pulp, not colrd, nes",Prince Edward Island,The world,N/A,7760,19,Weight in metric tonne
+1/1/2024,"4819.30 - Sacks and bags, of paper, having a base of a width of 40 cm or more",Prince Edward Island,The world,N/A,4836094,1542601,Weight in kilograms
+1/1/2024,4823.20 - Filter paper and paperboard,Prince Edward Island,The world,N/A,716,174,Weight in kilograms
+1/1/2024,"4823.40 - Rolls, sheets and dials, of paper, printed, for self-recording apparatus",Prince Edward Island,The world,N/A,56308,0,Blank
+1/1/2024,"4901.99 - Books, brochures, leaflets and similar printed matter, nes",Prince Edward Island,The world,N/A,39591,0,Blank
+1/1/2024,5105.10 - Carded wool,Prince Edward Island,The world,N/A,611,1,Weight in kilograms
+1/1/2024,"6104.53 - Women's/girls' skirts & divided skirts, of synthetic fibres, knitted/crocheted",Prince Edward Island,The world,N/A,125,7,Number
+1/1/2024,"6109.10 - T-shirts, singlets and other vests, of cotton, knitted or crocheted",Prince Edward Island,The world,N/A,1353,12,Number
+1/1/2024,"6211.43 - Women's or girls' garments, nes, of man-made fibres, not knitted or crocheted",Prince Edward Island,The world,N/A,1985,14,Number
+1/1/2024,"6306.19 - Tarpaulins, awnings and sunblinds, of other textile materials",Prince Edward Island,The world,N/A,25225,0,Blank
+1/1/2024,"7007.19 - Safety glass, toughened, tempered, nes",Prince Edward Island,The world,N/A,32957,0,Blank
+1/1/2024,7223.00 - Wire of stainless steel,Prince Edward Island,The world,N/A,238,0,Weight in metric tonne
+1/1/2024,"7307.92 - Threaded elbows, bend and sleeves, iron or steel, nes",Prince Edward Island,The world,N/A,1200,0,Blank
+1/1/2024,"7315.11 - Chain, roller, of iron or steel",Prince Edward Island,The world,N/A,405733,25,Weight in metric tonne
+1/1/2024,"7323.93 - Table, kitchen or other household art & parts thereof, stainless steel, nes",Prince Edward Island,The world,N/A,298818,0,Blank
+1/1/2024,"7326.90 - Articles of iron or steel, nes",Prince Edward Island,The world,N/A,379555,0,Blank
+1/1/2024,"8204.12 - Wrenches, hand-operated, with adjustable jaws, of base metal",Prince Edward Island,The world,N/A,36,0,Blank
+1/1/2024,"8208.30 - Knives and blades,for kitchen appliances or food industry machines,of base metal",Prince Edward Island,The world,N/A,78816,0,Blank
+1/1/2024,"8302.50 - Hat-racks, hat-pegs, brackets and similar fixtures, of base metal, nes",Prince Edward Island,The world,N/A,381,0,Blank
+1/1/2024,"8411.99 - Parts of gas turbines, nes",Prince Edward Island,The world,N/A,1414096,0,Blank
+1/1/2024,8409.10 - Parts for spark-ignition or compression-ignition type aircraft engines,Prince Edward Island,The world,N/A,78198,0,Blank
+1/1/2024,"8412.10 - Reaction engines, nes, other than turbo jets",Prince Edward Island,The world,N/A,3304,2,Number
+1/1/2024,"8412.90 - Parts of hydraulic, pneumatic and other power engines and motors, nes",Prince Edward Island,The world,N/A,22295,0,Blank
+1/1/2024,"8413.70 - Pumps, centrifugal type, for liquids, nes",Prince Edward Island,The world,N/A,7215,1,Number
+1/1/2024,8421.23 - Oil or petrol-filters for internal combustion engines,Prince Edward Island,The world,N/A,17150,0,Blank
+1/1/2024,"8428.33 - Elevators & conveyors, continuous-action, belt types, for goods/materials, nes",Prince Edward Island,The world,N/A,472862,27,Number
+1/1/2024,8431.10 - Parts of machinery of No 84.25,Prince Edward Island,The world,N/A,1308,0,Blank
+1/1/2024,"8431.39 - Parts, of lifting, handling, loading/unloading machinery, of No 84.28",Prince Edward Island,The world,N/A,1717609,0,Blank
+1/1/2024,"8433.59 - Harvesting machinery, nes",Prince Edward Island,The world,N/A,201075,12,Number
+1/1/2024,"8445.40 - Textile winding, including weft-winding or reeling machines",Prince Edward Island,The world,N/A,198046,22,Number
+1/1/2024,"8466.94 - Parts and accessories,for use solely/princ on machines of Nos 84.62 or 84.63,nes",Prince Edward Island,The world,N/A,192903,0,Blank
+1/1/2024,"8479.90 - Parts, of machines and mechanical appliances, having individual functions, nes",Prince Edward Island,The world,N/A,13115,0,Blank
+1/1/2024,"8481.80 - Taps, cocks, valves and similar appliances, nes",Prince Edward Island,The world,N/A,2603559,0,Blank
+1/1/2024,"8482.10 - Bearings, ball",Prince Edward Island,The world,N/A,551422,0,Blank
+1/1/2024,"8484.20 - Machinery parts, non electrical, mechanical seals",Prince Edward Island,The world,N/A,6583,0,Blank
+1/1/2024,"8501.32 - DC motors,incl DC gen,electric,o/t photovoltaic gen, output > 750 W but < =75 kW",Prince Edward Island,The world,N/A,1360,4,Number
+1/1/2024,"8503.00 - Parts of electric motors, generators, generating sets and rotary converters",Prince Edward Island,The world,N/A,11740,0,Blank
+1/1/2024,"8517.69 - App,f transm/reception of voice/img/o data,incl f comm in wired/wrl network,nes",Prince Edward Island,The world,N/A,16351,0,Blank
+1/1/2024,"8536.50 - Electrical switches, for a voltage not exceeding 1,000 volts, nes",Prince Edward Island,The world,N/A,2612783,5132,Number
+1/1/2024,"8536.70 - Connectors for optical fibres, optical fibre bundles or cables",Prince Edward Island,The world,N/A,529410,0,Blank
+1/1/2024,"8537.10 - Boards, panels, including numerical control panels, for a voltage <=1,000 V",Prince Edward Island,The world,N/A,9822801,0,Blank
+1/1/2024,"8546.90 - Electrical insulators, nes",Prince Edward Island,The world,N/A,17887,0,Blank
+1/1/2024,"8607.99 - Railway rolling stock parts, nes",Prince Edward Island,The world,N/A,25264,0,Blank
+1/1/2024,"8704.22 - Motor veh,transp goods,with only diesel/semi-diesel engine,GVW > 5 but <= 20 ton",Prince Edward Island,The world,N/A,412332,6,Number
+1/1/2024,"8708.30 - Brakes & servo-brakes, parts t/o,for the motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,57414,0,Blank
+1/1/2024,"8708.40 - Gear boxes and parts thereof, for the motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,19590,0,Blank
+1/1/2024,"8708.70 - Road wheels, parts and accessories, for the motor vehicles of Nos 87.01 to 87.05",Prince Edward Island,The world,N/A,283818,0,Blank
+1/1/2024,"9014.80 - Navigational instruments and appliances, nes",Prince Edward Island,The world,N/A,22675,0,Blank
+1/1/2024,"9406.90 - Prefabricated buildings, modular building units, nes",Prince Edward Island,The world,N/A,53491,133,Number
+1/1/2024,"0203.19 - Swine cuts, fresh or chilled, nes",Prince Edward Island,The world,N/A,5293,1126,Weight in kilograms
+1/1/2024,"0307.21 - Scallops,incl molluscs of family Pectinidae, shelled or not, live, fresh/chilled",Prince Edward Island,The world,N/A,315490,7513,Weight in kilograms
+1/1/2024,"0307.32 - Mussels, frozen, whether in shell or not",Prince Edward Island,The world,N/A,660928,124771,Weight in kilograms
+1/1/2024,"0402.91 - Milk and cream, unsweetened, nes",Prince Edward Island,The world,N/A,63622,18615,Weight in kilograms
+1/1/2024,"0706.10 - Carrots and turnips, fresh or chilled",Prince Edward Island,The world,N/A,146614,84075,Weight in kilograms
+1/1/2024,"0710.21 - Peas, frozen, uncooked/steamed/boiled in water",Prince Edward Island,The world,N/A,3107,907,Weight in kilograms
+1/1/2024,"1704.90 - Sugar confectionery, not containing cocoa, nes, including white chocolate",Prince Edward Island,The world,N/A,28425,3518,Weight in kilograms
+1/1/2024,3304.10 - Lip make-up preparations,Prince Edward Island,The world,N/A,1082,0,Blank
+1/1/2024,"3307.10 - Pre-shave, shaving or after shaving preparations",Prince Edward Island,The world,N/A,9794,0,Blank
+1/1/2024,"3506.10 - Products use as glues/adhesives, pufrs as glues/adhesives, in packages <=1 kg",Prince Edward Island,The world,N/A,38,0,Blank
+1/1/2024,3506.91 - Adhesives based on polymers of Nos 39.01 to 39.13 or on rubber,Prince Edward Island,The world,N/A,342,24,Weight in kilograms
+1/1/2024,"3822.19 - Diag/lab reagents backing,prep diag/lab reagents w/n backing,w/n in form kit,nes",Prince Edward Island,The world,N/A,107394059,0,Blank
+1/1/2024,"3909.50 - Polyurethanes, in primary forms",Prince Edward Island,The world,N/A,9474,454,Weight in kilograms
+1/1/2024,"3917.29 - Tubes, pipes and hoses, rigid, of plastics, nes",Prince Edward Island,The world,N/A,101368,10040,Weight in kilograms
+1/1/2024,"4407.93 - Lumber, of maple, thickness > 6 mm, sawn/chipped lengthwise/sliced/peeled",Prince Edward Island,The world,N/A,45543,66,Volume in cubic metres
+1/1/2024,"4415.10 - Cases, boxes, crates, drums and similar packings; cable-drums, wooden",Prince Edward Island,The world,N/A,686,0,Blank
+1/1/2024,"4811.90 - Ppr,pprbrd,cellu wad,webs cellu fib,ctd/impreg/cov/surf-col/surf-dec/ptd,r/s,nes",Prince Edward Island,The world,N/A,14729,2,Weight in metric tonne
+1/1/2024,"4819.20 - Cartons, boxes and cases, folding, of non-corrugated paper or paperboard",Prince Edward Island,The world,N/A,43646506,11538117,Weight in kilograms
+1/1/2024,"4911.10 - Trade advertising material, commercial catalogue and the like",Prince Edward Island,The world,N/A,3419,0,Blank
+1/1/2024,"5106.10 - Yarn of carded wool,>=85% by weight of wool, not put up for retail sale",Prince Edward Island,The world,N/A,1577,65,Weight in kilograms
+1/1/2024,"6105.10 - Men's or boys' shirts, of cotton, knitted or crocheted",Prince Edward Island,The world,N/A,36,4,Number
+1/1/2024,"6204.43 - Women's or girls' dresses, of synthetic fibres, not knitted or crocheted",Prince Edward Island,The world,N/A,2018,17,Number
+1/1/2024,"6307.90 - Made up articles, of textile materials, nes, including dress patterns, nes",Prince Edward Island,The world,N/A,19204,0,Blank
+1/1/2024,"6310.10 - Used or new rags, of textile materials, sorted",Prince Edward Island,The world,N/A,62,5,Weight in kilograms
+1/1/2024,"7013.10 - Glassware, of a kind used for table, kitchen,toilet,office,etc,of glass-ceramics",Prince Edward Island,The world,N/A,15755,0,Blank
+1/1/2024,"7318.22 - Washers, non threaded, o/t spring washers and other lock washers, of iron/steel",Prince Edward Island,The world,N/A,431578,0,Blank
+1/1/2024,"7319.40 - Safety pins and other pins, of iron or steel, nes",Prince Edward Island,The world,N/A,18540,0,Blank
+1/1/2024,"7610.10 - Doors, windows and their frames and thresholds for doors, of aluminum",Prince Edward Island,The world,N/A,81036,3582,Weight in kilograms
+1/1/2024,"8203.20 - Pliers,including cutting pliers,pincers,tweezers and similar tools,of base metal",Prince Edward Island,The world,N/A,69,0,Blank
+1/1/2024,"8310.00 - Letters, numbers, sign-plates & sim art of base metal, o/t those of No 94.05",Prince Edward Island,The world,N/A,17273,0,Blank
+1/1/2024,"8412.21 - Hydraulic power engines and motors, linear acting (cylinders)",Prince Edward Island,The world,N/A,8412,6,Number
+1/1/2024,"8421.29 - Filtering or purifying machinery and apparatus, for liquids, nes",Prince Edward Island,The world,N/A,15925,0,Blank
+1/1/2024,"8428.20 - Elevators and conveyors, pneumatic",Prince Edward Island,The world,N/A,179610,7,Number
+1/1/2024,"8430.20 - Snow-ploughs and snow-blowers, not self-propelled",Prince Edward Island,The world,N/A,28535,1,Number
+1/1/2024,"8431.20 - Parts,of fork-lift trucks,o work trucks fit w lifting/handling equip,of No 84.27",Prince Edward Island,The world,N/A,3383,0,Blank
+1/1/2024,"8436.80 - Agricultural/hortic/forestry/beekeeping machinery, nes, incl germination plant",Prince Edward Island,The world,N/A,549361,2,Number
+1/1/2024,"8438.60 - Machinery for the preparation of fruits, nuts or vegetables",Prince Edward Island,The world,N/A,3106678,0,Blank
+1/1/2024,"8471.41 - Other adpm,with at least cpu, input and output units, o/t portable",Prince Edward Island,The world,N/A,120294,0,Blank
+1/1/2024,"8477.90 - Parts, of machinery for wrkg rubber/plas/manufacture of prod from these mat, nes",Prince Edward Island,The world,N/A,5063,0,Blank
+1/1/2024,"8481.30 - Valves, check (nonreturn)",Prince Edward Island,The world,N/A,6882,0,Blank
+1/1/2024,8484.10 - Gaskets of metal sheeting combined with other material,Prince Edward Island,The world,N/A,73183,0,Blank
+1/1/2024,"8521.90 - Video recording or reproducing apparatus, w/n incorporating a video tuner, nes",Prince Edward Island,The world,N/A,54789,23,Number
+1/1/2024,8531.90 - Parts of electric sound or visual signalling apparatus,Prince Edward Island,The world,N/A,12031,0,Blank
+1/1/2024,"8536.69 - Electrical plugs and sockets, for a voltage not exceeding 1,000 volts",Prince Edward Island,The world,N/A,120682,0,Blank
+1/1/2024,8534.00 - Printed circuits,Prince Edward Island,The world,N/A,1417,0,Blank
+1/1/2024,"8543.70 - Electrical machines & apparatus, having individual functions, nes in Chapter 85",Prince Edward Island,The world,N/A,547868,0,Blank
+1/1/2024,"8544.49 - Electric conductors, insulated, for a voltage not exceeding 1,000 V, nes",Prince Edward Island,The world,N/A,1012,0,Blank
+1/1/2024,"8701.94 - Tractors, of an engine power > 75 kW but <= 130 kW, o/t of No 87.09, nes",Prince Edward Island,The world,N/A,729992,8,Number
+1/1/2024,"8703.90 - Motor cars and other motor vehicles for transport of persons, nes, o/t No 87.02",Prince Edward Island,The world,N/A,17500,3,Number
+1/1/2024,"8716.80 - Wheelbarrows, hand-carts, rickshaws and other hand propelled vehicles",Prince Edward Island,The world,N/A,766041,308,Number
+1/1/2024,"8903.21 - Sailboats,for pleasure/sports,o/t inflatable,w or w/o aux motor, length <= 7.5 m",Prince Edward Island,The world,N/A,306001,8,Number
+1/1/2024,9026.10 - Instruments and apparatus for measuring/checking the flow/level of liquids,Prince Edward Island,The world,N/A,800618,52,Number
+1/1/2024,"9031.49 - Optical instruments and appliances, nes",Prince Edward Island,The world,N/A,2928,0,Blank
+1/1/2024,"9207.90 - Musical instruments, nes, sound generated or amplified electrically",Prince Edward Island,The world,N/A,3941,1,Number
+1/1/2024,"9401.69 - Seats, with wooden frames, o/t those of No 94.02, nes",Prince Edward Island,The world,N/A,1994,0,Blank
