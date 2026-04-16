@@ -7,6 +7,7 @@
 	import AuthorDate from '$lib/AuthorDate.svelte';
 	import TitleStandard from '$lib/TitleStandard.svelte';
 	import Password from '$lib/Password.svelte';
+	import bigMetroPopulation2025 from '$lib/data/big-metro-keys-2025.json';
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { scaleLinear, line } from "d3";
@@ -22,8 +23,9 @@
 		Midwest: '#6FC7EA',
 		Northeast: '#8DBF2E',
 		Southwest: '#F1C500',
-		Southeast: '#EBA00F',
-		Pacific: '#00A189'
+		Southeast: '#AB1368',
+		Pacific: '#00AEB3',
+		Canada: '#F3603E'
 	};
 
 	const negativeColor = '#DC4633';
@@ -361,10 +363,11 @@
 	let metros = [];
 	let isLoading = true;
 	let searchQuery = "";
+	let bigMetrosOnly = false;
 	
 	// View toggle: "map", "rankings" or "trends"
-	let viewMode = "map";
-	
+	let viewMode = "trends";
+
 	// Map variables
 	let map;
 	let mapContainer;
@@ -706,41 +709,34 @@
 	}
 
 	function getMetroDisplayName(metroName) {
-		const match = metroName.match(/^(.+?),\s*([A-Z]{2})/);
-		if (match) {
-			return `${match[1]}, ${match[2]}`;
-		}
-		return metroName;
+		const normalized = metroName.replace(' Micro Area', '').trim();
+		const aliased = metroNameAliases[normalized] || normalized;
+
+		const stateMatch = aliased.match(/,\s*([A-Z]{2})/);
+		const state = stateMatch ? stateMatch[1] : '';
+
+		const cityPart = aliased.split(',')[0].trim();
+		const shortCity = cityPart.split(/[-/]/)[0].trim().replace(/\s+/g, ' ');
+
+		return state ? `${shortCity}, ${state}` : shortCity;
 	}
 
-	function getMetroLabelLines(metroName, maxCharsPerLine = 22) {
-		const label = getMetroDisplayName(metroName);
-		if (label.length <= maxCharsPerLine) {
-			return { line1: label, line2: '' };
-		}
+	const bigMetroKeys2025 = new Set(bigMetroPopulation2025.entries.map(entry => entry.key));
 
-		// Prefer breaking near the target length at a natural separator.
-		const separators = [' ', '-', '/'];
-		let breakAt = -1;
-		for (let i = maxCharsPerLine; i >= Math.max(8, maxCharsPerLine - 10); i--) {
-			if (separators.includes(label[i])) {
-				breakAt = i;
-				break;
-			}
-		}
+	function getMetroPopulationKey(metroName) {
+		const normalized = metroName.replace(' Micro Area', '').trim();
+		const aliased = metroNameAliases[normalized] || normalized;
+		const stateMatch = aliased.match(/,\s*([A-Z]{2})/);
+		const state = stateMatch ? stateMatch[1] : '';
 
-		if (breakAt === -1) {
-			breakAt = maxCharsPerLine;
-		}
+		const cityPart = aliased.split(',')[0].trim();
+		const city = cityPart.split(/[-/]/)[0].trim().toLowerCase();
 
-		let line1 = label.slice(0, breakAt).trim();
-		let line2 = label.slice(breakAt).trim();
+		return `${city}|${state}`;
+	}
 
-		if (line2.length > maxCharsPerLine) {
-			line2 = `${line2.substring(0, maxCharsPerLine - 1)}...`;
-		}
-
-		return { line1, line2 };
+	function isBigMetro(metroName) {
+		return bigMetroKeys2025.has(getMetroPopulationKey(metroName));
 	}
 
 	// Update map when metrics change
@@ -860,14 +856,15 @@
 		}).filter(m => m !== null);
 	})();
 
-	// Filter by selected regions and search query
+	// Filter by selected regions, search query, and big-metro toggle
 	$: filteredMetroMetrics = metroMetrics.filter(m => {
 		if (selectedRegions.length === 0) return false;
 		
 		const matchesRegion = m.region && selectedRegions.includes(m.region);
 		const matchesSearch = !searchQuery || m.metro.toLowerCase().includes(searchQuery.toLowerCase());
+		const matchesBigMetro = !bigMetrosOnly || isBigMetro(m.metro);
 		
-		return matchesRegion && matchesSearch;
+		return matchesRegion && matchesSearch && matchesBigMetro;
 	});
 
 	// Sort for rankings view (worst to best)
@@ -953,7 +950,7 @@
 		<div class="finding-lines">
 			<p class="finding-line">
 				‣ {totalMetros > 0
-					? `Out of ${totalMetros} U.S. metro areas in the selected region(s), ${metrosRising} saw increased Canadian visits and ${metrosFalling} saw declines comparing Year 2 (03/2025-03/2026) to Year 1 (03/2024-03/2025).`
+					? `Out of ${totalMetros} U.S. metro areas in the selected region(s), ${metrosRising} saw increased Canadian visits and ${metrosFalling} saw declines comparing Year 2 (April 1, 2025 to March 31, 2026) to Year 1 (April 1, 2024 to March 31, 2025).`
 					: 'No metro areas are selected. Use the region filters above to show summary metrics.'}
 			</p>
 			<p class="finding-line">
@@ -996,7 +993,11 @@
 						class="region-toggle-button {selectedRegions.includes(region) ? 'selected' : ''}"
 						on:click={() => toggleRegion(region)}
 					>
-						{region}
+						<span
+							class="region-swatch"
+							style="background-color: {getRegionColor(region)}"
+						></span>
+						<span class="region-name">{region}</span>
 					</button>
 				{/each}
 			</div>
@@ -1010,10 +1011,10 @@
 				<span class="toggle-label">View:</span>
 				<button
 					class="toggle-btn"
-					class:active={viewMode === "map"}
-					on:click={() => (viewMode = "map")}
+					class:active={viewMode === "trends"}
+					on:click={() => (viewMode = "trends")}
 				>
-					Map
+					Trend Lines
 				</button>
 				<button
 					class="toggle-btn"
@@ -1024,10 +1025,10 @@
 				</button>
 				<button
 					class="toggle-btn"
-					class:active={viewMode === "trends"}
-					on:click={() => (viewMode = "trends")}
+					class:active={viewMode === "map"}
+					on:click={() => (viewMode = "map")}
 				>
-					Trend Lines
+					Map
 				</button>
 			</div>
 		</div>
@@ -1035,72 +1036,28 @@
 
 	<!-- Search Box -->
 	<div class="search-wrapper">
-		<div class="search-container">
-			<input
-				type="text"
-				class="search-input"
-				placeholder="Search for a metro area..."
-				bind:value={searchQuery}
-			/>
-			{#if searchQuery}
-				<button class="clear-search" on:click={() => searchQuery = ""}>×</button>
-			{/if}
+		<div class="search-controls">
+			<div class="search-container">
+				<input
+					type="text"
+					class="search-input"
+					placeholder="Search for a metro area..."
+					bind:value={searchQuery}
+				/>
+				{#if searchQuery}
+					<button class="clear-search" on:click={() => searchQuery = ""}>×</button>
+				{/if}
+			</div>
+			<button
+				type="button"
+				class="big-metro-toggle"
+				class:active={bigMetrosOnly}
+				on:click={() => (bigMetrosOnly = !bigMetrosOnly)}
+			>
+				1M+ Metros: {bigMetrosOnly ? 'On' : 'Off'}
+			</button>
 		</div>
 	</div>
-
-	<!-- Map View -->
-	{#if viewMode === "map"}
-	<div class="map-section">
-			<h4>Canada to U.S. Trip Map</h4>
-			
-			<!-- Color Legend -->
-			 
-			<div class="color-legend">
-			<span>Year-over-Year Change</span>
-			<div class="legend-bar">
-				<div class="legend-gradient"></div>
-			</div>
-			<div class="legend-labels">
-				<span>-70% (Large Decline)</span>
-				<span>0% (Neutral)</span>
-				<span>+70% (Large Increase)</span>
-			</div>
-			<div class="size-legend">
-				<!-- <span>Circle size = normalized trip volume</span> -->
-				<div class="size-items">
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
-						<!-- <span>0 to {formatLegendVolume(legendSizeBins[0])}</span> -->
-						<span>small trip volume</span>
-					</div>
-					<!-- <div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(15)}px;height:${legendCircleDiameterPx(15)}px;`}></span>
-						<span>{formatLegendVolume(legendSizeBins[0])} to {formatLegendVolume(legendSizeBins[1])}</span>
-					</div> -->
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
-						<!-- <span>{formatLegendVolume(legendSizeBins[1])} to {formatLegendVolume(legendSizeBins[2])}</span> -->
-						 <span>medium trip volume</span>
-					</div>
-					<!-- <div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(37)}px;height:${legendCircleDiameterPx(37)}px;`}></span>
-						<span>{formatLegendVolume(legendSizeBins[2])} to {formatLegendVolume(legendSizeBins[3])}</span>
-					</div> -->
-					<div class="size-item">
-						<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
-						<!-- <span>{formatLegendVolume(legendSizeBins[3])} to {formatLegendVolume(legendSizeBins[4])}</span> -->
-						<span>large trip volume</span>
-					</div>
-				</div>
-			</div>
-			
-			<p class="map-legend-text">
-				Circle size represents normalized trip volume for Year 2. Click on a circle for details.
-			</p>
-		</div>
-		<div class="map-container" bind:this={mapContainer}></div>
-	</div>
-	{/if}
 	
 	<!-- Rankings and Trends Views -->
 	{#if viewMode !== "map"}
@@ -1133,15 +1090,12 @@
 				</div>
 
 				{#each filteredRankings as metro, i}
-					{@const label = getMetroLabelLines(metro.metro)}
+					{@const label = getMetroDisplayName(metro.metro)}
 					<div class="chart-wrapper">
 						<div class="left">
 							<svg width={metroLabelWidth} height={chartHeight} class="region-bar">
-								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke="var(--brandMedBlue)" stroke-width="3"/>
-								<text x="12" y={label.line2 ? 24 : 31} class="textCity {label.line2 ? 'textCitySmall' : ''}">{i + 1}. {label.line1}</text>
-								{#if label.line2}
-									<text x="20" y="38" class="textCity textCitySmall">{label.line2}</text>
-								{/if}
+								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke={getRegionColor(metro.region)} stroke-width="3"/>
+								<text x="12" y="31" class="textCity">{i + 1}. {label}</text>
 							</svg>
 						</div>
 
@@ -1170,10 +1124,10 @@
 										y="15" 
 										width={Math.min((metro.percentChange / rankingsPositiveRange) * rankingPositiveMaxWidth, rankingPositiveMaxWidth)}
 										height="20" 
-										fill={getBarColor(metro.percentChange)}
+										fill={getRegionColor(metro.region)}
 										stroke="#111"
 										stroke-width="0.8"
-										opacity="0.8"
+										opacity="1"
 									/>
 								{:else}
 									<rect 
@@ -1181,10 +1135,10 @@
 										y="15" 
 										width={Math.min((Math.abs(metro.percentChange) / rankingsNegativeRange) * rankingNegativeMaxWidth, rankingNegativeMaxWidth)}
 										height="20" 
-										fill={getBarColor(metro.percentChange)}
+										fill={getRegionColor(metro.region)}
 										stroke="#111"
 										stroke-width="0.8"
-										opacity="0.8"
+										opacity="1"
 									/>
 								{/if}
 							</svg>
@@ -1242,15 +1196,12 @@
 				</div>
 
 				{#each filteredTrends as metro, i}
-					{@const label = getMetroLabelLines(metro.metro)}
+					{@const label = getMetroDisplayName(metro.metro)}
 					<div class="chart-wrapper" style="height: 53px;">
 						<div class="left">
 							<svg width={metroLabelWidth} height={chartHeight} class="region-bar">
-								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke="var(--brandMedBlue)" stroke-width="3"/>
-								<text x="12" y={label.line2 ? 24 : 31} class="textCity {label.line2 ? 'textCitySmall' : ''}">{i + 1}. {label.line1}</text>
-								{#if label.line2}
-									<text x="20" y="38" class="textCity textCitySmall">{label.line2}</text>
-								{/if}
+								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke={getRegionColor(metro.region)} stroke-width="3"/>
+								<text x="12" y="31" class="textCity">{i + 1}. {label}</text>
 							</svg>
 						</div>
 
@@ -1301,12 +1252,12 @@
 
 								<!-- LOESS regression line -->
 								{#if metro.regressionLine}
-									<path d={metro.regressionLine} stroke="var(--brandDarkBlue)" stroke-width="2" fill="none"/>
+									<path d={metro.regressionLine} stroke="#111" stroke-width="2" fill="none"/>
 									{#if metro.startCircle}
-										<circle cx={metro.startCircle.cx} cy={metro.startCircle.cy} r="2" fill="var(--brandDarkBlue)"/>
+										<circle cx={metro.startCircle.cx} cy={metro.startCircle.cy} r="2" fill="#111"/>
 									{/if}
 									{#if metro.endCircle}
-										<circle cx={metro.endCircle.cx} cy={metro.endCircle.cy} r="2" fill="var(--brandDarkBlue)"/>
+										<circle cx={metro.endCircle.cx} cy={metro.endCircle.cy} r="2" fill="#111"/>
 									{/if}
 								{/if}
 							</svg>
@@ -1316,6 +1267,60 @@
 			</div>
 		</div>
 	{/if}
+	{/if}
+
+	<!-- Map View -->
+	{#if viewMode === "map"}
+	<div class="map-section">
+			<h4>Canada to U.S. Trip Map</h4>
+			
+			<!-- Color Legend -->
+			 
+			<div class="color-legend">
+			<span>Year-over-Year Change</span>
+			<div class="legend-bar">
+				<div class="legend-gradient"></div>
+			</div>
+			<div class="legend-labels">
+				<span>-70% (Large Decline)</span>
+				<span>0% (Neutral)</span>
+				<span>+70% (Large Increase)</span>
+			</div>
+			<div class="size-legend">
+				<!-- <span>Circle size = normalized trip volume</span> -->
+				<div class="size-items">
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
+						<!-- <span>0 to {formatLegendVolume(legendSizeBins[0])}</span> -->
+						<span>small trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(15)}px;height:${legendCircleDiameterPx(15)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[0])} to {formatLegendVolume(legendSizeBins[1])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[1])} to {formatLegendVolume(legendSizeBins[2])}</span> -->
+						 <span>medium trip volume</span>
+					</div>
+					<!-- <div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(37)}px;height:${legendCircleDiameterPx(37)}px;`}></span>
+						<span>{formatLegendVolume(legendSizeBins[2])} to {formatLegendVolume(legendSizeBins[3])}</span>
+					</div> -->
+					<div class="size-item">
+						<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
+						<!-- <span>{formatLegendVolume(legendSizeBins[3])} to {formatLegendVolume(legendSizeBins[4])}</span> -->
+						<span>large trip volume</span>
+					</div>
+				</div>
+			</div>
+			
+			<p class="map-legend-text">
+				Circle size represents normalized trip volume for Year 2. Click on a circle for details.
+			</p>
+		</div>
+		<div class="map-container" bind:this={mapContainer}></div>
+	</div>
 	{/if}
 	<div class="text">
 		<h4>More Information</h4>
@@ -1433,33 +1438,51 @@
 	}
 
 	.region-toggle-button {
-		padding: 6px 12px;
-		margin-right: 10px;
-		border: 1px solid var(--brandGray);
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 6px 10px;
+		margin-right: 0;
+		border: 1px solid transparent;
 		border-radius: 5px;
 		cursor: pointer;
-		background-color: var(--brandWhite);
+		background-color: transparent;
 		color: var(--brandDarkGray);
 		user-select: none;
 		font-family: TradeGothicBold, sans-serif;
 		font-size: 16px;
 		font-weight: normal;
-		opacity: 0.5;
+		opacity: 0.333;
 		transition: opacity 0.2s ease, border 0.2s ease;
 	}
 
 	.region-toggle-button.selected {
 		opacity: 1;
-		border: 2px solid var(--brandLightBlue);
+		border-color: var(--brandLightBlue);
 	}
 
 	.region-toggle-button:hover {
 		opacity: 1;
-		border: 2px solid var(--brandMedBlue);
+		border-color: var(--brandMedBlue);
+	}
+
+	.region-swatch {
+		height: 15px;
+		width: 15px;
+		border: solid 1px var(--brandDarkBlue);
+		border-radius: 2px;
+		flex: 0 0 auto;
+	}
+
+	.region-name {
+		line-height: 1;
 	}
 
 	/* Color legend styles */
 	.color-legend {
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 16px;
+		font-weight: normal;
 		margin: 15px auto;
 		max-width: 680px;
 	}
@@ -1554,9 +1577,9 @@
 	}
 
 	.header-text {
-		font-family: Roboto;
-		font-size: 13px;
-		font-weight: bold;
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 15px;
+		font-weight: normal;
 		color: var(--brandGray90);
 	}
 
@@ -1568,23 +1591,17 @@
 	}
 
 	.textCity {
-		font-family: Roboto;
-		font-size: 13px;
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 14px;
+		font-weight: normal;
 		text-anchor: start;
 		fill: var(--brandBlack);
 	}
 
-	.textLabelSmall {
-		font-family: Roboto;
-		font-size: 13px;
-		text-anchor: end;
-		fill: var(--brandBlack);
-	}
-
 	.textYear {
-		font-family: Roboto;
-		font-size: 14px;
-		font-weight: bold;
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 16px;
+		font-weight: normal;
 		text-anchor: middle;
 		fill: var(--brandBlack);
 	}
@@ -1613,15 +1630,22 @@
 	}
 
 	.percent-main {
-		font-family: Roboto;
+		font-family: TradeGothicBold, sans-serif;
 		font-size: 14px;
+		font-weight: normal;
 		color: var(--brandBlack);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.textLabelSmall {
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 10px;
+		font-weight: normal;
+		font-variant-numeric: tabular-nums;
+		fill: var(--brandBlack);
 	}
 
 
-	.textCitySmall {
-		font-size: 11px;
-	}
 	.bar-container {
 		flex: 1;
 		display: flex;
@@ -1637,7 +1661,8 @@
 	}
 
 	.chart-header {
-		margin-left: 6px;
+		margin-left: 0;
+		flex: 1;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1653,9 +1678,17 @@
 		width: 100%;
 	}
 
+	.search-controls {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
 	.search-container {
 		position: relative;
-		max-width: 400px;
+		max-width: 100%;
+		flex: 1 1 320px;
 		margin: 25px 0 5px 0;
 	}
 
@@ -1684,6 +1717,29 @@
 		font-size: 20px;
 		cursor: pointer;
 		padding: 0 5px;
+	}
+
+	.big-metro-toggle {
+		margin: 25px 0 5px 75px;
+		padding: 10px 50px;
+		font-family: OpenSans;
+		font-size: 13px;
+		line-height: 1;
+		border: 1px solid var(--brandDarkBlue);
+		border-radius: 4px;
+		background: var(--brandWhite);
+		color: var(--brandDarkBlue);
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.big-metro-toggle:hover {
+		background: rgba(30, 55, 101, 0.08);
+	}
+
+	.big-metro-toggle.active {
+		background: var(--brandDarkBlue);
+		color: var(--brandWhite);
 	}
 
 	/* Toggle styles */
