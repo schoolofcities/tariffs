@@ -1,0 +1,296 @@
+{
+  "sourceFiles": [
+    "analysis\\raw\\cbsa-met-est2025-pop.xlsx",
+    "analysis\\raw\\cbsa-mic-est2025-pop.xlsx"
+  ],
+  "year": 2025,
+  "threshold": 1000000,
+  "count": 57,
+  "entries": [
+    {
+      "rawName": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
+      "key": "atlanta|GA",
+      "population2025": 6482182
+    },
+    {
+      "rawName": "Austin-Round Rock-San Marcos, TX Metro Area",
+      "key": "austin|TX",
+      "population2025": 2620945
+    },
+    {
+      "rawName": "Baltimore-Columbia-Towson, MD Metro Area",
+      "key": "baltimore|MD",
+      "population2025": 2857781
+    },
+    {
+      "rawName": "Birmingham, AL Metro Area",
+      "key": "birmingham|AL",
+      "population2025": 1197766
+    },
+    {
+      "rawName": "Boston-Cambridge-Newton, MA-NH Metro Area",
+      "key": "boston|MA",
+      "population2025": 5034221
+    },
+    {
+      "rawName": "Buffalo-Cheektowaga, NY Metro Area",
+      "key": "buffalo|NY",
+      "population2025": 1155653
+    },
+    {
+      "rawName": "Charlotte-Concord-Gastonia, NC-SC Metro Area",
+      "key": "charlotte|NC",
+      "population2025": 2938830
+    },
+    {
+      "rawName": "Chicago-Naperville-Elgin, IL-IN Metro Area",
+      "key": "chicago|IL",
+      "population2025": 9434123
+    },
+    {
+      "rawName": "Cincinnati, OH-KY-IN Metro Area",
+      "key": "cincinnati|OH",
+      "population2025": 2312858
+    },
+    {
+      "rawName": "Cleveland, OH Metro Area",
+      "key": "cleveland|OH",
+      "population2025": 2165775
+    },
+    {
+      "rawName": "Columbus, OH Metro Area",
+      "key": "columbus|OH",
+      "population2025": 2242028
+    },
+    {
+      "rawName": "Dallas-Fort Worth-Arlington, TX Metro Area",
+      "key": "dallas|TX",
+      "population2025": 8477157
+    },
+    {
+      "rawName": "Denver-Aurora-Centennial, CO Metro Area",
+      "key": "denver|CO",
+      "population2025": 3092037
+    },
+    {
+      "rawName": "Detroit-Warren-Dearborn, MI Metro Area",
+      "key": "detroit|MI",
+      "population2025": 4390913
+    },
+    {
+      "rawName": "Fresno, CA Metro Area",
+      "key": "fresno|CA",
+      "population2025": 1203383
+    },
+    {
+      "rawName": "Grand Rapids-Wyoming-Kentwood, MI Metro Area",
+      "key": "grand rapids|MI",
+      "population2025": 1183645
+    },
+    {
+      "rawName": "Greenville-Anderson-Greer, SC Metro Area",
+      "key": "greenville|SC",
+      "population2025": 1014101
+    },
+    {
+      "rawName": "Hartford-West Hartford-East Hartford, CT Metro Area",
+      "key": "hartford|CT",
+      "population2025": 1171426
+    },
+    {
+      "rawName": "Houston-Pasadena-The Woodlands, TX Metro Area",
+      "key": "houston|TX",
+      "population2025": 7904627
+    },
+    {
+      "rawName": "Indianapolis-Carmel-Greenwood, IN Metro Area",
+      "key": "indianapolis|IN",
+      "population2025": 2205695
+    },
+    {
+      "rawName": "Jacksonville, FL Metro Area",
+      "key": "jacksonville|FL",
+      "population2025": 1785500
+    },
+    {
+      "rawName": "Kansas City, MO-KS Metro Area",
+      "key": "kansas city|MO",
+      "population2025": 2270682
+    },
+    {
+      "rawName": "Las Vegas-Henderson-North Las Vegas, NV Metro Area",
+      "key": "las vegas|NV",
+      "population2025": 2407226
+    },
+    {
+      "rawName": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+      "key": "los angeles|CA",
+      "population2025": 12844441
+    },
+    {
+      "rawName": "Louisville/Jefferson County, KY-IN Metro Area",
+      "key": "louisville|KY",
+      "population2025": 1402509
+    },
+    {
+      "rawName": "Memphis, TN-MS-AR Metro Area",
+      "key": "memphis|TN",
+      "population2025": 1341412
+    },
+    {
+      "rawName": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+      "key": "miami|FL",
+      "population2025": 6391072
+    },
+    {
+      "rawName": "Milwaukee-Waukesha, WI Metro Area",
+      "key": "milwaukee|WI",
+      "population2025": 1575010
+    },
+    {
+      "rawName": "Minneapolis-St. Paul-Bloomington, MN-WI Metro Area",
+      "key": "minneapolis|MN",
+      "population2025": 3790295
+    },
+    {
+      "rawName": "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area",
+      "key": "nashville|TN",
+      "population2025": 2197416
+    },
+    {
+      "rawName": "New York-Newark-Jersey City, NY-NJ Metro Area",
+      "key": "new york|NY",
+      "population2025": 20112448
+    },
+    {
+      "rawName": "Oklahoma City, OK Metro Area",
+      "key": "oklahoma city|OK",
+      "population2025": 1512813
+    },
+    {
+      "rawName": "Omaha, NE-IA Metro Area",
+      "key": "omaha|NE",
+      "population2025": 1009836
+    },
+    {
+      "rawName": "Orlando-Kissimmee-Sanford, FL Metro Area",
+      "key": "orlando|FL",
+      "population2025": 2957672
+    },
+    {
+      "rawName": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
+      "key": "philadelphia|PA",
+      "population2025": 6329118
+    },
+    {
+      "rawName": "Phoenix-Mesa-Chandler, AZ Metro Area",
+      "key": "phoenix|AZ",
+      "population2025": 5228938
+    },
+    {
+      "rawName": "Pittsburgh, PA Metro Area",
+      "key": "pittsburgh|PA",
+      "population2025": 2421992
+    },
+    {
+      "rawName": "Portland-Vancouver-Hillsboro, OR-WA Metro Area",
+      "key": "portland|OR",
+      "population2025": 2542282
+    },
+    {
+      "rawName": "Providence-Warwick, RI-MA Metro Area",
+      "key": "providence|RI",
+      "population2025": 1708161
+    },
+    {
+      "rawName": "Raleigh-Cary, NC Metro Area",
+      "key": "raleigh|NC",
+      "population2025": 1595720
+    },
+    {
+      "rawName": "Richmond, VA Metro Area",
+      "key": "richmond|VA",
+      "population2025": 1389338
+    },
+    {
+      "rawName": "Riverside-San Bernardino-Ontario, CA Metro Area",
+      "key": "riverside|CA",
+      "population2025": 4769007
+    },
+    {
+      "rawName": "Rochester, NY Metro Area",
+      "key": "rochester|NY",
+      "population2025": 1056149
+    },
+    {
+      "rawName": "Sacramento-Roseville-Folsom, CA Metro Area",
+      "key": "sacramento|CA",
+      "population2025": 2477274
+    },
+    {
+      "rawName": "Salt Lake City-Murray, UT Metro Area",
+      "key": "salt lake city|UT",
+      "population2025": 1308377
+    },
+    {
+      "rawName": "San Antonio-New Braunfels, TX Metro Area",
+      "key": "san antonio|TX",
+      "population2025": 2813140
+    },
+    {
+      "rawName": "San Diego-Chula Vista-Carlsbad, CA Metro Area",
+      "key": "san diego|CA",
+      "population2025": 3282248
+    },
+    {
+      "rawName": "San Francisco-Oakland-Fremont, CA Metro Area",
+      "key": "san francisco|CA",
+      "population2025": 4630041
+    },
+    {
+      "rawName": "San Jose-Sunnyvale-Santa Clara, CA Metro Area",
+      "key": "san jose|CA",
+      "population2025": 1984473
+    },
+    {
+      "rawName": "San Juan-Bayam\u00f3n-Caguas, PR Metro Area",
+      "key": "san juan|PR",
+      "population2025": 2024195
+    },
+    {
+      "rawName": "Seattle-Tacoma-Bellevue, WA Metro Area",
+      "key": "seattle|WA",
+      "population2025": 4161883
+    },
+    {
+      "rawName": "St. Louis, MO-IL Metro Area",
+      "key": "st. louis|MO",
+      "population2025": 2814421
+    },
+    {
+      "rawName": "Tampa-St. Petersburg-Clearwater, FL Metro Area",
+      "key": "tampa|FL",
+      "population2025": 3418895
+    },
+    {
+      "rawName": "Tucson, AZ Metro Area",
+      "key": "tucson|AZ",
+      "population2025": 1074685
+    },
+    {
+      "rawName": "Tulsa, OK Metro Area",
+      "key": "tulsa|OK",
+      "population2025": 1069273
+    },
+    {
+      "rawName": "Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area",
+      "key": "virginia beach|VA",
+      "population2025": 1797213
+    },
+    {
+      "rawName": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+      "key": "washington|DC",
+      "population2025": 6465724
+    }
+  ]
+}
