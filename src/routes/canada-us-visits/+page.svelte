@@ -1,4 +1,4 @@
-<Password/>
+<!-- <Password/> -->
 
 <script>
 	import '../../assets/global-styles.css';
@@ -29,6 +29,7 @@
 	};
 
 	const negativeColor = '#DC4633';
+	const negativeMidColor = '#F1C500';
 	const neutralColor = '#FFFFFF';
 	const positiveColor = '#007FA3';
 
@@ -53,9 +54,13 @@
 
 	function getDivergingColor(value) {
 		const clamped = Math.max(-70, Math.min(70, value));
+		if (clamped < -15) {
+			const t = (clamped + 70) / 55;
+			return interpolateHex(negativeColor, negativeMidColor, t);
+		}
 		if (clamped < 0) {
-			const t = (clamped + 70) / 70;
-			return interpolateHex(negativeColor, neutralColor, t);
+			const t = (clamped + 15) / 15;
+			return interpolateHex(negativeMidColor, neutralColor, t);
 		}
 		const t = clamped / 70;
 		return interpolateHex(neutralColor, positiveColor, t);
@@ -501,34 +506,457 @@
 
 	function initMap() {
 		if (!mapContainer || map) return;
-		
+
 		map = new maplibregl.Map({
 			container: mapContainer,
 			style: {
 				version: 8,
+				glyphs: "https://schoolofcities.github.io/fonts/fonts/{fontstack}/{range}.pbf",
 				sources: {
-					'carto-light': {
-						type: 'raster',
-						tiles: ['https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png'],
-						tileSize: 256,
-						attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+					osm: {
+						type: 'vector',
+						tiles: [
+						'https://vector.openstreetmap.org/shortbread_v1/{z}/{x}/{y}.mvt'
+						]
 					}
 				},
-				layers: [{
-					id: 'carto-light-layer',
-					type: 'raster',
-					source: 'carto-light',
-					minzoom: 0,
-					maxzoom: 19
-				}]
+				layers: [
+					{
+						id: 'background',
+						type: 'background',
+						paint: {
+							'background-color': '#fbfbfb'
+						}
+					},
+					{
+						id: 'ocean',
+						type: 'fill',
+						source: 'osm',
+						'source-layer': 'ocean',
+						paint: {
+							'fill-color': '#E3F4FB'
+						}
+					}
+				]
 			},
-			center: [-98, 39], // Center of US
+			center: [-98, 40],
 			zoom: 3,
-			minZoom: 2,
-			maxZoom: 10,
+			bearing: 0,
+			scrollZoom: true,
+			minZoom: 1,
+			maxZoom: 11.9,
 			pitch: 5,
-			attributionControl: false
+			projection: "globe",
+			attributionControl: false,
 		});
+
+		map.on('load', async () => {
+
+			map.addControl(new maplibregl.NavigationControl({
+				visualizePitch: true,
+				visualizeRoll: true,
+				showZoom: true,
+				showCompass: true
+			}),
+  			'bottom-left');
+			
+			map.addSource('ne_water', {
+				type: 'geojson',
+				data: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_lakes.geojson'
+			});
+
+			map.addSource('ne_provincelines', {
+				type: 'geojson',
+				data: './geojson/province-state-lines.geojson'
+			});
+
+			map.addSource('provincepoints', {
+				type: 'geojson',
+				data: './geojson/province-points.geojson'
+			});
+
+			map.addSource('city_names', {
+				type: 'geojson',
+				data: './geojson/populated-places-us.geojson'
+			});
+
+			map.addLayer({
+				'id': 'polygons',
+				'type': 'fill',
+				'source': 'choropleth',
+				'source-layer': 'choropleth',
+				'layout': {
+					'visibility': 'none',
+				},
+			});
+
+			map.addLayer({
+				'id': 'polygons_csd',
+				'type': 'fill',
+				'source': 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				'layout': {
+					'visibility': 'none',
+				},
+			});
+
+			map.addLayer({
+				'id': 'land',
+				'type': 'fill',
+				'source': 'osm',
+				'source-layer': 'land',
+				'paint': {
+					'fill-color': 'black',
+					'fill-opacity': 0.02
+				}
+			});
+
+			// map.addLayer({
+			// 	'id': 'streets',
+			// 	'type': 'line',
+			// 	'source': 'osm',
+			// 	'source-layer': 'streets',
+			// 	'paint': {
+			// 		'line-color': 'black',
+			// 		'line-width': 1,
+			// 		'line-opacity': 0.04
+			// 	}
+			// });
+
+			map.addLayer({
+				id: 'ne_water_fill',
+				type: 'fill',
+				source: 'ne_water',
+				paint: {
+					'fill-color': '#E3F4FB'
+				},
+				minzoom: 0,
+				maxzoom: 5
+			});
+
+			const CUTOFF = 30000000; 
+
+			// Large lakes: show at all zooms
+			map.addLayer({
+				id: 'water_polygons_large',
+				type: 'fill',
+				source: 'osm',
+				'source-layer': 'water_polygons',
+				filter: ['all', ['==', 'kind', 'water'], ['>=', 'way_area', CUTOFF]],
+				paint: { 'fill-color': '#E3F4FB' },
+				minZoom: 5
+			});
+
+			// Small lakes: only from z>=10
+			map.addLayer({
+				id: 'water_polygons_small',
+				type: 'fill',
+				source: 'osm',
+				'source-layer': 'water_polygons',
+				filter: ['all', ['==', 'kind', 'water'], ['<', 'way_area', CUTOFF]],
+				paint: { 'fill-color': '#E3F4FB' },
+				minzoom: 11
+			});
+
+			map.addLayer({
+				id: 'outline',
+				type: 'line',
+				source: 'choropleth',
+				'source-layer': 'choropleth',
+				paint: {
+					'line-color': '#808080',
+					'line-width': [
+						'interpolate', ['linear'], ['zoom'],
+						3, 1,  
+						16, 2
+					],
+					'line-opacity': 0.15
+				}
+			});
+
+			map.addLayer({
+				id: 'outline-csd',
+				type: 'line',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'line-color': '#808080',
+					'line-width': [
+						'interpolate', ['linear'], ['zoom'],
+						4, 0,  
+						17, 3
+					],
+					'line-opacity': 0.4
+				}
+			});
+
+			map.addLayer({
+				'id': 'outline-hover',
+				'type': 'fill',
+				'source': 'choropleth',
+				'source-layer': 'choropleth',
+				'paint': {
+					'fill-color': '#1E3765',
+					'fill-opacity': 0.5,
+				},
+				'filter': ['==', 'ADADGUID', ''],
+			});
+
+			map.addLayer({
+				'id': 'outline-hover-csd',
+				'type': 'fill',
+				'source': 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				'paint': {
+					'fill-color': '#1E3765',
+					'fill-opacity': 0.5,
+				},
+				'filter': ['==', 'CSDDGUID', ''],
+			});
+
+			map.addLayer({
+				id: 'boundaries',
+				type: 'line',
+				source: 'osm',
+				'source-layer': 'boundaries',
+				paint: {
+					'line-color': '#D0D1C9',
+					'line-width': 1
+				}
+			});
+
+			map.addLayer({
+				id: 'province_boundaries_case',
+				type: 'line',
+				source: 'ne_provincelines',
+				paint: {
+					'line-color': '#ffffff',
+					'line-width': 3,
+					'line-opacity': 0.5
+				}
+			});
+
+			map.addLayer({
+				id: 'censusDivisions',
+				type: 'line',
+				source: 'censusDivisions',
+				"source-layer": 'censusdivisions',
+				paint: {
+					'line-color': '#4d4d4d',
+					'line-width': 0.5
+				},
+				minzoom: 6
+			});
+
+			map.addLayer({
+				id: 'province_boundaries',
+				type: 'line',
+				source: 'ne_provincelines',
+				paint: {
+					'line-color': '#D0D1C9',
+					'line-width': 1
+				}
+			});
+			
+			map.addLayer({
+				'id': 'centroids',
+				'type': 'circle',
+				'source': 'centroids',
+				'source-layer': 'centroids',
+				'layout': {
+					'visibility': 'none',
+					// "circle-sort-key": ["get", "Total_C"]
+				}
+			});
+
+			map.addLayer({
+				'id': 'centroids_csd',
+				'type': 'circle',
+				'source': 'centroids_csd',
+				'source-layer': 'centroids_csd',
+				'layout': {
+					'visibility': 'none',
+				}
+			});
+
+			
+
+			map.addLayer({
+				id: "city_names_big",
+				type: "symbol",
+				source: "city_names",
+				layout: {
+					"text-field": ["get", "name"],
+					"text-font": ["Open Sans Regular"],
+					
+					"text-size": [
+					"interpolate", ["linear"], ["zoom"],
+						4, 10, 	
+						10, 13  
+					],
+					"text-anchor": "center",
+					"symbol-sort-key": ["get", "scalerank"]
+				},
+				paint: {
+					"text-color": "#333333",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1.5,
+					"text-opacity": 0.8,
+				},
+				filter: ["<", ["get", "scalerank"], 5],
+				minzoom: 2,
+				maxzoom: 6,
+			});
+
+			map.addLayer({
+				id: "city_names_all",
+				type: "symbol",
+				source: "city_names",
+				layout: {
+					"text-field": ["get", "name"],
+					"text-font": ["Open Sans Regular"],
+					
+					"text-size": [
+					"interpolate", ["linear"], ["zoom"],
+						4, 10, 	
+						10, 13  
+					],
+					"text-anchor": "center",
+					"symbol-sort-key": ["get", "scalerank"]
+				},
+				paint: {
+					"text-color": "#333333",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1.5,
+					"text-opacity": 0.8,
+				},
+				minzoom: 6,
+				maxzoom: 8,
+			});
+
+			
+
+			map.addLayer({
+				id: "place_labels_big",
+				type: "symbol",
+				source: "osm",
+				"source-layer": "place_labels",
+				layout: {
+					"text-field": ["get", "name"],
+					"text-font": ["Open Sans Regular"],
+					
+					"text-size": [
+					"interpolate", ["linear"], ["zoom"],
+						4, 10, 	
+						10, 13  
+					],
+					"text-anchor": "center"
+				},
+				paint: {
+					"text-color": "#333333",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1.5,
+					"text-opacity": 0.8,
+				},
+				filter: [
+					"any",
+					["==", ["get", "kind"], "city"],
+					["==", ["get", "kind"], "state_capital"],
+					["==", ["get", "kind"], "national capital"]
+				],
+				minzoom: 8
+			});
+
+			map.addLayer({
+				id: "place_labels",
+				type: "symbol",
+				source: "osm",
+				"source-layer": "place_labels",
+				layout: {
+					"text-field": ["get", "name"],
+					"text-font": ["Open Sans Regular"],
+					
+					"text-size": [
+					"interpolate", ["linear"], ["zoom"],
+						4, 9, 	
+						10, 11  
+					],
+					"text-anchor": "center"
+				},
+				paint: {
+					"text-color": "#333333",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1.5,
+					"text-opacity": 0.65,
+				},
+				filter: [
+					"all",
+					["!=", ["get", "kind"], "city"],
+					["!=", ["get", "kind"], "state_capital"],
+					["!=", ["get", "kind"], "national capital"]
+				],
+				minzoom: 8
+			});
+
+			map.addLayer({
+				id: "provincepoints",
+				type: "symbol",
+				source: "provincepoints",
+				layout: {
+					"text-field": ["get", "name"],
+					"text-font": ["Open Sans Italic"],
+					"text-size": [
+					"interpolate", ["linear"], ["zoom"],
+						4, 14, 	
+						10, 16  
+					],
+					"text-anchor": "center",
+					"symbol-sort-key": ["get", "scalerank"]
+				},
+				paint: {
+					"text-color": "#333333",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1.5,
+					"text-opacity": 0.8,
+				},
+				minzoom: 2,
+				maxzoom: 6,
+			});
+			
+			map.setLayerZoomRange('centroids', 1, 12);
+			map.setLayerZoomRange('centroids_csd', 1, 12);
+
+			mapQuery = {
+				metricType: metricType,
+				impactType: impactType,
+				tariffType: tariffType,
+			};
+
+			mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
+				Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
+			)?.[0];
+
+			map.once('idle', () => {
+				updateMap();
+			});
+
+		});
+
+		map.on('style.load', () => {
+
+			map.setProjection({
+				type: (map.getZoom() < 7) ? 'globe' : 'mercator'
+			});
+
+			map.on('zoom', () => {
+				const zoom = map.getZoom();
+				map.setProjection({
+					type: (zoom < 7) ? 'globe' : 'mercator'
+				});
+			});
+
+		});
+		
 
 		map.dragRotate.disable();
 		map.touchZoomRotate.disableRotation();
@@ -608,9 +1036,10 @@
 					['get', 'percentChange'],
 					-70, '#DC4633',
 					-35, '#EEA298',
+					-15, '#F1C500',
 					0, '#FFFFFF',
-					35, '#A5D5E3',
-					70, '#007FA3'
+					15, '#A5D5E3',
+					30, '#007FA3'
 				],
 				'circle-opacity': 0.75,
 				'circle-stroke-width': 1,
@@ -1016,13 +1445,7 @@
 				>
 					Trend Lines
 				</button>
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "rankings"}
-					on:click={() => (viewMode = "rankings")}
-				>
-					Rankings
-				</button>
+				
 				<button
 					class="toggle-btn"
 					class:active={viewMode === "map"}
@@ -1063,93 +1486,12 @@
 	{#if viewMode !== "map"}
 	<div class="text">
 		<h4>
-			{viewMode === "rankings" 
-				? `Year-over-Year Change`
-				: `Trips to the U.S.`}
+			Trips to the U.S. with year over year percentage change
 		</h4>
 	</div>
-    
-	<!-- Rankings View -->
-	{#if viewMode === "rankings"}
-		<div class="charts-scroll-container" on:wheel={(e) => e.stopPropagation()}>
-			<div class="charts-inner">
-				<!-- Header row -->
-				<div class="chart-wrapper header-row">
-					<div class="left">
-						<span class="header-text">Metro Area</span>
-					</div>
-					<div class="arrow"></div>
-					<div class="number">
-						<span class="header-text">% Change</span>
-					</div>
-					<div class="bar-container">
-						<div class="chart-header">
-							<span class="header-text">04/2024-03/2025 vs 04/2025-03/2026</span>
-						</div>
-					</div>
-				</div>
-
-				{#each filteredRankings as metro, i}
-					{@const label = getMetroDisplayName(metro.metro)}
-					<div class="chart-wrapper">
-						<div class="left">
-							<svg width={metroLabelWidth} height={chartHeight} class="region-bar">
-								<line x1="5" y1="15" x2="5" y2="{chartHeight - 15}" stroke={getRegionColor(metro.region)} stroke-width="3"/>
-								<text x="12" y="31" class="textCity">{i + 1}. {label}</text>
-							</svg>
-						</div>
-
-						<div class="arrow">
-							{#if metro.percentChange >= 0}
-								<span class="arrow-icon up-arrow">▲</span>
-							{:else}
-								<span class="arrow-icon down-arrow">▼</span>
-							{/if}
-						</div>
-
-						<div class="number">
-							<span class="percent-main">
-								{metro.percentChangeDisplay}
-							</span>
-						</div>
-
-						<div class="bar-container">
-							<svg height={chartHeight} width={chartWidth} class="bar-chart">
-								<line x1={rankingZeroX} y1="10" x2={rankingZeroX} y2="40" stroke="#666" stroke-width="1"/>
-								
-								<!-- Bar -->
-								{#if metro.percentChange >= 0}
-									<rect 
-										x={rankingZeroX} 
-										y="15" 
-										width={Math.min((metro.percentChange / rankingsPositiveRange) * rankingPositiveMaxWidth, rankingPositiveMaxWidth)}
-										height="20" 
-										fill={getRegionColor(metro.region)}
-										stroke="#111"
-										stroke-width="0.8"
-										opacity="1"
-									/>
-								{:else}
-									<rect 
-										x={Math.max(rankingZeroX - (Math.abs(metro.percentChange) / rankingsNegativeRange * rankingNegativeMaxWidth), 0)} 
-										y="15" 
-										width={Math.min((Math.abs(metro.percentChange) / rankingsNegativeRange) * rankingNegativeMaxWidth, rankingNegativeMaxWidth)}
-										height="20" 
-										fill={getRegionColor(metro.region)}
-										stroke="#111"
-										stroke-width="0.8"
-										opacity="1"
-									/>
-								{/if}
-							</svg>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
 
 	<!-- Trends View -->
-	{:else}
+	{#if viewMode == "trends"}
 		<div class="charts-scroll-container">
 			<div class="charts-inner">
 				<!-- Header row -->
@@ -1282,9 +1624,10 @@
 				<div class="legend-gradient"></div>
 			</div>
 			<div class="legend-labels">
-				<span>-70% (Large Decline)</span>
-				<span>0% (Neutral)</span>
-				<span>+70% (Large Increase)</span>
+				<span class="legend-left">-70%</span>
+				<span class="legend-mid">-15%</span>
+				<span class="legend-zero">0%</span>
+				<span class="legend-right">+30%</span>
 			</div>
 			<div class="size-legend">
 				<!-- <span>Circle size = normalized trip volume</span> -->
@@ -1325,7 +1668,14 @@
 	<div class="text">
 		<h4>More Information</h4>
 		<p>
-			The data comes from geolocation-based trip analysis tracking Canadian devices traveling to U.S. metro areas. 
+			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on Cuebiq's stop metric. 
+			A Canadian device is defined to be a stop in Canada and is categorized as “home”. 
+			Home devices are determined based on the duration and window of time they spend at home, and each device has a unique anonymized ID. 
+			These unique Canadian devices are then tracked across their respective trips from Canada to the U.S.. 
+			To determine trips, it is when a device has a stop in Canada, then in the U.S., then back to Canada.
+			For which metro region gets a count on a specific day, the first stop that is in the U.S. metro at a geohash level 6 level counts as a stop for that first day only. 
+			Subsequent days are not counted for the same metro, but if that device goes to another metro, the first day they land on that new metro is then counted for that metro.
+			In other words, unique metro-device trips are recorded when for Canadians travelling to the U.S. and coming back. 
 			Values are normalized by the total number of unique Canadian devices each day to account for variations in data collection.
 			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
 		</p>
@@ -1499,15 +1849,39 @@
 	.legend-gradient {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(to right, #DC4633 0%, #FFFFFF 50%, #007FA3 100%);
+		background: linear-gradient(to right, #DC4633 0%, #F1C500 39%, #FFFFFF 50%, #007FA3 100%);
 	}
 
 	.legend-labels {
-		display: flex;
-		justify-content: space-between;
+		position: relative;
 		margin-top: 5px;
 		font-size: 12px;
 		color: var(--brandGray90);
+		height: 18px;
+	}
+
+	.legend-labels span {
+		position: absolute;
+		transform: translateX(-50%);
+		white-space: nowrap;
+	}
+
+	.legend-left {
+		left: 2%;
+		transform: none;
+	}
+
+	.legend-mid {
+		left: 39%;
+	}
+
+	.legend-zero {
+		left: 50%;
+	}
+
+	.legend-right {
+		left: 98%;
+		transform: translateX(-100%);
 	}
 
 	.size-legend {
