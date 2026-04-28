@@ -1,4 +1,4 @@
-<!-- <Password/> -->
+<Password/>
 
 <script>
 	import '../../assets/global-styles.css';
@@ -371,15 +371,7 @@
 	let isLoading = true;
 	let searchQuery = "";
 	let bigMetrosOnly = false;
-	const datasetOptions = [
-		{ key: 'v1 (live)', label: 'v1', fileName: 'us_normalized_trips.csv' },
-		{ key: 'v2', label: 'v2', fileName: 'us_normalized_trips_v2.csv' },
-		{ key: 'weighted', label: 'weighted', fileName: 'us_normalized_trips_weighted.csv' },
-		{ key: 'v3_daily', label: 'v3 daily', fileName: 'us_normalized_trips_daily_v3.csv' },
-		{ key: 'v3_distinct', label: 'v3 distinct', fileName: 'us_normalized_trips_distinct_v3.csv' }
-	];
-	let selectedDatasetKey = 'v3_daily';
-	$: selectedDataset = datasetOptions.find(option => option.key === selectedDatasetKey) || datasetOptions[0];
+	let selectedDataset = 'us_normalized_trips.csv'
 	$: missingComparisonCoverage = loadedDateMax && loadedDateMax < new Date(selection.period2Start);
 	
 	// View toggle: "map", "rankings" or "trends"
@@ -446,7 +438,7 @@
 		return date.toISOString().split('T')[0];
 	}
 
-	async function loadData(fileName = selectedDataset.fileName) {
+	async function loadData(fileName = selectedDataset) {
 		isLoading = true;
 		try {
 			const response = await fetch(`/canada-us-visits/${fileName}`);
@@ -462,14 +454,6 @@
 			console.error('Error loading CSV data:', error);
 		}
 		isLoading = false;
-	}
-
-	function setDataset(key) {
-		if (key === selectedDatasetKey) return;
-		const nextDataset = datasetOptions.find(option => option.key === key);
-		if (!nextDataset) return;
-		selectedDatasetKey = key;
-		loadData(nextDataset.fileName);
 	}
 
 	function processData(normalizedDataRaw) {
@@ -1460,25 +1444,6 @@
 	{:else}
 
 	<div class="text" style="margin-bottom: 0px;">
-		<div class="dataset-toggle" role="group" aria-label="Select dataset version">
-			<span class="dataset-label">Dataset:</span>
-			{#each datasetOptions as option}
-				<button
-					type="button"
-					class="dataset-btn"
-					class:active={selectedDatasetKey === option.key}
-					on:click={() => setDataset(option.key)}
-				>
-					{option.label}
-				</button>
-			{/each}
-		</div>
-
-		{#if missingComparisonCoverage}
-			<p class="dataset-warning">
-				The selected dataset currently spans {loadedDateMin ? formatDate(loadedDateMin) : 'unknown'} to {loadedDateMax ? formatDate(loadedDateMax) : 'unknown'}, so it does not include the second comparison window ({selection.period2Start} to {selection.period2End}).
-			</p>
-		{/if}
 
 		<!-- Region Selector (always visible) -->
 		<!-- <div class="region-selector"> -->
@@ -1759,9 +1724,9 @@
 			Values are normalized by the total number of unique Canadian devices each day to account for variations in data collection.
 			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
 		</p>
-		
+
 		<p>
-			You can download the selected normalized trip data <a href={`/canada-us-visits/${selectedDataset.fileName}`}>from this link</a>.
+			You can download the selected normalized trip data <a href={`/canada-us-visits/${selectedDataset}`}>from this link</a>.
 		</p>
 		<br>
 	</div>
@@ -1802,20 +1767,26 @@
 
 	:global(.maplibregl-popup-content) {
 		background: rgba(255,255,255,0.95);
-		padding: 10px 15px;
+		padding: 10px 40px 10px 15px;
 		border-radius: 4px;
 	}
 
 	:global(.maplibregl-popup-close-button) {
 		font-size: 16px;
 		color: #333;
-		padding: 4px 8px;
-		right: 0;
-		top: 0;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		right: 4px;
+		top: 4px;
 		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		cursor: pointer;
 		background: transparent;
 		border: 0;
+		line-height: 1;
 	}
 
 	:global(.maplibregl-popup-close-button:hover) {
@@ -2315,51 +2286,5 @@
 		color: var(--brandGray90);
 		margin-bottom: 10px;
 	}
-
-	.dataset-toggle {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 8px;
-		margin: 10px 0 18px 0;
-	}
-
-	.dataset-label {
-		font-family: OpenSans;
-		font-size: 14px;
-		color: var(--brandGray90);
-	}
-
-	.dataset-btn {
-		font-family: OpenSans;
-		font-size: 13px;
-		padding: 6px 10px;
-		border: 1px solid var(--brandDarkBlue);
-		background: var(--brandWhite);
-		color: var(--brandDarkBlue);
-		cursor: pointer;
-		border-radius: 4px;
-		transition: all 0.2s ease;
-	}
-
-	.dataset-btn:hover {
-		background: rgba(30, 55, 101, 0.08);
-	}
-
-	.dataset-btn.active {
-		background: var(--brandDarkBlue);
-		color: var(--brandWhite);
-	}
-
-	.dataset-warning {
-		margin: 0 0 12px 0;
-		font-family: OpenSans;
-		font-size: 13px;
-		line-height: 1.35;
-		color: #8b3b00;
-		background: #fff4e8;
-		border: 1px solid #f2c79f;
-		border-radius: 4px;
-		padding: 8px 10px;
-	}
+	
 </style>
