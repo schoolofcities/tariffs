@@ -366,9 +366,21 @@
 	// State variables
 	let processedData = [];
 	let metros = [];
+	let loadedDateMin = null;
+	let loadedDateMax = null;
 	let isLoading = true;
 	let searchQuery = "";
 	let bigMetrosOnly = false;
+	const datasetOptions = [
+		{ key: 'v1 (live)', label: 'v1', fileName: 'us_normalized_trips.csv' },
+		{ key: 'v2', label: 'v2', fileName: 'us_normalized_trips_v2.csv' },
+		{ key: 'weighted', label: 'weighted', fileName: 'us_normalized_trips_weighted.csv' },
+		{ key: 'v3_daily', label: 'v3 daily', fileName: 'us_normalized_trips_daily_v3.csv' },
+		{ key: 'v3_distinct', label: 'v3 distinct', fileName: 'us_normalized_trips_distinct_v3.csv' }
+	];
+	let selectedDatasetKey = 'v3_daily';
+	$: selectedDataset = datasetOptions.find(option => option.key === selectedDatasetKey) || datasetOptions[0];
+	$: missingComparisonCoverage = loadedDateMax && loadedDateMax < new Date(selection.period2Start);
 	
 	// View toggle: "map", "rankings" or "trends"
 	let viewMode = "trends";
@@ -434,16 +446,12 @@
 		return date.toISOString().split('T')[0];
 	}
 
-	async function loadData() {
+	async function loadData(fileName = selectedDataset.fileName) {
 		isLoading = true;
 		try {
-			// Try both expected file names to support site migrations.
-			let response = await fetch('/canada-us-visits/us_normalized_trips.csv');
+			const response = await fetch(`/canada-us-visits/${fileName}`);
 			if (!response.ok) {
-				response = await fetch('/canada-us-visits/us_can_normalized_trips.csv');
-			}
-			if (!response.ok) {
-				throw new Error('Could not load normalized trips CSV.');
+				throw new Error(`Could not load normalized trips CSV: ${fileName}`);
 			}
 			const csv = await response.text();
 			const normalizedDataRaw = csvParse(csv);
@@ -454,6 +462,14 @@
 			console.error('Error loading CSV data:', error);
 		}
 		isLoading = false;
+	}
+
+	function setDataset(key) {
+		if (key === selectedDatasetKey) return;
+		const nextDataset = datasetOptions.find(option => option.key === key);
+		if (!nextDataset) return;
+		selectedDatasetKey = key;
+		loadData(nextDataset.fileName);
 	}
 
 	function processData(normalizedDataRaw) {
@@ -481,6 +497,13 @@
 		const endDate = new Date("2026-03-31");
 		
 		processedData = normalizedData.filter(d => d.date >= startDate && d.date <= endDate);
+		if (processedData.length > 0) {
+			loadedDateMin = new Date(Math.min(...processedData.map(d => d.date.getTime())));
+			loadedDateMax = new Date(Math.max(...processedData.map(d => d.date.getTime())));
+		} else {
+			loadedDateMin = null;
+			loadedDateMax = null;
+		}
 		
 		// Get unique metros
 		metros = [...new Set(processedData.map(d => d.metro))].sort();
@@ -1364,18 +1387,51 @@
 			/>
 
 		<p>
-			With an increasing Canadian choice sentiment among Canadians, the Canada Border Services Agency has been seeing a fall in visits from Canada to the U.S..
-            To investigate this phenomenon, we collected cell phone activity (footfall) data across Canada and the U.S., providing insights on which metro areas Canadians are visiting in the U.S. and how that has changed over time.
+			In response to increasingly hostile behaviour from our neighbour to the south, Canadians have begun boycotting travel to the U.S.. 
+			How's that going? 
+			To investigate, we collected cell phone activity (footfall) data across Canada and the U.S., providing insights on the metro areas Canadians are visiting.
+		</p>
+
+		<p>
+			Relying primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a>, most estimate the year-over-year drop in Canadian visitation at 20-25%. We find a median change of 41%.
+			There is a wide variation across the country, with <a href="https://archive.ph/20250812180600/https:/www.bloomberg.com/news/features/2025-08-11/trump-tariffs-and-jabs-push-canadians-to-exit-florida-enclave#selection-1237.0-1237.66">snowbird destinations</a> like Florida hit hardest, 
+			but also dramatic drops in travel to border cities in states like <a href="https://www.theguardian.com/us-news/2026/mar/28/canada-us-border-business-pay-trump-tariffs">New York</a>, <a href="https://www.travelandtourworld.com/news/article/new-hampshires-tourism-feels-the-sting-of-declining-canadian-visitors-and-strained-u-s-canada-travel-ties-everything-to-know/">New Hampshire</a> and <a href="https://www.nytimes.com/2026/01/19/us/politics/greensboro-vermont-canada-tariffs-trump.html">Vermont</a>; 
+			tourist destinations like <a href="https://www.latimes.com/politics/story/2025-10-19/trumps-america-las-vegas-lagging-economy-struggling-food-server">Las Vegas</a> and <a href="https://www.reuters.com/business/looking-disney-magic-elsewhere-canadians-lead-declines-travel-us-2026-02-12/">Disney World</a>; <a href="https://archive.ph/20260215003924/https:/www.bloomberg.com/news/articles/2026-01-26/canadian-skiers-skip-us-mountain-resorts-this-season-thanks-to-trump#selection-1183.0-1183.38">ski slopes</a>; and big cities like New York.
+		</p>
+
+		<p>
+			Media accounts have focused on many of these impacts, but missed the biggest: the drop in visits to big cities. High-tech or financial centres like San Francisco and Houston are likely impacted not just by the drop in tourists but also business travel.
+			Canadians are choosing not to travel for work, and perhaps also impacted by slowing growth on both sides of the border.
+		</p>
+
+		<p>
+			What accounts for the difference between cell phone and border crossing data?
+			Our data measures not just Canadians crossing the border, but also Canadians living in the U.S.. The drop in activity suggests that some Canadians have come home. 
+			Also, cell phone data includes freight traffic, but border crossing data does not – so a decrease in trade-related visits may also impact the numbers.
+		</p>
+
+		<p>
+			Forbes estimates a revenue loss of US$4.5 billion from a 22% drop in Canadian visitation. But this does not include the Canadians who are no longer living in the U.S., or the drivers moving Canadian goods.
+			So the total lost revenue could be much higher.
 		</p>
 
         <p>
-			This page analyzes Canadian travel to U.S. metro areas using geolocation data from March 2024 to March 2026. 
-			The data shows normalized trips (ratio of trips to total Canadian devices) to understand year-over-year trends in border travel.
-			
+			This tool analyzes Canadian travel to U.S. metro areas using geolocation data from March 2024 to March 2026. 
+			The data shows normalized trips (ratio of unique Canadian devices to total Canadian devices) to understand year-over-year trends in border travel.
 		</p>
 
 		{#if !isLoading}
 		<h2>Key findings</h2>
+		<p>
+			This tool offers three different ways to explore changes in Canadian foot traffic in the U.S.
+			The Trend Lines show changes by month from March 2024 to March 2026 and are colour-coded by region, for summary data.
+			The map shows the scale of changes across the U.S. 
+		</p>
+
+		<p>
+			To only view metropolitan areas of over 1 million in population, click the 1 million+ metros button, and to see different regions, click the square next to the region name (e.g., Southeast).
+		</p>
+
 		<div class="finding-lines">
 			<p class="finding-line">
 				‣ {totalMetros > 0
@@ -1404,6 +1460,26 @@
 	{:else}
 
 	<div class="text" style="margin-bottom: 0px;">
+		<div class="dataset-toggle" role="group" aria-label="Select dataset version">
+			<span class="dataset-label">Dataset:</span>
+			{#each datasetOptions as option}
+				<button
+					type="button"
+					class="dataset-btn"
+					class:active={selectedDatasetKey === option.key}
+					on:click={() => setDataset(option.key)}
+				>
+					{option.label}
+				</button>
+			{/each}
+		</div>
+
+		{#if missingComparisonCoverage}
+			<p class="dataset-warning">
+				The selected dataset currently spans {loadedDateMin ? formatDate(loadedDateMin) : 'unknown'} to {loadedDateMax ? formatDate(loadedDateMax) : 'unknown'}, so it does not include the second comparison window ({selection.period2Start} to {selection.period2End}).
+			</p>
+		{/if}
+
 		<!-- Region Selector (always visible) -->
 		<!-- <div class="region-selector"> -->
 			<h5>Select Regions:</h5>
@@ -1671,7 +1747,11 @@
 			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on Cuebiq's stop metric. 
 			A Canadian device is defined to be a stop in Canada and is categorized as “home”. 
 			Home devices are determined based on the duration and window of time they spend at home, and each device has a unique anonymized ID. 
+			We recorded devices from January 1, 2023 – March 31, 2026 to account for Canadians who may have moved to the U.S. prior to April 1, 2024.
 			These unique Canadian devices are then tracked across their respective trips from Canada to the U.S.. 
+		</p>
+
+		<p>
 			To determine trips, it is when a device has a stop in Canada, then in the U.S., then back to Canada.
 			For which metro region gets a count on a specific day, the first stop that is in the U.S. metro at a geohash level 6 level counts as a stop for that first day only. 
 			Subsequent days are not counted for the same metro, but if that device goes to another metro, the first day they land on that new metro is then counted for that metro.
@@ -1679,8 +1759,9 @@
 			Values are normalized by the total number of unique Canadian devices each day to account for variations in data collection.
 			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
 		</p>
+		
 		<p>
-			You can download the normalized trip data <a href="/canada-us-visits/us_normalized_trips.csv">from this link</a>.
+			You can download the selected normalized trip data <a href={`/canada-us-visits/${selectedDataset.fileName}`}>from this link</a>.
 		</p>
 		<br>
 	</div>
@@ -2233,5 +2314,52 @@
 		font-size: 13px;
 		color: var(--brandGray90);
 		margin-bottom: 10px;
+	}
+
+	.dataset-toggle {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin: 10px 0 18px 0;
+	}
+
+	.dataset-label {
+		font-family: OpenSans;
+		font-size: 14px;
+		color: var(--brandGray90);
+	}
+
+	.dataset-btn {
+		font-family: OpenSans;
+		font-size: 13px;
+		padding: 6px 10px;
+		border: 1px solid var(--brandDarkBlue);
+		background: var(--brandWhite);
+		color: var(--brandDarkBlue);
+		cursor: pointer;
+		border-radius: 4px;
+		transition: all 0.2s ease;
+	}
+
+	.dataset-btn:hover {
+		background: rgba(30, 55, 101, 0.08);
+	}
+
+	.dataset-btn.active {
+		background: var(--brandDarkBlue);
+		color: var(--brandWhite);
+	}
+
+	.dataset-warning {
+		margin: 0 0 12px 0;
+		font-family: OpenSans;
+		font-size: 13px;
+		line-height: 1.35;
+		color: #8b3b00;
+		background: #fff4e8;
+		border: 1px solid #f2c79f;
+		border-radius: 4px;
+		padding: 8px 10px;
 	}
 </style>
