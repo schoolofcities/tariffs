@@ -1712,7 +1712,7 @@
 			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on Cuebiq's stop metric. 
 			A Canadian device is defined to be a stop in Canada and is categorized as “home”. 
 			Home devices are determined based on the duration and window of time they spend at home, and each device has a unique anonymized ID. 
-			We recorded devices from January 1, 2023 – March 31, 2026 to account for Canadians who may have moved to the U.S. prior to April 1, 2024.
+			We recorded all Canadian devices as the devices to track for trips (March 1, 2023 - March 31, 2026) to account for Canadians who may have moved to the U.S. prior to April 1, 2024.
 			These unique Canadian devices are then tracked across their respective trips from Canada to the U.S.. 
 		</p>
 
