@@ -23,12 +23,12 @@ data/census/lcma000b21a_e
 !static/geojson/province-points.geojson
 !static/geojson/province-state-lines.geojson
 !static/geojson/us-metro-coords.geojson
-!static/ne_50m_lakes.geojson
+!static/geojson/ne_50m_lakes.geojson
 !docs/geojson/populated-places-canada.geojson
 !docs/geojson/province-points.geojson
 !docs/geojson/province-state-lines.geojson
 !docs/geojson/us-metro-coords.geojson
-!docs/ne_50m_lakes.geojson
+!docs/geojson/ne_50m_lakes.geojson
 
 # Old _oct system files (no longer needed - using unified ada_all/csd_all)
 analysis/old/
