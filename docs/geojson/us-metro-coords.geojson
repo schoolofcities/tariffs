@@ -1,0 +1,3502 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.7331,
+          32.4487
+        ]
+      },
+      "properties": {
+        "name": "Abilene, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.519,
+          41.0814
+        ]
+      },
+      "properties": {
+        "name": "Akron, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7562,
+          42.6526
+        ]
+      },
+      "properties": {
+        "name": "Albany-Schenectady-Troy, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.6504,
+          35.0844
+        ]
+      },
+      "properties": {
+        "name": "Albuquerque, NM"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.47,
+          40.61
+        ]
+      },
+      "properties": {
+        "name": "Allentown-Bethlehem-Easton, PA-NJ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.8313,
+          35.222
+        ]
+      },
+      "properties": {
+        "name": "Amarillo, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.9003,
+          61.2181
+        ]
+      },
+      "properties": {
+        "name": "Anchorage, AK"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.743,
+          42.2808
+        ]
+      },
+      "properties": {
+        "name": "Ann Arbor, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.4154,
+          44.2619
+        ]
+      },
+      "properties": {
+        "name": "Appleton, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.5515,
+          35.5951
+        ]
+      },
+      "properties": {
+        "name": "Asheville, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3776,
+          33.9519
+        ]
+      },
+      "properties": {
+        "name": "Athens-Clarke County, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.388,
+          33.749
+        ]
+      },
+      "properties": {
+        "name": "Atlanta-Sandy Springs-Alpharetta, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4229,
+          39.3643
+        ]
+      },
+      "properties": {
+        "name": "Atlantic City-Hammonton, NJ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.4808,
+          32.6099
+        ]
+      },
+      "properties": {
+        "name": "Auburn-Opelika, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.9746,
+          33.4735
+        ]
+      },
+      "properties": {
+        "name": "Augusta-Richmond County, GA-SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7431,
+          30.2672
+        ]
+      },
+      "properties": {
+        "name": "Austin-Round Rock-Georgetown, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.0187,
+          35.3733
+        ]
+      },
+      "properties": {
+        "name": "Bakersfield, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6122,
+          39.2904
+        ]
+      },
+      "properties": {
+        "name": "Baltimore-Columbia-Towson, MD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.3,
+          41.7003
+        ]
+      },
+      "properties": {
+        "name": "Barnstable Town, MA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.1403,
+          30.4515
+        ]
+      },
+      "properties": {
+        "name": "Baton Rouge, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.1266,
+          29.9507
+        ]
+      },
+      "properties": {
+        "name": "Beaumont-Port Arthur, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4788,
+          48.7519
+        ]
+      },
+      "properties": {
+        "name": "Bellingham, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.5,
+          45.78
+        ]
+      },
+      "properties": {
+        "name": "Billings, MT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.918,
+          42.0987
+        ]
+      },
+      "properties": {
+        "name": "Binghamton, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.8025,
+          33.5207
+        ]
+      },
+      "properties": {
+        "name": "Birmingham-Hoover, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.4139,
+          37.2296
+        ]
+      },
+      "properties": {
+        "name": "Blacksburg-Christiansburg, VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.5264,
+          39.1653
+        ]
+      },
+      "properties": {
+        "name": "Bloomington, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.2023,
+          43.615
+        ]
+      },
+      "properties": {
+        "name": "Boise City, ID"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0589,
+          42.3601
+        ]
+      },
+      "properties": {
+        "name": "Boston-Cambridge-Newton, MA-NH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.2705,
+          40.015
+        ]
+      },
+      "properties": {
+        "name": "Boulder, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.4436,
+          36.9685
+        ]
+      },
+      "properties": {
+        "name": "Bowling Green, KY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6329,
+          47.5673
+        ]
+      },
+      "properties": {
+        "name": "Bremerton-Silverdale-Port Orchard, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.2052,
+          41.1792
+        ]
+      },
+      "properties": {
+        "name": "Bridgeport-Stamford-Norwalk, CT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.4973,
+          25.9017
+        ]
+      },
+      "properties": {
+        "name": "Brownsville-Harlingen, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8784,
+          42.8864
+        ]
+      },
+      "properties": {
+        "name": "Buffalo-Cheektowaga, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.4378,
+          36.0957
+        ]
+      },
+      "properties": {
+        "name": "Burlington, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.2121,
+          44.4759
+        ]
+      },
+      "properties": {
+        "name": "Burlington-South Burlington, VT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3784,
+          40.7989
+        ]
+      },
+      "properties": {
+        "name": "Canton-Massillon, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.9495,
+          26.6406
+        ]
+      },
+      "properties": {
+        "name": "Cape Coral-Fort Myers, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.67,
+          41.98
+        ]
+      },
+      "properties": {
+        "name": "Cedar Rapids, IA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.2434,
+          40.1164
+        ]
+      },
+      "properties": {
+        "name": "Champaign-Urbana, IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6326,
+          38.3498
+        ]
+      },
+      "properties": {
+        "name": "Charleston, WV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.9311,
+          32.7765
+        ]
+      },
+      "properties": {
+        "name": "Charleston-North Charleston, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.8431,
+          35.2271
+        ]
+      },
+      "properties": {
+        "name": "Charlotte-Concord-Gastonia, NC-SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.4767,
+          38.0293
+        ]
+      },
+      "properties": {
+        "name": "Charlottesville, VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.3097,
+          35.0456
+        ]
+      },
+      "properties": {
+        "name": "Chattanooga, TN-GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6298,
+          41.8781
+        ]
+      },
+      "properties": {
+        "name": "Chicago-Naperville-Elgin, IL-IN-WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8375,
+          39.7285
+        ]
+      },
+      "properties": {
+        "name": "Chico, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.512,
+          39.1031
+        ]
+      },
+      "properties": {
+        "name": "Cincinnati, OH-KY-IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.3595,
+          36.5298
+        ]
+      },
+      "properties": {
+        "name": "Clarksville, TN-KY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6944,
+          41.4993
+        ]
+      },
+      "properties": {
+        "name": "Cleveland-Elyria, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.78,
+          47.68
+        ]
+      },
+      "properties": {
+        "name": "Coeur d'Alene, ID"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.3344,
+          30.628
+        ]
+      },
+      "properties": {
+        "name": "College Station-Bryan, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.8214,
+          38.8339
+        ]
+      },
+      "properties": {
+        "name": "Colorado Springs, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.33,
+          38.95
+        ]
+      },
+      "properties": {
+        "name": "Columbia, MO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.0348,
+          34.0007
+        ]
+      },
+      "properties": {
+        "name": "Columbia, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.9877,
+          32.461
+        ]
+      },
+      "properties": {
+        "name": "Columbus, GA-AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.9988,
+          39.9612
+        ]
+      },
+      "properties": {
+        "name": "Columbus, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.3964,
+          27.8006
+        ]
+      },
+      "properties": {
+        "name": "Corpus Christi, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.5986,
+          30.4213
+        ]
+      },
+      "properties": {
+        "name": "Crestview-Fort Walton Beach-Destin, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.797,
+          32.7767
+        ]
+      },
+      "properties": {
+        "name": "Dallas-Fort Worth-Arlington, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9036,
+          30.4985
+        ]
+      },
+      "properties": {
+        "name": "Daphne-Fairhope-Foley, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.5776,
+          41.5236
+        ]
+      },
+      "properties": {
+        "name": "Davenport-Moline-Rock Island, IA-IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1916,
+          39.7589
+        ]
+      },
+      "properties": {
+        "name": "Dayton-Kettering, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.0228,
+          29.2108
+        ]
+      },
+      "properties": {
+        "name": "Deltona-Daytona Beach-Ormond Beach, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.9903,
+          39.7392
+        ]
+      },
+      "properties": {
+        "name": "Denver-Aurora-Lakewood, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.6091,
+          41.6005
+        ]
+      },
+      "properties": {
+        "name": "Des Moines-West Des Moines, IA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0458,
+          42.3314
+        ]
+      },
+      "properties": {
+        "name": "Detroit-Warren-Dearborn, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5277,
+          39.1582
+        ]
+      },
+      "properties": {
+        "name": "Dover, DE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.1005,
+          46.7867
+        ]
+      },
+      "properties": {
+        "name": "Duluth, MN-WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8986,
+          35.994
+        ]
+      },
+      "properties": {
+        "name": "Durham-Chapel Hill, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.181,
+          41.0023
+        ]
+      },
+      "properties": {
+        "name": "East Stroudsburg, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.4985,
+          44.8113
+        ]
+      },
+      "properties": {
+        "name": "Eau Claire, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.5631,
+          32.792
+        ]
+      },
+      "properties": {
+        "name": "El Centro, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.485,
+          31.7619
+        ]
+      },
+      "properties": {
+        "name": "El Paso, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.98,
+          41.68
+        ]
+      },
+      "properties": {
+        "name": "Elkhart-Goshen, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.0852,
+          42.1292
+        ]
+      },
+      "properties": {
+        "name": "Erie, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.0868,
+          44.0521
+        ]
+      },
+      "properties": {
+        "name": "Eugene-Springfield, OR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.5711,
+          37.9716
+        ]
+      },
+      "properties": {
+        "name": "Evansville, IN-KY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.79,
+          46.88
+        ]
+      },
+      "properties": {
+        "name": "Fargo, ND-MN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8784,
+          35.0527
+        ]
+      },
+      "properties": {
+        "name": "Fayetteville, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.1574,
+          36.0626
+        ]
+      },
+      "properties": {
+        "name": "Fayetteville-Springdale-Rogers, AR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6875,
+          43.0125
+        ]
+      },
+      "properties": {
+        "name": "Flint, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.7625,
+          34.1954
+        ]
+      },
+      "properties": {
+        "name": "Florence, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.0844,
+          40.5853
+        ]
+      },
+      "properties": {
+        "name": "Fort Collins, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.3985,
+          35.3859
+        ]
+      },
+      "properties": {
+        "name": "Fort Smith, AR-OK"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.1394,
+          41.0793
+        ]
+      },
+      "properties": {
+        "name": "Fort Wayne, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7871,
+          36.7378
+        ]
+      },
+      "properties": {
+        "name": "Fresno, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3248,
+          29.6516
+        ]
+      },
+      "properties": {
+        "name": "Gainesville, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.82,
+          34.3
+        ]
+      },
+      "properties": {
+        "name": "Gainesville, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.6681,
+          42.9634
+        ]
+      },
+      "properties": {
+        "name": "Grand Rapids-Kentwood, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.7091,
+          40.4233
+        ]
+      },
+      "properties": {
+        "name": "Greeley, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0199,
+          44.5133
+        ]
+      },
+      "properties": {
+        "name": "Green Bay, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.792,
+          36.0726
+        ]
+      },
+      "properties": {
+        "name": "Greensboro-High Point, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.3664,
+          35.6127
+        ]
+      },
+      "properties": {
+        "name": "Greenville, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.394,
+          34.8526
+        ]
+      },
+      "properties": {
+        "name": "Greenville-Anderson, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.8853,
+          30.396
+        ]
+      },
+      "properties": {
+        "name": "Gulfport-Biloxi, MS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.72,
+          39.6418
+        ]
+      },
+      "properties": {
+        "name": "Hagerstown-Martinsburg, MD-WV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.8867,
+          40.2732
+        ]
+      },
+      "properties": {
+        "name": "Harrisburg-Carlisle, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6851,
+          41.7658
+        ]
+      },
+      "properties": {
+        "name": "Hartford-East Hartford-Middletown, CT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.29,
+          31.33
+        ]
+      },
+      "properties": {
+        "name": "Hattiesburg, MS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3412,
+          35.7345
+        ]
+      },
+      "properties": {
+        "name": "Hickory-Lenoir-Morganton, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.09,
+          19.7074
+        ]
+      },
+      "properties": {
+        "name": "Hilo, HI Micro Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.7526,
+          32.2163
+        ]
+      },
+      "properties": {
+        "name": "Hilton Head Island-Bluffton, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.8583,
+          21.3069
+        ]
+      },
+      "properties": {
+        "name": "Honolulu, HI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.72,
+          29.6
+        ]
+      },
+      "properties": {
+        "name": "Houma-Thibodaux, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.3698,
+          29.7604
+        ]
+      },
+      "properties": {
+        "name": "Houston-The Woodlands-Sugar Land, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4452,
+          38.4192
+        ]
+      },
+      "properties": {
+        "name": "Huntington-Ashland, WV-KY-OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.5861,
+          34.7304
+        ]
+      },
+      "properties": {
+        "name": "Huntsville, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.034,
+          43.4917
+        ]
+      },
+      "properties": {
+        "name": "Idaho Falls, ID"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.1581,
+          39.7684
+        ]
+      },
+      "properties": {
+        "name": "Indianapolis-Carmel-Anderson, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.5302,
+          41.6611
+        ]
+      },
+      "properties": {
+        "name": "Iowa City, IA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4,
+          42.25
+        ]
+      },
+      "properties": {
+        "name": "Jackson, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.1848,
+          32.2988
+        ]
+      },
+      "properties": {
+        "name": "Jackson, MS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.8139,
+          35.6145
+        ]
+      },
+      "properties": {
+        "name": "Jackson, TN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6557,
+          30.3322
+        ]
+      },
+      "properties": {
+        "name": "Jacksonville, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4302,
+          34.7541
+        ]
+      },
+      "properties": {
+        "name": "Jacksonville, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.0187,
+          42.6828
+        ]
+      },
+      "properties": {
+        "name": "Janesville-Beloit, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3535,
+          36.3134
+        ]
+      },
+      "properties": {
+        "name": "Johnson City, TN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.5133,
+          37.0842
+        ]
+      },
+      "properties": {
+        "name": "Joplin, MO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -156.4729,
+          20.8893
+        ]
+      },
+      "properties": {
+        "name": "Kahului-Wailuku-Lahaina, HI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.67,
+          42.29
+        ]
+      },
+      "properties": {
+        "name": "Kalamazoo-Portage, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.5786,
+          39.0997
+        ]
+      },
+      "properties": {
+        "name": "Kansas City, MO-KS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2752,
+          46.2856
+        ]
+      },
+      "properties": {
+        "name": "Kennewick-Richland, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7278,
+          31.1171
+        ]
+      },
+      "properties": {
+        "name": "Killeen-Temple, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.5618,
+          36.5484
+        ]
+      },
+      "properties": {
+        "name": "Kingsport-Bristol, TN-VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0104,
+          41.927
+        ]
+      },
+      "properties": {
+        "name": "Kingston, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9207,
+          35.9606
+        ]
+      },
+      "properties": {
+        "name": "Knoxville, TN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.0198,
+          30.2241
+        ]
+      },
+      "properties": {
+        "name": "Lafayette, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.88,
+          40.42
+        ]
+      },
+      "properties": {
+        "name": "Lafayette-West Lafayette, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.2174,
+          30.2266
+        ]
+      },
+      "properties": {
+        "name": "Lake Charles, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.32,
+          34.52
+        ]
+      },
+      "properties": {
+        "name": "Lake Havasu City-Kingman, AZ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.9498,
+          28.0395
+        ]
+      },
+      "properties": {
+        "name": "Lakeland-Winter Haven, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.3055,
+          40.0379
+        ]
+      },
+      "properties": {
+        "name": "Lancaster, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5555,
+          42.7325
+        ]
+      },
+      "properties": {
+        "name": "Lansing-East Lansing, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.5075,
+          27.5306
+        ]
+      },
+      "properties": {
+        "name": "Laredo, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.76,
+          32.31
+        ]
+      },
+      "properties": {
+        "name": "Las Cruces, NM"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.1398,
+          36.1699
+        ]
+      },
+      "properties": {
+        "name": "Las Vegas-Henderson-Paradise, NV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.2517,
+          43.6423
+        ]
+      },
+      "properties": {
+        "name": "Lebanon, NH-VT Micro Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5037,
+          38.0406
+        ]
+      },
+      "properties": {
+        "name": "Lexington-Fayette, KY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.6852,
+          40.8258
+        ]
+      },
+      "properties": {
+        "name": "Lincoln, NE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.2896,
+          34.7465
+        ]
+      },
+      "properties": {
+        "name": "Little Rock-North Little Rock-Conway, AR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.7405,
+          32.5007
+        ]
+      },
+      "properties": {
+        "name": "Longview, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.2437,
+          34.0522
+        ]
+      },
+      "properties": {
+        "name": "Los Angeles-Long Beach-Anaheim, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.7585,
+          38.2527
+        ]
+      },
+      "properties": {
+        "name": "Louisville/Jefferson County, KY-IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.8552,
+          33.5779
+        ]
+      },
+      "properties": {
+        "name": "Lubbock, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.1422,
+          37.4138
+        ]
+      },
+      "properties": {
+        "name": "Lynchburg, VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6324,
+          32.8407
+        ]
+      },
+      "properties": {
+        "name": "Macon-Bibb County, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4012,
+          43.0731
+        ]
+      },
+      "properties": {
+        "name": "Madison, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.46,
+          42.99
+        ]
+      },
+      "properties": {
+        "name": "Manchester-Nashua, NH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.23,
+          26.2034
+        ]
+      },
+      "properties": {
+        "name": "McAllen-Edinburg-Mission, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.8756,
+          42.3265
+        ]
+      },
+      "properties": {
+        "name": "Medford, OR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.049,
+          35.1495
+        ]
+      },
+      "properties": {
+        "name": "Memphis, TN-MS-AR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.483,
+          37.3022
+        ]
+      },
+      "properties": {
+        "name": "Merced, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1918,
+          25.7617
+        ]
+      },
+      "properties": {
+        "name": "Miami-Fort Lauderdale-Pompano Beach, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.0779,
+          31.9973
+        ]
+      },
+      "properties": {
+        "name": "Midland, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9065,
+          43.0389
+        ]
+      },
+      "properties": {
+        "name": "Milwaukee-Waukesha, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.265,
+          44.9778
+        ]
+      },
+      "properties": {
+        "name": "Minneapolis-St. Paul-Bloomington, MN-WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.0399,
+          30.6954
+        ]
+      },
+      "properties": {
+        "name": "Mobile, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.9969,
+          37.6391
+        ]
+      },
+      "properties": {
+        "name": "Modesto, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.1193,
+          32.5093
+        ]
+      },
+      "properties": {
+        "name": "Monroe, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.3,
+          32.38
+        ]
+      },
+      "properties": {
+        "name": "Montgomery, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.25,
+          43.23
+        ]
+      },
+      "properties": {
+        "name": "Muskegon, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8867,
+          33.6891
+        ]
+      },
+      "properties": {
+        "name": "Myrtle Beach-Conway-North Myrtle Beach, SC-NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.79,
+          26.14
+        ]
+      },
+      "properties": {
+        "name": "Naples-Marco Island, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.7816,
+          36.1627
+        ]
+      },
+      "properties": {
+        "name": "Nashville-Davidson--Murfreesboro--Franklin, TN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.9279,
+          41.3083
+        ]
+      },
+      "properties": {
+        "name": "New Haven-Milford, CT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.0715,
+          29.9511
+        ]
+      },
+      "properties": {
+        "name": "New Orleans-Metairie, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006,
+          40.7128
+        ]
+      },
+      "properties": {
+        "name": "New York-Newark-Jersey City, NY-NJ-PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.2381,
+          27.044
+        ]
+      },
+      "properties": {
+        "name": "North Port-Sarasota-Bradenton, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.0995,
+          41.3557
+        ]
+      },
+      "properties": {
+        "name": "Norwich-New London, CT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.1401,
+          29.1872
+        ]
+      },
+      "properties": {
+        "name": "Ocala, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.3676,
+          31.8457
+        ]
+      },
+      "properties": {
+        "name": "Odessa, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.9738,
+          41.223
+        ]
+      },
+      "properties": {
+        "name": "Ogden-Clearfield, UT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.5164,
+          35.4676
+        ]
+      },
+      "properties": {
+        "name": "Oklahoma City, OK"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9007,
+          47.0379
+        ]
+      },
+      "properties": {
+        "name": "Olympia-Lacey-Tumwater, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.9345,
+          41.2565
+        ]
+      },
+      "properties": {
+        "name": "Omaha-Council Bluffs, NE-IA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3792,
+          28.5383
+        ]
+      },
+      "properties": {
+        "name": "Orlando-Kissimmee-Sanford, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.5569,
+          44.0247
+        ]
+      },
+      "properties": {
+        "name": "Oshkosh-Neenah, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.1792,
+          34.1975
+        ]
+      },
+      "properties": {
+        "name": "Oxnard-Thousand Oaks-Ventura, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.6081,
+          28.0836
+        ]
+      },
+      "properties": {
+        "name": "Palm Bay-Melbourne-Titusville, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.66,
+          30.16
+        ]
+      },
+      "properties": {
+        "name": "Panama City, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.2169,
+          30.4213
+        ]
+      },
+      "properties": {
+        "name": "Pensacola-Ferry Pass-Brent, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.589,
+          40.6936
+        ]
+      },
+      "properties": {
+        "name": "Peoria, IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1652,
+          39.9526
+        ]
+      },
+      "properties": {
+        "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.074,
+          33.4484
+        ]
+      },
+      "properties": {
+        "name": "Phoenix-Mesa-Chandler, AZ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.9959,
+          40.4406
+        ]
+      },
+      "properties": {
+        "name": "Pittsburgh, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.3582,
+          27.2939
+        ]
+      },
+      "properties": {
+        "name": "Port St. Lucie, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.2553,
+          43.6591
+        ]
+      },
+      "properties": {
+        "name": "Portland-South Portland, ME"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6765,
+          45.5152
+        ]
+      },
+      "properties": {
+        "name": "Portland-Vancouver-Hillsboro, OR-WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93,
+          41.7
+        ]
+      },
+      "properties": {
+        "name": "Poughkeepsie-Newburgh-Middletown, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.4685,
+          34.6101
+        ]
+      },
+      "properties": {
+        "name": "Prescott Valley-Prescott, AZ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4128,
+          41.824
+        ]
+      },
+      "properties": {
+        "name": "Providence-Warwick, RI-MA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.6585,
+          40.2338
+        ]
+      },
+      "properties": {
+        "name": "Provo-Orem, UT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.6091,
+          38.2544
+        ]
+      },
+      "properties": {
+        "name": "Pueblo, CO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.0456,
+          26.9298
+        ]
+      },
+      "properties": {
+        "name": "Punta Gorda, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7829,
+          42.7261
+        ]
+      },
+      "properties": {
+        "name": "Racine, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.6382,
+          35.7796
+        ]
+      },
+      "properties": {
+        "name": "Raleigh-Cary, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9268,
+          40.3356
+        ]
+      },
+      "properties": {
+        "name": "Reading, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3917,
+          40.5865
+        ]
+      },
+      "properties": {
+        "name": "Redding, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.8138,
+          39.5296
+        ]
+      },
+      "properties": {
+        "name": "Reno, NV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.436,
+          37.5407
+        ]
+      },
+      "properties": {
+        "name": "Richmond, VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3961,
+          33.9533
+        ]
+      },
+      "properties": {
+        "name": "Riverside-San Bernardino-Ontario, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.9414,
+          37.271
+        ]
+      },
+      "properties": {
+        "name": "Roanoke, VA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.48,
+          44.01
+        ]
+      },
+      "properties": {
+        "name": "Rochester, MN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.6109,
+          43.1566
+        ]
+      },
+      "properties": {
+        "name": "Rochester, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.094,
+          42.2711
+        ]
+      },
+      "properties": {
+        "name": "Rockford, IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.4944,
+          38.5816
+        ]
+      },
+      "properties": {
+        "name": "Sacramento-Roseville-Folsom, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9508,
+          43.4195
+        ]
+      },
+      "properties": {
+        "name": "Saginaw, MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.0351,
+          44.9429
+        ]
+      },
+      "properties": {
+        "name": "Salem, OR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.6555,
+          36.6777
+        ]
+      },
+      "properties": {
+        "name": "Salinas, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.5994,
+          38.3607
+        ]
+      },
+      "properties": {
+        "name": "Salisbury, MD-DE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.891,
+          40.7608
+        ]
+      },
+      "properties": {
+        "name": "Salt Lake City, UT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.4936,
+          29.4241
+        ]
+      },
+      "properties": {
+        "name": "San Antonio-New Braunfels, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.1611,
+          32.7157
+        ]
+      },
+      "properties": {
+        "name": "San Diego-Chula Vista-Carlsbad, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4194,
+          37.7749
+        ]
+      },
+      "properties": {
+        "name": "San Francisco-Oakland-Berkeley, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8863,
+          37.3382
+        ]
+      },
+      "properties": {
+        "name": "San Jose-Sunnyvale-Santa Clara, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.6596,
+          35.2828
+        ]
+      },
+      "properties": {
+        "name": "San Luis Obispo-Paso Robles, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0308,
+          36.9741
+        ]
+      },
+      "properties": {
+        "name": "Santa Cruz-Watsonville, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.6982,
+          34.4208
+        ]
+      },
+      "properties": {
+        "name": "Santa Maria-Santa Barbara, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7141,
+          38.4404
+        ]
+      },
+      "properties": {
+        "name": "Santa Rosa-Petaluma, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.5308,
+          27.3364
+        ]
+      },
+      "properties": {
+        "name": "Sarasota-Bradenton-Venice, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.0998,
+          32.0809
+        ]
+      },
+      "properties": {
+        "name": "Savannah, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8813,
+          41.409
+        ]
+      },
+      "properties": {
+        "name": "Scranton--Wilkes-Barre, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3321,
+          47.6062
+        ]
+      },
+      "properties": {
+        "name": "Seattle-Tacoma-Bellevue, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.3806,
+          27.5946
+        ]
+      },
+      "properties": {
+        "name": "Sebastian-Vero Beach, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.7502,
+          32.5252
+        ]
+      },
+      "properties": {
+        "name": "Shreveport-Bossier City, LA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.7311,
+          43.546
+        ]
+      },
+      "properties": {
+        "name": "Sioux Falls, SD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.252,
+          41.6764
+        ]
+      },
+      "properties": {
+        "name": "South Bend-Mishawaka, IN-MI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.932,
+          34.9496
+        ]
+      },
+      "properties": {
+        "name": "Spartanburg, SC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.426,
+          47.6588
+        ]
+      },
+      "properties": {
+        "name": "Spokane-Spokane Valley, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.6501,
+          39.7817
+        ]
+      },
+      "properties": {
+        "name": "Springfield, IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5898,
+          42.1015
+        ]
+      },
+      "properties": {
+        "name": "Springfield, MA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.2923,
+          37.209
+        ]
+      },
+      "properties": {
+        "name": "Springfield, MO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.5841,
+          37.0965
+        ]
+      },
+      "properties": {
+        "name": "St. George, UT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.1994,
+          38.627
+        ]
+      },
+      "properties": {
+        "name": "St. Louis, MO-IL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.86,
+          40.7934
+        ]
+      },
+      "properties": {
+        "name": "State College, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.2908,
+          37.9577
+        ]
+      },
+      "properties": {
+        "name": "Stockton, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.1474,
+          43.0481
+        ]
+      },
+      "properties": {
+        "name": "Syracuse, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2807,
+          30.4383
+        ]
+      },
+      "properties": {
+        "name": "Tallahassee, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4572,
+          27.9506
+        ]
+      },
+      "properties": {
+        "name": "Tampa-St. Petersburg-Clearwater, FL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.4139,
+          39.4667
+        ]
+      },
+      "properties": {
+        "name": "Terre Haute, IN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5379,
+          41.6528
+        ]
+      },
+      "properties": {
+        "name": "Toledo, OH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.689,
+          39.0473
+        ]
+      },
+      "properties": {
+        "name": "Topeka, KS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.12,
+          41.8
+        ]
+      },
+      "properties": {
+        "name": "Torrington, CT Micro Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.7429,
+          40.2206
+        ]
+      },
+      "properties": {
+        "name": "Trenton-Princeton, NJ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.9747,
+          32.2226
+        ]
+      },
+      "properties": {
+        "name": "Tucson, AZ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.9928,
+          36.154
+        ]
+      },
+      "properties": {
+        "name": "Tulsa, OK"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.7034,
+          34.2576
+        ]
+      },
+      "properties": {
+        "name": "Tupelo, MS Micro Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.5692,
+          33.2098
+        ]
+      },
+      "properties": {
+        "name": "Tuscaloosa, AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.301,
+          32.3513
+        ]
+      },
+      "properties": {
+        "name": "Tyler, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.86,
+          21.31
+        ]
+      },
+      "properties": {
+        "name": "Urban Honolulu, HI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2327,
+          43.1009
+        ]
+      },
+      "properties": {
+        "name": "Utica-Rome, NY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.2566,
+          38.1041
+        ]
+      },
+      "properties": {
+        "name": "Vallejo, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2859,
+          36.8529
+        ]
+      },
+      "properties": {
+        "name": "Virginia Beach-Norfolk-Newport News, VA-NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2921,
+          36.3302
+        ]
+      },
+      "properties": {
+        "name": "Visalia, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.1467,
+          31.5493
+        ]
+      },
+      "properties": {
+        "name": "Waco, TX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6243,
+          32.613
+        ]
+      },
+      "properties": {
+        "name": "Warner Robins, GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0369,
+          38.9072
+        ]
+      },
+      "properties": {
+        "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.63,
+          44.96
+        ]
+      },
+      "properties": {
+        "name": "Wausau-Weston, WI"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.3301,
+          37.6872
+        ]
+      },
+      "properties": {
+        "name": "Wichita, KS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.9447,
+          34.2257
+        ]
+      },
+      "properties": {
+        "name": "Wilmington, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.2442,
+          36.0999
+        ]
+      },
+      "properties": {
+        "name": "Winston-Salem, NC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.8023,
+          42.2626
+        ]
+      },
+      "properties": {
+        "name": "Worcester, MA-CT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.5059,
+          46.6021
+        ]
+      },
+      "properties": {
+        "name": "Yakima, WA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.73,
+          39.96
+        ]
+      },
+      "properties": {
+        "name": "York-Hanover, PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.6495,
+          41.0998
+        ]
+      },
+      "properties": {
+        "name": "Youngstown-Warren-Boardman, OH-PA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.6169,
+          39.1404
+        ]
+      },
+      "properties": {
+        "name": "Yuba City, CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.6277,
+          32.6927
+        ]
+      },
+      "properties": {
+        "name": "Yuma, AZ"
+      }
+    }
+  ]
+}
