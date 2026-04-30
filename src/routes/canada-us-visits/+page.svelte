@@ -560,7 +560,7 @@
 		<p>
 			Differences between cell phone-based estimates and border-crossing estimates likely reflect differences in measurement scope. 
 			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a> likely driven by the anticipated tariff threats. 
-			Major tariffs like the 25% in automotives may explain the following reduction in trade-related trips beginning in April 2025.
+			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the following reduction in trade-related trips beginning in April 2025.
 			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., indicating that the decrease in activity may reflect return migration to Canada. 
 		</p>
 

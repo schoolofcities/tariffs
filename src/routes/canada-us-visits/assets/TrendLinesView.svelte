@@ -20,7 +20,7 @@
 			color: '#DC4633'
 		},
 		{
-			label: '25% auto tariffs came in',
+			label: '25% automotive part tariffs',
 			dateLabel: 'May 3, 2025',
 			x: dateToX('2025-05-03', '2025-04-01', '2026-03-31', chartWidth / 2),
 			color: '#8B1E1E'
