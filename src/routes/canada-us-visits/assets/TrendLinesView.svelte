@@ -5,6 +5,28 @@
 
 	const chartWidth = 560;
 
+	function dateToX(dateString, periodStartString, periodEndString, offset = 0) {
+		const start = new Date(periodStartString).getTime();
+		const end = new Date(periodEndString).getTime();
+		const date = new Date(dateString).getTime();
+		const progress = (date - start) / (end - start);
+		return offset + progress * (chartWidth / 2);
+	}
+	const eventMarkers = [
+		{
+			label: 'Trump first mentioned Canada as 51st state',
+			dateLabel: 'Nov. 29, 2024',
+			x: dateToX('2024-11-29', '2024-04-01', '2025-03-31', 0),
+			color: '#DC4633'
+		},
+		{
+			label: '25% auto tariffs came in',
+			dateLabel: 'May 3, 2025',
+			x: dateToX('2025-05-03', '2025-04-01', '2026-03-31', chartWidth / 2),
+			color: '#8B1E1E'
+		}
+	];
+
 	function getRegionColor(regionName) {
 		const regionColors = {
 			Midwest: '#6FC7EA',
@@ -39,11 +61,11 @@
 		<!-- Header row -->
 		<div class="chart-wrapper header-row">
 			<div class="left">
-				<span class="header-text">Metro Area</span>
+				<span class="header-text">Metro area</span>
 			</div>
 			<div class="arrow"></div>
 			<div class="number">
-				<span class="header-text">% Change</span>
+				<span class="header-text header-text-percent">Year-over-year<br />% change</span>
 			</div>
 			<div class="bar-container">
 				<svg height="45" width="100%" viewBox="0 0 {chartWidth} 45" preserveAspectRatio="none" class="chart">
@@ -130,6 +152,11 @@
 							{/if}
 						{/each}
 
+						<!-- Event markers -->
+						{#each eventMarkers as event}
+							<line x1={event.x} y1={5} x2={event.x} y2={45} stroke={event.color} stroke-width="2"/>
+						{/each}
+
 						<!-- Baseline (Year 1 average) -->
 						{#if metro.meanLine !== null}
 							<line x1="0" y1={metro.meanLine} x2={chartWidth} y2={metro.meanLine} stroke="#D0D1C9" stroke-width="1" stroke-dasharray="4"/>
@@ -198,6 +225,12 @@
 		color: var(--brandGray90);
 	}
 
+	.header-text-percent {
+		display: block;
+		line-height: 1.05;
+		transform: translateX(-28px);
+	}
+
 	.left {
 		width: 180px;
 		min-width: 180px;
@@ -223,7 +256,7 @@
 
 	.arrow {
 		margin: auto 0;
-		margin-left: 6px;
+		margin-left: 2px;
 		width: 32px;
 		height: 40px;
 		display: flex;
@@ -237,11 +270,11 @@
 	}
 
 	.number {
-		width: 68px;
+		width: 96px;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		padding-left: 4px;
+		padding-left: 0;
 	}
 
 	.percent-main {
@@ -270,7 +303,7 @@
 
 	.chart {
 		display: block;
-		margin-left: 6px;
+		margin-left: 0;
 		min-width: 0;
 	}
 
