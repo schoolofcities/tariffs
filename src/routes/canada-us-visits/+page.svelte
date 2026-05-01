@@ -269,7 +269,7 @@
 					const regressionGenerator = regressionLoess()
 						.x(d => d.date.getTime())
 						.y(d => d.normalized)
-						.bandwidth(0.05);
+						.bandwidth(0.09);
 					
 					const regressionData = regressionGenerator(sortedData);
 					
@@ -284,7 +284,7 @@
 						const xPadding = 5;
 						const xScale = scaleLinear()
 							.domain([minDateStr, maxDateStr])
-							.range([xPadding, 560 - xPadding]);
+							.range([xPadding, 360 - xPadding]);
 						
 						const yScale = scaleLinear()
 							.domain([minVal, maxVal])
@@ -380,13 +380,12 @@
 <Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 <main>
-	
 		
-	<TitleStandard
-		title="Tracking decline in Canadians visiting U.S. cities"
-		subtitle="An analysis of Canadians' visits to U.S. cities using cell phone data"
-	/>
 
+	<TitleStandard
+		title="How much has Canadian travel to U.S. cities declined?"
+	/>
+	<!-- subtitle="An analysis of mobile footfall data across U.S. metropolitan areas, 2024–2026" -->
 	<div class="text">
 	
 		<AuthorDate
@@ -395,13 +394,20 @@
 		/>
 
 		<p>
-			In response to increasingly strained political relations between Canada and the United States, Canadians have reduced discretionary travel to the U.S.. 
-			To investigate the magnitude and geography of this shift, we analyzed cell phone activity (footfall) data across Canada and the U.S., providing insights on the metro areas Canadians are visiting.
+			In response to increasingly strained political relations between Canada and the United States, many Canadians have reduced their travel to the U.S.. 
+			<!-- We used cell phone activity data to investigate the magnitude and geography of this shift. -->
 		</p>
 
 		<p>
-			Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas.
+			But how has this decline varied in terms of magnitude and geography? 
 		</p>
+
+		<p>
+			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
+
+			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>  estimates. This means that A) U.S. urban areas are being hit harder and B) when Canadians travel to the U.S., they are visiting fewer locations and staying for less duration that previously.
+		</p>
+		
 
 
 	</div>
@@ -418,7 +424,7 @@
 
 	<div class="text" style="margin-bottom: 0px;">
 
-		<h3>Year-over-year change in trips by Canadians to U.S. metros</h3>
+		<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
 
 		<!-- View Toggle -->
 		<div class="view-toggle">
@@ -496,16 +502,6 @@
 						{/if}
 					</div>
 				</div>
-				<div class="event-legend">
-					<span class="event-legend-item">
-						<span class="event-swatch event-swatch-light"></span>
-						Trump first mentioned Canada as 51st state (Nov. 29, 2024)
-					</span>
-					<span class="event-legend-item">
-						<span class="event-swatch event-swatch-dark"></span>
-						25% automotive part tariffs (May 3, 2025)
-					</span>
-				</div>
 			</div>
 		</div>
 
@@ -537,7 +533,7 @@
 
 		<div class="caption-container">
 			<p>
-				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a></span>
+				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.</span>
 			</p>
 		</div>
 
@@ -569,41 +565,6 @@
 			Therefore, these figures likely understate the total revenue lost from broader economic effects of changes in residency patterns and trade-related travel, as suggested from <a href="https://accd.vermont.gov/canada-research">recent estimates by the State of Vermont</a>.
 		</p>
 
-        <!-- <p>
-			This tool analyzes Canadian travel to U.S. metro areas using geolocation data from March 2024 to March 2026. 
-			The data shows normalized trips (ratio of unique Canadian devices to total Canadian devices) to understand year-over-year trends in border travel.
-		</p> -->
-
-		<!-- {#if !isLoading}
-		<h2>Key findings</h2>
-		<p>
-			This tool offers three different ways to explore changes in Canadian foot traffic in the U.S.
-			The Trend Lines show changes by month from March 2024 to March 2026 and are colour-coded by region, for summary data.
-			The map shows the scale of changes across the U.S. 
-		</p>
-
-		<p>
-			To only view metropolitan areas of over 1 million in population, click the 1 million+ metros button, and to see different regions, click the square next to the region name (e.g., Southeast).
-		</p>
-
-		<div class="finding-lines">
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? `Out of ${totalMetros} U.S. metro areas in the selected region(s), ${metrosRising} saw increased Canadian visits and ${metrosFalling} saw declines comparing Year 2 (April 1, 2025 to March 31, 2026) to Year 1 (April 1, 2024 to March 31, 2025).`
-					: 'No metro areas are selected. Use the region filters above to show summary metrics.'}
-			</p>
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? `The mean change in normalized trips across all metros was ${meanChange?.toFixed(1) ?? "..."}%.`
-					: 'Select one or more regions to display map, rankings, and trend summaries.'}
-			</p>
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? 'These results are based on normalized trip volume for U.S. metro areas visited by Canadian devices.'
-					: 'If no metrics appear, clear and reselect your region filters.'}
-			</p>
-		</div>
-		{/if} -->
 	</div>
 
 	
@@ -649,7 +610,6 @@
 		max-width: 1920px;
 		position: relative;
 	}
-
 
 	.region-controls {
 		display: flex;
@@ -748,36 +708,6 @@
 		margin-left: auto;
 	}
 
-	.event-legend {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 14px;
-		margin-top: 8px;
-	}
-
-	.event-legend-item {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-family: OpenSans, sans-serif;
-		font-size: 13px;
-		color: var(--brandGray90);
-	}
-
-	.event-swatch {
-		display: inline-block;
-		width: 14px;
-		height: 3px;
-		border-radius: 999px;
-	}
-
-	.event-swatch-light {
-		background: #DC4633;
-	}
-
-	.event-swatch-dark {
-		background: #8B1E1E;
-	}
 
 	.search-input {
 		width: 100%;
