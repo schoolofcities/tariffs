@@ -113,9 +113,9 @@
 		// Southeast
 		'AL': 'Southeast', 'AR': 'Southeast', 'FL': 'Southeast', 'GA': 'Southeast', 'KY': 'Southeast',
 		'LA': 'Southeast', 'MS': 'Southeast', 'NC': 'Southeast', 'SC': 'Southeast', 'TN': 'Southeast',
-		'VA': 'Southeast', 'WV': 'Southeast',
+		'VA': 'Southeast', 'WV': 'Southeast', 'DC': 'Southeast',
 		// Pacific
-		'AK': 'Pacific', 'CA': 'Pacific', 'HI': 'Pacific', 'OR': 'Pacific', 'WA': 'Pacific', 'ID': 'Pacific'
+		'AK': 'Pacific', 'CA': 'Pacific', 'HI': 'Pacific', 'OR': 'Pacific', 'WA': 'Pacific', 'ID': 'Pacific', 'MT': 'Pacific'
 	};
 
 	function getMetroRegion(metroName) {
@@ -269,7 +269,7 @@
 					const regressionGenerator = regressionLoess()
 						.x(d => d.date.getTime())
 						.y(d => d.normalized)
-						.bandwidth(0.05);
+						.bandwidth(0.09);
 					
 					const regressionData = regressionGenerator(sortedData);
 					
@@ -284,7 +284,7 @@
 						const xPadding = 5;
 						const xScale = scaleLinear()
 							.domain([minDateStr, maxDateStr])
-							.range([xPadding, 560 - xPadding]);
+							.range([xPadding, 360 - xPadding]);
 						
 						const yScale = scaleLinear()
 							.domain([minVal, maxVal])
@@ -380,13 +380,12 @@
 <Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
 <main>
-	
 		
-	<TitleStandard
-		title="Tracking decline in Canadians visiting U.S. cities"
-		subtitle="An analysis of Canadians' visits to U.S. cities using cell phone data"
-	/>
 
+	<TitleStandard
+		title="How much has Canadian travel to U.S. cities declined?"
+	/>
+	<!-- subtitle="An analysis of mobile footfall data across U.S. metropolitan areas, 2024–2026" -->
 	<div class="text">
 	
 		<AuthorDate
@@ -395,14 +394,20 @@
 		/>
 
 		<p>
-			In response to increasingly hostile behaviour from our neighbour to the south, Canadians have begun boycotting travel to the U.S.. 
-			How's that going? 
-			To investigate, we collected cell phone activity (footfall) data across Canada and the U.S., providing insights on the metro areas Canadians are visiting.
+			In response to increasingly strained political relations between Canada and the United States, many Canadians have reduced their travel to the U.S.. 
+			<!-- We used cell phone activity data to investigate the magnitude and geography of this shift. -->
 		</p>
 
 		<p>
-			Relying primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a>, most estimate the year-over-year drop in Canadian visitation at <b>20-25%</b>. When we analyzed visits via cell phone data, we found a median decrease of <b>41%</b> of visits to U.S. metros.
+			But how has this decline varied in terms of magnitude and geography? 
 		</p>
+
+		<p>
+			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
+
+			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>  estimates. This means that A) U.S. urban areas are being hit harder and B) when Canadians travel to the U.S., they are visiting fewer locations and staying for less duration that previously.
+		</p>
+		
 
 
 	</div>
@@ -419,7 +424,7 @@
 
 	<div class="text" style="margin-bottom: 0px;">
 
-		<h3>Year-over-year change in trips by Canadians to U.S. metros</h3>
+		<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
 
 		<!-- View Toggle -->
 		<div class="view-toggle">
@@ -528,7 +533,7 @@
 
 		<div class="caption-container">
 			<p>
-				<span class="caption-source">Cell phone data are from Cuebiq. Geographic reference data are from OpenStreetMap</span>
+				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.</span>
 			</p>
 		</div>
 
@@ -537,62 +542,29 @@
 	<div class="text" style="margin-top: 50px;">
 
 		<p>
-			Our data analysis, as well as various other reports and media, show that there is a wide variation across the country. <a href="https://archive.ph/20250812180600/https:/www.bloomberg.com/news/features/2025-08-11/trump-tariffs-and-jabs-push-canadians-to-exit-florida-enclave#selection-1237.0-1237.66">Snowbird destinations</a> like Florida hit hardest, 
-			but also dramatic drops in travel to border cities in states like <a href="https://www.theguardian.com/us-news/2026/mar/28/canada-us-border-business-pay-trump-tariffs">New York</a>, <a href="https://www.travelandtourworld.com/news/article/new-hampshires-tourism-feels-the-sting-of-declining-canadian-visitors-and-strained-u-s-canada-travel-ties-everything-to-know/">New Hampshire</a> and <a href="https://www.nytimes.com/2026/01/19/us/politics/greensboro-vermont-canada-tariffs-trump.html">Vermont</a>; 
-			tourist destinations like <a href="https://www.latimes.com/politics/story/2025-10-19/trumps-america-las-vegas-lagging-economy-struggling-food-server">Las Vegas</a> and <a href="https://www.reuters.com/business/looking-disney-magic-elsewhere-canadians-lead-declines-travel-us-2026-02-12/">Disney World</a>; <a href="https://archive.ph/20260215003924/https:/www.bloomberg.com/news/articles/2026-01-26/canadian-skiers-skip-us-mountain-resorts-this-season-thanks-to-trump#selection-1183.0-1183.38">ski slopes</a>; and big cities like New York.
+			Consistent with media reporting, our data shows significant declines in <a href="https://archive.ph/20250812180600/https:/www.bloomberg.com/news/features/2025-08-11/trump-tariffs-and-jabs-push-canadians-to-exit-florida-enclave#selection-1237.0-1237.66">snowbird destinations</a> like Florida; 
+			border-region cities in states like <a href="https://www.theguardian.com/us-news/2026/mar/28/canada-us-border-business-pay-trump-tariffs">New York</a>, <a href="https://www.travelandtourworld.com/news/article/new-hampshires-tourism-feels-the-sting-of-declining-canadian-visitors-and-strained-u-s-canada-travel-ties-everything-to-know/">New Hampshire</a> and <a href="https://www.nytimes.com/2026/01/19/us/politics/greensboro-vermont-canada-tariffs-trump.html">Vermont</a>; 
+			major tourist destinations like <a href="https://www.latimes.com/politics/story/2025-10-19/trumps-america-las-vegas-lagging-economy-struggling-food-server">Las Vegas</a> and <a href="https://www.reuters.com/business/looking-disney-magic-elsewhere-canadians-lead-declines-travel-us-2026-02-12/">Disney World</a>; and <a href="https://archive.ph/20260215003924/https:/www.bloomberg.com/news/articles/2026-01-26/canadian-skiers-skip-us-mountain-resorts-this-season-thanks-to-trump#selection-1183.0-1183.38">winter recreation areas</a>.
 		</p>
 
 		<p>
-			Media accounts have focused on many of these impacts, but missed the biggest: the drop in visits to big cities. High-tech or financial centres like San Francisco and Houston are likely impacted not just by the drop in tourists but also business travel.
-			Canadians are choosing not to travel for work, and perhaps also impacted by slowing growth on both sides of the border.
+			However, one of the most underreported findings is the marked decline in visits to large metropolitan economies. 
+			Technocratic and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences from broader economic uncertainties on both sides of the border.
+			As another example, Grand Rapids, which has close ties to the automotive industry in Ontario, has experienced the second largest drop in visitation, likely due to the tariffs.
 		</p>
 
 		<p>
-			What accounts for the difference between cell phone and border crossing data?
-			Our data measures not just Canadians crossing the border, but also Canadians living in the U.S.. The drop in activity suggests that some Canadians have come home. 
-			Also, cell phone data includes freight traffic, but border crossing data does not – so a decrease in trade-related visits may also impact the numbers.
+			Differences between cell phone-based estimates and border-crossing estimates likely reflect differences in measurement scope. 
+			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a> likely driven by the anticipated tariff threats. 
+			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the following reduction in trade-related trips beginning in April 2025.
+			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., indicating that the decrease in activity may reflect return migration to Canada. 
 		</p>
 
 		<p>
-			Forbes estimates a revenue loss of US$4.5 billion from a 22% drop in Canadian visitation. But this does not include the Canadians who are no longer living in the U.S., or the drivers moving Canadian goods.
-			So the total lost revenue could be much higher.
+			While Forbes estimates <a href="https://www.forbes.com/sites/suzannerowankelleher/2026/02/12/canadian-visits-fall-january-trump-slump/">tourism-based revenue loss of US$4.5 billion</a> from a 22% drop in Canadian visitation, this does not include the Canadians who are no longer living in the U.S., or the drivers moving Canadian goods.
+			Therefore, these figures likely understate the total revenue lost from broader economic effects of changes in residency patterns and trade-related travel, as suggested from <a href="https://accd.vermont.gov/canada-research">recent estimates by the State of Vermont</a>.
 		</p>
 
-        <!-- <p>
-			This tool analyzes Canadian travel to U.S. metro areas using geolocation data from March 2024 to March 2026. 
-			The data shows normalized trips (ratio of unique Canadian devices to total Canadian devices) to understand year-over-year trends in border travel.
-		</p> -->
-
-		<!-- {#if !isLoading}
-		<h2>Key findings</h2>
-		<p>
-			This tool offers three different ways to explore changes in Canadian foot traffic in the U.S.
-			The Trend Lines show changes by month from March 2024 to March 2026 and are colour-coded by region, for summary data.
-			The map shows the scale of changes across the U.S. 
-		</p>
-
-		<p>
-			To only view metropolitan areas of over 1 million in population, click the 1 million+ metros button, and to see different regions, click the square next to the region name (e.g., Southeast).
-		</p>
-
-		<div class="finding-lines">
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? `Out of ${totalMetros} U.S. metro areas in the selected region(s), ${metrosRising} saw increased Canadian visits and ${metrosFalling} saw declines comparing Year 2 (April 1, 2025 to March 31, 2026) to Year 1 (April 1, 2024 to March 31, 2025).`
-					: 'No metro areas are selected. Use the region filters above to show summary metrics.'}
-			</p>
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? `The mean change in normalized trips across all metros was ${meanChange?.toFixed(1) ?? "..."}%.`
-					: 'Select one or more regions to display map, rankings, and trend summaries.'}
-			</p>
-			<p class="finding-line">
-				‣ {totalMetros > 0
-					? 'These results are based on normalized trip volume for U.S. metro areas visited by Canadian devices.'
-					: 'If no metrics appear, clear and reselect your region filters.'}
-			</p>
-		</div>
-		{/if} -->
 	</div>
 
 	
@@ -601,19 +573,21 @@
 	<div class="text">
 		<h3>Data sources and methods</h3>
 		<p>
-			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on Cuebiq's stop metric. 
-			A Canadian device is defined to be a stop in Canada and is categorized as “home”. 
-			Home devices are determined based on the duration and window of time they spend at home, and each device has a unique anonymized ID. 
-			We recorded all Canadian devices as the devices to track for trips (March 1, 2023 - March 31, 2026) to account for Canadians who may have moved to the U.S. prior to April 1, 2024.
-			These unique Canadian devices are then tracked across their respective trips from Canada to the U.S.. 
+			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
+			A "Canadian device" is defined as a unique device in the stops table with the country code set as "Canada" and the device type as "Home". 
+			Home devices are classified based on the duration and timing of the stops, and each device is assigned a unique anonymized identifier. 
+			All Canadian devices observed between March 1, 2023 - March 31, 2026 are included to account for Canadians who may have relocated to the U.S. prior to April 1, 2024.
 		</p>
 
 		<p>
-			To determine trips, it is when a device has a stop in Canada, then in the U.S., then back to Canada.
-			For which metro region gets a count on a specific day, the first stop that is in the U.S. metro at a geohash level 6 level counts as a stop for that first day only. 
-			Subsequent days are not counted for the same metro, but if that device goes to another metro, the first day they land on that new metro is then counted for that metro.
-			In other words, unique metro-device trips are recorded when for Canadians travelling to the U.S. and coming back. 
-			Values are normalized by the total number of unique Canadian devices each day to account for variations in data collection.
+			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
+			To determine which region gets a count on a specific day, the first stop that is in the U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
+			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
+			In other words, this approach captures unique metro-device trip occurences for Canadians travellers to the U.S.. 
+		</p>
+
+		<p>
+			All values are normalized by the total number of unique Canadian devices each day to account for daily variations in data coverage.
 			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
 		</p>
 
@@ -636,7 +610,6 @@
 		max-width: 1920px;
 		position: relative;
 	}
-
 
 	.region-controls {
 		display: flex;
@@ -734,6 +707,7 @@
 		min-width: 195px;
 		margin-left: auto;
 	}
+
 
 	.search-input {
 		width: 100%;
