@@ -503,7 +503,7 @@
 					</span>
 					<span class="event-legend-item">
 						<span class="event-swatch event-swatch-dark"></span>
-						25% auto tariffs came in (May 3, 2025)
+						25% automotive part tariffs (May 3, 2025)
 					</span>
 				</div>
 			</div>
