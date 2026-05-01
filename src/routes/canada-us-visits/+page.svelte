@@ -405,7 +405,7 @@
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>  estimates. This means that A) U.S. urban areas are being hit harder and B) when Canadians travel to the U.S., they are visiting fewer locations and staying for less duration that previously.
+			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>  estimates. This means that A) border crossing data is not capturing the full drop in Canadian business and trade-related travel and B) when Canadians travel to the U.S., they are visiting fewer locations and staying for less duration that previously.
 		</p>
 		
 
@@ -549,7 +549,7 @@
 
 		<p>
 			However, one of the most underreported findings is the marked decline in visits to large metropolitan economies. 
-			Technocratic and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences from broader economic uncertainties on both sides of the border.
+			High-tech and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences from broader economic uncertainties on both sides of the border.
 			As another example, Grand Rapids, which has close ties to the automotive industry in Ontario, has experienced the second largest drop in visitation, likely due to the tariffs.
 		</p>
 
