@@ -161,15 +161,15 @@
 		</li>
 
 		<li>
+			<a href="./canada-us-visits">Read our blog on the decline in Canadian travel to the U.S.</a>.
+		</li>
+		
+		<li>
 			<a href="./lumber">Read our blog on the effect of softwood lumber tariffs</a> on Canadian jobs and businesses.
 		</li>
 
 		<li>
 			<a href="./trucks">Read our blog about the impact of truck tariffs</a> on medium & heavy duty vehicle manufacturing and exports.
-		</li>
-
-		<li>
-			<a href="./canada-us-visits">Read our blog on the decline in Canadian travel to the U.S.</a>.
 		</li>
 
 		<li>
