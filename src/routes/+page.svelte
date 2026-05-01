@@ -169,6 +169,10 @@
 		</li>
 
 		<li>
+			<a href="./canada-us-visits">Read our blog on the decline in Canadian travel to the U.S.</a>.
+		</li>
+
+		<li>
 			<a href="./current-tariffs">View the current list of U.S. tariffs on Canada</a>.
 		</li>
 
