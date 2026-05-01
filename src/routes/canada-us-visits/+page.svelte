@@ -1,4 +1,4 @@
-<!-- <Password/> -->
+<Password/>
 
 <script>
 	import '../../assets/global-styles.css';
