@@ -405,7 +405,7 @@
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>  estimates. This means that A) border crossing data is not capturing the full drop in Canadian business and trade-related travel and B) when Canadians travel to the U.S., they are visiting fewer locations and staying for less duration that previously.
+			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
 		</p>
 		
 
@@ -549,15 +549,15 @@
 
 		<p>
 			However, one of the most underreported findings is the marked decline in visits to large metropolitan economies. 
-			High-tech and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences from broader economic uncertainties on both sides of the border.
+			High-tech and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences due to broader economic uncertainties on both sides of the border.
 			As another example, Grand Rapids, which has close ties to the automotive industry in Ontario, has experienced the second largest drop in visitation, likely due to the tariffs.
 		</p>
 
 		<p>
 			Differences between cell phone-based estimates and border-crossing estimates likely reflect differences in measurement scope. 
-			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a> likely driven by the anticipated tariff threats. 
-			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the following reduction in trade-related trips beginning in April 2025.
-			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., indicating that the decrease in activity may reflect return migration to Canada. 
+			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a>, likely driven by the anticipated tariff threats. 
+			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the reduction in trade-related trips beginning in April 2025.
+			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., suggesting that the decrease in activity may reflect return migration to Canada. 
 		</p>
 
 		<p>
@@ -574,16 +574,16 @@
 		<h3>Data sources and methods</h3>
 		<p>
 			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
-			A "Canadian device" is defined as a unique device in the stops table with the country code set as "Canada" and the device type as "Home". 
+			A "Canadian device" is defined as a unique device in the stops table with the country code set as "Canada" and the device type as "Home."
 			Home devices are classified based on the duration and timing of the stops, and each device is assigned a unique anonymized identifier. 
-			All Canadian devices observed between March 1, 2023 - March 31, 2026 are included to account for Canadians who may have relocated to the U.S. prior to April 1, 2024.
+			All Canadian devices observed between March 1, 2023 - March 31, 2026 are included, to account for Canadians who may have relocated to the U.S. prior to April 1, 2024.
 		</p>
 
 		<p>
 			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
-			To determine which region gets a count on a specific day, the first stop that is in the U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
+			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
 			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
-			In other words, this approach captures unique metro-device trip occurences for Canadians travellers to the U.S.. 
+			In other words, this approach captures unique metro-device trip occurrences for Canadians travellers to the U.S.. 
 		</p>
 
 		<p>
