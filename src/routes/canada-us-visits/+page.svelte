@@ -92,7 +92,7 @@
 	let searchQuery = "";
 	let showBigMetros = true;
 	let showSmallMetros = true;
-	let selectedDataset = 'us_normalized_trips.csv'
+	let selectedDataset = 'us_normalized_trips_daily.csv'
 	// View toggle: "map", "rankings" or "trends"
 	let viewMode = "trends";
 
@@ -405,7 +405,7 @@
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">41%</span> in Canadian visits to U.S. metropolitan areas. This is roughly double the 20–25% drop recorded by <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
+			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas. This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
 		</p>
 		
 
@@ -574,9 +574,9 @@
 		<h3>Data sources and methods</h3>
 		<p>
 			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
-			A "Canadian device" is defined as a unique device in the stops table with the country code set as "Canada" and the device type as "Home."
-			Home devices are classified based on the duration and timing of the stops, and each device is assigned a unique anonymized identifier. 
-			All Canadian devices observed between March 1, 2023 - March 31, 2026 are included, to account for Canadians who may have relocated to the U.S. prior to April 1, 2024.
+			A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
+			Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
+			These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
 		</p>
 
 		<p>
