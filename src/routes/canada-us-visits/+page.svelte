@@ -1,4 +1,4 @@
-<Password/>
+<!-- <Password/> -->
 
 <script>
 	import '../../assets/global-styles.css';
@@ -583,7 +583,7 @@
 			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
 			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
 			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
-			In other words, this approach captures unique metro-device trip occurrences for Canadians travellers to the U.S.. 
+			In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
 		</p>
 
 		<p>
