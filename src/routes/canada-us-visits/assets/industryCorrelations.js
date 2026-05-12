@@ -3,7 +3,7 @@ export const industryCorrelations = [
 	{ code: '48-49', industry: 'Transportation/Warehousing', correlation: 0.958950, pValue: 0.183042, sampleSize: 3, dominantMetroCount: 3 },
 	{ code: '11', industry: 'Agriculture', correlation: -0.041436, pValue: 0.922396, sampleSize: 8, dominantMetroCount: 8 },
 	{ code: '44-45', industry: 'Retail Trade', correlation: -0.136903, pValue: 0.343108, sampleSize: 50, dominantMetroCount: 50 },
-	{ code: '62', industry: 'Health Care', correlation: -0.184302, pValue: 0.033700, sampleSize: 133, dominantMetroCount: 133 },
+	{ code: '62', industry: 'Health Care', correlation: -0.190376, pValue: 0.028780, sampleSize: 132, dominantMetroCount: 132 },
 	{ code: '72', industry: 'Accommodation/Food', correlation: -0.328881, pValue: 0.116604, sampleSize: 24, dominantMetroCount: 24 },
 	{ code: '31-33', industry: 'Manufacturing', correlation: -0.466488, pValue: 0.001846, sampleSize: 42, dominantMetroCount: 42 },
 	{ code: '21', industry: 'Mining/Oil & Gas', correlation: -1.000000, pValue: 1.000000, sampleSize: 2, dominantMetroCount: 2 },
