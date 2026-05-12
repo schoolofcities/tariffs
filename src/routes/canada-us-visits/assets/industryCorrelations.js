@@ -1,0 +1,22 @@
+export const industryCorrelations = [
+	{ code: '54', industry: 'Professional Services', correlation: 0.991241, pValue: 0.084323, sampleSize: 3, dominantMetroCount: 3 },
+	{ code: '48-49', industry: 'Transportation/Warehousing', correlation: 0.958950, pValue: 0.183042, sampleSize: 3, dominantMetroCount: 3 },
+	{ code: '11', industry: 'Agriculture', correlation: -0.041436, pValue: 0.922396, sampleSize: 8, dominantMetroCount: 8 },
+	{ code: '44-45', industry: 'Retail Trade', correlation: -0.136903, pValue: 0.343108, sampleSize: 50, dominantMetroCount: 50 },
+	{ code: '62', industry: 'Health Care', correlation: -0.190376, pValue: 0.028780, sampleSize: 132, dominantMetroCount: 132 },
+	{ code: '72', industry: 'Accommodation/Food', correlation: -0.328881, pValue: 0.116604, sampleSize: 24, dominantMetroCount: 24 },
+	{ code: '31-33', industry: 'Manufacturing', correlation: -0.466488, pValue: 0.001846, sampleSize: 42, dominantMetroCount: 42 },
+	{ code: '21', industry: 'Mining/Oil & Gas', correlation: -1.000000, pValue: 1.000000, sampleSize: 2, dominantMetroCount: 2 },
+	{ code: '52', industry: 'Finance & Insurance', correlation: -1.000000, pValue: 1.000000, sampleSize: 2, dominantMetroCount: 2 },
+	{ code: '22', industry: 'Utilities', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '23', industry: 'Construction', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '42', industry: 'Wholesale Trade', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '51', industry: 'Information', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '53', industry: 'Real Estate', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '55', industry: 'Management', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '56', industry: 'Admin/Support', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '61', industry: 'Education', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '71', industry: 'Arts/Entertainment', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '81', industry: 'Other Services', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 },
+	{ code: '99', industry: 'Unclassified', correlation: null, pValue: null, sampleSize: 0, dominantMetroCount: 0 }
+];

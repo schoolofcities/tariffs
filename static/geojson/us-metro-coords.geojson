@@ -2463,19 +2463,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.6765,
-          45.5152
-        ]
-      },
-      "properties": {
-        "name": "Portland-Vancouver-Hillsboro, OR-WA"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.93,
           41.7
         ]
