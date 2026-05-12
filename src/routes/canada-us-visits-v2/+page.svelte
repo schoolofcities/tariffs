@@ -1,4 +1,4 @@
-<!-- <Password/> -->
+<Password/>
 
 <script>
 	import '../../assets/global-styles.css';
@@ -10,6 +10,8 @@
 	import bigMetroPopulation2025 from '$lib/data/big-metro-keys-2025.json';
 	import TrendLinesView from './assets/TrendLinesView.svelte';
 	import MapView from './assets/MapView.svelte';
+	import IndustryCorrelationView from './assets/IndustryCorrelationView.svelte';
+	import IndustryCorrelationScatterView from './assets/IndustryCorrelationScatterView.svelte';
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { scaleLinear, line } from "d3";
@@ -424,6 +426,8 @@
 
 	{#if dataLoaded}
 
+	
+
 	<div class="text" style="margin-bottom: 0px;">
 
 		<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
@@ -446,6 +450,21 @@
 					on:click={() => (viewMode = "map")}
 				>
 					Map
+				</button>
+
+				<button
+					class="toggle-btn"
+					class:active={viewMode === "correlations"}
+					on:click={() => (viewMode = "correlations")}
+				>
+					Correlations
+				</button>
+				<button
+					class="toggle-btn"
+					class:active={viewMode === "correlations-scatter"}
+					on:click={() => (viewMode = "correlations-scatter")}
+				>
+					Scatter
 				</button>
 
 			</div>
@@ -531,7 +550,14 @@
 		legendSizeBins={legendSizeBins}
 	/>
 	{/if}
-	
+
+	<!-- Correlations View (v2 only) -->
+	{#if viewMode === "correlations"}
+		<IndustryCorrelationView />
+	{/if}
+
+	{#if viewMode === "correlations-scatter"}
+		<IndustryCorrelationScatterView />
 	{/if}
 
 	<div class="text" style="margin-top: 0px;">
@@ -574,7 +600,6 @@
 
 	
 
-	
 	<div class="text">
 		<h3>Data sources and methods</h3>
 		<p>
@@ -601,8 +626,8 @@
 		</p>
 		<br>
 	</div>
-<!-- 
-	{/if} -->
+
+	{/if}
 
 	<Footer />
 </main>
