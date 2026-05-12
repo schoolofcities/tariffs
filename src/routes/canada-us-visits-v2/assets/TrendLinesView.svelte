@@ -3,7 +3,7 @@
 	export let chartHeight = 50;
 	export let metroLabelWidth = 180;
 
-	const chartWidth = 360;
+	let chartWidth = 360;
 	const eventColor = "#007FA3";
 
 	let showTrump = false;
@@ -240,9 +240,9 @@
 			<div class="bar-container">
 				<svg
 					height="45"
-					width="100%"
-					viewBox="0 0 {chartWidth} 45"
-					preserveAspectRatio="none"
+					width={chartWidth}
+					viewBox="0 0 ${chartWidth} 45"
+					preserveAspectRatio="xMinYMid meet"
 					class="chart"
 				>
 					<text x={chartWidth / 4} y="15" class="textYear"
@@ -271,7 +271,6 @@
 								class="textLabelSmall"
 								style="text-anchor: middle;">{month}</text
 							>
-
 							{#if !(yearIndex === 0 && i === 0)}
 								<line
 									x1={yearIndex * (chartWidth / 2) +
@@ -339,9 +338,9 @@
 				<div class="bar-container">
 					<svg
 						height={chartHeight}
-						width="100%"
+						width={chartWidth}
 						viewBox="0 0 {chartWidth} {chartHeight}"
-						preserveAspectRatio="none"
+						preserveAspectRatio="xMinYMid meet"
 						class="chart"
 					>
 						<!-- Grid lines -->
@@ -435,7 +434,7 @@
 
 <style>
 	.charts-scroll-container {
-		overflow-x: hidden;
+		overflow-x: auto;
 		overflow-y: scroll;
 		margin: 0 auto;
 		max-width: 680px;
@@ -457,6 +456,7 @@
 		padding-right: 5px;
 		margin-bottom: 0px;
 		max-width: 680px;
+		width: max-content;
 		height: 53px;
 		background-color: var(--brandWhite);
 		border-bottom: solid 1px var(--brandGray);
@@ -577,9 +577,8 @@
 	}
 
 	@media (max-width: 600px) {
-		.textYear,
 		.textLabelSmall {
-			display: none;
+			font-size: 8px
 		}
 	}
 
