@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { industryCorrelations } from './industryCorrelations.js';
+    import { leafletRasterLayer } from 'pmtiles';
 
 	let plotContainer;
 	let plotlyReady = false;
@@ -38,7 +39,7 @@
 		const y = sorted.map((item) => item.industry);
 		const x = sorted.map((item) => item.correlation);
 		const hoverText = sorted.map((item) => {
-			const ptxt = item.pValue && Number.isFinite(item.pValue) ? `<br>p = ${item.pValue.toFixed(3)}` : '';
+			const ptxt = item.pValue && Number.isFinite(item.pValue) ? `<br>p = ${item.pValue.toFixed(4)}` : '';
 			return `NAICS ${item.code}<br>Sample size: ${item.sampleSize}${ptxt}`;
 		});
 		const colors = sorted.map((item) => (item.correlation >= 0 ? '#007FA3' : '#DC4633'));
@@ -61,11 +62,11 @@
 			template: 'plotly_dark',
 			paper_bgcolor: 'rgba(0,0,0,0)',
 			plot_bgcolor: 'rgba(0,0,0,0)',
-			margin: { l: 130, r: 12, t: 12, b: 50 },
+			margin: { l: 170, r: 12, t: 12, b: 50 },
 			height: 680,
 			xaxis: {
 				title: 'Correlation: visit decline vs. industry employment',
-				range: [-0.5, 0],
+				range: [-0.3, 0],
 				zeroline: true,
 				zerolinecolor: 'rgba(255,255,255,0.35)',
 				gridcolor: 'rgba(255,255,255,0.10)',
@@ -73,7 +74,10 @@
 			},
 			yaxis: {
 				autorange: 'reversed',
-				title: ''
+				title: '',
+				side: 'left',
+				automargin: true,
+				ticklabelposition: 'outside'
 			},
 			showlegend: false,
 			font: { family: 'OpenSans, sans-serif', color: '#1E3765' },
@@ -111,10 +115,9 @@
 
 <div class="correlation-panel">
 	<div class="intro">
-		<h3>Industry correlations with Canadian visit decline</h3>
+		<h3>Industry job correlations with Canadian visit decline</h3>
 		<p>
-			Each bar uses only metros where that industry is the dominant employer. Sample size is shown in the hover.
-			Bars for industries with fewer than 4 dominant metros are excluded due to Pearson's Correlation coefficient.
+			Each category uses metros with available data in jobs for that specific 2 digit NAICS code. Sample size is shown in the hover.
 		</p>
 	</div>
 
