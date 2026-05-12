@@ -79,14 +79,23 @@
 		const yMean = yAll.reduce((sum, value) => sum + value, 0) / yAll.length;
 		let num = 0;
 		let den = 0;
+		let ssRes = 0;
+		let ssTot = 0;
 		for (let i = 0; i < xAll.length; i += 1) {
 			const dx = xAll[i] - xMean;
 			const dy = yAll[i] - yMean;
 			num += dx * dy;
 			den += dx * dx;
+			ssTot += dy * dy;
 		}
 		const slope = den === 0 ? 0 : num / den;
 		const intercept = yMean - slope * xMean;
+		for (let i = 0; i < xAll.length; i += 1) {
+			const yPred = slope * xAll[i] + intercept;
+			const residual = yAll[i] - yPred;
+			ssRes += residual * residual;
+		}
+		const rSquared = ssTot === 0 ? 0 : 1 - ssRes / ssTot;
 		const xMin = Math.min(...xAll);
 		const xMax = Math.max(...xAll);
 		const trendX = [xMin, xMax];
@@ -97,7 +106,7 @@
 			{
 				type: 'scatter',
 				mode: 'lines',
-				name: 'Trendline',
+				name: `Trendline`, // (R² = ${rSquared.toFixed(3)})
 				x: trendX,
 				y: trendY,
 				line: { color: 'black', width: 1.5, dash: 'dash' },
