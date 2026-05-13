@@ -538,7 +538,8 @@
 
 		<div class="caption-container">
 			<p>
-				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.</span>
+				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.
+				<br>Editor's note: Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>. </span>
 			</p>
 		</div>
 
@@ -568,6 +569,11 @@
 		<p>
 			While Forbes estimates <a href="https://www.forbes.com/sites/suzannerowankelleher/2026/02/12/canadian-visits-fall-january-trump-slump/">tourism-based revenue loss of US$4.5 billion</a> from a 22% drop in Canadian visitation, this does not include the Canadians who are no longer living in the U.S., or the drivers moving Canadian goods.
 			Therefore, these figures likely understate the total revenue lost from broader economic effects of changes in residency patterns and trade-related travel, as suggested from <a href="https://accd.vermont.gov/canada-research">recent estimates by the State of Vermont</a>.
+		</p>
+
+		<p>
+			A couple metros have seen an increase in activity by Canadian visitors. More research is needed to determine the factors behind this; however, it is worthy of note that Air Canada relaunched their flight service to Cleveland in May, 2025.
+			This may have resulted in an increase in travel.
 		</p>
 
 	</div>
