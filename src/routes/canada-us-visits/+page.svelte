@@ -407,7 +407,7 @@
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas. This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
+			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
 		</p>
 		
 
@@ -539,7 +539,7 @@
 		<div class="caption-container">
 			<p>
 				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.
-				<br>Editor's note: Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>. </span>
+				<br>Editor's note (May 13, 2026): Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>.</span>
 			</p>
 		</div>
 
@@ -583,17 +583,33 @@
 	
 	<div class="text">
 		<h3>Data sources and methods</h3>
+
+		<!-- <div class="text" style="margin-top: 0px;"> -->
+
+			<div class="caption-container">
+				<p>
+					<span class="caption-source">Updated May 13, 2026</span>
+				</p>
+			</div>
+<!-- 
+		</div> -->
 		<p>
-			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
+			The data used to define Canadian devices traveling to U.S. metro areas is provided by <a href="https://cuebiq.com/">Cuebiq</a>.
+			Cuebiq is a location intelligence platform that provides <a href="https://cuebiq.com/privacy-center/">anonymized and aggregated cell phone data</a> for academic research and humanitarian initiatives. 
+		</p>
+			
+		<p>
+			A stop is defined by Cuebiq as a point in space and time where the user spent a certain amount of dwelling time. A stop-detection algorithm by Cuebiq computes these stops. 
 			A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
 			Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
 			These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
 		</p>
 
 		<p>
-			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
-			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
-			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
+			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S.. A subsequent trip begins when we see this pattern occur again.
+			We selected the top 266 U.S. metropolitan statistical areas via their population from the <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-total-metro-and-micro-statistical-areas.html">U.S. Census Bureau</a>.
+			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro at <a href="https://en.wikipedia.org/wiki/Geohash">geohash level 6</a> is counted for that metro on that day. 
+			Following days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
 			In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
 		</p>
 
@@ -607,8 +623,6 @@
 		</p>
 		<br>
 	</div>
-<!-- 
-	{/if} -->
 
 	<Footer />
 </main>
