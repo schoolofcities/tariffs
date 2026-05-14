@@ -8,7 +8,7 @@ ANALYSIS_DIR = SCRIPT_DIR.parent
 PROJECT_ROOT = ANALYSIS_DIR.parent
 
 # Load data
-trips = pd.read_csv(ANALYSIS_DIR / 'raw' / 'ca_us_stops_geohash_trips_daily_v3.csv')
+trips = pd.read_csv(ANALYSIS_DIR / 'raw' / 'ca_us_stops_geohash_trips_daily_v4.csv')
 norm = pd.read_csv(ANALYSIS_DIR / 'raw' / 'daily_can_total_papa.csv')
 
 # Filter out Canadian metros
@@ -38,6 +38,6 @@ merged['normalized'] = merged['UNIQUESTOPS'] / merged['UNIQUE_CANADIAN_DEVICES']
 # The frontend outputs: metro, dateNum, stops, normalized
 # We want to remove stops and just output normalized
 final_df = merged[['METRO', 'DATE', 'normalized']]
-output_path = PROJECT_ROOT / 'static' / 'canada-us-visits' / 'us_normalized_trips_daily_v3.csv'
+output_path = PROJECT_ROOT / 'static' / 'canada-us-visits' / 'us_normalized_trips_daily_v4.csv'
 output_path.parent.mkdir(parents=True, exist_ok=True)
 final_df.to_csv(output_path, index=False)
