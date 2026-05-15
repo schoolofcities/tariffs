@@ -564,6 +564,7 @@
 			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a>, likely driven by the anticipated tariff threats. 
 			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the reduction in trade-related trips beginning in April 2025.
 			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., suggesting that the decrease in activity may reflect return migration to Canada. 
+			Finally, some <a href="https://ici.radio-canada.ca/rci/en/news/2152415/expect-extra-questions-take-a-burner-phone-immigration-lawyers-weigh-in-on-travel-to-the-u-s">Canadians have adopted burner phones</a> when crossing the border; this could account in part for the decline we found in cell phone pings.
 		</p>
 
 		<p>
