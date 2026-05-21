@@ -114,6 +114,12 @@ def compute_all_industry_correlations(
     visit_df["metro_name"] = visit_df["orig_metro_name"].map(mapping)
     visit_df = visit_df.dropna(subset=["metro_name"])
 
+    total_jobs = (
+        qcew_df.groupby("metro_name", as_index=False)["jobs"]
+        .sum()
+        .rename(columns={"jobs": "total_jobs"})
+    )
+
     rows = []
     for code in codes:
         # Only keep metros with real (>0) employment in this industry
@@ -129,6 +135,9 @@ def compute_all_industry_correlations(
             on="metro_name",
             how="inner",
         )
+        subset = subset.merge(total_jobs, on="metro_name", how="left")
+        subset = subset[subset["total_jobs"] > 0].copy()
+        subset["job_share"] = subset["jobs"] / subset["total_jobs"]
 
         n = len(subset)
 
@@ -143,7 +152,7 @@ def compute_all_industry_correlations(
             continue
 
         x = subset["visit_yoy_pct"].to_numpy(dtype=float)
-        y = subset["jobs"].to_numpy(dtype=float)
+        y = subset["job_share"].to_numpy(dtype=float)
 
         if np.std(x) > 0 and np.std(y) > 0:
             corr = float(np.corrcoef(x, y)[0, 1])

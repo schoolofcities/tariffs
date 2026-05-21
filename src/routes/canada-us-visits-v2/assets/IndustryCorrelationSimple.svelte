@@ -1,0 +1,96 @@
+<script>
+	export let correlations = [];
+	export let metricLabel = 'job share';
+
+	const minSampleSize = 4;
+	$: rows = correlations
+		.filter((item) => Number.isFinite(item.correlation) && item.sampleSize >= minSampleSize)
+		.map((item) => ({
+			industry: item.industry,
+			correlation: item.correlation
+		}))
+		.sort((a, b) => a.correlation - b.correlation);
+</script>
+
+<div class="simple-panel">
+	<div class="intro">
+		<h3>Industry correlations (table)</h3>
+		<p>
+			Industry and correlation values using {metricLabel} within each metro.
+		</p>
+	</div>
+
+	<div class="table-shell">
+		<table>
+			<thead>
+				<tr>
+					<th>Industry</th>
+					<th>Correlation</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each rows as row}
+					<tr>
+						<td>{row.industry}</td>
+						<td>{row.correlation.toFixed(3)}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<style>
+	.simple-panel {
+		max-width: 680px;
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+
+	.intro {
+		max-width: 680px;
+		margin: 0 auto 20px auto;
+	}
+
+	.table-shell {
+		max-width: 680px;
+		margin: 0 auto;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-family: OpenSans, sans-serif;
+		font-size: 13px;
+		color: var(--brandGray90);
+	}
+
+	th,
+	td {
+		padding: 8px 10px;
+		border: 1px solid rgba(30, 55, 101, 0.2);
+		text-align: left;
+	}
+
+	th {
+		font-family: OpenSansBold, sans-serif;
+	}
+
+	tr:first-child th {
+		border-top: none;
+	}
+
+	tr:last-child td {
+		border-bottom: none;
+	}
+
+	th:first-child,
+	td:first-child {
+		border-left: none;
+	}
+
+	th:last-child,
+	td:last-child {
+		border-right: none;
+	}
+</style>
