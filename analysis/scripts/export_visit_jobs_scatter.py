@@ -42,6 +42,7 @@ summary = total.merge(dominant, on="metro_name")
 visit_df = pd.DataFrame(list(visit_changes.items()), columns=["metro_name", "visit_yoy_pct"])
 merged = summary.merge(visit_df, on="metro_name", how="inner")
 merged["dominant_industry"] = merged["dominant_code"].map(naics_labels)
+merged["dominant_share"] = merged["dominant_jobs"] / merged["total_jobs_2023"].replace({0: pd.NA})
 
 records = []
 for _, row in merged.iterrows():
@@ -51,6 +52,7 @@ for _, row in merged.iterrows():
         "totalJobs": int(row["total_jobs_2023"]),
         "dominantIndustry": row["dominant_industry"],
         "dominantJobs": int(row["dominant_jobs"]),
+        "dominantShare": float(row["dominant_share"]) if pd.notna(row["dominant_share"]) else None,
         "dominantCode": row["dominant_code"],
     })
 

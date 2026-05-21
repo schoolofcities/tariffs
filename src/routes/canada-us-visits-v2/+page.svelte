@@ -11,7 +11,13 @@
 	import TrendLinesView from './assets/TrendLinesView.svelte';
 	import MapView from './assets/MapView.svelte';
 	import IndustryCorrelationView from './assets/IndustryCorrelationView.svelte';
-	import IndustryCorrelationScatterView from './assets/IndustryCorrelationScatterView.svelte';
+	import IndustryScatterView from './assets/IndustryScatterView.svelte';
+	import IndustryCorrelationSimple from './assets/IndustryCorrelationSimple.svelte';
+	import RegressionView from './assets/RegressionView.svelte';
+	import { industryCorrelations } from './assets/industryCorrelations.js';
+	import { industryCorrelationsRaw } from './assets/industryCorrelationsRaw.js';
+	import { visitJobsScatterData } from './assets/visitJobsScatterData.js';
+	import { visitJobsScatterDataRaw } from './assets/visitJobsScatterDataRaw.js';
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { scaleLinear, line } from "d3";
@@ -98,6 +104,12 @@
 	let selectedDataset = 'us_normalized_trips_daily.csv'
 	// View toggle: "map", "rankings", or "trends"
 	let viewMode = "trends";
+	let correlationViewMode = "correlations";
+	let correlationMetric = "share";
+
+	$: correlationData = correlationMetric === "share" ? industryCorrelations : industryCorrelationsRaw;
+	$: scatterData = correlationMetric === "share" ? visitJobsScatterData : visitJobsScatterDataRaw;
+	$: metricLabel = correlationMetric === "share" ? "job share" : "total jobs";
 
 
 	// Metro to region mapping (US states to regions)
@@ -409,7 +421,7 @@
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas. This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
+			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
 		</p>
 		
 
@@ -450,21 +462,6 @@
 					on:click={() => (viewMode = "map")}
 				>
 					Map
-				</button>
-
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "correlations"}
-					on:click={() => (viewMode = "correlations")}
-				>
-					Correlations
-				</button>
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "correlations-scatter"}
-					on:click={() => (viewMode = "correlations-scatter")}
-				>
-					Scatter
 				</button>
 
 			</div>
@@ -551,20 +548,12 @@
 	/>
 	{/if}
 
-	<!-- Correlations View (v2 only) -->
-	{#if viewMode === "correlations"}
-		<IndustryCorrelationView />
-	{/if}
-
-	{#if viewMode === "correlations-scatter"}
-		<IndustryCorrelationScatterView />
-	{/if}
-
 	<div class="text" style="margin-top: 0px;">
 
 		<div class="caption-container">
 			<p>
-				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.</span>
+				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.
+				<br>Editor's note (May 13, 2026): Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>.</span>
 			</p>
 		</div>
 
@@ -589,6 +578,7 @@
 			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a>, likely driven by the anticipated tariff threats. 
 			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the reduction in trade-related trips beginning in April 2025.
 			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., suggesting that the decrease in activity may reflect return migration to Canada. 
+			Finally, some <a href="https://ici.radio-canada.ca/rci/en/news/2152415/expect-extra-questions-take-a-burner-phone-immigration-lawyers-weigh-in-on-travel-to-the-u-s">Canadians have adopted burner phones</a> when crossing the border; this could account in part for the decline we found in cell phone pings.
 		</p>
 
 		<p>
@@ -596,23 +586,132 @@
 			Therefore, these figures likely understate the total revenue lost from broader economic effects of changes in residency patterns and trade-related travel, as suggested from <a href="https://accd.vermont.gov/canada-research">recent estimates by the State of Vermont</a>.
 		</p>
 
+		<p>
+			A couple metros have seen an increase in activity by Canadian visitors. More research is needed to determine the factors behind this; however, it is worthy of note that Air Canada relaunched their flight service to Cleveland in May, 2025.
+			This may have resulted in an increase in travel.
+		</p>
+
 	</div>
 
-	
+	<div class="text" style="margin-top: 50px;">
+		<h3>Industry correlations</h3>
+		<div class="view-toggle">
+			<div class="toggle-group">
+				<span class="toggle-label">View:</span>
+				<button
+					class="toggle-btn"
+					class:active={correlationViewMode === "correlations-simple"}
+					on:click={() => (correlationViewMode = "correlations-simple")}
+				>
+					Correlations
+				</button>
+				<button
+					class="toggle-btn"
+					class:active={correlationViewMode === "correlations"}
+					on:click={() => (correlationViewMode = "correlations")}
+				>
+					Correlations (deprecated)
+				</button>
+				<button
+					class="toggle-btn"
+					class:active={correlationViewMode === "correlations-scatter"}
+					on:click={() => (correlationViewMode = "correlations-scatter")}
+				>
+					Scatter
+				</button>
+				<button
+					class="toggle-btn"
+					class:active={correlationViewMode === "regression"}
+					on:click={() => (correlationViewMode = "regression")}
+				>
+					Regression
+				</button>
+			</div>
+			<div class="toggle-group">
+				<span class="toggle-label">Metric:</span>
+				<button
+					class="toggle-btn"
+					class:active={correlationMetric === "share"}
+					on:click={() => (correlationMetric = "share")}
+				>
+					Share of jobs
+				</button>
+				<button
+					class="toggle-btn"
+					class:active={correlationMetric === "raw"}
+					on:click={() => (correlationMetric = "raw")}
+				>
+					Total jobs
+				</button>
+			</div>
+		</div>
+	</div>
+
+	{#if correlationViewMode === "correlations"}
+		<IndustryCorrelationView correlations={correlationData} metricLabel={metricLabel} />
+	{/if}
+
+	{#if correlationViewMode === "correlations-simple"}
+		<IndustryCorrelationSimple correlations={correlationData} metricLabel={metricLabel} />
+	{/if}
+
+	{#if correlationViewMode === "correlations-scatter"}
+		<IndustryScatterView data={scatterData} mode={correlationMetric} />
+	{/if}
+
+	{#if correlationViewMode === "regression"}
+		<RegressionView metric={correlationMetric} />
+	{/if}
+
+	<div class="text" style="margin-top: 0px;">
+
+		<div class="caption-container">
+			<p>
+				<span class="caption-source">
+					Job data are from the <a href="https://www.bls.gov/cew/">U.S. Census of Employment and Wages</a> aggregated for 2023's metropolitan statistical areas, the most recent complete data.
+				</span>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="text" style = "margin-top: 50px">
+		<p>
+			From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not.
+			For industry percent shares, the population size, arts/entertainment and the transportation/warehousing sector are strong indicators of the year over year change in Canada to U.S. visits.
+		</p>
+		<p>
+			Categories from 2023 is used based on a 2 digits NAICS code function. 
+			10 metros have been discluded in the regression due to data quality issues.
+		</p>
+	</div>
 
 	<div class="text">
 		<h3>Data sources and methods</h3>
+
+			<div class="caption-container">
+				<p>
+					<span class="caption-source">Updated May 13, 2026</span>
+				</p>
+			</div>
+
 		<p>
-			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
+			The data used to define Canadian devices traveling to U.S. metro areas is provided by <a href="https://cuebiq.com/">Cuebiq</a>.
+			Cuebiq is a location intelligence platform that provides <a href="https://cuebiq.com/privacy-center/">anonymized and aggregated cell phone data</a> for academic research and humanitarian initiatives. 
+		</p>
+			
+		<p>
+			A stop is defined by Cuebiq as a point in space and time where the user spent a certain amount of dwelling time. A stop-detection algorithm by Cuebiq computes these stops. 
 			A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
 			Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
 			These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
 		</p>
 
 		<p>
-			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
-			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
-			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
+			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S.. A subsequent trip begins when we see this pattern occur again.
+			We selected the top 266 U.S. metropolitan statistical areas via their population from the <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-total-metro-and-micro-statistical-areas.html">U.S. Census Bureau</a>.
+			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro at <a href="https://en.wikipedia.org/wiki/Geohash">geohash level 6</a> is counted for that metro on that day. 
+			Following days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
 			In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
 		</p>
 
