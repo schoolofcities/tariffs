@@ -104,7 +104,7 @@
 	let selectedDataset = 'us_normalized_trips_daily.csv'
 	// View toggle: "map", "rankings", or "trends"
 	let viewMode = "trends";
-	let correlationViewMode = "correlations";
+	let correlationViewMode = "correlations-simple";
 	let correlationMetric = "share";
 
 	$: correlationData = correlationMetric === "share" ? industryCorrelations : industryCorrelationsRaw;
@@ -594,7 +594,7 @@
 	</div>
 
 	<div class="text" style="margin-top: 50px;">
-		<h3>Industry correlations</h3>
+		<h3>Industry effects</h3>
 		<div class="view-toggle">
 			<div class="toggle-group">
 				<span class="toggle-label">View:</span>
@@ -677,12 +677,28 @@
 
 	<div class="text" style = "margin-top: 50px">
 		<p>
-			From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not.
-			For industry percent shares, the population size, arts/entertainment and the transportation/warehousing sector are strong indicators of the year over year change in Canada to U.S. visits.
+			The total number of jobs within each sector reflect the size of the metro's economy as well as the differences between these sizes on a metro by metro level.
+			Whereas with the share of jobs, we are measuring the industry concentration per metro (local workforce), neutralizing the size aspect.
 		</p>
 		<p>
-			Categories from 2023 is used based on a 2 digits NAICS code function. 
-			10 metros have been discluded in the regression due to data quality issues.
+			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares and totals of jobs, meaning the more of this sector a metro contains, the worse the year over year % decline.
+			This is borderline significant in the professional services industry as well (p = 0.06), where this includes legal services, accounting, consulting, architecture, engineering and technical services.
+			Interestingly, manufacturing, retail and wholesale trade show bifurcating effects: when measured as job shares, these industries are associated with better year-over-year outcomes, while the totals show a negative correlation.
+			This phenomenon likely reflects the interdependency that larger metros have with Canadian trade.
+		</p>
+		<p>
+			When looking at strictly dominant industries per metro in the scatterplot, we see a general positive trend across all industries with the share of industries, while the totals show a decline in dominant industry vs. % change correlation. 
+			The former suggests that metros with diversified industries may be impacted harder while the more specialized metros aren't hit as hard.
+			The latter depicts how larger metros are impacted hardest in relation to their strongest industry.
+		</p>
+		<p>
+			From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not.
+			Using industry percent shares, the population size is a statistically strong predictor for a negative correlation, indicating further that bigger metros are severely impacted.
+			Furthermore, the arts/entertainment and the transportation/warehousing sectors are strong indicators of a decline in the year over year change in Canada to U.S. visits.
+		</p>
+		<p>
+			Industry categories are based on a 2 digits NAICS codes from 2023. 
+			10 metros have been excluded in the regression due to data quality issues.
 		</p>
 	</div>
 

@@ -263,9 +263,25 @@
 	$: scatterYScale = (value) =>
 		scatterMargin.top + (1 - (value - scatterMinPad) / (scatterMaxPad - scatterMinPad)) * scatterInnerHeight;
 	$: scatterTicks = [-100, -80, -60, -40, -20, 0, 20, 40];
+	const tooltipWidth = 200;
+	const tooltipHeight = 100;
 
 	function formatTick(value) {
 		return `${value.toFixed(0)}%`;
+	}
+
+	function getTooltipX(value) {
+		const rawX = scatterScale(value) + 10;
+		const minX = scatterMargin.left;
+		const maxX = scatterMargin.left + scatterInnerWidth - tooltipWidth;
+		return Math.max(minX, Math.min(rawX, maxX));
+	}
+
+	function getTooltipY(value) {
+		const rawY = scatterYScale(value) - 60;
+		const minY = scatterMargin.top;
+		const maxY = scatterMargin.top + scatterInnerHeight - tooltipHeight;
+		return Math.max(minY, Math.min(rawY, maxY));
 	}
 
 	let selectedPoint = null;
@@ -273,9 +289,9 @@
 
 <div class="regression-panel">
 	<div class="intro">
-		<h3>Regression: visit change vs. industry shares</h3>
+		<h3>Regression: visit change vs. industry {#if shareMode}shares {:else}totals{/if}</h3>
 		<p>
-			Single multivariate regression predicting visit YoY % change using industry shares, population, and region dummies.
+			Single multivariate regression predicting visit YoY % change using industry {#if shareMode}shares {:else}totals{/if}, population, and region dummies.
 			Baseline region is {baseRegion}.
 		</p>
 		{#if shareMode}
@@ -402,12 +418,13 @@
 
 				{#if selectedPoint}
 					<foreignObject
-						x={scatterScale(selectedPoint.actual) + 10}
-						y={scatterYScale(selectedPoint.predicted) - 60}
-						width="200"
-						height="80"
+						x={getTooltipX(selectedPoint.actual)}
+						y={getTooltipY(selectedPoint.predicted)}
+						width={tooltipWidth}
+						height={tooltipHeight}
+						style="pointer-events: none;"
 					>
-						<div class="tooltip">
+						<div class="tooltip" style="pointer-events: none;">
 							<div class="tooltip-title">{selectedPoint.metro}</div>
 							<div>Actual: {selectedPoint.actual.toFixed(1)}%</div>
 							<div>Predicted: {selectedPoint.predicted.toFixed(1)}%</div>

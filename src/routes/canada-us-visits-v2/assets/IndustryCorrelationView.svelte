@@ -125,7 +125,7 @@
 						x={tooltipX(selectedRow.row.correlation)}
 						y={tooltipY(selectedRow.index)}
 						width="190"
-						height="80"
+						height="100"
 					>
 						<div class="tooltip">
 							<div class="tooltip-title">{selectedRow.row.industry}</div>

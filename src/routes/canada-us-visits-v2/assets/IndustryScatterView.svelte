@@ -181,7 +181,7 @@
 					/>
 					<text
 						x={xScale(tick)}
-						y={chartHeight - 20}
+						y={chartHeight - 35}
 						text-anchor="middle"
 						class="axis-label"
 					>
@@ -259,7 +259,7 @@
 
 				<text
 					x={margin.left + innerWidth / 2}
-					y={chartHeight - 8}
+					y={chartHeight-8}
 					text-anchor="middle"
 					class="axis-title"
 				>
@@ -271,7 +271,7 @@
 					text-anchor="middle"
 					class="axis-title"
 				>
-					{isShareMode ? 'Dominant-industry' : 'Total jobs'}
+					{isShareMode ? 'Dominant-industry' : 'Dominant-industry'}
 				</text>
 				<text
 					x={margin.left + 40}
@@ -279,7 +279,7 @@
 					text-anchor="middle"
 					class="axis-title"
 				>
-					{isShareMode ? 'share of jobs' : '(2023)'}
+					{isShareMode ? 'share of jobs' : 'totals of jobs'}
 				</text>
 
 			</svg>

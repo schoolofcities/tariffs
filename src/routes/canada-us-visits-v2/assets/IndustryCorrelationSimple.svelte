@@ -7,14 +7,21 @@
 		.filter((item) => Number.isFinite(item.correlation) && item.sampleSize >= minSampleSize)
 		.map((item) => ({
 			industry: item.industry,
-			correlation: item.correlation
+			correlation: item.correlation,
+			pValue: Number.isFinite(item.pValue) ? item.pValue : null
 		}))
 		.sort((a, b) => a.correlation - b.correlation);
+
+	function formatPValue(value) {
+		if (!Number.isFinite(value)) return 'n/a';
+		if (value < 0.001) return '<0.001';
+		return value.toFixed(4);
+	}
 </script>
 
 <div class="simple-panel">
 	<div class="intro">
-		<h3>Industry correlations (table)</h3>
+		<h3>Industry job correlations with Canadian visit percent change (table)</h3>
 		<p>
 			Industry and correlation values using {metricLabel} within each metro.
 		</p>
@@ -26,6 +33,7 @@
 				<tr>
 					<th>Industry</th>
 					<th>Correlation</th>
+					<th>p-value</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +41,7 @@
 					<tr>
 						<td>{row.industry}</td>
 						<td>{row.correlation.toFixed(3)}</td>
+						<td>{formatPValue(row.pValue)}</td>
 					</tr>
 				{/each}
 			</tbody>
