@@ -1,0 +1,22 @@
+export const industryCorrelations = [
+	{ code: '44-45', industry: 'Retail Trade', correlation: 0.286904, pValue: 0.000004, sampleSize: 249 },
+	{ code: '42', industry: 'Wholesale Trade', correlation: 0.198945, pValue: 0.004241, sampleSize: 205 },
+	{ code: '31-33', industry: 'Manufacturing', correlation: 0.188842, pValue: 0.003665, sampleSize: 235 },
+	{ code: '22', industry: 'Utilities', correlation: 0.169379, pValue: 0.034530, sampleSize: 156 },
+	{ code: '62', industry: 'Health Care', correlation: 0.164199, pValue: 0.018937, sampleSize: 204 },
+	{ code: '21', industry: 'Mining/Oil & Gas', correlation: 0.149322, pValue: 0.065444, sampleSize: 153 },
+	{ code: '23', industry: 'Construction', correlation: 0.096652, pValue: 0.140475, sampleSize: 234 },
+	{ code: '55', industry: 'Management', correlation: 0.072711, pValue: 0.318787, sampleSize: 190 },
+	{ code: '56', industry: 'Admin/Support', correlation: 0.071504, pValue: 0.305909, sampleSize: 207 },
+	{ code: '81', industry: 'Other Services', correlation: 0.048410, pValue: 0.463065, sampleSize: 232 },
+	{ code: '48-49', industry: 'Transportation/Warehousing', correlation: 0.040942, pValue: 0.571854, sampleSize: 193 },
+	{ code: '11', industry: 'Agriculture', correlation: 0.037575, pValue: 0.629736, sampleSize: 167 },
+	{ code: '52', industry: 'Finance & Insurance', correlation: 0.034971, pValue: 0.602626, sampleSize: 224 },
+	{ code: '72', industry: 'Accommodation/Food', correlation: 0.011681, pValue: 0.863846, sampleSize: 218 },
+	{ code: '53', industry: 'Real Estate', correlation: -0.006561, pValue: 0.922213, sampleSize: 224 },
+	{ code: '99', industry: 'Unclassified', correlation: -0.060206, pValue: 0.453837, sampleSize: 157 },
+	{ code: '51', industry: 'Information', correlation: -0.113515, pValue: 0.101731, sampleSize: 209 },
+	{ code: '61', industry: 'Education', correlation: -0.122185, pValue: 0.083996, sampleSize: 201 },
+	{ code: '54', industry: 'Professional Services', correlation: -0.131842, pValue: 0.063418, sampleSize: 199 },
+	{ code: '71', industry: 'Arts/Entertainment', correlation: -0.219066, pValue: 0.001132, sampleSize: 218 }
+];
