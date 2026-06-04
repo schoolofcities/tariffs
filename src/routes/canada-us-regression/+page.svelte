@@ -10,7 +10,6 @@
 	import bigMetroPopulation2025 from '$lib/data/big-metro-keys-2025.json';
 	import TrendLinesView from './assets/TrendLinesView.svelte';
 	import MapView from './assets/MapView.svelte';
-	import IndustryCorrelationView from './assets/IndustryCorrelationView.svelte';
 	import IndustryScatterView from './assets/IndustryScatterView.svelte';
 	import IndustryCorrelationSimple from './assets/IndustryCorrelationSimple.svelte';
 	import RegressionView from './assets/RegressionView.svelte';
@@ -507,7 +506,7 @@
 	<div class="text" style = "margin-top: 50px">
 		
 		<p>
-			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares of jobs, meaning the more arts leaning a metro is, the worse the year over year % decline.
+			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares of jobs, signalling a worse the year-over-year percentage decline for art/entertainment oriented metros.
 			This is borderline significant in the professional services industry as well (p = 0.06), where this includes legal, accounting, consulting, architecture, engineering and technical services.
 			Manufacturing, retail and wholesale trade industries show better year-over-year outcomes, which may indicate that a resilience in cities' reliance on more local industries.
 			<!-- Interestingly, manufacturing, retail and wholesale trade show bifurcating effects: when measured as job shares, these industries are associated with better year-over-year outcomes, while the totals show a negative correlation.
@@ -521,13 +520,12 @@
 			<!-- From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not. -->
 			To complement the scatterplot analysis, we ran a multivariate regression model using retail trade as the baseline as it is a large industry that is relatively stable and is in nearly every metro.
 			As seen in the results, bigger metros have a significant negative effect on visits.
-			Furthermore, the arts/entertainment and the transportation/warehousing sectors are strong indicators of a decline in the year over year change in Canada to U.S. visits compared to a retail heavy metros.
-
-
+			Furthermore, the arts/entertainment and the transportation/warehousing sectors are strong indicators of a decline in the year-over-year change in Canada to U.S. visitation compared to a retail heavy metros.
+			This reveals that not only the tourism dependent metros are suffering from a loss in Canadian visits, but that the transportation sector, which includes passenger airlines, and freight trucking businesses are also at significant losses.
+			The tariffs may be a major contributor to these negative predictors, which is reflective of the trade dependency between the U.S. and Canada.
 		</p>
 		<p>
-			Industry categories are based on a 2 digits NAICS codes from 2023. 
-			10 metros have been excluded in the regression due to data quality issues.
+			Industry categories are based on the 2 digit North American Industrial Classification System (NAICS) codes from 2023. 
 		</p>
 	</div>
 
@@ -540,8 +538,8 @@
 		</p>
 			
 		<p>
-			To gather industry shares, we extracted employment data for each metropolitan statistical area from the <a href="https://www.bls.gov/cew/">U.S. Quarterly Census on Employment and Wages</a>.
-			The raw number of jobs were summed to create the total number of jobs to normalize against. This ratio of jobs per industry by the total across all industries defines the industry share of each city.
+			To gather industry shares, we extracted employment data for each metropolitan statistical area from the <a href="https://www.bls.gov/cew/">U.S. Quarterly Census on Employment and Wages</a> Python public API.
+			We gathered the number of jobs for the first 2 digits of the NAICS categories and normalized them against the total number of jobs across all industries. This ratio of jobs per industry by the total across all industries defines the industry share of each city.
 		</p>
 
 		<p>
@@ -550,7 +548,11 @@
 		</p>
 
 		<p>
-			You can download the correlations and regression data <a href={`/correlations-regression/${selectedDataset}`}>from this link</a> and the normalized trip data <a href={`/correlations-regression/${selectedDataset}`}>from this link</a>.
+			The correlations and regression use all industry shares of each metro, whereas the scatterplot demonstrates the industry with the most shares for each metro for visual clarity. 10 metros have been excluded in the regression due to data quality issues.
+		</p>
+
+		<p>
+			You can download the correlations and regression data <a href={`/canada-us-regression/`}>from this link</a>, the normalized trip data <a href={`/canada-us-regression/${selectedDataset}`}>from this link</a>.
 		</p>
 		<br>
 	</div>
