@@ -336,7 +336,11 @@
 				</thead>
 				<tbody>
 					{#each coefficients as coef, idx}
-						<tr>
+						<tr
+							class:negative={coef.value < 0}
+							class:positive={coef.value >= 0}
+							class:insignificant={(model?.pValues?.[idx] ?? 1) > 0.05}
+						>
 							<td>{coef.name}</td>
 							<td>{formatCoefficient(coef.value)}</td>
 							<td>{formatPValue(model?.pValues?.[idx])}{(model?.pValues?.[idx] ?? 1) < 0.05 ? ' *': ''}</td>
@@ -533,6 +537,28 @@
 
 	tr:last-child td {
 		border-bottom: none;
+	}
+
+	tr.negative {
+		color: var(--brandRed);
+		font-family: OpenSansBold, sans-serif;
+	}
+
+	tr.positive {
+		color: var(--brandMedBlue);
+		font-family: OpenSansBold, sans-serif;
+	}
+
+	tr.insignificant {
+		opacity: 0.5;
+	}
+
+	tr.negative td:first-child,
+	tr.positive td:first-child,
+	tr.negative td:last-child,
+	tr.positive td:last-child {
+		color: var(--brandGray90);
+		font-family: OpenSans, sans-serif;
 	}
 
 	th:first-child,
