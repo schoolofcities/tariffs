@@ -38,7 +38,11 @@
 			</thead>
 			<tbody>
 				{#each rows as row}
-					<tr>
+					<tr
+						class:negative={row.correlation < 0}
+						class:positive={row.correlation >= 0}
+						class:insignificant={row.pValue === null || row.pValue > 0.05}
+					>
 						<td>{row.industry}</td>
 						<td>{row.correlation.toFixed(3)}</td>
 						<td>{formatPValue(row.pValue)}</td>
@@ -91,6 +95,28 @@
 
 	tr:last-child td {
 		border-bottom: none;
+	}
+
+	tr.negative {
+		color: var(--brandRed);
+		font-family: OpenSansBold, sans-serif;
+	}
+
+	tr.positive {
+		color: var(--brandMedBlue);
+		font-family: OpenSansBold, sans-serif;
+	}
+
+	tr.insignificant {
+		opacity: 0.5;
+	}
+
+	tr.negative td:first-child,
+	tr.positive td:first-child,
+	tr.negative td:last-child,
+	tr.positive td:last-child {
+		color: var(--brandGray90);
+		font-family: OpenSans, sans-serif;
 	}
 
 	th:first-child,
