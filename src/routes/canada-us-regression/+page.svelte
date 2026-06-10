@@ -1,4 +1,4 @@
-<Password/>
+<!-- <Password/> -->
 
 <script>
 	import '../../assets/global-styles.css';
@@ -437,74 +437,13 @@
 	{#if dataLoaded}
 
 
-	<div class="text" style="margin-top: 50px;">
-		<h3>Industry effects</h3>
-		<div class="view-toggle">
-			<div class="toggle-group">
-				<span class="toggle-label">View:</span>
-				<button
-					class="toggle-btn"
-					class:active={correlationViewMode === "correlations-simple"}
-					on:click={() => (correlationViewMode = "correlations-simple")}
-				>
-					Correlations
-				</button>
-				<!-- <button
-					class="toggle-btn"
-					class:active={correlationViewMode === "correlations"}
-					on:click={() => (correlationViewMode = "correlations")}
-				>
-					Correlations (deprecated)
-				</button> -->
-				<button
-					class="toggle-btn"
-					class:active={correlationViewMode === "correlations-scatter"}
-					on:click={() => (correlationViewMode = "correlations-scatter")}
-				>
-					Scatter
-				</button>
-				<button
-					class="toggle-btn"
-					class:active={correlationViewMode === "regression"}
-					on:click={() => (correlationViewMode = "regression")}
-				>
-					Regression
-				</button>
-			</div>
-			<!-- Metric fixed to job share only (totals removed) -->
-		</div>
-	</div>
 
-	<!-- {#if correlationViewMode === "correlations"}
-		<IndustryCorrelationView correlations={correlationData} metricLabel={metricLabel} />
-	{/if} -->
 
-	{#if correlationViewMode === "correlations-simple"}
-		<IndustryCorrelationSimple correlations={correlationData} metricLabel={metricLabel} />
-	{/if}
 
-	{#if correlationViewMode === "correlations-scatter"}
-		<IndustryScatterView data={scatterData} mode={correlationMetric} />
-	{/if}
+	<IndustryCorrelationSimple correlations={correlationData} metricLabel={metricLabel} />
 
-	{#if correlationViewMode === "regression"}
-		<RegressionView metric={correlationMetric} />
-	{/if}
-
-	<div class="text" style="margin-top: 0px;">
-
-		<div class="caption-container">
-			<p>
-				<span class="caption-source">
-					Job data are from the <a href="https://www.bls.gov/cew/">U.S. Census of Employment and Wages</a> aggregated for 2023's metropolitan statistical areas, the most recent complete data.
-				</span>
-			</p>
-		</div>
-
-	</div>
 
 	<div class="text" style = "margin-top: 50px">
-		
 		<p>
 			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares of jobs, signalling a worse the year-over-year percentage decline for art/entertainment oriented metros.
 			This is borderline significant in the professional services industry as well (p = 0.06), where this includes legal, accounting, consulting, architecture, engineering and technical services.
@@ -512,18 +451,50 @@
 			<!-- Interestingly, manufacturing, retail and wholesale trade show bifurcating effects: when measured as job shares, these industries are associated with better year-over-year outcomes, while the totals show a negative correlation.
 			This phenomenon likely reflects the interdependency that larger metros have with Canadian trade. -->
 		</p>
+	</div>
+
+	<IndustryScatterView data={scatterData} mode={correlationMetric} />
+	<div class="text" style = "margin-top: 50px">
 		<p>
 			When looking at strictly dominant industries per metro in the scatterplot, we see a general positive trend across all industries with the share of industries. 
 			This could suggest that metros with diversified industries may be impacted harder while the more specialized metros are more resilient. 
 		</p>
+	</div>
+	<RegressionView metric={correlationMetric} />
+	<div class="text" style="margin-top: 0px;">
+
+		<div class="caption-container">
+			<p>
+				<span class="caption-source">
+					Job data are from the <a href="https://www.bls.gov/cew/">U.S. Census of Employment and Wages</a> aggregated for 2023's metropolitan statistical areas, the most recent complete data. Passenger enplanement data are from the <a href="https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger">Federal Aviation Administration</a>.
+				</span>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="text" style = "margin-top: 50px">
 		<p>
 			<!-- From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not. -->
 			To complement the scatterplot analysis, we ran a multivariate regression model using retail trade as the baseline as it is a large industry that is relatively stable and is in nearly every metro.
 			As seen in the results, bigger metros have a significant negative effect on visits.
+			We also see that metros further away from the Canada-U.S. border are affected more than metros closer to it. This could indicate that short trips are still happening, but that more dedicated longer trips are less prevalent.
+		</p>
+
+		<p>
 			Furthermore, the arts/entertainment and the transportation/warehousing sectors are strong indicators of a decline in the year-over-year change in Canada to U.S. visitation compared to a retail heavy metros.
 			This reveals that not only the tourism dependent metros are suffering from a loss in Canadian visits, but that the transportation sector, which includes passenger airlines, and freight trucking businesses are also at significant losses.
 			The tariffs may be a major contributor to these negative predictors, which is reflective of the trade dependency between the U.S. and Canada.
+
 		</p>
+	</div>
+	
+
+	<div class="text" style = "margin-top: 50px">
+		
+		
+		
+		
 		<p>
 			Industry categories are based on the 2 digit North American Industrial Classification System (NAICS) codes from 2023. 
 		</p>
