@@ -1,5 +1,5 @@
 <script>
-	import { regressionData } from './regressionData.js';
+	import { regressionData } from './regressionData_v2.js';
 	import jstat from 'jstat';
 
 	export let metric = "share";
@@ -77,7 +77,8 @@
 			region: getMetroRegion(row.metro)
 		}))
 		.filter((row) => Number.isFinite(row.visitChange))
-		.filter((row) => row.population2025 && row.region);
+		.filter((row) => row.population2025 && row.region)
+		.filter((row) => Number.isFinite(row.distToBorderKm) && Number.isFinite(row.cy24Enplanements));
 
 	function buildDesignMatrix(useShares, featureCodes) {
 		const predictors = [];
@@ -91,6 +92,10 @@
 			regionOrder.forEach((region) => {
 				features.push(row.region === region ? 1 : 0);
 			});
+
+			// Add geographic/transportation features
+			features.push(row.distToBorderKm / 1000); // distance in thousands of km
+			features.push(row.cy24Enplanements / 1_000_000); // enplanements in millions
 
 			featureCodes.forEach((code) => {
 				const value = useShares
@@ -230,6 +235,8 @@
 			"Intercept",
 			"Population (millions, std)",
 			...regionOrder.map((region) => `Region: ${region}`),
+			"Distance to border (1000 km, std)",
+			"Airport enplanements (millions, std)",
 			...industryFeatureCodes.map((code) => `${industryPrefix}: ${naicsLabels[code] || code}`)
 		];
 		const length = Math.min(names.length, model.beta.length);
@@ -293,7 +300,7 @@
 	<div class="intro">
 		<h3>Regression: visit change vs. industry {#if shareMode}shares {:else}totals{/if}</h3>
 		<p>
-			Single multivariate regression predicting visit YoY % change using industry {#if shareMode}shares {:else}totals{/if}, population, and region dummies.
+			Single multivariate regression predicting visit YoY % change using industry {#if shareMode}shares {:else}totals{/if}, population, region dummies, distance to Canadian border, and airport size (enplanements).
 			Baseline region is {baseRegion}.
 		</p>
 		{#if shareMode}
@@ -339,11 +346,11 @@
 						<tr
 							class:negative={coef.value < 0}
 							class:positive={coef.value >= 0}
-							class:insignificant={(model?.pValues?.[idx] ?? 1) > 0.05}
+							class:insignificant={(model?.pValues?.[idx] ?? 1) > 0.10}
 						>
 							<td>{coef.name}</td>
 							<td>{formatCoefficient(coef.value)}</td>
-							<td>{formatPValue(model?.pValues?.[idx])}{(model?.pValues?.[idx] ?? 1) < 0.05 ? ' *': ''}</td>
+							<td>{formatPValue(model?.pValues?.[idx])}{(model?.pValues?.[idx] ?? 1) < 0.10 ? ' *': ''}</td>
 						</tr>
 					{/each}
 				</tbody>

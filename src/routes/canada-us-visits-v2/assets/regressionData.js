@@ -4,6 +4,8 @@ export const regressionData = [
     "visitChange": -29.8,
     "totalJobs": 42970,
     "population2025": 185429,
+    "distToBorderKm": 1840.5549216906445,
+    "cy24Enplanements": 94579,
     "industryShares": {
       "11": 0.0058180125669071445,
       "21": 0.028903886432394693,
@@ -54,6 +56,8 @@ export const regressionData = [
     "visitChange": -43.7,
     "totalJobs": 280604,
     "population2025": 701780,
+    "distToBorderKm": 296.18571093175564,
+    "cy24Enplanements": 380232,
     "industryShares": {
       "11": 0.002006386224002509,
       "21": 0.001065558580775755,
@@ -104,6 +108,8 @@ export const regressionData = [
     "visitChange": -54.9,
     "totalJobs": 303269,
     "population2025": 915835,
+    "distToBorderKm": 208.06749425144588,
+    "cy24Enplanements": 1490673,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -154,6 +160,8 @@ export const regressionData = [
     "visitChange": -5.9,
     "totalJobs": 183339,
     "population2025": 925279,
+    "distToBorderKm": 1547.6088462281878,
+    "cy24Enplanements": 2690218,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -204,6 +212,8 @@ export const regressionData = [
     "visitChange": -46.8,
     "totalJobs": 316910,
     "population2025": 887615,
+    "distToBorderKm": 295.07446342567204,
+    "cy24Enplanements": 447899,
     "industryShares": {
       "11": 0.004080022719384052,
       "21": 0.0006815815215676375,
@@ -254,6 +264,8 @@ export const regressionData = [
     "visitChange": -37.6,
     "totalJobs": 66227,
     "population2025": 276235,
+    "distToBorderKm": 1532.1058445730885,
+    "cy24Enplanements": 402315,
     "industryShares": {
       "11": 0.015190179232035273,
       "21": 0.0,
@@ -304,6 +316,8 @@ export const regressionData = [
     "visitChange": -53.5,
     "totalJobs": 142177,
     "population2025": 405821,
+    "distToBorderKm": 2158.1981840299,
+    "cy24Enplanements": 2767856,
     "industryShares": {
       "11": 0.0035237767008728556,
       "21": 0.011985060874825043,
@@ -354,6 +368,8 @@ export const regressionData = [
     "visitChange": -53.9,
     "totalJobs": 133466,
     "population2025": 370214,
+    "distToBorderKm": 396.0618878293922,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -404,6 +420,8 @@ export const regressionData = [
     "visitChange": -38.1,
     "totalJobs": 82109,
     "population2025": 249876,
+    "distToBorderKm": 394.1844932883118,
+    "cy24Enplanements": 540349,
     "industryShares": {
       "11": 0.018158788926914225,
       "21": 0.0033370276096408432,
@@ -454,6 +472,8 @@ export const regressionData = [
     "visitChange": -40.7,
     "totalJobs": 119833,
     "population2025": 422345,
+    "distToBorderKm": 870.7659298644759,
+    "cy24Enplanements": 1096465,
     "industryShares": {
       "11": 0.013251775387414151,
       "21": 0.0012433970609097662,
@@ -504,6 +524,8 @@ export const regressionData = [
     "visitChange": -31.4,
     "totalJobs": 43944,
     "population2025": 224148,
+    "distToBorderKm": 1067.6418256267082,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.01538321500091025,
       "21": 0.002594210813762971,
@@ -554,6 +576,8 @@ export const regressionData = [
     "visitChange": -45.2,
     "totalJobs": 2066204,
     "population2025": 5044702,
+    "distToBorderKm": 1123.8851281307047,
+    "cy24Enplanements": 52511402,
     "industryShares": {
       "11": 0.001173649842900314,
       "21": 0.0,
@@ -604,6 +628,8 @@ export const regressionData = [
     "visitChange": -52.8,
     "totalJobs": 105031,
     "population2025": 372047,
+    "distToBorderKm": 451.5899207470887,
+    "cy24Enplanements": 489848,
     "industryShares": {
       "11": 0.012310651141091677,
       "21": 0.00030467195399453496,
@@ -654,6 +680,8 @@ export const regressionData = [
     "visitChange": -31.0,
     "totalJobs": 48780,
     "population2025": 208013,
+    "distToBorderKm": 1281.1297787018138,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -704,6 +732,8 @@ export const regressionData = [
     "visitChange": -32.9,
     "totalJobs": 127003,
     "population2025": 641231,
+    "distToBorderKm": 1082.6359470029115,
+    "cy24Enplanements": 299141,
     "industryShares": {
       "11": 0.01059030101651142,
       "21": 0.002102312543798178,
@@ -754,6 +784,8 @@ export const regressionData = [
     "visitChange": -50.7,
     "totalJobs": 890041,
     "population2025": 2620945,
+    "distToBorderKm": 2083.1053096179558,
+    "cy24Enplanements": 10678073,
     "industryShares": {
       "11": 0.0015066721645407347,
       "21": 0.003721176889603962,
@@ -804,6 +836,8 @@ export const regressionData = [
     "visitChange": -41.6,
     "totalJobs": 274650,
     "population2025": 927068,
+    "distToBorderKm": 1515.220677388005,
+    "cy24Enplanements": 195148,
     "industryShares": {
       "11": 0.2106244310941198,
       "21": 0.026855998543600948,
@@ -854,6 +888,8 @@ export const regressionData = [
     "visitChange": -38.9,
     "totalJobs": 1047002,
     "population2025": 2857781,
+    "distToBorderKm": 436.0898031459854,
+    "cy24Enplanements": 13221461,
     "industryShares": {
       "11": 0.0022110750504774584,
       "21": 0.0005243542992276997,
@@ -904,6 +940,8 @@ export const regressionData = [
     "visitChange": -54.4,
     "totalJobs": 81309,
     "population2025": 233539,
+    "distToBorderKm": 371.25905375111824,
+    "cy24Enplanements": 270251,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -954,6 +992,8 @@ export const regressionData = [
     "visitChange": -46.1,
     "totalJobs": 215149,
     "population2025": 888699,
+    "distToBorderKm": 1761.39395146917,
+    "cy24Enplanements": 419446,
     "industryShares": {
       "11": 0.0038252559853868716,
       "21": 0.0,
@@ -1004,6 +1044,8 @@ export const regressionData = [
     "visitChange": -24.3,
     "totalJobs": 58874,
     "population2025": 399310,
+    "distToBorderKm": 1964.827733199862,
+    "cy24Enplanements": 33907,
     "industryShares": {
       "11": 0.005316438495770629,
       "21": 0.01479430648503584,
@@ -1054,6 +1096,8 @@ export const regressionData = [
     "visitChange": -30.5,
     "totalJobs": 74312,
     "population2025": 236392,
+    "distToBorderKm": 44.57166551311091,
+    "cy24Enplanements": 266703,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1104,6 +1148,8 @@ export const regressionData = [
     "visitChange": -26.4,
     "totalJobs": 32281,
     "population2025": 193603,
+    "distToBorderKm": 359.6477477873673,
+    "cy24Enplanements": 475334,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1154,6 +1200,8 @@ export const regressionData = [
     "visitChange": -48.2,
     "totalJobs": 66417,
     "population2025": 243189,
+    "distToBorderKm": 124.6131734794665,
+    "cy24Enplanements": 24496,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1204,6 +1252,8 @@ export const regressionData = [
     "visitChange": -34.9,
     "totalJobs": 317380,
     "population2025": 1197766,
+    "distToBorderKm": 1250.0122812271354,
+    "cy24Enplanements": 1596510,
     "industryShares": {
       "11": 0.0023252882979393785,
       "21": 0.007045182431155083,
@@ -1254,6 +1304,8 @@ export const regressionData = [
     "visitChange": -31.3,
     "totalJobs": 34935,
     "population2025": 181616,
+    "distToBorderKm": 643.5138330656202,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0075568913696865605,
       "21": 0.0019750966079862603,
@@ -1304,6 +1356,8 @@ export const regressionData = [
     "visitChange": -35.9,
     "totalJobs": 65069,
     "population2025": 171419,
+    "distToBorderKm": 760.5195407623506,
+    "cy24Enplanements": 161971,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1354,6 +1408,8 @@ export const regressionData = [
     "visitChange": -43.9,
     "totalJobs": 49565,
     "population2025": 165231,
+    "distToBorderKm": 760.9322154644653,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0022596590335922525,
       "21": 0.004317562796328054,
@@ -1404,6 +1460,8 @@ export const regressionData = [
     "visitChange": -42.7,
     "totalJobs": 219652,
     "population2025": 864243,
+    "distToBorderKm": 598.9856372674042,
+    "cy24Enplanements": 2475370,
     "industryShares": {
       "11": 0.021921038733997415,
       "21": 0.0016753774151840183,
@@ -1454,6 +1512,8 @@ export const regressionData = [
     "visitChange": -52.0,
     "totalJobs": 2333735,
     "population2025": 2078469,
+    "distToBorderKm": 293.5816732478036,
+    "cy24Enplanements": 21203593,
     "industryShares": {
       "11": 0.0029214970851446287,
       "21": 0.00016111512232537114,
@@ -1504,6 +1564,8 @@ export const regressionData = [
     "visitChange": -48.2,
     "totalJobs": 165117,
     "population2025": 328560,
+    "distToBorderKm": 999.3148202284084,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0038397015449650853,
       "21": 0.0011809807590980942,
@@ -1554,6 +1616,8 @@ export const regressionData = [
     "visitChange": -37.7,
     "totalJobs": 64446,
     "population2025": 197180,
+    "distToBorderKm": 922.7003530953214,
+    "cy24Enplanements": 8835,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1604,6 +1668,8 @@ export const regressionData = [
     "visitChange": -45.8,
     "totalJobs": 59179,
     "population2025": 283374,
+    "distToBorderKm": 161.6075532228328,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.004798999645144393,
       "21": 0.0008955879619459606,
@@ -1654,6 +1720,8 @@ export const regressionData = [
     "visitChange": -51.9,
     "totalJobs": 373022,
     "population2025": 978179,
+    "distToBorderKm": 333.7311851214085,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.001182235900295425,
       "21": 0.00022250698350231353,
@@ -1704,6 +1772,8 @@ export const regressionData = [
     "visitChange": -58.5,
     "totalJobs": 127458,
     "population2025": 433946,
+    "distToBorderKm": 2534.5673347328475,
+    "cy24Enplanements": 188157,
     "industryShares": {
       "11": 0.0036404148817649738,
       "21": 0.001271006919926564,
@@ -1754,6 +1824,8 @@ export const regressionData = [
     "visitChange": -50.7,
     "totalJobs": 444527,
     "population2025": 1155653,
+    "distToBorderKm": 2.320167409106822,
+    "cy24Enplanements": 2558414,
     "industryShares": {
       "11": 0.0035408422885449026,
       "21": 0.0004701626672845519,
@@ -1804,6 +1876,8 @@ export const regressionData = [
     "visitChange": -17.2,
     "totalJobs": 59694,
     "population2025": 186177,
+    "distToBorderKm": 758.0044970808016,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1854,6 +1928,8 @@ export const regressionData = [
     "visitChange": -48.0,
     "totalJobs": 72880,
     "population2025": 227803,
+    "distToBorderKm": 60.637349985228326,
+    "cy24Enplanements": 670636,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -1904,6 +1980,8 @@ export const regressionData = [
     "visitChange": -42.3,
     "totalJobs": 99623,
     "population2025": 400246,
+    "distToBorderKm": 310.9761485064858,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0023388173413769913,
       "21": 0.0038946829547393674,
@@ -1954,6 +2032,8 @@ export const regressionData = [
     "visitChange": -58.2,
     "totalJobs": 249079,
     "population2025": 875607,
+    "distToBorderKm": 1837.5003842737044,
+    "cy24Enplanements": 5425293,
     "industryShares": {
       "11": 0.005062650805567712,
       "21": 0.001156259660589612,
@@ -2004,6 +2084,8 @@ export const regressionData = [
     "visitChange": -37.3,
     "totalJobs": 105295,
     "population2025": 279285,
+    "distToBorderKm": 701.5541685694986,
+    "cy24Enplanements": 759978,
     "industryShares": {
       "11": 0.004549123890023268,
       "21": 0.0016240087373569495,
@@ -2054,6 +2136,8 @@ export const regressionData = [
     "visitChange": -46.1,
     "totalJobs": 41567,
     "population2025": 239979,
+    "distToBorderKm": 771.5117188933316,
+    "cy24Enplanements": 86626,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2104,6 +2188,8 @@ export const regressionData = [
     "visitChange": -38.1,
     "totalJobs": 29240,
     "population2025": 200170,
+    "distToBorderKm": 555.9551092295133,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2154,6 +2240,8 @@ export const regressionData = [
     "visitChange": -48.5,
     "totalJobs": 313057,
     "population2025": 889263,
+    "distToBorderKm": 1129.291013194635,
+    "cy24Enplanements": 3115194,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2204,6 +2292,8 @@ export const regressionData = [
     "visitChange": -41.9,
     "totalJobs": 977473,
     "population2025": 2938830,
+    "distToBorderKm": 869.4518494751748,
+    "cy24Enplanements": 28655822,
     "industryShares": {
       "11": 0.0031959962065448355,
       "21": 0.0014077115173513745,
@@ -2254,6 +2344,8 @@ export const regressionData = [
     "visitChange": -35.3,
     "totalJobs": 55721,
     "population2025": 228597,
+    "distToBorderKm": 542.7774529091839,
+    "cy24Enplanements": 351138,
     "industryShares": {
       "11": 0.02248703361389781,
       "21": 0.002745822939286804,
@@ -2304,6 +2396,8 @@ export const regressionData = [
     "visitChange": -41.2,
     "totalJobs": 192327,
     "population2025": 594530,
+    "distToBorderKm": 1033.5633985982029,
+    "cy24Enplanements": 557741,
     "industryShares": {
       "11": 0.003286070078564112,
       "21": 0.0008475149095030859,
@@ -2354,6 +2448,8 @@ export const regressionData = [
     "visitChange": -48.6,
     "totalJobs": 3534749,
     "population2025": 7212979,
+    "distToBorderKm": 571.1926991157941,
+    "cy24Enplanements": 49067940,
     "industryShares": {
       "11": 0.0017364740749626069,
       "21": 0.0004266215224899986,
@@ -2404,6 +2500,8 @@ export const regressionData = [
     "visitChange": -19.9,
     "totalJobs": 63091,
     "population2025": 209211,
+    "distToBorderKm": 1031.0240053687369,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.04449129035837124,
       "21": 0.0006815552138973863,
@@ -2454,6 +2552,8 @@ export const regressionData = [
     "visitChange": -38.4,
     "totalJobs": 735183,
     "population2025": 2312858,
+    "distToBorderKm": 632.2176765434641,
+    "cy24Enplanements": 4500414,
     "industryShares": {
       "11": 0.001639047692887349,
       "21": 0.0008596499102944436,
@@ -2504,6 +2604,8 @@ export const regressionData = [
     "visitChange": -37.0,
     "totalJobs": 47675,
     "population2025": 349001,
+    "distToBorderKm": 1011.5642346905232,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2554,6 +2656,8 @@ export const regressionData = [
     "visitChange": 35.5,
     "totalJobs": 871729,
     "population2025": 2165775,
+    "distToBorderKm": 277.51608786689275,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0027864164206995523,
       "21": 0.0005552184222390215,
@@ -2604,6 +2708,8 @@ export const regressionData = [
     "visitChange": -39.7,
     "totalJobs": 58877,
     "population2025": 191864,
+    "distToBorderKm": 147.9252641027445,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.014538784245121185,
       "21": 0.002394823105796831,
@@ -2654,6 +2760,8 @@ export const regressionData = [
     "visitChange": -35.9,
     "totalJobs": 74298,
     "population2025": 287476,
+    "distToBorderKm": 2029.792314038344,
+    "cy24Enplanements": 68316,
     "industryShares": {
       "11": 0.016581872997927266,
       "21": 0.02201943524724757,
@@ -2704,6 +2812,8 @@ export const regressionData = [
     "visitChange": -51.0,
     "totalJobs": 245829,
     "population2025": 781796,
+    "distToBorderKm": 1130.5083605328434,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2754,6 +2864,8 @@ export const regressionData = [
     "visitChange": -36.7,
     "totalJobs": 65584,
     "population2025": 219062,
+    "distToBorderKm": 1041.200107854571,
+    "cy24Enplanements": 103081,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -2804,6 +2916,8 @@ export const regressionData = [
     "visitChange": -40.4,
     "totalJobs": 196992,
     "population2025": 879918,
+    "distToBorderKm": 1006.7671755823214,
+    "cy24Enplanements": 654460,
     "industryShares": {
       "11": 0.012893924626380766,
       "21": 0.001974699480181936,
@@ -2854,6 +2968,8 @@ export const regressionData = [
     "visitChange": -14.0,
     "totalJobs": 34095,
     "population2025": 324830,
+    "distToBorderKm": 1277.5235964279425,
+    "cy24Enplanements": 63422,
     "industryShares": {
       "11": 0.011673265874761696,
       "21": 0.003988854670772841,
@@ -2904,6 +3020,8 @@ export const regressionData = [
     "visitChange": -45.4,
     "totalJobs": 869731,
     "population2025": 2242028,
+    "distToBorderKm": 472.700859707363,
+    "cy24Enplanements": 4530430,
     "industryShares": {
       "11": 0.0033999018087201675,
       "21": 0.0006381283408318204,
@@ -2954,6 +3072,8 @@ export const regressionData = [
     "visitChange": -37.6,
     "totalJobs": 119499,
     "population2025": 451191,
+    "distToBorderKm": 2357.5104134522903,
+    "cy24Enplanements": 369393,
     "industryShares": {
       "11": 0.006334781044192838,
       "21": 0.024544138444673177,
@@ -3004,6 +3124,8 @@ export const regressionData = [
     "visitChange": -46.8,
     "totalJobs": 103362,
     "population2025": 315098,
+    "distToBorderKm": 1515.2486466834457,
+    "cy24Enplanements": 1164880,
     "industryShares": {
       "11": 0.001209341924498365,
       "21": 0.0005417851821752675,
@@ -3054,6 +3176,8 @@ export const regressionData = [
     "visitChange": -49.6,
     "totalJobs": 2941996,
     "population2025": 5742098,
+    "distToBorderKm": 1804.0276022696737,
+    "cy24Enplanements": 51006307,
     "industryShares": {
       "11": 0.0011838901208567245,
       "21": 0.005883080738383057,
@@ -3104,6 +3228,8 @@ export const regressionData = [
     "visitChange": -44.9,
     "totalJobs": 69024,
     "population2025": 267761,
+    "distToBorderKm": 1582.111422547002,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.009605354659248957,
       "21": 0.001043115438108484,
@@ -3154,6 +3280,8 @@ export const regressionData = [
     "visitChange": -32.1,
     "totalJobs": 126560,
     "population2025": 380452,
+    "distToBorderKm": 730.7900541196537,
+    "cy24Enplanements": 326888,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3204,6 +3332,8 @@ export const regressionData = [
     "visitChange": -55.1,
     "totalJobs": 188549,
     "population2025": 746933,
+    "distToBorderKm": 1533.9376407307034,
+    "cy24Enplanements": 337763,
     "industryShares": {
       "11": 0.008342658937464532,
       "21": 0.00010607322234538502,
@@ -3254,6 +3384,8 @@ export const regressionData = [
     "visitChange": -45.2,
     "totalJobs": 781665,
     "population2025": 3092037,
+    "distToBorderKm": 1029.7542628836793,
+    "cy24Enplanements": 40012895,
     "industryShares": {
       "11": 0.0,
       "21": 0.010334350393071201,
@@ -3304,6 +3436,8 @@ export const regressionData = [
     "visitChange": -41.3,
     "totalJobs": 253074,
     "population2025": 758539,
+    "distToBorderKm": 800.712601722243,
+    "cy24Enplanements": 1555454,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3354,6 +3488,8 @@ export const regressionData = [
     "visitChange": -41.4,
     "totalJobs": 1650744,
     "population2025": 1769038,
+    "distToBorderKm": 339.0144198565971,
+    "cy24Enplanements": 16110696,
     "industryShares": {
       "11": 0.002266250854160306,
       "21": 0.000612451112952705,
@@ -3404,6 +3540,8 @@ export const regressionData = [
     "visitChange": -27.1,
     "totalJobs": 50595,
     "population2025": 194786,
+    "distToBorderKm": 452.96558350120927,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3454,6 +3592,8 @@ export const regressionData = [
     "visitChange": -44.2,
     "totalJobs": 98707,
     "population2025": 281219,
+    "distToBorderKm": 269.54682893921114,
+    "cy24Enplanements": 135966,
     "industryShares": {
       "11": 0.002735368312277751,
       "21": 0.034212365890970244,
@@ -3504,6 +3644,8 @@ export const regressionData = [
     "visitChange": -45.9,
     "totalJobs": 275424,
     "population2025": 625485,
+    "distToBorderKm": 767.9121727820856,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.003256796793307773,
       "21": 0.0002577843615661671,
@@ -3554,6 +3696,8 @@ export const regressionData = [
     "visitChange": -41.4,
     "totalJobs": 46310,
     "population2025": 167179,
+    "distToBorderKm": 261.2276644238923,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.004059598358885769,
       "21": 0.0015115525804361909,
@@ -3604,6 +3748,8 @@ export const regressionData = [
     "visitChange": -43.6,
     "totalJobs": 73440,
     "population2025": 176647,
+    "distToBorderKm": 402.95578930864326,
+    "cy24Enplanements": 22289,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3654,6 +3800,8 @@ export const regressionData = [
     "visitChange": -42.7,
     "totalJobs": 45829,
     "population2025": 181411,
+    "distToBorderKm": 1802.6133082206657,
+    "cy24Enplanements": 4183,
     "industryShares": {
       "11": 0.19620764144973707,
       "21": 0.00728796177093107,
@@ -3704,6 +3852,8 @@ export const regressionData = [
     "visitChange": -38.2,
     "totalJobs": 110452,
     "population2025": 881291,
+    "distToBorderKm": 1917.2188577873897,
+    "cy24Enplanements": 2071894,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3754,6 +3904,8 @@ export const regressionData = [
     "visitChange": -38.2,
     "totalJobs": 122485,
     "population2025": 208774,
+    "distToBorderKm": 548.5322614190574,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3804,6 +3956,8 @@ export const regressionData = [
     "visitChange": -39.7,
     "totalJobs": 103917,
     "population2025": 265832,
+    "distToBorderKm": 129.53887430790954,
+    "cy24Enplanements": 46810,
     "industryShares": {
       "11": 0.0035797800167441324,
       "21": 0.00030793806595648453,
@@ -3854,6 +4008,8 @@ export const regressionData = [
     "visitChange": -45.8,
     "totalJobs": 120072,
     "population2025": 273786,
+    "distToBorderKm": 913.3923355073788,
+    "cy24Enplanements": 189706,
     "industryShares": {
       "11": 0.0034729162502498503,
       "21": 0.0010660270504364048,
@@ -3904,6 +4060,8 @@ export const regressionData = [
     "visitChange": -43.1,
     "totalJobs": 119617,
     "population2025": 269528,
+    "distToBorderKm": 236.56309887075224,
+    "cy24Enplanements": 552860,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -3954,6 +4112,8 @@ export const regressionData = [
     "visitChange": -42.3,
     "totalJobs": 83684,
     "population2025": 395412,
+    "distToBorderKm": 872.5819363228725,
+    "cy24Enplanements": 168117,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4004,6 +4164,8 @@ export const regressionData = [
     "visitChange": -45.0,
     "totalJobs": 110150,
     "population2025": 622177,
+    "distToBorderKm": 1393.2204631140892,
+    "cy24Enplanements": 1123106,
     "industryShares": {
       "11": 0.01333635950975942,
       "21": 0.0006082614616432138,
@@ -4054,6 +4216,8 @@ export const regressionData = [
     "visitChange": -55.3,
     "totalJobs": 115054,
     "population2025": 401093,
+    "distToBorderKm": 381.1150075586643,
+    "cy24Enplanements": 285088,
     "industryShares": {
       "11": 0.0027899942635631965,
       "21": 0.00034766283658108364,
@@ -4104,6 +4268,8 @@ export const regressionData = [
     "visitChange": -37.5,
     "totalJobs": 71472,
     "population2025": 201392,
+    "distToBorderKm": 970.7937238608934,
+    "cy24Enplanements": 24728,
     "industryShares": {
       "11": 0.004785090664875756,
       "21": 0.0005316767405417507,
@@ -4154,6 +4320,8 @@ export const regressionData = [
     "visitChange": -41.8,
     "totalJobs": 136176,
     "population2025": 377292,
+    "distToBorderKm": 935.6954831120366,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.006601750675596287,
       "21": 0.0032164258019034193,
@@ -4204,6 +4372,8 @@ export const regressionData = [
     "visitChange": -33.5,
     "totalJobs": 82265,
     "population2025": 234140,
+    "distToBorderKm": 1471.5503107947277,
+    "cy24Enplanements": 59250,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4254,6 +4424,8 @@ export const regressionData = [
     "visitChange": -37.3,
     "totalJobs": 119061,
     "population2025": 466258,
+    "distToBorderKm": 546.8011661254153,
+    "cy24Enplanements": 424491,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4304,6 +4476,8 @@ export const regressionData = [
     "visitChange": -46.8,
     "totalJobs": 344502,
     "population2025": 1203383,
+    "distToBorderKm": 1363.6033031517022,
+    "cy24Enplanements": 1318250,
     "industryShares": {
       "11": 0.12094559683252927,
       "21": 0.0006647276358337542,
@@ -4354,6 +4528,8 @@ export const regressionData = [
     "visitChange": 31.0,
     "totalJobs": 46546,
     "population2025": 359036,
+    "distToBorderKm": 1504.436110494353,
+    "cy24Enplanements": 290563,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4404,6 +4580,8 @@ export const regressionData = [
     "visitChange": -39.8,
     "totalJobs": 89004,
     "population2025": 226568,
+    "distToBorderKm": 1047.3664673377396,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4454,6 +4632,8 @@ export const regressionData = [
     "visitChange": -53.2,
     "totalJobs": 473578,
     "population2025": 1183645,
+    "distToBorderKm": 403.9190451700847,
+    "cy24Enplanements": 2065053,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4504,6 +4684,8 @@ export const regressionData = [
     "visitChange": -29.9,
     "totalJobs": 98481,
     "population2025": 378426,
+    "distToBorderKm": 953.960485481772,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.04099267879083275,
       "21": 0.06244859414506351,
@@ -4554,6 +4736,8 @@ export const regressionData = [
     "visitChange": -43.1,
     "totalJobs": 102061,
     "population2025": 336756,
+    "distToBorderKm": 351.70687301829804,
+    "cy24Enplanements": 338127,
     "industryShares": {
       "11": 0.024994856017479743,
       "21": 0.0008916236368446322,
@@ -4604,6 +4788,8 @@ export const regressionData = [
     "visitChange": -44.2,
     "totalJobs": 292776,
     "population2025": 805945,
+    "distToBorderKm": 763.0079775767963,
+    "cy24Enplanements": 985563,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4654,6 +4840,8 @@ export const regressionData = [
     "visitChange": -29.5,
     "totalJobs": 54995,
     "population2025": 182936,
+    "distToBorderKm": 820.9570011788571,
+    "cy24Enplanements": 42318,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4704,6 +4892,8 @@ export const regressionData = [
     "visitChange": -42.6,
     "totalJobs": 343934,
     "population2025": 1014101,
+    "distToBorderKm": 944.323870819448,
+    "cy24Enplanements": 1412702,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4754,6 +4944,8 @@ export const regressionData = [
     "visitChange": -37.2,
     "totalJobs": 87430,
     "population2025": 431329,
+    "distToBorderKm": 1661.2167373594996,
+    "cy24Enplanements": 424624,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4804,6 +4996,8 @@ export const regressionData = [
     "visitChange": -52.0,
     "totalJobs": 82932,
     "population2025": 315280,
+    "distToBorderKm": 375.46563735593656,
+    "cy24Enplanements": 41508,
     "industryShares": {
       "11": 0.004895577099310279,
       "21": 0.0005184970819466551,
@@ -4854,6 +5048,8 @@ export const regressionData = [
     "visitChange": -41.4,
     "totalJobs": 267680,
     "population2025": 617427,
+    "distToBorderKm": 330.39196234712614,
+    "cy24Enplanements": 727163,
     "industryShares": {
       "11": 0.002955020920502092,
       "21": 0.0004707112970711297,
@@ -4904,6 +5100,8 @@ export const regressionData = [
     "visitChange": -44.7,
     "totalJobs": 494327,
     "population2025": 1171426,
+    "distToBorderKm": 329.48808473117185,
+    "cy24Enplanements": 3285194,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -4954,6 +5152,8 @@ export const regressionData = [
     "visitChange": -35.1,
     "totalJobs": 494327,
     "population2025": 1171426,
+    "distToBorderKm": 329.48808473117185,
+    "cy24Enplanements": 3285194,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5004,6 +5204,8 @@ export const regressionData = [
     "visitChange": -24.3,
     "totalJobs": 33326,
     "population2025": 158014,
+    "distToBorderKm": 1579.9053155075624,
+    "cy24Enplanements": 17003,
     "industryShares": {
       "11": 0.008521874812458741,
       "21": 0.0012302706595450998,
@@ -5054,6 +5256,8 @@ export const regressionData = [
     "visitChange": -30.7,
     "totalJobs": 120008,
     "population2025": 376890,
+    "distToBorderKm": 823.893380595541,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.002691487234184388,
       "21": 0.0008332777814812345,
@@ -5104,6 +5308,8 @@ export const regressionData = [
     "visitChange": -52.6,
     "totalJobs": 68515,
     "population2025": 242966,
+    "distToBorderKm": 1199.0549251523166,
+    "cy24Enplanements": 108775,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5154,6 +5360,8 @@ export const regressionData = [
     "visitChange": -23.8,
     "totalJobs": 71962,
     "population2025": 199668,
+    "distToBorderKm": 1815.8444250013447,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.003154442622495206,
       "21": 0.07396959506406159,
@@ -5204,6 +5412,8 @@ export const regressionData = [
     "visitChange": -51.7,
     "totalJobs": 1314372,
     "population2025": 7904627,
+    "distToBorderKm": 2069.061373333844,
+    "cy24Enplanements": 30466124,
     "industryShares": {
       "11": 0.002535811779313619,
       "21": 0.051299023411941216,
@@ -5254,6 +5464,8 @@ export const regressionData = [
     "visitChange": -41.2,
     "totalJobs": 84065,
     "population2025": 365965,
+    "distToBorderKm": 580.9499118128728,
+    "cy24Enplanements": 93330,
     "industryShares": {
       "11": 0.0,
       "21": 0.0030452625944209838,
@@ -5304,6 +5516,8 @@ export const regressionData = [
     "visitChange": -27.2,
     "totalJobs": 196779,
     "population2025": 556444,
+    "distToBorderKm": 1125.2567744396026,
+    "cy24Enplanements": 804665,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5354,6 +5568,8 @@ export const regressionData = [
     "visitChange": -33.0,
     "totalJobs": 38569,
     "population2025": 173851,
+    "distToBorderKm": 612.5030236315891,
+    "cy24Enplanements": 301674,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5404,6 +5620,8 @@ export const regressionData = [
     "visitChange": -48.8,
     "totalJobs": 648065,
     "population2025": 2205695,
+    "distToBorderKm": 696.5944757112711,
+    "cy24Enplanements": 5181947,
     "industryShares": {
       "11": 0.0037480808252258646,
       "21": 0.001161920486370966,
@@ -5454,6 +5672,8 @@ export const regressionData = [
     "visitChange": -18.3,
     "totalJobs": 55441,
     "population2025": 182711,
+    "distToBorderKm": 732.4382951831158,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.010245125448675169,
       "21": 0.0017856820764416226,
@@ -5504,6 +5724,8 @@ export const regressionData = [
     "visitChange": -44.7,
     "totalJobs": 45121,
     "population2025": 159552,
+    "distToBorderKm": 449.73474260386007,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.007047716141042973,
       "21": 0.00150705879745573,
@@ -5554,6 +5776,8 @@ export const regressionData = [
     "visitChange": -26.7,
     "totalJobs": 134384,
     "population2025": 609847,
+    "distToBorderKm": 1539.130392961502,
+    "cy24Enplanements": 616695,
     "industryShares": {
       "11": 0.008565007739016549,
       "21": 0.004933623050363139,
@@ -5604,6 +5828,8 @@ export const regressionData = [
     "visitChange": -23.9,
     "totalJobs": 39715,
     "population2025": 184569,
+    "distToBorderKm": 1175.2457249992665,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5654,6 +5880,8 @@ export const regressionData = [
     "visitChange": -48.6,
     "totalJobs": 437010,
     "population2025": 1785500,
+    "distToBorderKm": 1418.724112597033,
+    "cy24Enplanements": 3749791,
     "industryShares": {
       "11": 0.0037687924761447104,
       "21": 0.0003752774536051807,
@@ -5704,6 +5932,8 @@ export const regressionData = [
     "visitChange": -29.3,
     "totalJobs": 38786,
     "population2025": 217175,
+    "distToBorderKm": 914.6544092962756,
+    "cy24Enplanements": 145901,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5754,6 +5984,8 @@ export const regressionData = [
     "visitChange": -41.9,
     "totalJobs": 56031,
     "population2025": 166472,
+    "distToBorderKm": 554.9540695618656,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5804,6 +6036,8 @@ export const regressionData = [
     "visitChange": -31.4,
     "totalJobs": 55198,
     "population2025": 216416,
+    "distToBorderKm": 789.7030163954635,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5854,6 +6088,8 @@ export const regressionData = [
     "visitChange": -31.5,
     "totalJobs": 70141,
     "population2025": 208796,
+    "distToBorderKm": 1294.229930833198,
+    "cy24Enplanements": 18362,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5904,6 +6140,8 @@ export const regressionData = [
     "visitChange": -47.9,
     "totalJobs": 64446,
     "population2025": 160674,
+    "distToBorderKm": 4303.743802501451,
+    "cy24Enplanements": 3415615,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -5954,6 +6192,8 @@ export const regressionData = [
     "visitChange": -44.5,
     "totalJobs": 118346,
     "population2025": 263795,
+    "distToBorderKm": 475.8336450109149,
+    "cy24Enplanements": 92510,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -6004,6 +6244,8 @@ export const regressionData = [
     "visitChange": -45.0,
     "totalJobs": 591014,
     "population2025": 2270682,
+    "distToBorderKm": 1086.2711097487356,
+    "cy24Enplanements": 5915078,
     "industryShares": {
       "11": 0.0036648878029962063,
       "21": 0.0015278825882297205,
@@ -6054,6 +6296,8 @@ export const regressionData = [
     "visitChange": -38.9,
     "totalJobs": 98784,
     "population2025": 324334,
+    "distToBorderKm": 310.2708030440881,
+    "cy24Enplanements": 476639,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -6104,6 +6348,8 @@ export const regressionData = [
     "visitChange": -36.7,
     "totalJobs": 82162,
     "population2025": 511497,
+    "distToBorderKm": 1988.619253998304,
+    "cy24Enplanements": 117523,
     "industryShares": {
       "11": 0.004101652832209537,
       "21": 0.003480927922884058,
@@ -6154,6 +6400,8 @@ export const regressionData = [
     "visitChange": -40.9,
     "totalJobs": 64187,
     "population2025": 314834,
+    "distToBorderKm": 772.3754823596411,
+    "cy24Enplanements": 229860,
     "industryShares": {
       "11": 0.005141227974511973,
       "21": 0.0,
@@ -6204,6 +6452,8 @@ export const regressionData = [
     "visitChange": -41.6,
     "totalJobs": 43873,
     "population2025": 183330,
+    "distToBorderKm": 227.98329237169764,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.02192692544389488,
       "21": 0.002416064549950995,
@@ -6254,6 +6504,8 @@ export const regressionData = [
     "visitChange": -41.0,
     "totalJobs": 172768,
     "population2025": 968137,
+    "distToBorderKm": 883.5231034618092,
+    "cy24Enplanements": 1639080,
     "industryShares": {
       "11": 0.004734673087608816,
       "21": 0.0,
@@ -6304,6 +6556,8 @@ export const regressionData = [
     "visitChange": -42.5,
     "totalJobs": 155605,
     "population2025": 423758,
+    "distToBorderKm": 1828.3050516235637,
+    "cy24Enplanements": 264471,
     "industryShares": {
       "11": 0.005970245172070306,
       "21": 0.062099546929725906,
@@ -6354,6 +6608,8 @@ export const regressionData = [
     "visitChange": -41.2,
     "totalJobs": 31051,
     "population2025": 228468,
+    "distToBorderKm": 702.9839329292839,
+    "cy24Enplanements": 5647,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -6404,6 +6660,8 @@ export const regressionData = [
     "visitChange": -35.1,
     "totalJobs": 58843,
     "population2025": 244655,
+    "distToBorderKm": 1897.4299227232996,
+    "cy24Enplanements": 90791,
     "industryShares": {
       "11": 0.002141291232602009,
       "21": 0.005336233706643101,
@@ -6454,6 +6712,8 @@ export const regressionData = [
     "visitChange": -44.2,
     "totalJobs": 46952,
     "population2025": 228102,
+    "distToBorderKm": 1614.334401123686,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.008604532288294428,
       "21": 0.0063256091327313,
@@ -6504,6 +6764,8 @@ export const regressionData = [
     "visitChange": -49.8,
     "totalJobs": 230380,
     "population2025": 874790,
+    "distToBorderKm": 1675.0096036839357,
+    "cy24Enplanements": 24185,
     "industryShares": {
       "11": 0.00806927684694852,
       "21": 0.0028821946349509506,
@@ -6554,6 +6816,8 @@ export const regressionData = [
     "visitChange": -44.8,
     "totalJobs": 231090,
     "population2025": 563159,
+    "distToBorderKm": 351.7187369515685,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.014063784672638366,
       "21": 0.0019732571725301832,
@@ -6604,6 +6868,8 @@ export const regressionData = [
     "visitChange": -48.6,
     "totalJobs": 157623,
     "population2025": 479722,
+    "distToBorderKm": 418.9498852088632,
+    "cy24Enplanements": 123608,
     "industryShares": {
       "11": 0.014134992989601771,
       "21": 0.0012244405955983582,
@@ -6654,6 +6920,8 @@ export const regressionData = [
     "visitChange": -47.7,
     "totalJobs": 82406,
     "population2025": 281224,
+    "distToBorderKm": 2390.353045046814,
+    "cy24Enplanements": 172726,
     "industryShares": {
       "11": 0.0018081207679052497,
       "21": 0.012135038710773488,
@@ -6704,6 +6972,8 @@ export const regressionData = [
     "visitChange": -29.9,
     "totalJobs": 59046,
     "population2025": 229091,
+    "distToBorderKm": 1854.8471514201583,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.040663211733224944,
       "21": 0.0008806693086745927,
@@ -6754,6 +7024,8 @@ export const regressionData = [
     "visitChange": -55.5,
     "totalJobs": 986288,
     "population2025": 2407226,
+    "distToBorderKm": 1426.6872586845182,
+    "cy24Enplanements": 28244966,
     "industryShares": {
       "11": 0.002124126015930438,
       "21": 0.00042888081371769704,
@@ -6804,6 +7076,8 @@ export const regressionData = [
     "visitChange": -44.7,
     "totalJobs": 171030,
     "population2025": 535174,
+    "distToBorderKm": 718.442309054377,
+    "cy24Enplanements": 776297,
     "industryShares": {
       "11": 0.023978249429924575,
       "21": 0.001502660351985032,
@@ -6854,6 +7128,8 @@ export const regressionData = [
     "visitChange": -24.4,
     "totalJobs": 115546,
     "population2025": 352081,
+    "distToBorderKm": 910.5853723639073,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -6904,6 +7180,8 @@ export const regressionData = [
     "visitChange": -45.3,
     "totalJobs": 214358,
     "population2025": 777607,
+    "distToBorderKm": 1461.2033879395424,
+    "cy24Enplanements": 1145693,
     "industryShares": {
       "11": 0.00407729126041482,
       "21": 0.0037367394732177013,
@@ -6954,6 +7232,8 @@ export const regressionData = [
     "visitChange": -30.2,
     "totalJobs": 80851,
     "population2025": 297315,
+    "distToBorderKm": 1783.9900615301503,
+    "cy24Enplanements": 35057,
     "industryShares": {
       "11": 0.002325264993630258,
       "21": 0.05750083486908016,
@@ -7004,6 +7284,8 @@ export const regressionData = [
     "visitChange": -52.0,
     "totalJobs": 5390296,
     "population2025": 9694934,
+    "distToBorderKm": 1662.2409641047907,
+    "cy24Enplanements": 48552571,
     "industryShares": {
       "11": 0.0011928843981851831,
       "21": 0.00036083361655834856,
@@ -7054,6 +7336,8 @@ export const regressionData = [
     "visitChange": -43.9,
     "totalJobs": 545160,
     "population2025": 1402509,
+    "distToBorderKm": 775.7621225569987,
+    "cy24Enplanements": 2343305,
     "industryShares": {
       "11": 0.0013518966908797417,
       "21": 0.0009373394966615305,
@@ -7104,6 +7388,8 @@ export const regressionData = [
     "visitChange": -32.8,
     "totalJobs": 58392,
     "population2025": 368431,
+    "distToBorderKm": 1714.901095714369,
+    "cy24Enplanements": 563180,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -7154,6 +7440,8 @@ export const regressionData = [
     "visitChange": -32.3,
     "totalJobs": 73651,
     "population2025": 269169,
+    "distToBorderKm": 610.3839222972787,
+    "cy24Enplanements": 81477,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -7204,6 +7492,8 @@ export const regressionData = [
     "visitChange": -39.4,
     "totalJobs": 52286,
     "population2025": 238553,
+    "distToBorderKm": 1192.647331787268,
+    "cy24Enplanements": 17020,
     "industryShares": {
       "11": 0.009486286960180546,
       "21": 0.00747810121256168,
@@ -7254,6 +7544,8 @@ export const regressionData = [
     "visitChange": -43.2,
     "totalJobs": 251216,
     "population2025": 709685,
+    "distToBorderKm": 542.7642961303767,
+    "cy24Enplanements": 1156399,
     "industryShares": {
       "11": 0.013370963632889626,
       "21": 0.001218075281829183,
@@ -7304,6 +7596,8 @@ export const regressionData = [
     "visitChange": -50.3,
     "totalJobs": 181065,
     "population2025": 433415,
+    "distToBorderKm": 222.9084233432588,
+    "cy24Enplanements": 633257,
     "industryShares": {
       "11": 0.0013199679673045592,
       "21": 0.00032584983293292464,
@@ -7354,6 +7648,8 @@ export const regressionData = [
     "visitChange": -52.6,
     "totalJobs": 229469,
     "population2025": 921549,
+    "distToBorderKm": 2534.9442479360177,
+    "cy24Enplanements": 1229231,
     "industryShares": {
       "11": 0.009574278007051061,
       "21": 0.0033773625195560185,
@@ -7404,6 +7700,8 @@ export const regressionData = [
     "visitChange": null,
     "totalJobs": 80005,
     "population2025": 221795,
+    "distToBorderKm": 742.1220160761815,
+    "cy24Enplanements": 503733,
     "industryShares": {
       "11": 0.04393475407787013,
       "21": 0.001874882819823761,
@@ -7454,6 +7752,8 @@ export const regressionData = [
     "visitChange": -48.4,
     "totalJobs": 407252,
     "population2025": 1341412,
+    "distToBorderKm": 1290.3177433850694,
+    "cy24Enplanements": 2439366,
     "industryShares": {
       "11": 0.0026470097138872246,
       "21": 0.0,
@@ -7504,6 +7804,8 @@ export const regressionData = [
     "visitChange": -28.5,
     "totalJobs": 50440,
     "population2025": 297260,
+    "distToBorderKm": 1301.3185503630734,
+    "cy24Enplanements": 4858,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -7554,6 +7856,8 @@ export const regressionData = [
     "visitChange": -58.1,
     "totalJobs": 2447752,
     "population2025": 2802029,
+    "distToBorderKm": 1909.3138120843475,
+    "cy24Enplanements": 47821837,
     "industryShares": {
       "11": 0.00677070226068654,
       "21": 0.00031825119538253873,
@@ -7604,6 +7908,8 @@ export const regressionData = [
     "visitChange": -32.3,
     "totalJobs": 81440,
     "population2025": 193139,
+    "distToBorderKm": 1890.6251834337745,
+    "cy24Enplanements": 761865,
     "industryShares": {
       "11": 0.004334479371316306,
       "21": 0.39226424361493123,
@@ -7654,6 +7960,8 @@ export const regressionData = [
     "visitChange": -51.2,
     "totalJobs": 735240,
     "population2025": 1575010,
+    "distToBorderKm": 469.3972688097478,
+    "cy24Enplanements": 3104054,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -7704,6 +8012,8 @@ export const regressionData = [
     "visitChange": -43.4,
     "totalJobs": 1694675,
     "population2025": 3790295,
+    "distToBorderKm": 468.41413398252433,
+    "cy24Enplanements": 18054481,
     "industryShares": {
       "11": 0.003749981559886114,
       "21": 0.00047265699912962664,
@@ -7754,6 +8064,8 @@ export const regressionData = [
     "visitChange": -39.8,
     "totalJobs": 147490,
     "population2025": 411658,
+    "distToBorderKm": 1580.1130512236562,
+    "cy24Enplanements": 314406,
     "industryShares": {
       "11": 0.0037290663773815176,
       "21": 0.0011865211200759373,
@@ -7804,6 +8116,8 @@ export const regressionData = [
     "visitChange": -47.7,
     "totalJobs": 166418,
     "population2025": 557719,
+    "distToBorderKm": 1263.2744667092925,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.07493179824297852,
       "21": 0.0003004482688170751,
@@ -7854,6 +8168,8 @@ export const regressionData = [
     "visitChange": -49.6,
     "totalJobs": 53994,
     "population2025": 222390,
+    "distToBorderKm": 1635.4778125606683,
+    "cy24Enplanements": 105274,
     "industryShares": {
       "11": 0.0037041152720672667,
       "21": 0.0,
@@ -7904,6 +8220,8 @@ export const regressionData = [
     "visitChange": -37.6,
     "totalJobs": 73394,
     "population2025": 388747,
+    "distToBorderKm": 1338.9823578379835,
+    "cy24Enplanements": 193746,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -7954,6 +8272,8 @@ export const regressionData = [
     "visitChange": -65.4,
     "totalJobs": 156051,
     "population2025": 427551,
+    "distToBorderKm": 1024.2171229224757,
+    "cy24Enplanements": 1894929,
     "industryShares": {
       "11": 0.0023453870849914453,
       "21": 0.0005062447533178255,
@@ -8004,6 +8324,8 @@ export const regressionData = [
     "visitChange": -57.4,
     "totalJobs": 152438,
     "population2025": 417131,
+    "distToBorderKm": 1881.8577440050535,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.01376953253125861,
       "21": 0.00026240176333984966,
@@ -8054,6 +8376,8 @@ export const regressionData = [
     "visitChange": -50.8,
     "totalJobs": 840442,
     "population2025": 2197416,
+    "distToBorderKm": 1008.0838154389064,
+    "cy24Enplanements": 12058688,
     "industryShares": {
       "11": 0.0014278201232208766,
       "21": 0.0,
@@ -8104,6 +8428,8 @@ export const regressionData = [
     "visitChange": -49.6,
     "totalJobs": 328380,
     "population2025": 578741,
+    "distToBorderKm": 341.6776637857433,
+    "cy24Enplanements": 589409,
     "industryShares": {
       "11": 0.003054388208782508,
       "21": 0.00022839393385711677,
@@ -8154,6 +8480,8 @@ export const regressionData = [
     "visitChange": -42.3,
     "totalJobs": 346047,
     "population2025": 970849,
+    "distToBorderKm": 1749.2464080754094,
+    "cy24Enplanements": 6537092,
     "industryShares": {
       "11": 0.0019274838389004962,
       "21": 0.008634665233335356,
@@ -8204,6 +8532,8 @@ export const regressionData = [
     "visitChange": -55.5,
     "totalJobs": 7554881,
     "population2025": 12300480,
+    "distToBorderKm": 330.7302060345104,
+    "cy24Enplanements": 74591177,
     "industryShares": {
       "11": 0.0013350309554842758,
       "21": 0.0,
@@ -8254,6 +8584,8 @@ export const regressionData = [
     "visitChange": -56.3,
     "totalJobs": 297275,
     "population2025": 948158,
+    "distToBorderKm": 1774.1576940429711,
+    "cy24Enplanements": 2112417,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -8304,6 +8636,8 @@ export const regressionData = [
     "visitChange": -46.4,
     "totalJobs": 92784,
     "population2025": 284015,
+    "distToBorderKm": 386.5290170436925,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.012750043110881187,
       "21": 0.0007221072598723918,
@@ -8354,6 +8688,8 @@ export const regressionData = [
     "visitChange": -46.4,
     "totalJobs": 101921,
     "population2025": 442660,
+    "distToBorderKm": 1552.030841961538,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.01547276812433159,
       "21": 0.0018936234927051344,
@@ -8404,6 +8740,8 @@ export const regressionData = [
     "visitChange": -31.7,
     "totalJobs": 67941,
     "population2025": 173801,
+    "distToBorderKm": 1907.718874638988,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0010155870534728662,
       "21": 0.18418922300231083,
@@ -8454,6 +8792,8 @@ export const regressionData = [
     "visitChange": -38.2,
     "totalJobs": 216824,
     "population2025": 672784,
+    "distToBorderKm": 864.7653735110264,
+    "cy24Enplanements": 15582,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -8504,6 +8844,8 @@ export const regressionData = [
     "visitChange": -44.6,
     "totalJobs": 424435,
     "population2025": 1512813,
+    "distToBorderKm": 1505.252340219534,
+    "cy24Enplanements": 2243575,
     "industryShares": {
       "11": 0.004278629236514425,
       "21": 0.025398470908384086,
@@ -8554,6 +8896,8 @@ export const regressionData = [
     "visitChange": -44.2,
     "totalJobs": 83053,
     "population2025": 304261,
+    "distToBorderKm": 218.30047948796516,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -8604,6 +8948,8 @@ export const regressionData = [
     "visitChange": -58.2,
     "totalJobs": 1252654,
     "population2025": 2957672,
+    "distToBorderKm": 1612.3471255524998,
+    "cy24Enplanements": 29272737,
     "industryShares": {
       "11": 0.004180723487890511,
       "21": 0.0001708372782907331,
@@ -8654,6 +9000,8 @@ export const regressionData = [
     "visitChange": -34.8,
     "totalJobs": 78885,
     "population2025": 174218,
+    "distToBorderKm": 419.2621674610125,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -8704,6 +9052,8 @@ export const regressionData = [
     "visitChange": -48.7,
     "totalJobs": 284394,
     "population2025": 830851,
+    "distToBorderKm": 1646.0275405608218,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.08457984345661301,
       "21": 0.0034775698502781355,
@@ -8754,6 +9104,8 @@ export const regressionData = [
     "visitChange": -55.9,
     "totalJobs": 210348,
     "population2025": 663982,
+    "distToBorderKm": 1659.9275318308455,
+    "cy24Enplanements": 348283,
     "industryShares": {
       "11": 0.0012408009584117749,
       "21": 0.00025196341301082016,
@@ -8804,6 +9156,8 @@ export const regressionData = [
     "visitChange": -60.3,
     "totalJobs": 60144,
     "population2025": 231174,
+    "distToBorderKm": 1538.8018335256545,
+    "cy24Enplanements": 918470,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -8854,6 +9208,8 @@ export const regressionData = [
     "visitChange": -12.1,
     "totalJobs": 156538,
     "population2025": 544949,
+    "distToBorderKm": 1571.4793566656883,
+    "cy24Enplanements": 1528204,
     "industryShares": {
       "11": 0.0024530784857350932,
       "21": 0.0007665870267922166,
@@ -8904,6 +9260,8 @@ export const regressionData = [
     "visitChange": -32.2,
     "totalJobs": 64570,
     "population2025": 363505,
+    "distToBorderKm": 764.3365037404776,
+    "cy24Enplanements": 343114,
     "industryShares": {
       "11": 0.015641938980950905,
       "21": 0.0009447111661762428,
@@ -8954,6 +9312,8 @@ export const regressionData = [
     "visitChange": -50.4,
     "totalJobs": 2213682,
     "population2025": 2155218,
+    "distToBorderKm": 371.2029047941356,
+    "cy24Enplanements": 15469282,
     "industryShares": {
       "11": 0.004263033263133548,
       "21": 0.0,
@@ -9004,6 +9364,8 @@ export const regressionData = [
     "visitChange": -46.9,
     "totalJobs": 2074527,
     "population2025": 5228938,
+    "distToBorderKm": 1729.2698703583033,
+    "cy24Enplanements": 26574019,
     "industryShares": {
       "11": 0.0036475784600537857,
       "21": 0.0015960264677201117,
@@ -9054,6 +9416,8 @@ export const regressionData = [
     "visitChange": -44.3,
     "totalJobs": 959227,
     "population2025": 2421992,
+    "distToBorderKm": 288.21648265980605,
+    "cy24Enplanements": 4938813,
     "industryShares": {
       "11": 0.0014167657916217954,
       "21": 0.007875091088970599,
@@ -9104,6 +9468,8 @@ export const regressionData = [
     "visitChange": -54.6,
     "totalJobs": 143879,
     "population2025": 568721,
+    "distToBorderKm": 1740.2509597842663,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9154,6 +9520,8 @@ export const regressionData = [
     "visitChange": -49.0,
     "totalJobs": 211858,
     "population2025": 577635,
+    "distToBorderKm": 160.39061205318814,
+    "cy24Enplanements": 1221913,
     "industryShares": {
       "11": 0.011488827422141246,
       "21": 0.0,
@@ -9204,6 +9572,8 @@ export const regressionData = [
     "visitChange": -55.6,
     "totalJobs": 521261,
     "population2025": 1708161,
+    "distToBorderKm": 353.22525559664075,
+    "cy24Enplanements": 1984916,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9254,6 +9624,8 @@ export const regressionData = [
     "visitChange": -45.4,
     "totalJobs": 188749,
     "population2025": 773426,
+    "distToBorderKm": 975.1287929634402,
+    "cy24Enplanements": 455219,
     "industryShares": {
       "11": 0.007025202782531298,
       "21": 0.0020980243603939625,
@@ -9304,6 +9676,8 @@ export const regressionData = [
     "visitChange": -30.1,
     "totalJobs": 50452,
     "population2025": 169277,
+    "distToBorderKm": 1195.265832964901,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9354,6 +9728,8 @@ export const regressionData = [
     "visitChange": -50.5,
     "totalJobs": 47296,
     "population2025": 217212,
+    "distToBorderKm": 1798.4419093348536,
+    "cy24Enplanements": 957136,
     "industryShares": {
       "11": 0.005328146143437077,
       "21": 0.002135487144790257,
@@ -9404,6 +9780,8 @@ export const regressionData = [
     "visitChange": -44.0,
     "totalJobs": 501740,
     "population2025": 1595720,
+    "distToBorderKm": 792.071157043096,
+    "cy24Enplanements": 7584394,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9454,6 +9832,8 @@ export const regressionData = [
     "visitChange": -41.7,
     "totalJobs": 152922,
     "population2025": 440072,
+    "distToBorderKm": 319.31048350268856,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.016975974679902174,
       "21": 0.0014582597664168661,
@@ -9504,6 +9884,8 @@ export const regressionData = [
     "visitChange": -41.1,
     "totalJobs": 54303,
     "population2025": 181648,
+    "distToBorderKm": 936.0453384763464,
+    "cy24Enplanements": 88676,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9554,6 +9936,8 @@ export const regressionData = [
     "visitChange": -48.1,
     "totalJobs": 164589,
     "population2025": 578734,
+    "distToBorderKm": 1053.1638921693598,
+    "cy24Enplanements": 2377780,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9604,6 +9988,8 @@ export const regressionData = [
     "visitChange": -31.7,
     "totalJobs": 437313,
     "population2025": 1389338,
+    "distToBorderKm": 608.723070260646,
+    "cy24Enplanements": 2456422,
     "industryShares": {
       "11": 0.0032356687315492566,
       "21": 0.0,
@@ -9654,6 +10040,8 @@ export const regressionData = [
     "visitChange": -48.3,
     "totalJobs": 1394634,
     "population2025": 4769007,
+    "distToBorderKm": 1670.3682821583943,
+    "cy24Enplanements": 5132287,
     "industryShares": {
       "11": 0.009368766285634798,
       "21": 0.0010619273587192052,
@@ -9704,6 +10092,8 @@ export const regressionData = [
     "visitChange": -41.1,
     "totalJobs": 85233,
     "population2025": 316547,
+    "distToBorderKm": 632.1396059769771,
+    "cy24Enplanements": 382103,
     "industryShares": {
       "11": 0.004270646345898889,
       "21": 0.0,
@@ -9754,6 +10144,8 @@ export const regressionData = [
     "visitChange": -45.0,
     "totalJobs": 99529,
     "population2025": 231184,
+    "distToBorderKm": 518.4085048290603,
+    "cy24Enplanements": 98537,
     "industryShares": {
       "11": 0.01042912116066674,
       "21": 0.0013061519758060464,
@@ -9804,6 +10196,8 @@ export const regressionData = [
     "visitChange": -51.6,
     "totalJobs": 295917,
     "population2025": 1056149,
+    "distToBorderKm": 108.76357414061448,
+    "cy24Enplanements": 1331837,
     "industryShares": {
       "11": 0.01599097044103583,
       "21": 0.0022404931112440314,
@@ -9854,6 +10248,8 @@ export const regressionData = [
     "visitChange": -36.8,
     "totalJobs": 116287,
     "population2025": 337242,
+    "distToBorderKm": 595.0802937385579,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -9904,6 +10300,8 @@ export const regressionData = [
     "visitChange": -48.4,
     "totalJobs": 772834,
     "population2025": 2477274,
+    "distToBorderKm": 1159.1456954647006,
+    "cy24Enplanements": 6679426,
     "industryShares": {
       "11": 0.011804604869868562,
       "21": 0.0005149876946407637,
@@ -9954,6 +10352,8 @@ export const regressionData = [
     "visitChange": -51.8,
     "totalJobs": 66854,
     "population2025": 187688,
+    "distToBorderKm": 345.24827951261204,
+    "cy24Enplanements": 110822,
     "industryShares": {
       "11": 0.010111586442097706,
       "21": 0.0006132766924940916,
@@ -10004,6 +10404,8 @@ export const regressionData = [
     "visitChange": -39.2,
     "totalJobs": 162829,
     "population2025": 433729,
+    "distToBorderKm": 1370.461148148855,
+    "cy24Enplanements": 305434,
     "industryShares": {
       "11": 0.33384716481707805,
       "21": 0.0014493732688894484,
@@ -10054,6 +10456,8 @@ export const regressionData = [
     "visitChange": -48.1,
     "totalJobs": 128961,
     "population2025": 131872,
+    "distToBorderKm": 540.4720455959028,
+    "cy24Enplanements": 60442,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10104,6 +10508,8 @@ export const regressionData = [
     "visitChange": -38.9,
     "totalJobs": 695958,
     "population2025": 1308377,
+    "distToBorderKm": 916.1972159893028,
+    "cy24Enplanements": 13543570,
     "industryShares": {
       "11": 0.0010029340851028367,
       "21": 0.005082203236402197,
@@ -10154,6 +10560,8 @@ export const regressionData = [
     "visitChange": -42.0,
     "totalJobs": 760560,
     "population2025": 2813140,
+    "distToBorderKm": 2177.143935727788,
+    "cy24Enplanements": 5466684,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10204,6 +10612,8 @@ export const regressionData = [
     "visitChange": -53.0,
     "totalJobs": 1288281,
     "population2025": 3282248,
+    "distToBorderKm": 1810.7811186244885,
+    "cy24Enplanements": 12797447,
     "industryShares": {
       "11": 0.007248418629165532,
       "21": 0.0002662462614910877,
@@ -10254,6 +10664,8 @@ export const regressionData = [
     "visitChange": -56.9,
     "totalJobs": 2034641,
     "population2025": 1569647,
+    "distToBorderKm": 1248.6287676178154,
+    "cy24Enplanements": 30371704,
     "industryShares": {
       "11": 0.00185683862656852,
       "21": 0.0001946289296244399,
@@ -10304,6 +10716,8 @@ export const regressionData = [
     "visitChange": -49.2,
     "totalJobs": 828906,
     "population2025": 1984473,
+    "distToBorderKm": 1296.765366495781,
+    "cy24Enplanements": 5822019,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10354,6 +10768,8 @@ export const regressionData = [
     "visitChange": -42.0,
     "totalJobs": 99254,
     "population2025": 282367,
+    "distToBorderKm": 1525.5369620779209,
+    "cy24Enplanements": 366428,
     "industryShares": {
       "11": 0.057378040179740866,
       "21": 0.0007757873738086122,
@@ -10404,6 +10820,8 @@ export const regressionData = [
     "visitChange": -38.8,
     "totalJobs": 85544,
     "population2025": 258852,
+    "distToBorderKm": 1337.221383976199,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.08040306742728888,
       "21": 0.00028055737398297953,
@@ -10454,6 +10872,8 @@ export const regressionData = [
     "visitChange": -52.3,
     "totalJobs": 181537,
     "population2025": 442065,
+    "distToBorderKm": 1562.3631766235426,
+    "cy24Enplanements": 709921,
     "industryShares": {
       "11": 0.15944408027013776,
       "21": 0.0035034180359926627,
@@ -10504,6 +10924,8 @@ export const regressionData = [
     "visitChange": -26.3,
     "totalJobs": 180724,
     "population2025": 486444,
+    "distToBorderKm": 1174.396330542776,
+    "cy24Enplanements": 382556,
     "industryShares": {
       "11": 0.03503685177397579,
       "21": 0.0008355282087603196,
@@ -10554,6 +10976,8 @@ export const regressionData = [
     "visitChange": -40.9,
     "totalJobs": 139979,
     "population2025": 438314,
+    "distToBorderKm": 1218.1703467488935,
+    "cy24Enplanements": 2020753,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10604,6 +11028,8 @@ export const regressionData = [
     "visitChange": -42.6,
     "totalJobs": 211833,
     "population2025": 574418,
+    "distToBorderKm": 203.9970619328811,
+    "cy24Enplanements": 219572,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10654,6 +11080,8 @@ export const regressionData = [
     "visitChange": -47.6,
     "totalJobs": 1807420,
     "population2025": 2344939,
+    "distToBorderKm": 156.9175896235746,
+    "cy24Enplanements": 25690588,
     "industryShares": {
       "11": 0.0028493653937656993,
       "21": 0.00035741554259662944,
@@ -10704,6 +11132,8 @@ export const regressionData = [
     "visitChange": -34.6,
     "totalJobs": 143015,
     "population2025": 383474,
+    "distToBorderKm": 1737.9947694412456,
+    "cy24Enplanements": 352281,
     "industryShares": {
       "11": 0.0030136698947662833,
       "21": 0.036821312449743036,
@@ -10754,6 +11184,8 @@ export const regressionData = [
     "visitChange": -41.3,
     "totalJobs": 90149,
     "population2025": 314638,
+    "distToBorderKm": 606.9636552232387,
+    "cy24Enplanements": 701353,
     "industryShares": {
       "11": 0.010737778566595304,
       "21": 0.0,
@@ -10804,6 +11236,8 @@ export const regressionData = [
     "visitChange": -35.1,
     "totalJobs": 111508,
     "population2025": 324538,
+    "distToBorderKm": 554.2716205346059,
+    "cy24Enplanements": 454920,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10854,6 +11288,8 @@ export const regressionData = [
     "visitChange": -33.8,
     "totalJobs": 108126,
     "population2025": 407656,
+    "distToBorderKm": 921.9545764861588,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -10904,6 +11340,8 @@ export const regressionData = [
     "visitChange": -43.4,
     "totalJobs": 135758,
     "population2025": 608012,
+    "distToBorderKm": 152.42289840393656,
+    "cy24Enplanements": 2064142,
     "industryShares": {
       "11": 0.016234770694913008,
       "21": 0.0026223132338425727,
@@ -10954,6 +11392,8 @@ export const regressionData = [
     "visitChange": -25.0,
     "totalJobs": 67081,
     "population2025": 206033,
+    "distToBorderKm": 855.5078760851638,
+    "cy24Enplanements": 51784,
     "industryShares": {
       "11": 0.006782844620682458,
       "21": 0.0022211952713883216,
@@ -11004,6 +11444,8 @@ export const regressionData = [
     "visitChange": -31.0,
     "totalJobs": 219027,
     "population2025": 464338,
+    "distToBorderKm": 319.4884329166468,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.004419546448611358,
       "21": 0.00045199906860797983,
@@ -11054,6 +11496,8 @@ export const regressionData = [
     "visitChange": -41.5,
     "totalJobs": 143691,
     "population2025": 500694,
+    "distToBorderKm": 1249.745122646745,
+    "cy24Enplanements": 702338,
     "industryShares": {
       "11": 0.003514485945535907,
       "21": 0.0013153224627847255,
@@ -11104,6 +11548,8 @@ export const regressionData = [
     "visitChange": -34.6,
     "totalJobs": 87415,
     "population2025": 205854,
+    "distToBorderKm": 407.0210331002194,
+    "cy24Enplanements": 23885,
     "industryShares": {
       "11": 0.015752445232511583,
       "21": 0.0014185208488245724,
@@ -11154,6 +11600,8 @@ export const regressionData = [
     "visitChange": -46.3,
     "totalJobs": 73453,
     "population2025": 213670,
+    "distToBorderKm": 1324.067304796127,
+    "cy24Enplanements": 161201,
     "industryShares": {
       "11": 0.0010755176779709474,
       "21": 0.00652117680693777,
@@ -11204,6 +11652,8 @@ export const regressionData = [
     "visitChange": -39.1,
     "totalJobs": 841265,
     "population2025": 2814421,
+    "distToBorderKm": 991.4494264929192,
+    "cy24Enplanements": 7971270,
     "industryShares": {
       "11": 0.004540780847889785,
       "21": 0.0015013105264096332,
@@ -11254,6 +11704,8 @@ export const regressionData = [
     "visitChange": -35.5,
     "totalJobs": 44293,
     "population2025": 157393,
+    "distToBorderKm": 249.5758210528157,
+    "cy24Enplanements": 134128,
     "industryShares": {
       "11": 0.006028040548167882,
       "21": 0.0037026166662903846,
@@ -11304,6 +11756,8 @@ export const regressionData = [
     "visitChange": -40.5,
     "totalJobs": 240253,
     "population2025": 823815,
+    "distToBorderKm": 1228.0693344252977,
+    "cy24Enplanements": 63668,
     "industryShares": {
       "11": 0.06050288654043862,
       "21": 0.0001207060889978481,
@@ -11354,6 +11808,8 @@ export const regressionData = [
     "visitChange": -51.2,
     "totalJobs": 169433,
     "population2025": 652273,
+    "distToBorderKm": 17.421626360862916,
+    "cy24Enplanements": 1486554,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11404,6 +11860,8 @@ export const regressionData = [
     "visitChange": -37.6,
     "totalJobs": 87114,
     "population2025": 397442,
+    "distToBorderKm": 1464.1477889856494,
+    "cy24Enplanements": 469318,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11454,6 +11912,8 @@ export const regressionData = [
     "visitChange": -53.2,
     "totalJobs": 1281667,
     "population2025": 2470332,
+    "distToBorderKm": 1692.8141288292115,
+    "cy24Enplanements": 13303639,
     "industryShares": {
       "11": 0.004333418898980781,
       "21": 0.00020052010389594177,
@@ -11504,6 +11964,8 @@ export const regressionData = [
     "visitChange": -35.8,
     "totalJobs": 40374,
     "population2025": 169241,
+    "distToBorderKm": 805.2881548511965,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11554,6 +12016,8 @@ export const regressionData = [
     "visitChange": -46.5,
     "totalJobs": 181728,
     "population2025": 599376,
+    "distToBorderKm": 402.7717640016963,
+    "cy24Enplanements": 66614,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11604,6 +12068,8 @@ export const regressionData = [
     "visitChange": -32.6,
     "totalJobs": 50724,
     "population2025": 233052,
+    "distToBorderKm": 1106.0214342545323,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0056777856635912,
@@ -11654,6 +12120,8 @@ export const regressionData = [
     "visitChange": -50.7,
     "totalJobs": 187295,
     "population2025": 399289,
+    "distToBorderKm": 353.03345948981763,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0008809631864171494,
       "21": 5.3391708267706024e-05,
@@ -11704,6 +12172,8 @@ export const regressionData = [
     "visitChange": -49.4,
     "totalJobs": 315519,
     "population2025": 1074685,
+    "distToBorderKm": 1865.5629565492704,
+    "cy24Enplanements": 1959789,
     "industryShares": {
       "11": 0.0015149642335326875,
       "21": 0.007324440049569123,
@@ -11754,6 +12224,8 @@ export const regressionData = [
     "visitChange": -42.8,
     "totalJobs": 249019,
     "population2025": 1069273,
+    "distToBorderKm": 1428.4101475283994,
+    "cy24Enplanements": 1627181,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11804,6 +12276,8 @@ export const regressionData = [
     "visitChange": -36.9,
     "totalJobs": 48865,
     "population2025": 281850,
+    "distToBorderKm": 1316.3748767321638,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -11854,6 +12328,8 @@ export const regressionData = [
     "visitChange": -19.5,
     "totalJobs": 97502,
     "population2025": 252549,
+    "distToBorderKm": 1818.9701124736475,
+    "cy24Enplanements": 51296,
     "industryShares": {
       "11": 0.005415273532850608,
       "21": 0.016153514799696417,
@@ -11904,6 +12380,8 @@ export const regressionData = [
     "visitChange": -53.3,
     "totalJobs": 356166,
     "population2025": 988703,
+    "distToBorderKm": 4350.432552764969,
+    "cy24Enplanements": 14365322,
     "industryShares": {
       "11": 0.00469163255335995,
       "21": 0.000662612377374595,
@@ -11954,6 +12432,8 @@ export const regressionData = [
     "visitChange": -50.2,
     "totalJobs": 85114,
     "population2025": 285611,
+    "distToBorderKm": 79.24014386562506,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0059919637192471275,
       "21": 0.0011513969499729775,
@@ -12004,6 +12484,8 @@ export const regressionData = [
     "visitChange": -43.1,
     "totalJobs": 116651,
     "population2025": 455376,
+    "distToBorderKm": 1211.7432836969133,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.012833151880395367,
       "21": 0.0025546287644340813,
@@ -12054,6 +12536,8 @@ export const regressionData = [
     "visitChange": -41.6,
     "totalJobs": 426034,
     "population2025": 1797213,
+    "distToBorderKm": 706.0176041149058,
+    "cy24Enplanements": 2513684,
     "industryShares": {
       "11": 0.0021923132895496603,
       "21": 0.0,
@@ -12104,6 +12588,8 @@ export const regressionData = [
     "visitChange": -40.5,
     "totalJobs": 140865,
     "population2025": 485146,
+    "distToBorderKm": 1409.0169772288932,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.2568416569055479,
       "21": 0.0005324246619103397,
@@ -12154,6 +12640,8 @@ export const regressionData = [
     "visitChange": -38.9,
     "totalJobs": 51998,
     "population2025": 308807,
+    "distToBorderKm": 1940.4682389383545,
+    "cy24Enplanements": 53849,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -12204,6 +12692,8 @@ export const regressionData = [
     "visitChange": -40.7,
     "totalJobs": 36356,
     "population2025": 208091,
+    "distToBorderKm": 1215.6464641432062,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -12254,6 +12744,8 @@ export const regressionData = [
     "visitChange": -44.9,
     "totalJobs": 741297,
     "population2025": 1840612,
+    "distToBorderKm": 470.745588083288,
+    "cy24Enplanements": 25754126,
     "industryShares": {
       "11": 0.003708365203150694,
       "21": 0.0,
@@ -12304,6 +12796,8 @@ export const regressionData = [
     "visitChange": -29.2,
     "totalJobs": 64816,
     "population2025": 169189,
+    "distToBorderKm": 665.7745505275624,
+    "cy24Enplanements": 12006,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -12354,6 +12848,8 @@ export const regressionData = [
     "visitChange": -33.1,
     "totalJobs": 60359,
     "population2025": 139432,
+    "distToBorderKm": 341.5539236908092,
+    "cy24Enplanements": 90087,
     "industryShares": {
       "11": 0.0177935353468414,
       "21": 0.001225997779949966,
@@ -12404,6 +12900,8 @@ export const regressionData = [
     "visitChange": -43.7,
     "totalJobs": 217625,
     "population2025": 663809,
+    "distToBorderKm": 1258.205780257461,
+    "cy24Enplanements": 885585,
     "industryShares": {
       "11": 0.0018931648477886272,
       "21": 0.003124641010913268,
@@ -12454,6 +12952,8 @@ export const regressionData = [
     "visitChange": -44.4,
     "totalJobs": 110082,
     "population2025": 492772,
+    "distToBorderKm": 968.0879732448996,
+    "cy24Enplanements": 737065,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -12504,6 +13004,8 @@ export const regressionData = [
     "visitChange": -42.1,
     "totalJobs": 226053,
     "population2025": 712206,
+    "distToBorderKm": 764.8507423945023,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0013846310378539547,
       "21": 0.0006989511309294723,
@@ -12554,6 +13056,8 @@ export const regressionData = [
     "visitChange": -45.0,
     "totalJobs": 329539,
     "population2025": 888502,
+    "distToBorderKm": 304.8002873466875,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.005765630168204674,
       "21": 0.0,
@@ -12604,6 +13108,8 @@ export const regressionData = [
     "visitChange": -38.1,
     "totalJobs": 97672,
     "population2025": 259185,
+    "distToBorderKm": 269.17442916243914,
+    "cy24Enplanements": 41471,
     "industryShares": {
       "11": 0.29377917929396347,
       "21": 0.00034810385780981244,
@@ -12654,6 +13160,8 @@ export const regressionData = [
     "visitChange": -41.2,
     "totalJobs": 163174,
     "population2025": 473197,
+    "distToBorderKm": 362.6459963485634,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.005025310404843909,
       "21": 0.0013911530023165456,
@@ -12704,6 +13212,8 @@ export const regressionData = [
     "visitChange": -37.4,
     "totalJobs": 175326,
     "population2025": 423678,
+    "distToBorderKm": 246.9061284543463,
+    "cy24Enplanements": 523,
     "industryShares": {
       "11": 0.003022940122970923,
       "21": 0.0021959093346109533,
@@ -12754,6 +13264,8 @@ export const regressionData = [
     "visitChange": -29.7,
     "totalJobs": 23091,
     "population2025": 187478,
+    "distToBorderKm": 1096.760617717908,
+    "cy24Enplanements": null,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
@@ -12804,6 +13316,8 @@ export const regressionData = [
     "visitChange": -62.3,
     "totalJobs": 46604,
     "population2025": 224449,
+    "distToBorderKm": 1813.553477604485,
+    "cy24Enplanements": 85227,
     "industryShares": {
       "11": 0.0,
       "21": 0.0,
