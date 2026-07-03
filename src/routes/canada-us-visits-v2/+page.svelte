@@ -5,83 +5,77 @@
 	import { onMount, onDestroy, tick } from 'svelte';
 	import maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
+	import * as pmtiles from 'pmtiles';
 	import * as XLSX from 'xlsx'; // npm install xlsx
-	import Select from "svelte-select";
+	import { csvParse } from 'd3-dsv';
+	import AuthorDate from '$lib/AuthorDate.svelte';
+	import TitleStandard from '$lib/TitleStandard.svelte';
+	import Password from '$lib/Password.svelte';
+
+	const protocol = new pmtiles.Protocol();
+	maplibregl.addProtocol('pmtiles', protocol.tile);
 
 	// ============================================================
-	// SCENARIO CONFIG
-	// (from Impact Metrics sheet, MRIO scenario summary workbook)
+	// SCENARIO CONFIG (from Impact Metrics sheet, MRIO workbook)
 	// ============================================================
 	const scenarios = [
-		{
-			id: 1,
-			code: 'DFD1_HHLD_CON',
-			label: 'Household Consumption',
-			description: 'Overall household consumption expenditures in Canada decline by 1.9%.'
-		},
-		{
-			id: 2,
-			code: 'DFD2_AGG_EXP',
-			label: 'Aggregate Exports',
-			description: 'Overall domestic exports to the U.S. decline by 4% across the board.'
-		},
-		{
-			id: 3,
-			code: 'DFD3_AG_AF_SF',
-			label: 'Agri-food & Seafood',
-			description: 'Agriculture, agri-food, and seafood exports to the U.S. decline (region-specific weights).'
-		},
-		{
-			id: 4,
-			code: 'DFD4_ST_AL',
-			label: 'Steel & Aluminum',
-			description: 'Steel and aluminum manufacturing exports to the U.S. decline.'
-		},
-		{
-			id: 5,
-			code: 'DFD5_FOR',
-			label: 'Softwood Lumber',
-			description: 'Softwood lumber exports to the U.S. decline.'
-		},
-		{
-			id: 6,
-			code: 'DFD6_VEH_PTS',
-			label: 'Autos & Parts',
-			description: 'Automobile and auto-parts exports to the U.S. decline.'
-		}
+		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1.9%.' },
+		{ id: 2, code: 'DFD2_AGG_EXP', label: 'Aggregate Exports', description: 'Overall domestic exports to the U.S. decline by 4% across the board.' },
+		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline (region-specific weights).' },
+		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline.' },
+		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline.' },
+		{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline.' }
 	];
 
-	// Province abbreviation (as used in the workbook) -> full name
-	// (matching the "name" property in the boundary GeoJSON below)
+	// Province abbreviation (as used in workbook) -> full name (matches GeoJSON "name" property)
 	const abbrevToFullName = {
-		NL: 'Newfoundland and Labrador',
-		PEI: 'Prince Edward Island',
-		NS: 'Nova Scotia',
-		NB: 'New Brunswick',
-		QC: 'Quebec',
-		ON: 'Ontario',
-		MB: 'Manitoba',
-		SK: 'Saskatchewan',
-		AB: 'Alberta',
-		BC: 'British Columbia',
-		YT: 'Yukon Territory',
-		NT: 'Northwest Territories',
-		NU: 'Nunavut'
+		NL: 'Newfoundland and Labrador', PEI: 'Prince Edward Island', NS: 'Nova Scotia',
+		NB: 'New Brunswick', QC: 'Quebec', ON: 'Ontario', MB: 'Manitoba', SK: 'Saskatchewan',
+		AB: 'Alberta', BC: 'British Columbia', YT: 'Yukon Territory',
+		NT: 'Northwest Territories', NU: 'Nunavut'
 	};
 
-	// Sequential loss-severity palette (light -> dark), consistent with Mapping Tariffs site
-	//const colours = ['#f1c500', '#fb921f', '#f3603e', '#d73256', '#ab1368'];
 	const noDataColour = '#D0D1C9';
-	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
-	let graduated_siz = [5, 9, 15, 24, 34];
 
-	
+	const csdNameCsvUrl = '/csv/csdnames.csv';
+	let csdNameByUid = {};
 
-	const xlsxUrl = encodeURI(
-		'/csv/scenario summary - clsd MRIO - as of June 21 2026 - 2022 model.xlsx'
-	);
-	const provinceGeojsonUrl =
-		'https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/canada.geojson';
+	function parseCsdNames(csvText) {
+		const rows = csvParse(csvText.replace(/^\uFEFF/, ''));
+		const map = {};
+		rows.forEach((r) => {
+			if (r.CSDUID) map[r.CSDUID] = r.CSDNAME;
+		});
+		return map;
+	}
+
+	// CSD tariff-exposure choropleth (identical to map.svelte)
+	const choropleth_csd = 'pmtiles:///pmtiles/csd_all/choropleth_csd.pmtiles';
+	const centroids_csd = 'pmtiles:///pmtiles/csd_all/centroids_csd.pmtiles';
+	const censusDivisions = 'pmtiles:///pmtiles/census-divisions.pmtiles';
+	const graduated_col = ['#f1c500', '#fb921f', '#f3603e', '#d73256', '#ab1368'];
+	const graduated_siz = [5, 9, 15, 24, 34];
+
+	// CSD fill layer, mapped per scenario to the closest matching tariff category.
+	// Scenarios 1-3 fall back to "All goods" since no dedicated agriculture category
+	// exists in the tariff map, and 1/2 are economy-wide (not sector-specific).
+	// Breaks/colours copied from map.svelte's dataLayers config.
+	const csdLayersByScenario = {
+		1: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		2: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		3: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		4: { dataSource: 'Alum_2', breaks: [0.01, 0.05, 0.1, 0.2], colours: graduated_col, categoryLabel: 'Aluminum' },
+		5: { dataSource: 'LumNew_2', breaks: [0.01, 0.05, 0.1, 0.2], colours: graduated_col, categoryLabel: 'Lumber (after Oct 14)' },
+		6: { dataSource: 'Auto_2', breaks: [0.01, 0.04, 0.08, 0.2], colours: graduated_col, categoryLabel: 'Automobiles' }
+	};
+
+	$: csdLayer = csdLayersByScenario[selectedScenario];
+
+	// Province outline: blue -> dark purple, scaled by modeled indirect job loss
+	const blueColours = ['#71CAE3', '#4F98D6', '#3348B5', '#5C41AB', '#510F81'];
+
+	const xlsxUrl = encodeURI('/csv/scenario summary - clsd MRIO - as of June 21 2026 - 2022 model.xlsx');
+	const provinceGeojsonUrl = 'https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/canada.geojson';
 	// NOTE: province boundaries pulled from a public GitHub-hosted file for convenience.
 	// Consider self-hosting a copy in /geojson for production reliability.
 
@@ -100,27 +94,27 @@
 	let mapLoaded = false;
 	let provincesGeojson = null;
 
-	let hoverInfo = null; // { name, value }
+	let hoverInfo = null; // { name, value } for CSD hover
 	let mouseX = 0;
 	let mouseY = 0;
 
+	let pctByFullName = {}; // full province name -> [% of provincial employment at risk, per scenario]
+	
+
 	// ============================================================
-	// Parse the "Impact Metrics" sheet out of the MRIO workbook
-	// Sheet layout: repeating blocks per province, each block is:
-	//   [ID/0, ProvinceLabel, 'Shock', 'Delta-X', 'Delta-VA', 'Delta-Jobs']   <- header row
-	//   [1, 'DFD1_HHLD_CON', shock, deltaX, deltaVA, deltaJobs]              <- scenario rows 1-6
-	//   ... x6
-	// First block's ProvinceLabel is 'Canada' (national totals); skip mapping that one.
+	// Parse the "Impact Metrics" sheet out of the MRIO workbook.
+	// Blocks repeat per province: header row where col C === 'Shock'
+	// marks a new block (col B = province abbrev, or 'Canada'),
+	// followed by 6 scenario rows (col A = scenario id 1-6, col F = Delta-Jobs).
 	// ============================================================
 	function parseImpactMetrics(rows) {
-		const byProvince = {}; // abbreviation -> [deltaJobs for scenario 1..6]
+		const byProvince = {};
 		const canada = [];
 		let currentLabel = null;
 
 		rows.forEach((row) => {
 			if (!row) return;
 			if (row[2] === 'Shock') {
-				// Start of a new province/Canada block
 				currentLabel = row[1];
 				return;
 			}
@@ -140,44 +134,61 @@
 	}
 
 	function computeBreaks(scenarioIdx) {
-		const values = Object.values(deltaJobsByFullName)
-			.map((arr) => Math.abs(arr[scenarioIdx]))
+		const values = Object.values(pctByFullName)
+			.map((arr) => arr[scenarioIdx])
 			.filter((v) => Number.isFinite(v))
 			.sort((a, b) => a - b);
 		const n = values.length;
-		if (n === 0) return [1, 2, 3, 4];
+		if (n === 0) return [0.5, 1, 2, 4];
 		const pick = (p) => values[Math.min(n - 1, Math.floor(n * p))];
 		return [pick(0.2), pick(0.4), pick(0.6), pick(0.8)];
 	}
+	
+	$: breaks = dataLoaded ? computeBreaks(selectedScenario - 1) : [0.5, 1, 2, 4];
 
-	$: breaks = dataLoaded ? computeBreaks(selectedScenario - 1) : [1, 2, 3, 4];
-
-	function buildFillExpression(scenarioIdx, breaksArr) {
-		const prop = `scenario_${scenarioIdx + 1}`;
+	function buildProvinceOutlineExpression(scenarioIdx, breaksArr) {
+		const prop = `scenario_pct_${scenarioIdx + 1}`;
 		return [
 			'case',
 			['==', ['get', prop], null], noDataColour,
 			[
 				'step',
-				['abs', ['get', prop]],
-				colours[0],
-				breaksArr[0], colours[1],
-				breaksArr[1], colours[2],
-				breaksArr[2], colours[3],
-				breaksArr[3], colours[4]
+				['get', prop],
+				blueColours[0],
+				breaksArr[0], blueColours[1],
+				breaksArr[1], blueColours[2],
+				breaksArr[2], blueColours[3],
+				breaksArr[3], blueColours[4]
 			]
 		];
 	}
 
-	function updateMapColours() {
-		if (!map || !mapLoaded || !map.getLayer('provinces-fill')) return;
-		map.setPaintProperty('provinces-fill', 'fill-color', buildFillExpression(selectedScenario - 1, breaks));
+	function updateProvinceOutline() {
+		if (!map || !mapLoaded || !map.getLayer('provinces-outline')) return;
+		map.setPaintProperty('provinces-outline', 'line-color', buildProvinceOutlineExpression(selectedScenario - 1, breaks));
+	}
+
+	function updateCsdFill() {
+		if (!map || !mapLoaded || !map.getLayer('polygons_csd')) return;
+		map.setPaintProperty('polygons_csd', 'fill-color', [
+			'case',
+			['==', ['get', csdLayer.dataSource], null], noDataColour,
+			[
+				'step', ['get', csdLayer.dataSource],
+				csdLayer.colours[0], csdLayer.breaks[0],
+				csdLayer.colours[1], csdLayer.breaks[1],
+				csdLayer.colours[2], csdLayer.breaks[2],
+				csdLayer.colours[3], csdLayer.breaks[3],
+				csdLayer.colours[4]
+			]
+		]);
 	}
 
 	$: {
 		selectedScenario;
 		breaks;
-		updateMapColours();
+		updateProvinceOutline();
+		updateCsdFill();
 	}
 
 	function handleMouseMove(event) {
@@ -186,15 +197,59 @@
 		mouseY = event.clientY - rect.top + 12;
 	}
 
+	const labourCsvUrl = '/csv/labourtotals.csv';
+
+	// LFS doesn't cover the territories monthly — YT/NT/NU will have no baseline
+	const geoToFullName = {
+		'Newfoundland and Labrador': 'Newfoundland and Labrador',
+		'Prince Edward Island': 'Prince Edward Island',
+		'Nova Scotia': 'Nova Scotia',
+		'New Brunswick': 'New Brunswick',
+		'Quebec': 'Quebec',
+		'Ontario': 'Ontario',
+		'Manitoba': 'Manitoba',
+		'Saskatchewan': 'Saskatchewan',
+		'Alberta': 'Alberta',
+		'British Columbia': 'British Columbia'
+	};
+
+	let employmentByFullName = {}; // full province name -> avg employed persons (actual count)
+	let canadaEmployment = null;
+
+	function parseLabourForce(csvText) {
+		const rows = csvParse(csvText.replace(/^\uFEFF/, '')); // strip BOM if present
+		const byGeo = {}; // geo -> array of monthly Employment estimates (thousands)
+
+		rows.forEach((row) => {
+			if (row['Labour force characteristics'] !== 'Employment') return;
+			if (row['Statistics'] !== 'Estimate') return;
+			const value = parseFloat(row['VALUE']);
+			if (!Number.isFinite(value)) return;
+			const geo = row['GEO'];
+			if (!byGeo[geo]) byGeo[geo] = [];
+			byGeo[geo].push(value);
+		});
+
+		const avgByGeo = {};
+		Object.entries(byGeo).forEach(([geo, values]) => {
+			const avgThousands = values.reduce((a, b) => a + b, 0) / values.length;
+			avgByGeo[geo] = avgThousands * 1000; // thousands -> actual persons
+		});
+		return avgByGeo;
+	}
+
 	onMount(async () => {
 		try {
-			const [xlsxRes, geoRes] = await Promise.all([
+			const [xlsxRes, geoRes, labourRes, csdNameRes] = await Promise.all([
 				fetch(xlsxUrl),
-				fetch(provinceGeojsonUrl)
+				fetch(provinceGeojsonUrl),
+				fetch(labourCsvUrl),
+				fetch(csdNameCsvUrl)
 			]);
-
+			if (!csdNameRes.ok) throw new Error(`Could not load CSD name lookup: ${csdNameRes.status}`);
 			if (!xlsxRes.ok) throw new Error(`Could not load workbook: ${xlsxRes.status}`);
 			if (!geoRes.ok) throw new Error(`Could not load province boundaries: ${geoRes.status}`);
+			if (!labourRes.ok) throw new Error(`Could not load labour force data: ${labourRes.status}`);
 
 			const xlsxBuffer = await xlsxRes.arrayBuffer();
 			const workbook = XLSX.read(xlsxBuffer, { type: 'array' });
@@ -204,7 +259,9 @@
 			const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null });
 			const { byProvince, canada } = parseImpactMetrics(rows);
 
-			// Re-key by full province name to match the boundary GeoJSON's "name" property
+			const csdNameCsvText = await csdNameRes.text();
+			csdNameByUid = parseCsdNames(csdNameCsvText);
+
 			const byFullName = {};
 			Object.entries(byProvince).forEach(([abbrev, arr]) => {
 				const fullName = abbrevToFullName[abbrev];
@@ -214,13 +271,33 @@
 			deltaJobsByFullName = byFullName;
 			canadaTotals = canada;
 
+			// labour totals
+			const labourCsvText = await labourRes.text();
+			const avgEmploymentByGeo = parseLabourForce(labourCsvText);
+
+			const employmentByFullNameLocal = {};
+			Object.entries(geoToFullName).forEach(([geoName, fullName]) => {
+				if (avgEmploymentByGeo[geoName] != null) employmentByFullNameLocal[fullName] = avgEmploymentByGeo[geoName];
+			});
+			employmentByFullName = employmentByFullNameLocal;
+			canadaEmployment = avgEmploymentByGeo['Canada'] ?? null;
+
 			const rawGeojson = await geoRes.json();
+			const pctByFullNameLocal = {};
 			rawGeojson.features.forEach((f) => {
 				const values = deltaJobsByFullName[f.properties.name];
+				const baseline = employmentByFullName[f.properties.name]; // undefined for territories
+				const pcts = [];
 				for (let i = 0; i < scenarios.length; i++) {
 					f.properties[`scenario_${i + 1}`] = values ? values[i] : null;
+					const pct = values && baseline ? (Math.abs(values[i]) / baseline) * 100 : null;
+					f.properties[`scenario_pct_${i + 1}`] = pct;
+					f.properties[`scenario_pct_label_${i + 1}`] = pct != null ? `${pct.toFixed(2)}%` : 'n/a';
+					pcts.push(pct);
 				}
+				pctByFullNameLocal[f.properties.name] = pcts;
 			});
+			pctByFullName = pctByFullNameLocal;
 			provincesGeojson = rawGeojson;
 			dataLoaded = true;
 
@@ -256,7 +333,7 @@
 			center: [-95, 60],
 			zoom: 2.6,
 			minZoom: 2,
-			maxZoom: 8,
+			maxZoom: 11.9,
 			pitch: 0,
 			bearing: 0,
 			projection: 'globe',
@@ -268,30 +345,81 @@
 		map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
 
 		map.on('style.load', () => {
-			map.setProjection({ type: (map.getZoom() < 7) ? 'globe' : 'mercator' });
+			map.setProjection({ type: map.getZoom() < 7 ? 'globe' : 'mercator' });
 			map.on('zoom', () => {
-				map.setProjection({ type: (map.getZoom() < 7) ? 'globe' : 'mercator' });
+				map.setProjection({ type: map.getZoom() < 7 ? 'globe' : 'mercator' });
 			});
 		});
 
 		map.on('load', () => {
+			// ---- CSD tariff-exposure choropleth (fill) ----
+			map.addSource('choropleth_csd', { type: 'vector', url: choropleth_csd });
+			map.addSource('centroids_csd', { type: 'vector', url: centroids_csd });
+			map.addSource('censusDivisions', { type: 'vector', url: censusDivisions });
+
+			map.addLayer({
+				id: 'polygons_csd',
+				type: 'fill',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'fill-opacity': 0.8,
+					'fill-color': [
+						'case',
+						['==', ['get', csdLayer.dataSource], null], noDataColour,
+						[
+							'step', ['get', csdLayer.dataSource],
+							csdLayer.colours[0], csdLayer.breaks[0],
+							csdLayer.colours[1], csdLayer.breaks[1],
+							csdLayer.colours[2], csdLayer.breaks[2],
+							csdLayer.colours[3], csdLayer.breaks[3],
+							csdLayer.colours[4]
+						]
+					]
+				}
+			});
+
+			map.addLayer({
+				id: 'outline-csd',
+				type: 'line',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'line-color': '#808080',
+					'line-width': ['interpolate', ['linear'], ['zoom'], 4, 0, 17, 3],
+					'line-opacity': 0.4
+				}
+			});
+
+			map.addLayer({
+				id: 'censusDivisions',
+				type: 'line',
+				source: 'censusDivisions',
+				'source-layer': 'censusdivisions',
+				paint: { 'line-color': '#4d4d4d', 'line-width': 0.5 },
+				minzoom: 6
+			});
+
+			// ---- Province outline: indirect job loss (white -> blue), on top ----
 			map.addSource('provinces', { type: 'geojson', data: provincesGeojson });
 
 			map.addLayer({
-				id: 'provinces-fill',
+				id: 'provinces-hit',
 				type: 'fill',
 				source: 'provinces',
-				paint: {
-					'fill-color': buildFillExpression(selectedScenario - 1, breaks),
-					'fill-opacity': 0.85
-				}
+				paint: { 'fill-opacity': 0 }
 			});
 
 			map.addLayer({
 				id: 'provinces-outline',
 				type: 'line',
 				source: 'provinces',
-				paint: { 'line-color': '#ffffff', 'line-width': 1 }
+				paint: {
+					'line-color': buildProvinceOutlineExpression(selectedScenario - 1, breaks),
+					'line-width': 3,
+					'line-opacity': 0.9,
+					'line-offset': 1.5
+				}
 			});
 
 			map.addLayer({
@@ -314,23 +442,35 @@
 				}
 			});
 
-			map.on('mousemove', 'provinces-fill', (e) => {
+			// Hover tooltip: CSD name, direct exposure %, province indirect-loss %
+			map.on('mousemove', 'polygons_csd', (e) => {
 				map.getCanvas().style.cursor = 'pointer';
 				if (!e.features.length) return;
 				const props = e.features[0].properties;
-				const value = props[`scenario_${selectedScenario}`];
-				hoverInfo = {
-					name: props.name,
-					value: value != null ? Math.round(Math.abs(value)).toLocaleString() : 'No data'
-				};
+
+				// NOTE: verify this matches your actual CSD tile schema —
+				// console.log(props) once to confirm the real name field.
+				const csduid = props.CSDDGUID ? props.CSDDGUID.slice(-7) : null;
+				const csdName = csduid && csdNameByUid[csduid] ? csdNameByUid[csduid] : 'Unknown CSD';
+
+				const value = props[csdLayer.dataSource];
+				const directExposure = value != null
+					? `${(value * 100).toFixed(1)}% (${csdLayer.categoryLabel})`
+					: 'No data';
+
+				const provinceFeatures = map.queryRenderedFeatures(e.point, { layers: ['provinces-hit'] });
+				let provincePct = 'No data';
+				if (provinceFeatures.length) {
+					provincePct = provinceFeatures[0].properties[`scenario_pct_label_${selectedScenario}`] ?? 'No data';
+				}
+
+				hoverInfo = { csdName, directExposure, provincePct };
 			});
 
-			map.on('mouseleave', 'provinces-fill', () => {
+			map.on('mouseleave', 'polygons_csd', () => {
 				map.getCanvas().style.cursor = '';
 				hoverInfo = null;
 			});
-
-			
 
 			mapLoaded = true;
 		});
@@ -347,11 +487,20 @@
 <Logo logoType="Blue" backgroundColor="var(--brandWhite)" />
 
 <main>
+	<TitleStandard
+		title="Tariff exposure and modeled job losses"
+	/>
 	<div class="text">
-		<h1>Modeled job losses by province under six tariff scenarios</h1>
-		<p class="subtitle">
-			Total (direct + indirect + induced) estimated employment impact, by province, under six
-			Statistics Canada multi-regional input-output shock scenarios.
+		<AuthorDate
+			authors="<a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>"
+			date="July 2026"
+		/>
+		<p>
+
+		</p>
+		<p>
+			The colour of each CSD represents the estimated share of employees (by place of work) directly exposed to U.S. tariffs.
+			The province outline depicts job losses under six input-output shock scenarios.
 		</p>
 	</div>
 
@@ -388,7 +537,7 @@
 			<p class="scenario-description">{currentScenario.description}</p>
 			{#if currentTotal !== null}
 				<p class="scenario-total">
-					Estimated national job loss under this scenario:
+					Estimated national <em>job loss</em> under this scenario:
 					<strong>{Math.round(Math.abs(currentTotal)).toLocaleString()}</strong>
 				</p>
 			{/if}
@@ -399,24 +548,44 @@
 
 			{#if hoverInfo}
 				<div class="map-tooltip" style="top: {mouseY}px; left: {mouseX}px;">
-					<strong>{hoverInfo.name}</strong><br />
-					{hoverInfo.value} jobs
+					<strong>{hoverInfo.csdName}</strong><br />
+					Direct exposure: {hoverInfo.directExposure}<br />
+					Province: {hoverInfo.provincePct} of job loss
 				</div>
 			{/if}
-
 			<div class="legend">
-				<span class="legend-title">Estimated jobs lost</span>
+				<span class="legend-title">Province outline &mdash; % of provincial employment at risk</span>
 				<div class="legend-swatches">
-					{#each colours as c, i}
+					{#each blueColours as c, i}
 						<div class="legend-item">
 							<span class="legend-swatch" style="background-color: {c};"></span>
 							<span class="legend-label">
 								{#if i === 0}
-									&le;{Math.round(breaks[0]).toLocaleString()}
-								{:else if i === colours.length - 1}
-									&gt;{Math.round(breaks[3]).toLocaleString()}
+									&le;{breaks[0].toFixed(2)}%
+								{:else if i === blueColours.length - 1}
+									&gt;{breaks[3].toFixed(2)}%
 								{:else}
-									{Math.round(breaks[i - 1]).toLocaleString()}&ndash;{Math.round(breaks[i]).toLocaleString()}
+									{breaks[i - 1].toFixed(2)}&ndash;{breaks[i].toFixed(2)}%
+								{/if}
+							</span>
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div class="legend">
+				<span class="legend-title">CSD fill &mdash; % employees exposed (all tariffs)</span>
+				<div class="legend-swatches">
+					{#each graduated_col as c, i}
+						<div class="legend-item">
+							<span class="legend-swatch" style="background-color: {c};"></span>
+							<span class="legend-label">
+								{#if i === 0}
+									&lt;{(csdLayer.breaks[0] * 100).toFixed(0)}%
+								{:else if i === graduated_col.length - 1}
+									&gt;{(csdLayer.breaks[3] * 100).toFixed(0)}%
+								{:else}
+									{(csdLayer.breaks[i - 1] * 100).toFixed(0)}&ndash;{(csdLayer.breaks[i] * 100).toFixed(0)}%
 								{/if}
 							</span>
 						</div>
@@ -427,10 +596,11 @@
 
 		<div class="text">
 			<p class="caption">
-				Delta-Jobs values represent the full modeled impact (direct + indirect + induced effects)
-				from a provincial multi-regional input-output model, not direct tariff exposure alone.
-				Source: Statistics Canada Input-output multipliers, provincial and territorial, detail
-				level (Table 36-10-0113-01).
+				CSD fill: estimated employees directly exposed to U.S. tariffs, based on the Canadian
+				Business Register (Dec 2022) and Harmonized Tariff Schedule mapping &mdash; see Mapping
+				Tariffs for full methodology. Province outline: modeled indirect + induced job-loss
+				impact from a provincial multi-regional input-output model (Statistics Canada Table
+				36-10-0113-01), not direct tariff exposure.
 			</p>
 		</div>
 	{/if}
@@ -439,6 +609,11 @@
 </main>
 
 <style>
+	:global(html), :global(body) {
+		height: auto;
+		overflow: visible;
+	}
+
 	main {
 		margin: 0 auto;
 		width: 100%;
@@ -557,8 +732,8 @@
 	}
 
 	.slider-node.active {
-		background-color: var(--brandDarkBlue);
-		border-color: var(--brandDarkBlue);
+		background-color: #08519c;
+		border-color: #08519c;
 		color: var(--brandWhite);
 		width: 34px;
 		height: 34px;
