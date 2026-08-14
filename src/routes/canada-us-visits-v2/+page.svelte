@@ -1,3 +1,5 @@
+<Password/>
+
 <script>
 	import '../../assets/global-styles.css';
 	import Logo from '$lib/LogoTop.svelte';

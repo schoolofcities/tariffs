@@ -30,6 +30,6 @@
 </svelte:head>
 
 
-<!-- <Password/> -->
+<Password/>
 
 <Map/>
