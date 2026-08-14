@@ -4,812 +4,648 @@
 	import '../../assets/global-styles.css';
 	import Logo from '$lib/LogoTop.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import { onMount, onDestroy, tick } from 'svelte';
+	import maplibregl from 'maplibre-gl';
+	import 'maplibre-gl/dist/maplibre-gl.css';
+	import * as pmtiles from 'pmtiles';
+	import * as XLSX from 'xlsx'; // npm install xlsx
+	import { csvParse } from 'd3-dsv';
 	import AuthorDate from '$lib/AuthorDate.svelte';
 	import TitleStandard from '$lib/TitleStandard.svelte';
 	import Password from '$lib/Password.svelte';
-	import bigMetroPopulation2025 from '$lib/data/big-metro-keys-2025.json';
-	import TrendLinesView from './assets/TrendLinesView.svelte';
-	import MapView from './assets/MapView.svelte';
-	import IndustryCorrelationView from './assets/IndustryCorrelationView.svelte';
-	import IndustryCorrelationScatterView from './assets/IndustryCorrelationScatterView.svelte';
-	import { onMount } from 'svelte';
-	import { csvParse } from 'd3-dsv';
-	import { scaleLinear, line } from "d3";
-	import { regressionLoess } from "d3-regression";
-	import { mean, sum, max as d3Max, min as d3Min } from 'd3-array';
 
-	const regionOptions = ['Midwest', 'Northeast', 'Southwest', 'Southeast', 'Pacific'];
-	let selectedRegions = [...regionOptions];
+	const protocol = new pmtiles.Protocol();
+	maplibregl.addProtocol('pmtiles', protocol.tile);
 
-	const regionColors = {
-		Midwest: '#6FC7EA',
-		Northeast: '#8DBF2E',
-		Southwest: '#F1C500',
-		Southeast: '#AB1368',
-		Pacific: '#00AEB3',
-		Canada: '#F3603E'
+	// ============================================================
+	// SCENARIO CONFIG (from Impact Metrics sheet, MRIO workbook)
+	// ============================================================
+	const scenarios = [
+		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1.9%.' },
+		{ id: 2, code: 'DFD2_AGG_EXP', label: 'Aggregate Exports', description: 'Overall domestic exports to the U.S. decline by 4% across the board.' },
+		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline (region-specific weights).' },
+		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline.' },
+		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline.' },
+		{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline.' }
+	];
+
+	// Province abbreviation (as used in workbook) -> full name (matches GeoJSON "name" property)
+	const abbrevToFullName = {
+		NL: 'Newfoundland and Labrador', PEI: 'Prince Edward Island', NS: 'Nova Scotia',
+		NB: 'New Brunswick', QC: 'Quebec', ON: 'Ontario', MB: 'Manitoba', SK: 'Saskatchewan',
+		AB: 'Alberta', BC: 'British Columbia', YT: 'Yukon Territory',
+		NT: 'Northwest Territories', NU: 'Nunavut'
 	};
 
-	const negativeColor = '#DC4633';
-	const negativeMidColor = '#F1C500';
-	const neutralColor = '#FFFFFF';
-	const positiveColor = '#007FA3';
+	const noDataColour = '#D0D1C9';
 
-	function hexToRgb(hex) {
-		const clean = hex.replace('#', '');
-		const bigint = parseInt(clean, 16);
-		return {
-			r: (bigint >> 16) & 255,
-			g: (bigint >> 8) & 255,
-			b: bigint & 255
-		};
+	const csdNameCsvUrl = '/csv/csdnames.csv';
+	let csdNameByUid = {};
+
+	function parseCsdNames(csvText) {
+		const rows = csvParse(csvText.replace(/^\uFEFF/, ''));
+		const map = {};
+		rows.forEach((r) => {
+			if (r.CSDUID) map[r.CSDUID] = r.CSDNAME;
+		});
+		return map;
 	}
 
-	function interpolateHex(fromHex, toHex, t) {
-		const from = hexToRgb(fromHex);
-		const to = hexToRgb(toHex);
-		const r = Math.round(from.r + (to.r - from.r) * t);
-		const g = Math.round(from.g + (to.g - from.g) * t);
-		const b = Math.round(from.b + (to.b - from.b) * t);
-		return `rgb(${r}, ${g}, ${b})`;
-	}
+	// CSD tariff-exposure choropleth (identical to map.svelte)
+	const choropleth_csd = 'pmtiles:///pmtiles/csd_all/choropleth_csd.pmtiles';
+	const centroids_csd = 'pmtiles:///pmtiles/csd_all/centroids_csd.pmtiles';
+	const censusDivisions = 'pmtiles:///pmtiles/census-divisions.pmtiles';
+	const graduated_col = ['#f1c500', '#fb921f', '#f3603e', '#d73256', '#ab1368'];
+	const graduated_siz = [5, 9, 15, 24, 34];
 
-	function getDivergingColor(value) {
-		const clamped = Math.max(-70, Math.min(70, value));
-		if (clamped < -15) {
-			const t = (clamped + 70) / 55;
-			return interpolateHex(negativeColor, negativeMidColor, t);
-		}
-		if (clamped < 0) {
-			const t = (clamped + 15) / 15;
-			return interpolateHex(negativeMidColor, neutralColor, t);
-		}
-		const t = clamped / 70;
-		return interpolateHex(neutralColor, positiveColor, t);
-	}
+	// CSD fill layer, mapped per scenario to the closest matching tariff category.
+	// Scenarios 1-3 fall back to "All goods" since no dedicated agriculture category
+	// exists in the tariff map, and 1/2 are economy-wide (not sector-specific).
+	// Breaks/colours copied from map.svelte's dataLayers config.
+	const csdLayersByScenario = {
+		1: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		2: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		3: { dataSource: 'Total_2', breaks: [0.04, 0.1, 0.2, 0.4], colours: graduated_col, categoryLabel: 'All goods' },
+		4: { dataSource: 'Alum_2', breaks: [0.01, 0.05, 0.1, 0.2], colours: graduated_col, categoryLabel: 'Aluminum' },
+		5: { dataSource: 'LumNew_2', breaks: [0.01, 0.05, 0.1, 0.2], colours: graduated_col, categoryLabel: 'Lumber (after Oct 14)' },
+		6: { dataSource: 'Auto_2', breaks: [0.01, 0.04, 0.08, 0.2], colours: graduated_col, categoryLabel: 'Automobiles' }
+	};
 
-	// Get region color
-	function getRegionColor(regionName) {
-		return regionColors[regionName] || '#999';
-	}
+	$: csdLayer = csdLayersByScenario[selectedScenario];
 
-	// Configuration
-	let selection = {
-		year1: 2024,
-		year2: 2025,
-		year3: 2026,
-		period1Start: "2024-04-01",
-		period1End: "2025-03-31",
-		period2Start: "2025-04-01",
-		period2End: "2026-03-31",
-		update_date: "2026-04-08"
-	}
+	// Province outline: blue -> dark purple, scaled by modeled indirect job loss
+	const blueColours = ['#71CAE3', '#4F98D6', '#3348B5', '#5C41AB', '#510F81'];
 
-	// State variables
-	let processedData = [];
-	let metros = [];
-	let loadedDateMin = null;
-	let loadedDateMax = null;
-	let isLoading = true;
+	const xlsxUrl = encodeURI('/csv/scenario summary - clsd MRIO - as of June 21 2026 - 2022 model.xlsx');
+	const provinceGeojsonUrl = 'https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/canada.geojson';
+	// NOTE: province boundaries pulled from a public GitHub-hosted file for convenience.
+	// Consider self-hosting a copy in /geojson for production reliability.
+
+	let selectedScenario = 1;
+	$: currentScenario = scenarios[selectedScenario - 1];
+
+	let deltaJobsByFullName = {};
+	let canadaTotals = [];
 	let dataLoaded = false;
-	let searchQuery = "";
-	let showBigMetros = true;
-	let showSmallMetros = true;
-	let selectedDataset = 'us_normalized_trips_daily.csv'
-	// View toggle: "map", "rankings", or "trends"
-	let viewMode = "trends";
+	let loadError = null;
 
+	$: currentTotal = canadaTotals[selectedScenario - 1] ?? null;
 
-	// Metro to region mapping (US states to regions)
-	const stateToRegion = {
-		// Midwest
-		'IL': 'Midwest', 'IN': 'Midwest', 'MI': 'Midwest', 'OH': 'Midwest', 'WI': 'Midwest',
-		'IA': 'Midwest', 'KS': 'Midwest', 'MN': 'Midwest', 'MO': 'Midwest', 'NE': 'Midwest',
-		'ND': 'Midwest', 'SD': 'Midwest',
-		// Northeast
-		'CT': 'Northeast', 'ME': 'Northeast', 'MA': 'Northeast', 'NH': 'Northeast', 'RI': 'Northeast',
-		'VT': 'Northeast', 'NJ': 'Northeast', 'NY': 'Northeast', 'PA': 'Northeast',
-		'DE': 'Northeast', 'MD': 'Northeast',
-		// Southwest
-		'AZ': 'Southwest', 'NM': 'Southwest', 'OK': 'Southwest', 'TX': 'Southwest',
-		'CO': 'Southwest', 'NV': 'Southwest', 'UT': 'Southwest',
-		// Southeast
-		'AL': 'Southeast', 'AR': 'Southeast', 'FL': 'Southeast', 'GA': 'Southeast', 'KY': 'Southeast',
-		'LA': 'Southeast', 'MS': 'Southeast', 'NC': 'Southeast', 'SC': 'Southeast', 'TN': 'Southeast',
-		'VA': 'Southeast', 'WV': 'Southeast', 'DC': 'Southeast',
-		// Pacific
-		'AK': 'Pacific', 'CA': 'Pacific', 'HI': 'Pacific', 'OR': 'Pacific', 'WA': 'Pacific', 'ID': 'Pacific', 'MT': 'Pacific'
+	let map;
+	let mapContainer;
+	let mapLoaded = false;
+	let provincesGeojson = null;
+
+	let hoverInfo = null; // { name, value } for CSD hover
+	let mouseX = 0;
+	let mouseY = 0;
+
+	let pctByFullName = {}; // full province name -> [% of provincial employment at risk, per scenario]
+	
+
+	// ============================================================
+	// Parse the "Impact Metrics" sheet out of the MRIO workbook.
+	// Blocks repeat per province: header row where col C === 'Shock'
+	// marks a new block (col B = province abbrev, or 'Canada'),
+	// followed by 6 scenario rows (col A = scenario id 1-6, col F = Delta-Jobs).
+	// ============================================================
+	function parseImpactMetrics(rows) {
+		const byProvince = {};
+		const canada = [];
+		let currentLabel = null;
+
+		rows.forEach((row) => {
+			if (!row) return;
+			if (row[2] === 'Shock') {
+				currentLabel = row[1];
+				return;
+			}
+			const scenarioId = row[0];
+			if (currentLabel && typeof scenarioId === 'number' && scenarioId >= 1 && scenarioId <= 6) {
+				const deltaJobs = row[5];
+				if (currentLabel === 'Canada') {
+					canada[scenarioId - 1] = deltaJobs;
+				} else {
+					if (!byProvince[currentLabel]) byProvince[currentLabel] = [];
+					byProvince[currentLabel][scenarioId - 1] = deltaJobs;
+				}
+			}
+		});
+
+		return { byProvince, canada };
+	}
+
+	function computeBreaks(scenarioIdx) {
+		const values = Object.values(pctByFullName)
+			.map((arr) => arr[scenarioIdx])
+			.filter((v) => Number.isFinite(v))
+			.sort((a, b) => a - b);
+		const n = values.length;
+		if (n === 0) return [0.5, 1, 2, 4];
+		const pick = (p) => values[Math.min(n - 1, Math.floor(n * p))];
+		return [pick(0.2), pick(0.4), pick(0.6), pick(0.8)];
+	}
+	
+	$: breaks = dataLoaded ? computeBreaks(selectedScenario - 1) : [0.5, 1, 2, 4];
+
+	function buildProvinceOutlineExpression(scenarioIdx, breaksArr) {
+		const prop = `scenario_pct_${scenarioIdx + 1}`;
+		return [
+			'case',
+			['==', ['get', prop], null], noDataColour,
+			[
+				'step',
+				['get', prop],
+				blueColours[0],
+				breaksArr[0], blueColours[1],
+				breaksArr[1], blueColours[2],
+				breaksArr[2], blueColours[3],
+				breaksArr[3], blueColours[4]
+			]
+		];
+	}
+
+	function updateProvinceOutline() {
+		if (!map || !mapLoaded || !map.getLayer('provinces-outline')) return;
+		map.setPaintProperty('provinces-outline', 'line-color', buildProvinceOutlineExpression(selectedScenario - 1, breaks));
+	}
+
+	function updateCsdFill() {
+		if (!map || !mapLoaded || !map.getLayer('polygons_csd')) return;
+		map.setPaintProperty('polygons_csd', 'fill-color', [
+			'case',
+			['==', ['get', csdLayer.dataSource], null], noDataColour,
+			[
+				'step', ['get', csdLayer.dataSource],
+				csdLayer.colours[0], csdLayer.breaks[0],
+				csdLayer.colours[1], csdLayer.breaks[1],
+				csdLayer.colours[2], csdLayer.breaks[2],
+				csdLayer.colours[3], csdLayer.breaks[3],
+				csdLayer.colours[4]
+			]
+		]);
+	}
+
+	$: {
+		selectedScenario;
+		breaks;
+		updateProvinceOutline();
+		updateCsdFill();
+	}
+
+	function handleMouseMove(event) {
+		const rect = mapContainer.getBoundingClientRect();
+		mouseX = event.clientX - rect.left + 12;
+		mouseY = event.clientY - rect.top + 12;
+	}
+
+	const labourCsvUrl = '/csv/labourtotals.csv';
+
+	// LFS doesn't cover the territories monthly — YT/NT/NU will have no baseline
+	const geoToFullName = {
+		'Newfoundland and Labrador': 'Newfoundland and Labrador',
+		'Prince Edward Island': 'Prince Edward Island',
+		'Nova Scotia': 'Nova Scotia',
+		'New Brunswick': 'New Brunswick',
+		'Quebec': 'Quebec',
+		'Ontario': 'Ontario',
+		'Manitoba': 'Manitoba',
+		'Saskatchewan': 'Saskatchewan',
+		'Alberta': 'Alberta',
+		'British Columbia': 'British Columbia'
 	};
 
-	function getMetroRegion(metroName) {
-		// Extract state codes from metro name (e.g., "New York, NY" or "Dallas-Fort Worth, TX")
-		const stateMatch = metroName.match(/,\s*([A-Z]{2})/);
-		if (stateMatch) {
-			const state = stateMatch[1];
-			return stateToRegion[state] || null;
-		}
-		// Check for multi-state metros (e.g., "Washington, DC-VA-MD-WV")
-		const multiStateMatch = metroName.match(/,\s*([A-Z]{2}(?:-[A-Z]{2})+)/);
-		if (multiStateMatch) {
-			const firstState = multiStateMatch[1].split('-')[0];
-			return stateToRegion[firstState] || null;
-		}
-		return null;
+	let employmentByFullName = {}; // full province name -> avg employed persons (actual count)
+	let canadaEmployment = null;
+
+	function parseLabourForce(csvText) {
+		const rows = csvParse(csvText.replace(/^\uFEFF/, '')); // strip BOM if present
+		const byGeo = {}; // geo -> array of monthly Employment estimates (thousands)
+
+		rows.forEach((row) => {
+			if (row['Labour force characteristics'] !== 'Employment') return;
+			if (row['Statistics'] !== 'Estimate') return;
+			const value = parseFloat(row['VALUE']);
+			if (!Number.isFinite(value)) return;
+			const geo = row['GEO'];
+			if (!byGeo[geo]) byGeo[geo] = [];
+			byGeo[geo].push(value);
+		});
+
+		const avgByGeo = {};
+		Object.entries(byGeo).forEach(([geo, values]) => {
+			const avgThousands = values.reduce((a, b) => a + b, 0) / values.length;
+			avgByGeo[geo] = avgThousands * 1000; // thousands -> actual persons
+		});
+		return avgByGeo;
 	}
 
-	// Parse date from YYYYMMDD format
-	function parseDate(dateValue) {
-		const dateStr = String(dateValue).trim();
-		const year = parseInt(dateStr.substring(0, 4), 10);
-		const month = parseInt(dateStr.substring(4, 6), 10) - 1;
-		const day = parseInt(dateStr.substring(6, 8), 10);
-		return new Date(year, month, day);
-	}
-
-	// Format date to YYYY-MM-DD
-	function formatDate(date) {
-		return date.toISOString().split('T')[0];
-	}
-
-	async function loadData(fileName = selectedDataset) {
-		isLoading = true;
+	onMount(async () => {
 		try {
-			const response = await fetch(`/canada-us-visits/${fileName}`);
-			if (!response.ok) {
-				throw new Error(`Could not load normalized trips CSV: ${fileName}`);
+			const [xlsxRes, geoRes, labourRes, csdNameRes] = await Promise.all([
+				fetch(xlsxUrl),
+				fetch(provinceGeojsonUrl),
+				fetch(labourCsvUrl),
+				fetch(csdNameCsvUrl)
+			]);
+			if (!csdNameRes.ok) throw new Error(`Could not load CSD name lookup: ${csdNameRes.status}`);
+			if (!xlsxRes.ok) throw new Error(`Could not load workbook: ${xlsxRes.status}`);
+			if (!geoRes.ok) throw new Error(`Could not load province boundaries: ${geoRes.status}`);
+			if (!labourRes.ok) throw new Error(`Could not load labour force data: ${labourRes.status}`);
+
+			const xlsxBuffer = await xlsxRes.arrayBuffer();
+			const workbook = XLSX.read(xlsxBuffer, { type: 'array' });
+			const sheet = workbook.Sheets['Impact Metrics'];
+			if (!sheet) throw new Error('Sheet "Impact Metrics" not found in workbook');
+
+			const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null });
+			const { byProvince, canada } = parseImpactMetrics(rows);
+
+			const csdNameCsvText = await csdNameRes.text();
+			csdNameByUid = parseCsdNames(csdNameCsvText);
+
+			const byFullName = {};
+			Object.entries(byProvince).forEach(([abbrev, arr]) => {
+				const fullName = abbrevToFullName[abbrev];
+				if (fullName) byFullName[fullName] = arr;
+			});
+
+			deltaJobsByFullName = byFullName;
+			canadaTotals = canada;
+
+			// labour totals
+			const labourCsvText = await labourRes.text();
+			const avgEmploymentByGeo = parseLabourForce(labourCsvText);
+
+			const employmentByFullNameLocal = {};
+			Object.entries(geoToFullName).forEach(([geoName, fullName]) => {
+				if (avgEmploymentByGeo[geoName] != null) employmentByFullNameLocal[fullName] = avgEmploymentByGeo[geoName];
+			});
+			employmentByFullName = employmentByFullNameLocal;
+			canadaEmployment = avgEmploymentByGeo['Canada'] ?? null;
+
+			const rawGeojson = await geoRes.json();
+			const pctByFullNameLocal = {};
+			rawGeojson.features.forEach((f) => {
+				const values = deltaJobsByFullName[f.properties.name];
+				const baseline = employmentByFullName[f.properties.name]; // undefined for territories
+				const pcts = [];
+				for (let i = 0; i < scenarios.length; i++) {
+					f.properties[`scenario_${i + 1}`] = values ? values[i] : null;
+					const pct = values && baseline ? (Math.abs(values[i]) / baseline) * 100 : null;
+					f.properties[`scenario_pct_${i + 1}`] = pct;
+					f.properties[`scenario_pct_label_${i + 1}`] = pct != null ? `${pct.toFixed(2)}%` : 'n/a';
+					pcts.push(pct);
+				}
+				pctByFullNameLocal[f.properties.name] = pcts;
+			});
+			pctByFullName = pctByFullNameLocal;
+			provincesGeojson = rawGeojson;
+			dataLoaded = true;
+
+			// Wait for the {#if dataLoaded} block to render so mapContainer is bound
+			await tick();
+
+			if (!mapContainer) {
+				loadError = 'Map container failed to render.';
+				return;
 			}
-			const csv = await response.text();
-			const normalizedDataRaw = csvParse(csv);
-
-			// Process the data
-			processData(normalizedDataRaw);
-		} catch (error) {
-			console.error('Error loading CSV data:', error);
+		} catch (err) {
+			console.error('Error loading scenario data:', err);
+			loadError = err.message;
+			return;
 		}
-		isLoading = false;
-		dataLoaded = true;
-	}
 
-	function processData(normalizedDataRaw) {
-		const normalizedData = [];
-		normalizedDataRaw.forEach(row => {
-			const metro = row.METRO || row.metro;
-			const dateValue = row.DATE || row.date || row.dateNum;
-			const normalizedValue = row.normalized ?? row.NORMALIZED;
-			if (!metro || !dateValue) return;
+		map = new maplibregl.Map({
+			container: mapContainer,
+			style: {
+				version: 8,
+				glyphs: 'https://schoolofcities.github.io/fonts/fonts/{fontstack}/{range}.pbf',
+				sources: {
+					osm: {
+						type: 'vector',
+						tiles: ['https://vector.openstreetmap.org/shortbread_v1/{z}/{x}/{y}.mvt']
+					}
+				},
+				layers: [
+					{ id: 'background', type: 'background', paint: { 'background-color': '#fbfbfb' } },
+					{ id: 'ocean', type: 'fill', source: 'osm', 'source-layer': 'ocean', paint: { 'fill-color': '#E3F4FB' } }
+				]
+			},
+			center: [-95, 60],
+			zoom: 2.6,
+			minZoom: 2,
+			maxZoom: 11.9,
+			pitch: 0,
+			bearing: 0,
+			projection: 'globe',
+			attributionControl: false
+		});
 
-			const date = parseDate(dateValue);
-			if (Number.isNaN(date.getTime())) return;
+		map.dragRotate.disable();
+		map.touchZoomRotate.disableRotation();
+		map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
 
-			normalizedData.push({
-				metro,
-				date,
-				dateStr: formatDate(date),
-				dateNum: dateValue,
-				normalized: parseFloat(normalizedValue)
+		map.on('style.load', () => {
+			map.setProjection({ type: map.getZoom() < 7 ? 'globe' : 'mercator' });
+			map.on('zoom', () => {
+				map.setProjection({ type: map.getZoom() < 7 ? 'globe' : 'mercator' });
 			});
 		});
 
-		// Filter to our date range (April 1, 2024 to March 31, 2026)
-		const startDate = new Date("2024-04-01");
-		const endDate = new Date("2026-03-31");
-		
-		processedData = normalizedData.filter(d => d.date >= startDate && d.date <= endDate);
-		if (processedData.length > 0) {
-			loadedDateMin = new Date(d3Min(processedData, d => d.date.getTime()));
-			loadedDateMax = new Date(d3Max(processedData, d => d.date.getTime()));
-		} else {
-			loadedDateMin = null;
-			loadedDateMax = null;
-		}
-		
-		// Get unique metros
-		metros = [...new Set(processedData.map(d => d.metro))].sort();
-	}
+		map.on('load', () => {
+			// ---- CSD tariff-exposure choropleth (fill) ----
+			map.addSource('choropleth_csd', { type: 'vector', url: choropleth_csd });
+			map.addSource('centroids_csd', { type: 'vector', url: centroids_csd });
+			map.addSource('censusDivisions', { type: 'vector', url: censusDivisions });
 
-	onMount(() => {
-		loadData();
-	});
-
-	const metroNameAliases = { "Louisville, KY-IN": "Louisville/Jefferson County, KY-IN" };
-	const bigMetroKeys2025 = new Set(bigMetroPopulation2025.entries.map(entry => entry.key));
-
-	function getMetroPopulationKey(metroName) {
-		const normalized = metroName.replace(' Micro Area', '').trim();
-		const aliased = metroNameAliases[normalized] || normalized;
-		const stateMatch = aliased.match(/,\s*([A-Z]{2})/);
-		const state = stateMatch ? stateMatch[1] : '';
-
-		const cityPart = aliased.split(',')[0].trim();
-		const city = cityPart.split(/[-/]/)[0].trim().toLowerCase();
-
-		return `${city}|${state}`;
-	}
-
-	function isBigMetro(metroName) {
-		return bigMetroKeys2025.has(getMetroPopulationKey(metroName));
-	}
-
-	// Chart dimensions
-	const metroLabelWidth = 180;
-	const chartHeight = 50;
-
-	// Compute metrics for each metro
-	$: metroMetrics = (() => {
-		if (processedData.length === 0) return [];
-
-		const period1Start = new Date(selection.period1Start);
-		const period1End = new Date(selection.period1End);
-		const period2Start = new Date(selection.period2Start);
-		const period2End = new Date(selection.period2End);
-
-		return metros.map(metro => {
-			const metroData = processedData.filter(d => d.metro === metro);
-			
-			// Period 1: April 1, 2024 - March 31, 2025
-			const period1Data = metroData.filter(d => d.date >= period1Start && d.date <= period1End);
-			// Period 2: April 1, 2025 - March 31, 2026
-			const period2Data = metroData.filter(d => d.date >= period2Start && d.date <= period2End);
-			
-			if (period1Data.length < 10 || period2Data.length < 10) return null;
-
-			const avg1 = mean(period1Data, d => d.normalized);
-			const avg2 = mean(period2Data, d => d.normalized);
-			const total1 = sum(period1Data, d => d.normalized);
-			const total2 = sum(period2Data, d => d.normalized);
-
-			const percentChange = avg1 > 0 ? ((avg2 - avg1) / avg1) * 100 : 0;
-
-			// For LOESS trend
-			const sortedData = [...metroData].sort((a, b) => a.date - b.date);
-			
-			let regressionLine = null;
-			let startCircle = null;
-			let endCircle = null;
-			let meanLine = null;
-
-			if (sortedData.length >= 30) {
-				try {
-					const regressionGenerator = regressionLoess()
-						.x(d => d.date.getTime())
-						.y(d => d.normalized)
-						.bandwidth(0.09);
-					
-					const regressionData = regressionGenerator(sortedData);
-					
-					if (regressionData.length > 0) {
-						const allValues = regressionData.map(d => d[1]);
-						const minVal = Math.min(...allValues);
-						const maxVal = Math.max(...allValues);
-						
-						const minDateStr = period1Start.getTime();
-						const maxDateStr = period2End.getTime();
-						
-						const xPadding = 5;
-						const xScale = scaleLinear()
-							.domain([minDateStr, maxDateStr])
-							.range([xPadding, 360 - xPadding]);
-						
-						const yScale = scaleLinear()
-							.domain([minVal, maxVal])
-							.range([chartHeight - 5, 5]);
-
-						const lineGenerator = line()
-							.x(d => xScale(d[0]))
-							.y(d => yScale(d[1]));
-
-						regressionLine = lineGenerator(regressionData);
-						
-						startCircle = {
-							cx: xScale(regressionData[0][0]),
-							cy: yScale(regressionData[0][1])
-						};
-						endCircle = {
-							cx: xScale(regressionData[regressionData.length - 1][0]),
-							cy: yScale(regressionData[regressionData.length - 1][1])
-						};
-						meanLine = yScale(avg1);
-					}
-				} catch (e) {
-					// Skip LOESS for this metro
+			map.addLayer({
+				id: 'polygons_csd',
+				type: 'fill',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'fill-opacity': 0.8,
+					'fill-color': [
+						'case',
+						['==', ['get', csdLayer.dataSource], null], noDataColour,
+						[
+							'step', ['get', csdLayer.dataSource],
+							csdLayer.colours[0], csdLayer.breaks[0],
+							csdLayer.colours[1], csdLayer.breaks[1],
+							csdLayer.colours[2], csdLayer.breaks[2],
+							csdLayer.colours[3], csdLayer.breaks[3],
+							csdLayer.colours[4]
+						]
+					]
 				}
-			}
+			});
 
-			return {
-				metro,
-				region: getMetroRegion(metro),
-				avg1,
-				avg2,
-				total1,
-				total2,
-				percentChange,
-				period1Count: period1Data.length,
-				period2Count: period2Data.length,
-				regressionLine,
-				startCircle,
-				endCircle,
-				meanLine,
-				percentChangeDisplay: percentChange.toFixed(1) + "%"
-			};
-		}).filter(m => m !== null);
-	})();
+			map.addLayer({
+				id: 'outline-csd',
+				type: 'line',
+				source: 'choropleth_csd',
+				'source-layer': 'choropleth_csd',
+				paint: {
+					'line-color': '#808080',
+					'line-width': ['interpolate', ['linear'], ['zoom'], 4, 0, 17, 3],
+					'line-opacity': 0.4
+				}
+			});
 
-	// Filter by selected regions, search query, and big-metro toggle
-	$: filteredMetroMetrics = metroMetrics.filter(m => {
-		if (selectedRegions.length === 0) return false;
-		
-		const matchesRegion = m.region && selectedRegions.includes(m.region);
-		const matchesSearch = !searchQuery || m.metro.toLowerCase().includes(searchQuery.toLowerCase());
-		const isBig = isBigMetro(m.metro);
-		const matchesBigMetro = (isBig && showBigMetros) || (!isBig && showSmallMetros);
-		
-		return matchesRegion && matchesSearch && matchesBigMetro;
+			map.addLayer({
+				id: 'censusDivisions',
+				type: 'line',
+				source: 'censusDivisions',
+				'source-layer': 'censusdivisions',
+				paint: { 'line-color': '#4d4d4d', 'line-width': 0.5 },
+				minzoom: 6
+			});
+
+			// ---- Province outline: indirect job loss (white -> blue), on top ----
+			map.addSource('provinces', { type: 'geojson', data: provincesGeojson });
+
+			map.addLayer({
+				id: 'provinces-hit',
+				type: 'fill',
+				source: 'provinces',
+				paint: { 'fill-opacity': 0 }
+			});
+
+			map.addLayer({
+				id: 'provinces-outline',
+				type: 'line',
+				source: 'provinces',
+				paint: {
+					'line-color': buildProvinceOutlineExpression(selectedScenario - 1, breaks),
+					'line-width': 3,
+					'line-opacity': 0.9,
+					'line-offset': 1.5
+				}
+			});
+
+			map.addLayer({
+				id: 'country_labels',
+				type: 'symbol',
+				source: 'osm',
+				'source-layer': 'boundary_labels',
+				filter: ['==', ['get', 'admin_level'], 2],
+				layout: {
+					'text-field': ['get', 'name'],
+					'text-font': ['Open Sans Regular'],
+					'text-size': ['interpolate', ['linear'], ['zoom'], 2, 12, 5, 15],
+					'text-transform': 'uppercase'
+				},
+				paint: {
+					'text-color': '#999999',
+					'text-halo-color': '#ffffff',
+					'text-halo-width': 1.5,
+					'text-opacity': 0.4
+				}
+			});
+
+			// Hover tooltip: CSD name, direct exposure %, province indirect-loss %
+			map.on('mousemove', 'polygons_csd', (e) => {
+				map.getCanvas().style.cursor = 'pointer';
+				if (!e.features.length) return;
+				const props = e.features[0].properties;
+
+				// NOTE: verify this matches your actual CSD tile schema —
+				// console.log(props) once to confirm the real name field.
+				const csduid = props.CSDDGUID ? props.CSDDGUID.slice(-7) : null;
+				const csdName = csduid && csdNameByUid[csduid] ? csdNameByUid[csduid] : 'Unknown CSD';
+
+				const value = props[csdLayer.dataSource];
+				const directExposure = value != null
+					? `${(value * 100).toFixed(1)}% (${csdLayer.categoryLabel})`
+					: 'No data';
+
+				const provinceFeatures = map.queryRenderedFeatures(e.point, { layers: ['provinces-hit'] });
+				let provincePct = 'No data';
+				if (provinceFeatures.length) {
+					provincePct = provinceFeatures[0].properties[`scenario_pct_label_${selectedScenario}`] ?? 'No data';
+				}
+
+				hoverInfo = { csdName, directExposure, provincePct };
+			});
+
+			map.on('mouseleave', 'polygons_csd', () => {
+				map.getCanvas().style.cursor = '';
+				hoverInfo = null;
+			});
+
+			mapLoaded = true;
+		});
 	});
 
-	// Sort for rankings view (worst to best)
-	$: sortedByRankings = [...filteredMetroMetrics].sort((a, b) => a.percentChange - b.percentChange);
-
-	// Sort for trends view (worst negatives first, then positives)
-	$: sortedByTrends = [...filteredMetroMetrics].sort((a, b) => a.percentChange - b.percentChange);
-
-	// The filters are already applied to filteredMetroMetrics
-	$: filteredRankings = sortedByRankings;
-	$: filteredTrends = sortedByTrends;
-
-	// Statistics
-	$: totalMetros = filteredMetroMetrics.length;
-	$: metrosRising = filteredMetroMetrics.filter(m => m.percentChange > 0).length;
-	$: metrosFalling = filteredMetroMetrics.filter(m => m.percentChange < 0).length;
-	$: meanChange = filteredMetroMetrics.length > 0 ? mean(filteredMetroMetrics, m => m.percentChange) : 0;
-	$: globalMaxNormalized = d3Max(metroMetrics, m => m.avg2) || 0.001;
-	$: maxLegendVolume = d3Max(filteredMetroMetrics, m => m.avg2) || 0;
-	$: legendSizeBins = [
-		maxLegendVolume * 0.2,
-		maxLegendVolume * 0.4,
-		maxLegendVolume * 0.6,
-		maxLegendVolume * 0.8,
-		maxLegendVolume
-	];
-
-	function toggleRegion(region) {
-		if (selectedRegions.includes(region)) {
-			selectedRegions = selectedRegions.filter(r => r !== region);
-			return;
+	onDestroy(() => {
+		if (map) {
+			map.remove();
+			map = null;
 		}
-		selectedRegions = [...selectedRegions, region];
-	}
-
+	});
 </script>
 
-<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
+<Logo logoType="Blue" backgroundColor="var(--brandWhite)" />
 
 <main>
-		
-
 	<TitleStandard
-		title="How much has Canadian travel to U.S. cities declined?"
+		title="Tariff exposure and modeled job losses"
 	/>
-	<!-- subtitle="An analysis of mobile footfall data across U.S. metropolitan areas, 2024–2026" -->
 	<div class="text">
-	
 		<AuthorDate
-			authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
-			date="May 2026."
+			authors="<a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>"
+			date="July 2026"
 		/>
-
 		<p>
-			In response to increasingly strained political relations between Canada and the United States, many Canadians have reduced their travel to the U.S.. 
-			<!-- We used cell phone activity data to investigate the magnitude and geography of this shift. -->
-		</p>
 
+		</p>
 		<p>
-			But how has this decline varied in terms of magnitude and geography? 
+			The colour of each CSD represents the estimated share of employees (by place of work) directly exposed to U.S. tariffs.
+			The province outline depicts job losses under six input-output shock scenarios.
 		</p>
-
-		<p>
-			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
-
-			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas. This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
-		</p>
-		
-
-
 	</div>
 
+	{#if loadError}
+		<div class="text">
+			<p class="error">Failed to load scenario data: {loadError}</p>
+		</div>
+	{/if}
 
-	{#if isLoading}
+	{#if !dataLoaded && !loadError}
 		<div class="loading-container">
 			<div class="loading-spinner"></div>
-			<p class="loading-text">Loading data...</p>
+			<p class="loading-text">Loading scenario data...</p>
 		</div>
 	{/if}
 
 	{#if dataLoaded}
+		<div class="scenario-panel">
+			<h3 class="scenario-title">Scenario {currentScenario.id}: {currentScenario.label}</h3>
 
-	
-
-	<div class="text" style="margin-bottom: 0px;">
-
-		<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
-
-		<!-- View Toggle -->
-		<div class="view-toggle">
-			<div class="toggle-group">
-				<span class="toggle-label">View:</span>
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "trends"}
-					on:click={() => (viewMode = "trends")}
-				>
-					Trends
-				</button>
-				
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "map"}
-					on:click={() => (viewMode = "map")}
-				>
-					Map
-				</button>
-
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "correlations"}
-					on:click={() => (viewMode = "correlations")}
-				>
-					Correlations
-				</button>
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "correlations-scatter"}
-					on:click={() => (viewMode = "correlations-scatter")}
-				>
-					Scatter
-				</button>
-
+			<div class="slider-track">
+				<div class="slider-line"></div>
+				{#each scenarios as s}
+					<button
+						class="slider-node {selectedScenario === s.id ? 'active' : ''}"
+						on:click={() => (selectedScenario = s.id)}
+						aria-label={`Scenario ${s.id}: ${s.label}`}
+					>
+						{s.id}
+					</button>
+				{/each}
 			</div>
+
+			<p class="scenario-description">{currentScenario.description}</p>
+			{#if currentTotal !== null}
+				<p class="scenario-total">
+					Estimated national <em>job loss</em> under this scenario:
+					<strong>{Math.round(Math.abs(currentTotal)).toLocaleString()}</strong>
+				</p>
+			{/if}
 		</div>
 
-		<span class="toggle-label">Select metros:</span>
+		<div class="map-wrapper">
+			<div class="map-container" bind:this={mapContainer} on:mousemove={handleMouseMove}></div>
 
-		<div class="metro-selector">
-			<div class="metro-selector-group">
-				<span class="metro-selector-sublabel">By region</span>
-				<div class="button-group">
-					{#each regionOptions as region}
-						<button
-							type="button"
-							class="region-toggle-button {selectedRegions.includes(region) ? 'selected' : ''}"
-							on:click={() => toggleRegion(region)}
-						>
-							<span
-								class="region-swatch"
-								style="background-color: {getRegionColor(region)}"
-							></span>
-							<span class="region-name">{region}</span>
-						</button>
+			{#if hoverInfo}
+				<div class="map-tooltip" style="top: {mouseY}px; left: {mouseX}px;">
+					<strong>{hoverInfo.csdName}</strong><br />
+					Direct exposure: {hoverInfo.directExposure}<br />
+					Province: {hoverInfo.provincePct} of job loss
+				</div>
+			{/if}
+			<div class="legend">
+				<span class="legend-title">Province outline &mdash; % of provincial employment at risk</span>
+				<div class="legend-swatches">
+					{#each blueColours as c, i}
+						<div class="legend-item">
+							<span class="legend-swatch" style="background-color: {c};"></span>
+							<span class="legend-label">
+								{#if i === 0}
+									&le;{breaks[0].toFixed(2)}%
+								{:else if i === blueColours.length - 1}
+									&gt;{breaks[3].toFixed(2)}%
+								{:else}
+									{breaks[i - 1].toFixed(2)}&ndash;{breaks[i].toFixed(2)}%
+								{/if}
+							</span>
+						</div>
 					{/each}
 				</div>
 			</div>
 
-			<div class="metro-selector-group">
-				<span class="metro-selector-sublabel">By population size</span>
-				<div class="population-search-row">
-					<div class="button-group">
-
-						<button
-							type="button"
-							class="region-toggle-button {showSmallMetros ? 'selected' : ''}"
-							on:click={() => (showSmallMetros = !showSmallMetros)}
-						>
-							{"<"} 1,000,000
-						</button>
-						<button
-							type="button"
-							class="region-toggle-button {showBigMetros ? 'selected' : ''}"
-							on:click={() => (showBigMetros = !showBigMetros)}
-						>
-							≥ 1,000,000
-						</button>
-					</div>
-					<div class="search-container">
-						<input
-							type="text"
-							class="search-input"
-							placeholder="Search for a metro area"
-							bind:value={searchQuery}
-						/>
-						{#if searchQuery}
-							<button class="clear-search" on:click={() => searchQuery = ""}>×</button>
-						{/if}
-					</div>
+			<div class="legend">
+				<span class="legend-title">CSD fill &mdash; % employees exposed (all tariffs)</span>
+				<div class="legend-swatches">
+					{#each graduated_col as c, i}
+						<div class="legend-item">
+							<span class="legend-swatch" style="background-color: {c};"></span>
+							<span class="legend-label">
+								{#if i === 0}
+									&lt;{(csdLayer.breaks[0] * 100).toFixed(0)}%
+								{:else if i === graduated_col.length - 1}
+									&gt;{(csdLayer.breaks[3] * 100).toFixed(0)}%
+								{:else}
+									{(csdLayer.breaks[i - 1] * 100).toFixed(0)}&ndash;{(csdLayer.breaks[i] * 100).toFixed(0)}%
+								{/if}
+							</span>
+						</div>
+					{/each}
 				</div>
 			</div>
 		</div>
 
-	</div>
-	
-	<!-- Rankings and Trends Views -->
-	{#if viewMode !== "map"}
-
-	<!-- Trends View -->
-	{#if viewMode == "trends"}
-		<TrendLinesView
-			filteredTrends={filteredTrends}
-			chartHeight={chartHeight}
-			metroLabelWidth={metroLabelWidth}
-		/>
-	{/if}
-	{/if}
-
-	<!-- Map View -->
-	{#if viewMode === "map"}
-	<MapView
-		filteredMetroMetrics={filteredMetroMetrics}
-		globalMaxNormalized={globalMaxNormalized}
-		legendSizeBins={legendSizeBins}
-	/>
-	{/if}
-
-	<!-- Correlations View (v2 only) -->
-	{#if viewMode === "correlations"}
-		<IndustryCorrelationView />
-	{/if}
-
-	{#if viewMode === "correlations-scatter"}
-		<IndustryCorrelationScatterView />
-	{/if}
-
-	<div class="text" style="margin-top: 0px;">
-
-		<div class="caption-container">
-			<p>
-				<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.</span>
+		<div class="text">
+			<p class="caption">
+				CSD fill: estimated employees directly exposed to U.S. tariffs, based on the Canadian
+				Business Register (Dec 2022) and Harmonized Tariff Schedule mapping &mdash; see Mapping
+				Tariffs for full methodology. Province outline: modeled indirect + induced job-loss
+				impact from a provincial multi-regional input-output model (Statistics Canada Table
+				36-10-0113-01), not direct tariff exposure.
 			</p>
 		</div>
-
-	</div>
-
-	<div class="text" style="margin-top: 50px;">
-
-		<p>
-			Consistent with media reporting, our data shows significant declines in <a href="https://archive.ph/20250812180600/https:/www.bloomberg.com/news/features/2025-08-11/trump-tariffs-and-jabs-push-canadians-to-exit-florida-enclave#selection-1237.0-1237.66">snowbird destinations</a> like Florida; 
-			border-region cities in states like <a href="https://www.theguardian.com/us-news/2026/mar/28/canada-us-border-business-pay-trump-tariffs">New York</a>, <a href="https://www.travelandtourworld.com/news/article/new-hampshires-tourism-feels-the-sting-of-declining-canadian-visitors-and-strained-u-s-canada-travel-ties-everything-to-know/">New Hampshire</a> and <a href="https://www.nytimes.com/2026/01/19/us/politics/greensboro-vermont-canada-tariffs-trump.html">Vermont</a>; 
-			major tourist destinations like <a href="https://www.latimes.com/politics/story/2025-10-19/trumps-america-las-vegas-lagging-economy-struggling-food-server">Las Vegas</a> and <a href="https://www.reuters.com/business/looking-disney-magic-elsewhere-canadians-lead-declines-travel-us-2026-02-12/">Disney World</a>; and <a href="https://archive.ph/20260215003924/https:/www.bloomberg.com/news/articles/2026-01-26/canadian-skiers-skip-us-mountain-resorts-this-season-thanks-to-trump#selection-1183.0-1183.38">winter recreation areas</a>.
-		</p>
-
-		<p>
-			However, one of the most underreported findings is the marked decline in visits to large metropolitan economies. 
-			High-tech and financial centres like San Francisco and Houston appear to be experiencing reductions not only in tourists but also in business-related travel, reflecting changing travel preferences due to broader economic uncertainties on both sides of the border.
-			As another example, Grand Rapids, which has close ties to the automotive industry in Ontario, has experienced the second largest drop in visitation, likely due to the tariffs.
-		</p>
-
-		<p>
-			Differences between cell phone-based estimates and border-crossing estimates likely reflect differences in measurement scope. 
-			Our cell phone data includes freight traffic, whereas border-crossing data does not. Notably, January and February 2025 were among the <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250306/dq250306a-eng.htm">strongest months for Canadian exports to the U.S.</a>, likely driven by the anticipated tariff threats. 
-			The introduction of major tariffs, such as the <a href="https://www.congress.gov/crs-product/IN12545">25% tariff in automotive parts</a>, may explain the reduction in trade-related trips beginning in April 2025.
-			In addition, our data measures not only Canadians crossing the border, but also Canadians living temporarily in the U.S., suggesting that the decrease in activity may reflect return migration to Canada. 
-		</p>
-
-		<p>
-			While Forbes estimates <a href="https://www.forbes.com/sites/suzannerowankelleher/2026/02/12/canadian-visits-fall-january-trump-slump/">tourism-based revenue loss of US$4.5 billion</a> from a 22% drop in Canadian visitation, this does not include the Canadians who are no longer living in the U.S., or the drivers moving Canadian goods.
-			Therefore, these figures likely understate the total revenue lost from broader economic effects of changes in residency patterns and trade-related travel, as suggested from <a href="https://accd.vermont.gov/canada-research">recent estimates by the State of Vermont</a>.
-		</p>
-
-	</div>
-
-	
-
-	<div class="text">
-		<h3>Data sources and methods</h3>
-		<p>
-			The data comes from geolocation based trips tracking Canadian devices traveling to U.S. metro areas based on <a href="https://cuebiq.com/">Cuebiq</a>'s stops table. 
-			A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
-			Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
-			These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
-		</p>
-
-		<p>
-			Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S., and finally a stop back in Canada.
-			To determine which region gets a count on a specific day, the first stop that is in a U.S. metro (at a geohash level 6 level) is counted for that metro on that day. 
-			Subsequent days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
-			In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
-		</p>
-
-		<p>
-			All values are normalized by the total number of unique Canadian devices each day to account for daily variations in data coverage.
-			The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
-		</p>
-
-		<p>
-			You can download the selected normalized trip data <a href={`/canada-us-visits/${selectedDataset}`}>from this link</a>.
-		</p>
-		<br>
-	</div>
-
 	{/if}
 
 	<Footer />
 </main>
 
 <style>
+	:global(html), :global(body) {
+		height: auto;
+		overflow: visible;
+	}
+
 	main {
 		margin: 0 auto;
 		width: 100%;
-		min-width: 0;
-		max-width: 1920px;
-		position: relative;
+		max-width: 1080px;
 	}
 
-	.button-group {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-		margin-top: 8px;
+	.text {
+		max-width: 680px;
+		margin: 0 auto;
 	}
 
-	.region-toggle-button {
-		display: inline-flex;
-		align-items: center;
-		gap: 7px;
-		padding: 6px 10px;
-		margin-right: 0;
-		border: 1px solid transparent;
-		border-radius: 5px;
-		cursor: pointer;
-		background-color: transparent;
-		color: var(--brandDarkGray);
-		user-select: none;
+	h1 {
+		font-size: 28px;
+		line-height: 36px;
+		margin-bottom: 8px;
+	}
+
+	.subtitle {
 		font-family: OpenSans, sans-serif;
-		font-size: 14px;
-		font-weight: normal;
-		opacity: 0.5;
-		transition: opacity 0.2s ease, border 0.2s ease;
-		border-color: var(--brandGray);
-	}
-
-	.region-toggle-button.selected {
-		opacity: 1;
-		border-color: var(--brandLightBlue);
-	}
-
-	.region-toggle-button:hover {
-		opacity: 1;
-		border-color: var(--brandMedBlue);
-	}
-
-	.region-swatch {
-		height: 15px;
-		width: 5px;
-		/* border: solid 1px var(--); */
-		border-radius: 0px;
-		flex: 0 0 auto;
-	}
-
-	.region-name {
-		line-height: 1;
-	}
-
-	/* Search styles */
-	.population-search-row {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
-		gap: 10px;
-		margin-top: 8px;
-	}
-
-	.population-search-row .button-group {
-		margin-top: 0;
-		flex: 1 1 auto;
-	}
-
-	.search-container {
-		position: relative;
-		max-width: 200px;
-		width: 100%;
-		flex: 0 1 100px;
-		min-width: 195px;
-		margin-left: auto;
-	}
-
-
-	.search-input {
-		width: 100%;
-		box-sizing: border-box;
-		padding: 4px 15px 4px 10px;
-		font-size: 14px;
-		border: 1px solid var(--brandGray);
-		border-radius: 4px;
-		background: var(--brandWhite);
+		font-size: 15px;
 		color: var(--brandGray90);
-	}
-
-	.search-input::placeholder {
-		color: #888;
-	}
-
-	.clear-search {
-		position: absolute;
-		right: 5px;
-		top: 50%;
-		transform: translateY(-50%);
-		background: none;
-		border: none;
-		color: var(--brandGray90);
-		font-size: 20px;
-		cursor: pointer;
-		padding: 0 5px;
-	}
-
-	.metro-selector {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		margin-top: 8px;
 		margin-bottom: 30px;
 	}
 
-	.metro-selector-group {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		margin-bottom: 0px;
-	}
-
-	.metro-selector-sublabel {
-		font-family: OpenSans, sans-serif;
-		font-size: 13px;
-		color: var(--brandGray90);
-		opacity: 0.7;
-	}
-
-	/* Toggle styles */
-	.view-toggle {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px;
-		padding: 15px 0;
-	}
-
-	.toggle-group {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
-
-	.toggle-label {
+	.error {
 		font-family: OpenSans, sans-serif;
 		font-size: 14px;
-		color: var(--brandGray90);
+		color: #ab1368;
 	}
 
-	.toggle-btn {
-		font-family: OpenSans, sans-serif;
-		font-size: 14px;
-		font-weight: normal;
-		padding: 6px 10px;
-		border: 1px solid transparent;
-		background: transparent;
-		color: var(--brandDarkGray);
-		cursor: pointer;
-		border-radius: 5px;
-		opacity: 0.5;
-		transition: opacity 0.2s ease, border 0.2s ease;
-		border-color: var(--brandGray);
-	}
-
-	.toggle-btn:hover {
-		opacity: 1;
-		border-color: var(--brandMedBlue);
-	}
-
-	.toggle-btn.active {
-		opacity: 1;
-		border-color: var(--brandLightBlue);
-	}
-
-	/* Loading spinner */
 	.loading-container {
 		display: flex;
 		flex-direction: column;
@@ -840,17 +676,155 @@
 		color: var(--brandGray90);
 	}
 
-	.text {
+	.scenario-panel {
 		max-width: 680px;
-		margin: 0 auto;
+		margin: 0 auto 30px auto;
+		padding: 20px;
+		border: 1px solid var(--brandGray);
+		border-radius: 8px;
 	}
 
-	@media (max-width: 720px) {
-		.search-container {
-			max-width: 300px;
-			flex: 1 1 auto;
-			margin-left: 0;
-		}
+	.scenario-title {
+		text-align: center;
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-size: 18px;
 	}
 
+	.slider-track {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 10px 16px 10px;
+		height: 32px;
+	}
+
+	.slider-line {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		height: 2px;
+		background-color: var(--brandGray);
+		transform: translateY(-50%);
+		z-index: 0;
+	}
+
+	.slider-node {
+		position: relative;
+		z-index: 1;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border: 2px solid var(--brandGray);
+		background-color: var(--brandWhite);
+		color: var(--brandDarkGray);
+		font-family: OpenSansBold, sans-serif;
+		font-size: 14px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.15s ease;
+	}
+
+	.slider-node:hover {
+		border-color: var(--brandMedBlue);
+	}
+
+	.slider-node.active {
+		background-color: #08519c;
+		border-color: #08519c;
+		color: var(--brandWhite);
+		width: 34px;
+		height: 34px;
+	}
+
+	.scenario-description {
+		text-align: center;
+		font-family: OpenSans, sans-serif;
+		font-size: 14px;
+		color: var(--brandGray90);
+		margin-bottom: 8px;
+	}
+
+	.scenario-total {
+		text-align: center;
+		font-family: OpenSans, sans-serif;
+		font-size: 14px;
+		color: var(--brandDarkGray);
+	}
+
+	.map-wrapper {
+		position: relative;
+		max-width: 1080px;
+		margin: 0 auto 20px auto;
+	}
+
+	.map-container {
+		width: 100%;
+		height: 600px;
+		max-height: 80dvh;
+		border: 1px solid var(--brandGray);
+		border-radius: 4px;
+	}
+
+	.map-tooltip {
+		position: absolute;
+		background-color: var(--brandGray80);
+		color: var(--brandWhite);
+		border-radius: 4px;
+		padding: 4px 8px;
+		font-family: OpenSans, sans-serif;
+		font-size: 12px;
+		pointer-events: none;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+		white-space: nowrap;
+		z-index: 999;
+	}
+
+	.legend {
+		font-family: OpenSans, sans-serif;
+		font-size: 13px;
+		margin-top: 12px;
+		padding: 0 10px;
+	}
+
+	.legend-title {
+		font-weight: bold;
+		color: var(--brandGray90);
+	}
+
+	.legend-swatches {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin-top: 6px;
+	}
+
+	.legend-item {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.legend-swatch {
+		width: 14px;
+		height: 14px;
+		border-radius: 2px;
+		flex: 0 0 auto;
+	}
+
+	.legend-label {
+		color: var(--brandGray90);
+	}
+
+	.caption {
+		font-family: OpenSans, sans-serif;
+		font-size: 12px;
+		color: var(--brandGray90);
+		line-height: 18px;
+		margin-top: 10px;
+	}
 </style>

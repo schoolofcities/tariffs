@@ -83,6 +83,7 @@
 
 	<div class="text">	
 	<ul>
+		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2026/04/strengthening-actions-taken-to-adjust-imports-of-aluminum-steel-and-copper-into-the-united-states/">10-50% tariff on the full value of steel, aluminum and copper derivative products</a> depending on the percentage of metal content. This is a bolder action by the U.S. to products containing these metals, resulting in higher total costs for manufacturers.</li>
 		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">10% tariff on softwood lumber</a>, totalling <a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">duties
 		of approximately 45% on Canadian softwood lumber</a> (10% tariffs, 35% anti-dumping & countervailing) (effective October 14, 2025);</li>
 		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">25% tariff on upholstered furniture, kitchen cabinets, and vanities</a>, (effective October 14, 2025);</li>
