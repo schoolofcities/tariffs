@@ -74,10 +74,17 @@
 		Induced:  '_INDCD_Jobs'
 	};
 
-	// Percent mode is now share-of-workforce (loss / total CSD employment * 100),
-	// which is on the SAME 0-100 scale for every scenario/effect, so one break
-	// set works universally. 1% / 3% / 7% / 15% of the local workforce.
-	const PERCENT_BREAKS = [1, 2, 3, 5];
+	const PERCENT_BREAKS = [1, 3, 5, 7];
+	// Household Consumption (1) and Aggregate Exports (2)
+	const PERCENT_BREAKS_BROAD = [2, 4, 6, 8];
+	// Scenario 4
+	const PERCENT_BREAKS_S4 = [0.1, 0.5, 1, 2];
+
+	const PERCENT_BREAKS_BY_SCENARIO = {
+		1: PERCENT_BREAKS_BROAD,
+		2: PERCENT_BREAKS_BROAD,
+		4: PERCENT_BREAKS_S4,
+	};
 	// Count mode is absolute jobs. Most CSDs lose very little; the auto/metal
 	// towns carry the tail. These are a starting point -- retune from the
 	// quantile command against all_scenarios_csd.csv if bands look lopsided.
@@ -202,7 +209,9 @@
 			? ['==', ['get', fields[0]], null]
 			: ['all', ...fields.map(f => ['==', ['get', f], null])];
 
-		const breaks = metric === 'Percent' ? PERCENT_BREAKS : COUNT_BREAKS;
+		const breaks = metric === 'Percent'
+			? (PERCENT_BREAKS_BY_SCENARIO[scenarioId] ?? PERCENT_BREAKS)
+			: COUNT_BREAKS;
 
 		const effectLabel = effectIds
 			.map(id => effectOptions.find(e => e.id === id)?.label ?? id)
@@ -828,7 +837,7 @@
 
 		<h2>Mapping job-loss scenarios from U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
-			By <a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco">Richard DiFrancesco</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>.<br>
+			By <a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco">Richard DiFrancesco</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, Clara Turner, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>.<br>
 			<i>Last updated August 2026.</i>
 		</p>
 

@@ -213,6 +213,11 @@
 			<a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank">Richard DiFrancesco, PhD</a> is Associate Professor in the Department of Geography and Planning at the University of Toronto and has expertise in input-output data and models.
 		</p>
 
+		<p>
+			Clara Turner, PhD is a Researcher with the School of Cities. 
+			She holds a doctorate from the University of California, Berkeley and has expertise related to urban planning, economic development, and economic geography.
+		</p>
+
 	</div>
 
 	<Footer />
