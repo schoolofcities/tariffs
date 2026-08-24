@@ -21,13 +21,13 @@
 	// **Change these to have the .gz extension after .pmtiles for deployment**
 
 	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles.gz";
-	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles.gz";
+	let choropleth_ada = "/pmtiles/ada_all/choropleth.pmtiles";
+	let centroids_ada = "/pmtiles/ada_all/centroids.pmtiles";
 
 	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
-	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles.gz";
-	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles.gz";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles.gz";
+	let choropleth_csd = "/pmtiles/csd_all/choropleth_csd.pmtiles";
+	let centroids_csd = "/pmtiles/csd_all/centroids_csd.pmtiles";
+	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
 
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
