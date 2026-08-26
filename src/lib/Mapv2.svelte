@@ -21,7 +21,7 @@
 	// **Change these to have the .gz extension after .pmtiles for deployment**
 
 	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/ada_all/v2/choropleth.pmtiles";
+	let choropleth_ada = "/pmtiles/ada_all/v2/choropleth_z11.pmtiles";
 	let centroids_ada = "/pmtiles/ada_all/v2/centroids.pmtiles";
 
 	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
