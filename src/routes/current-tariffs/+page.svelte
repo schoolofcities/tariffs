@@ -76,14 +76,20 @@
 
 		<AuthorDate
 			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/eli-easton-77bb60273/'  target='_blank'>Eli Easton</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>"
-			date="February 2026"
+			date="August 2026"
 		/>
 	
 	</div>
 
 	<div class="text">	
 	<ul>
-		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2026/04/strengthening-actions-taken-to-adjust-imports-of-aluminum-steel-and-copper-into-the-united-states/">10-50% tariff on the full value of steel, aluminum and copper derivative products</a> depending on the percentage of metal content. This is a bolder action by the U.S. to products containing these metals, resulting in higher total costs for manufacturers.</li>
+		<li>A <a href="https://www.whitehouse.gov/fact-sheets/2026/07/fact-sheet-president-donald-j-trump-imposes-additional-tariffs-on-canada/">50% tariff</a> on <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-dairy/">dairy</a>, 
+			<a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-alcoholic-beverages/">alcohol</a>, 
+			and <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">motor vehicles</a> under Section 338 of the Tariff Act (effective August 19, 2026);</li>
+		<li>
+			A <a href="https://www.whitehouse.gov/presidential-actions/2026/07/actions-by-the-united-states-in-the-investigations-under-section-301-of-the-trade-act-of-1974-of-the-acts-policies-and-practices-of-60-economies-related-to-the-failure-of-each-economy-to-impose-and/">10% tariff</a> on Canadian on imports of most goods under Section 301 due to alleged forced labour practices (effective July 24, 2026);
+		</li>
+		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2026/04/strengthening-actions-taken-to-adjust-imports-of-aluminum-steel-and-copper-into-the-united-states/">10-50% tariff on the full value of steel, aluminum and copper derivative products</a> depending on the percentage of metal content (effective April 6, 2026) — this is a bolder action by the U.S. to products containing these metals, resulting in higher total costs for manufacturers;</li>
 		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">10% tariff on softwood lumber</a>, totalling <a href="https://www.theglobeandmail.com/business/article-economy-gdp-growth-tariff-canada-us-trump-tariff-lumber/" target="_blank">duties
 		of approximately 45% on Canadian softwood lumber</a> (10% tariffs, 35% anti-dumping & countervailing) (effective October 14, 2025);</li>
 		<li>A <a href="https://www.whitehouse.gov/presidential-actions/2025/09/adjusting-imports-of-timber-lumber-and-their-derivative-products-into-the-united-states/">25% tariff on upholstered furniture, kitchen cabinets, and vanities</a>, (effective October 14, 2025);</li>
@@ -126,14 +132,13 @@
 	</p>
 	 
 	<p>
-		As of February 2026, the U.S. government continues to enact <i>de minimis</i> and threaten further tariffs.
-		The Canadian government endures these challenges by <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforcing retaliatory tariffs on steel, aluminum and autos</a>, and <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">providing relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a> ($1 billion in funding over 3 years).
+		On February 20, 2026, the <a href="https://www.cbc.ca/news/world/livestory/scotus-tariff-ruling-9.7099048">U.S. Supreme Court ruled against the Trump administration's use of emergency powers to impose tariffs</a> under the 1977 International Emergency Economic Powers Act (IEEPA).
+		Although this is a win for Canada, Trump's reaction was to impose a <a href="https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/">tariff of 10%</a>, effective as of February 24, 2026 and initially lasting for 150 days under Section 122 of the Trade Act.
 	</p>
 
 	<p>
-		On February 20, 2026, the <a href="https://www.cbc.ca/news/world/livestory/scotus-tariff-ruling-9.7099048">U.S. Supreme Court ruled against the Trump administration's use of emergency powers to impose tariffs</a> under the 1977 International Emergency Economic Powers Act (IEEPA).
-		Although this is a win for Canada, Trump's reaction was to impose a <a href="https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/">tariff of 10%</a>, effective as of February 24, 2026 and initially lasting for 150 days under Section 122 of the Trade Act.
-		Canada remains largely unaffected by this latest manoeuvre to CUSMA's exemption from this global tariff.
+		As of August 2026, the U.S. government continues to enact <i>de minimis</i> and threaten further tariffs, such as <a href="https://www.nytimes.com/2026/08/24/business/economy/trump-canada-tariffs.html">50% tariffs on all automotive goods</a> for January 2027.
+		The Canadian government endures these challenges by <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforcing retaliatory tariffs on steel, aluminum and autos</a>, and <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">providing relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a> ($1 billion in funding over 3 years).
 	</p>
 
 	</div>
