@@ -1,0 +1,19 @@
+{
+  "version": 8,
+  "sources": {
+    "source": {
+      "type": "vector",
+      "tiles": [
+        "https://example.com/{z}/{x}/{y}.pbf"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "id": "choropleth_csd",
+      "type": "fill",
+      "source": "source",
+      "source-layer": "choropleth_csd"
+    }
+  ]
+}
