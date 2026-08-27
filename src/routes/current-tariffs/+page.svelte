@@ -85,7 +85,7 @@
 	<ul>
 		<li>A <a href="https://www.whitehouse.gov/fact-sheets/2026/07/fact-sheet-president-donald-j-trump-imposes-additional-tariffs-on-canada/">50% tariff</a> on <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-dairy/">dairy</a>, 
 			<a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-alcoholic-beverages/">alcohol</a>, 
-			and <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">motor vehicles</a> under Section 338 of the Tariff Act (effective August 19, 2026);</li>
+			and <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">motor vehicles</a> under Section 338 of the Tariff Act (effective August 22, 2026);</li>
 		<li>
 			A <a href="https://www.whitehouse.gov/presidential-actions/2026/07/actions-by-the-united-states-in-the-investigations-under-section-301-of-the-trade-act-of-1974-of-the-acts-policies-and-practices-of-60-economies-related-to-the-failure-of-each-economy-to-impose-and/">10% tariff</a> on Canadian on imports of most goods under Section 301 due to alleged forced labour practices (effective July 24, 2026);
 		</li>
@@ -139,6 +139,7 @@
 	<p>
 		As of August 2026, the U.S. government continues to enact <i>de minimis</i> and threaten further tariffs, such as <a href="https://www.nytimes.com/2026/08/24/business/economy/trump-canada-tariffs.html">50% tariffs on all automotive goods</a> for January 2027.
 		The Canadian government endures these challenges by <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank">enforcing retaliatory tariffs on steel, aluminum and autos</a>, and <a href="https://www.pm.gc.ca/en/news/backgrounders/2025/09/05/prime-minister-carney-launches-new-measures-protect-build-and">providing relief through programs</a> like the <a href="https://www.cfib-fcei.ca/en/tools-resources/regional-tariff-response-initiative-rtri">Regional Tariff Response Initiative</a> ($1 billion in funding over 3 years).
+		<a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html">Countermeasures in retaliatory tariffs</a> against the Section 338 tariffs recently imposed on August 22, 2026 will take place on September 8, 2026.
 	</p>
 
 	</div>
