@@ -101,15 +101,16 @@
 		geoType = value;
 	}
 
+
 	// ============================================================
 	// SCENARIO CONFIG
 	// ============================================================
 	const scenarios = [
-		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 2%.' },
-		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline.' },
-		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline.' },
-		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline.' },
-		{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline.' }
+		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1%. <a href="https://www.scotiabank.com/ca/en/about/economics/economics-publications/post.other-publications.insights-views.cusma-scenario-note--march-5--2026-.html", target = "_blank">Scotiobank Economics</a> and the <a href="https://www.bankofcanada.ca/wp-content/uploads/2025/01/mpr-2025-01-29.pdf">Bank of Canada</a> have given their projections of consumption decline, ranging from 0.5% to 2% of GDP consumption in Canada due to the tariffs.' },
+		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline. Although not as directly affected, analysis from <a href="https://www.agri-pulse.com/articles/23170-analysis-chttps://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/hecking-in-on-us-canada-agricultural-trade">Agri-Pulse</a> and <a href="https://retail-insider.com/retail-insider/opinion/2025/08/canadas-agri-food-sector-hit-by-35-u-s-tariff-after-ottawa-stalls/">Retail Insider</a> show significant declines in this sector in terms of agri-food exports' },
+		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline. The <a href="https://fao-on.org/en/report/impacts-of-us-tariffs/">Financial Accountability Office (FAO) of Ontario</a> reported a potential 137,900 job decrease in Ontario by 2029 under the April 2025 tariff scenario.' },
+		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline. The softwood lumber tariffs have affected the industry drastically, leading to declining lumber production and exports as noted by a report from the <a href="https://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/">Royal Bank of Canada</a> and our <a href="https://mappingtariffs.org/lumber">softwood lumber blog</a>.' },
+		{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline. The FAO noted a potential 20% decrease in U.S. motor vehicles exports and a 30% decrease for motor parts by 2029.' }
 	];
 
 	let selectedScenario = 1;
@@ -140,40 +141,97 @@
 	// ============================================================
 	// DENOMINATOR LOADING (total employment per geography, for Percent mode)
 	// ============================================================
+	// async function loadTotalEmployment() {
+	// 	const parseCsv = (text, into) => {
+	// 		const lines = text.trim().split(/\r?\n/);
+	// 		for (let i = 1; i < lines.length; i++) {   // skip header
+	// 			const [guid, emp] = lines[i].split(',');
+	// 			const v = Number(emp);
+	// 			if (guid && Number.isFinite(v)) into[guid] = v;
+	// 		}
+	// 	};
+	// 	const [csdText, adaText] = await Promise.all([
+	// 		fetch(CSD_TOTAL_EMP_CSV).then(r => r.text()),
+	// 		fetch(ADA_TOTAL_EMP_CSV).then(r => r.text()),
+	// 	]);
+	// 	parseCsv(csdText, csdTotalEmp);
+	// 	parseCsv(adaText, adaTotalEmp);
+	// 	empLoaded = true;
+	// 	console.log(`[emp] loaded CSD ${Object.keys(csdTotalEmp).length}, ADA ${Object.keys(adaTotalEmp).length}`);
+	// }
+
 	async function loadTotalEmployment() {
-		const parseCsv = (text, into) => {
-			const lines = text.trim().split(/\r?\n/);
-			for (let i = 1; i < lines.length; i++) {   // skip header
-				const [guid, emp] = lines[i].split(',');
-				const v = Number(emp);
-				if (guid && Number.isFinite(v)) into[guid] = v;
-			}
-		};
-		const [csdText, adaText] = await Promise.all([
-			fetch(CSD_TOTAL_EMP_CSV).then(r => r.text()),
-			fetch(ADA_TOTAL_EMP_CSV).then(r => r.text()),
-		]);
-		parseCsv(csdText, csdTotalEmp);
-		parseCsv(adaText, adaTotalEmp);
-		empLoaded = true;
-		// console.log(`[emp] loaded CSD ${Object.keys(csdTotalEmp).length}, ADA ${Object.keys(adaTotalEmp).length}`);
+		console.log('[emp] loadTotalEmployment STARTED');   // critical log
+		try {
+			const csdResponse = await fetch(CSD_TOTAL_EMP_CSV);
+			if (!csdResponse.ok) throw new Error(`CSD CSV status ${csdResponse.status}`);
+			const csdText = await csdResponse.text();
+			console.log('[emp] CSD CSV length:', csdText.length);
+
+			const adaResponse = await fetch(ADA_TOTAL_EMP_CSV);
+			if (!adaResponse.ok) throw new Error(`ADA CSV status ${adaResponse.status}`);
+			const adaText = await adaResponse.text();
+			console.log('[emp] ADA CSV length:', adaText.length);
+
+			const parseCsv = (text, into) => {
+				const lines = text.trim().split(/\r?\n/);
+				for (let i = 1; i < lines.length; i++) {
+					const [guid, emp] = lines[i].split(',');
+					const v = Number(emp);
+					if (guid && Number.isFinite(v)) into[guid] = v;
+				}
+			};
+			parseCsv(csdText, csdTotalEmp);
+			parseCsv(adaText, adaTotalEmp);
+			empLoaded = true;
+			console.log(`[emp] loaded: CSD ${Object.keys(csdTotalEmp).length}, ADA ${Object.keys(adaTotalEmp).length}`);
+		} catch (err) {
+			console.error('[emp] FAILED to load CSVs:', err);
+		}
 	}
 
 	// Push total employment into a geography's sources as feature-state, so paint
 	// expressions can read ['feature-state','totalEmp']. Applies to both
 	// geographies' sources when present. Safe to call repeatedly.
 	function applyEmploymentState() {
-		if (!empLoaded || !map || !map.style) return;
+		console.log('[emp] applyEmploymentState called', {
+			empLoaded,
+			hasMap: !!map,
+			hasStyle: !!(map && map.style)
+		});
+
+		if (!empLoaded || !map || !map.style) {
+			console.log('[emp] bailing out – prerequisites missing');
+			return;
+		}
+
 		for (const key of ['CSD', 'ADA']) {
 			const g = GEO[key];
-			if (!map.getSource(g.polySource) || !map.getSource(g.centSource)) continue;
-			const totals = g.totals();
-			for (const [guid, emp] of Object.entries(totals)) {
-				map.setFeatureState({ source: g.polySource, sourceLayer: g.polySrcLayer, id: guid }, { totalEmp: emp });
-				map.setFeatureState({ source: g.centSource, sourceLayer: g.centSrcLayer, id: guid }, { totalEmp: emp });
+			const polySrc = map.getSource(g.polySource);
+			const centSrc = map.getSource(g.centSource);
+			if (!polySrc || !centSrc) {
+				console.log(`[emp] source missing for ${key} (poly: ${!!polySrc}, cent: ${!!centSrc})`);
+				continue;
 			}
+			const totals = g.totals();
+			let count = 0;
+			for (const [guid, emp] of Object.entries(totals)) {
+				try {
+					map.setFeatureState(
+						{ source: g.polySource, sourceLayer: g.polySrcLayer, id: guid },
+						{ totalEmp: emp }
+					);
+					map.setFeatureState(
+						{ source: g.centSource, sourceLayer: g.centSrcLayer, id: guid },
+						{ totalEmp: emp }
+					);
+					count++;
+				} catch (err) {
+					console.warn(`[emp] setFeatureState failed for ${guid}:`, err);
+				}
+			}
+			console.log(`[emp] applied totalEmp to ${count} ${key} features`);
 		}
-		// console.log('[emp] feature-state applied');
 	}
 
 	// ============================================================
@@ -244,6 +302,8 @@
 		);
 
 		if (metricType === 'Percent') {
+			
+			console.log('[updateMap] Percent mode – checking valueExpr:', currentLayer.valueExpr);
 			// share of local workforce = loss / total employment (active geography)
 			const g = GEO[geoType];
 			const guid = properties[g.guid];
@@ -384,11 +444,21 @@
 	let selectedValue = "";
 	let lastUpdate = "0";
 
+	// After the function definition
+	console.log('[emp] loadTotalEmployment function defined');
+
+
 	onMount(async () => {
 
 		// Load the Percent-mode denominator in parallel with map init.
 		// applyEmploymentState() is called on every tile load once this resolves.
-		loadTotalEmployment().then(() => applyEmploymentState());
+		try {
+			console.log('[emp] about to call loadTotalEmployment');
+			await loadTotalEmployment();
+			console.log('[emp] loadTotalEmployment resolved successfully');
+		} catch (err) {
+			console.error('[emp] loadTotalEmployment threw an error:', err);
+		}
 
 		map = new maplibregl.Map({
 			container: "map",
@@ -418,6 +488,8 @@
 			projection: "globe",
 			attributionControl: false,
 		});
+
+		window.debugMap = map;   // add this line
 
 		map.on('load', async () => {
 
@@ -841,6 +913,8 @@
 		</p>
 
 		<div id="select-wrapper">
+
+			<p class = "summary">The following 5 job loss scenarios have been built using a <strong>Multiregional Input-Output model</strong> over Canadian provinces and territories, showing job losses by geographic unit using the model's provincial job losses as a multiplier.</p>
 			<div id="destext">
 				<p style="margin-bottom: -5px;">Select a scenario:</p>
 			</div>
@@ -856,7 +930,7 @@
 				on:change={scenarioSelect}
 			/>
 			<p class="scenario-description">
-				{scenarios.find((s) => s.id === selectedScenario)?.description}
+				{@html scenarios.find((s) => s.id === selectedScenario)?.description}
 			</p>
 		</div>
 
@@ -1064,6 +1138,15 @@
 		font-weight: normal !important;
 		color: var(--brandGray90);
 		margin-top: 8px;
+		line-height: 1.5; 
+	}
+
+	.summary {
+		font-family: SourceSerif, sans-serif !important;
+		font-size: 13px !important;
+		font-weight: normal !important;
+		color: var(--brandGray90);
+		line-height: 1.5;   /* adjust this value as needed */
 	}
 
 	.data-pending-note {

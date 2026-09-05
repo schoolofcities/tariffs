@@ -101,5 +101,12 @@ tar -xzf go-pmtiles_1.22.1_Linux_x86_64.tar.gz
 pmtiles convert choropleth.mbtiles choropleth.pmtiles
 ```
 
-14) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
+14) If the tiles are too large, use the maximum tile bytes command such as the following:
+
+```tippecanoe -Z 0 -z 12 --maximum-tile-bytes=10000000 \
+  --output=all_scenarios_ada_centroids.mbtiles \
+  --drop-rate=0 all_scenarios_ada_centroids.geojson --force
+```
+
+15) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
 
