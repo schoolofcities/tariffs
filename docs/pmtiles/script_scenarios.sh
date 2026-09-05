@@ -3,7 +3,7 @@
 
 set -e  # Stop on any error
 
-for base in all_scenarios_csd all_scenarios_ada_centroids all_scenarios_ada all_scenarios_csd_centroids; do
+for base in all_scenarios_csd all_scenarios_ada; do
     echo "Processing $base..."
 
     # 1. Generate .mbtiles with tippecanoe
