@@ -21,7 +21,7 @@
 	// **Change these to have the .gz extension after .pmtiles for deployment**
 
 	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/ada_all/v2/choropleth_z11.pmtiles";
+	let choropleth_ada = "/pmtiles/ada_all/v2/choropleth.pmtiles";
 	let centroids_ada = "/pmtiles/ada_all/v2/centroids.pmtiles";
 
 	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
@@ -66,7 +66,7 @@
 	$: selectedTariffLabel = tariffLabelMap[tariffType] ?? tariffType;
 
 
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Dairy", "Alcohol", "Motorcycles and broader auto parts", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
+	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Dairy", "Alcohol", "before August 22", "after August 22", "Section 338", "Motorcycles and broader auto parts", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
 
 	
 
@@ -328,6 +328,33 @@
 			colours: graduated_col,
 			text: "Estimated % of businesses directly exposed to U.S. Administration's Motor Tariffs on Canada",
 		},
+		"before August 22_1": {
+			dataSource: "before August 22_1",
+			metricType: "Percent",
+			impactType: "Business",
+			tariffType: "before August 22",
+			breaks: [0.05, 0.1, 0.2, 0.3],
+			colours: graduated_col,
+			text: "Estimated % of businesses directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_1": {
+			dataSource: "after August 22_1",
+			metricType: "Percent",
+			impactType: "Business",
+			tariffType: "after August 22",
+			breaks: [0.05, 0.1, 0.2, 0.3],
+			colours: graduated_col,
+			text: "Estimated % of businesses directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_1": {
+			dataSource: "Section 338_1",
+			metricType: "Percent",
+			impactType: "Business",
+			tariffType: "Section 338",
+			breaks: [0.05, 0.1, 0.2, 0.3],
+			colours: graduated_col,
+			text: "Estimated % of businesses directly exposed to Section 338 tariffs",
+		},
 		"Ene_1": {
 			dataSource: "Ene_1",
 			metricType: "Percent",
@@ -445,6 +472,33 @@
 			colours: graduated_col,
 			text: "Estimated % of employees (by work location) directly exposed to U.S. Administration's Motor Tariffs on Canada",
 		},
+		"before August 22_2": {
+			dataSource: "before August 22_2",
+			metricType: "Percent",
+			impactType: "EmployeeWork",
+			tariffType: "before August 22",
+			breaks: [0.05, 0.1, 0.2, 0.4],
+			colours: graduated_col,
+			text: "Estimated % of employees (by work location) directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_2": {
+			dataSource: "after August 22_2",
+			metricType: "Percent",
+			impactType: "EmployeeWork",
+			tariffType: "after August 22",
+			breaks: [0.05, 0.1, 0.2, 0.4],
+			colours: graduated_col,
+			text: "Estimated % of employees (by work location) directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_2": {
+			dataSource: "Section 338_2",
+			metricType: "Percent",
+			impactType: "EmployeeWork",
+			tariffType: "Section 338",
+			breaks: [0.05, 0.1, 0.2, 0.4],
+			colours: graduated_col,
+			text: "Estimated % of employees (by work location) directly exposed to Section 338 tariffs",
+		},
 		"Ene_2": {
 			dataSource: "Ene_2",
 			metricType: "Percent",
@@ -561,6 +615,33 @@
 			breaks: [0.01, 0.04, 0.08, 0.2],
 			colours: graduated_col,
 			text: "Estimated % of employees (by primary residence) directly exposed to U.S. Administration's Motor Tariffs on Canada",
+		},
+		"before August 22_3": {
+			dataSource: "before August 22_3",
+			metricType: "Percent",
+			impactType: "EmployeeHome",
+			tariffType: "before August 22",
+			breaks: [0.05, 0.1, 0.2, 0.5],
+			colours: graduated_col,
+			text: "Estimated % of employees (by primary residence) directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_3": {
+			dataSource: "after August 22_3",
+			metricType: "Percent",
+			impactType: "EmployeeHome",
+			tariffType: "after August 22",
+			breaks: [0.05, 0.1, 0.2, 0.5],
+			colours: graduated_col,
+			text: "Estimated % of employees (by primary residence) directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_3": {
+			dataSource: "Section 338_3",
+			metricType: "Percent",
+			impactType: "EmployeeHome",
+			tariffType: "Section 338",
+			breaks: [0.05, 0.1, 0.2, 0.5],
+			colours: graduated_col,
+			text: "Estimated % of employees (by primary residence) directly exposed to Section 338 tariffs",
 		},
 		"Ene_3": {
 			dataSource: "Ene_3",
@@ -689,6 +770,36 @@
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of businesses directly exposed to U.S. Administration's Motor Tariffs on Canada",
+		},
+		"before August 22_B": {
+			dataSource: "before August 22_B",
+			metricType: "Count",
+			impactType: "Business",
+			tariffType: "before August 22",
+			breaks: [10, 50, 100, 200],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of businesses directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_B": {
+			dataSource: "after August 22_B",
+			metricType: "Count",
+			impactType: "Business",
+			tariffType: "after August 22",
+			breaks: [10, 50, 100, 200],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of businesses directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_B": {
+			dataSource: "Section 338_B",
+			metricType: "Count",
+			impactType: "Business",
+			tariffType: "Section 338",
+			breaks: [10, 50, 100, 200],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of businesses directly exposed to Section 338 tariffs",
 		},
 		"Ene_B": {
 			dataSource: "Ene_B",
@@ -820,6 +931,36 @@
 			colours: graduated_col,
 			text: "Estimated count of employees (by work location) directly exposed to U.S. Administration's Motor Tariffs on Canada",
 		},
+		"before August 22_E": {
+			dataSource: "before August 22_E",
+			metricType: "Count",
+			impactType: "EmployeeWork",
+			tariffType: "before August 22",
+			breaks: [500, 1000, 2500, 5000],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by work location) directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_E": {
+			dataSource: "after August 22_E",
+			metricType: "Count",
+			impactType: "EmployeeWork",
+			tariffType: "after August 22",
+			breaks: [500, 1000, 2500, 5000],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by work location) directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_E": {
+			dataSource: "Section 338_E",
+			metricType: "Count",
+			impactType: "EmployeeWork",
+			tariffType: "Section 338",
+			breaks: [500, 1000, 2500, 5000],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by work location) directly exposed to Section 338 tariffs",
+		},
 		"Ene_E": {
 			dataSource: "Ene_E",
 			metricType: "Count",
@@ -949,6 +1090,36 @@
 			size: graduated_siz,
 			colours: graduated_col,
 			text: "Estimated count of employees (by primary residence) directly exposed to U.S. Administration's Motor Tariffs on Canada",
+		},
+		"before August 22_C": {
+			dataSource: "before August 22_C",
+			metricType: "Count",
+			impactType: "EmployeeHome",
+			tariffType: "before August 22",
+			breaks: [400, 700, 1000, 1500],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by primary residence) directly exposed to tariffs in effect before August 22",
+		},
+		"after August 22_C": {
+			dataSource: "after August 22_C",
+			metricType: "Count",
+			impactType: "EmployeeHome",
+			tariffType: "after August 22",
+			breaks: [400, 700, 1000, 1500],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by primary residence) directly exposed to tariffs in effect after August 22",
+		},
+		"Section 338_C": {
+			dataSource: "Section 338_C",
+			metricType: "Count",
+			impactType: "EmployeeHome",
+			tariffType: "Section 338",
+			breaks: [400, 700, 1000, 1500],
+			size: graduated_siz,
+			colours: graduated_col,
+			text: "Estimated count of employees (by primary residence) directly exposed to Section 338 tariffs",
 		},
 		"Ene_C": {
 			dataSource: "Ene_C",

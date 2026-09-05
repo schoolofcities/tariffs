@@ -76,7 +76,7 @@
 
 	const PERCENT_BREAKS = [1, 3, 5, 7];
 	// Household Consumption (1) and Aggregate Exports (2)
-	const PERCENT_BREAKS_BROAD = [2, 4, 6, 8];
+	const PERCENT_BREAKS_BROAD = [1, 3, 5, 7];
 	// Scenario 4
 	const PERCENT_BREAKS_S4 = [0.1, 0.5, 1, 2];
 
@@ -105,8 +105,7 @@
 	// SCENARIO CONFIG
 	// ============================================================
 	const scenarios = [
-		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1.9%.' },
-		{ id: 2, code: 'DFD2_AGG_EXP', label: 'Aggregate Exports', description: 'Overall domestic exports to the U.S. decline by 4% across the board.' },
+		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 2%.' },
 		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline.' },
 		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline.' },
 		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline.' },
@@ -117,7 +116,7 @@
 	function scenarioSelect(event) {
 		selectedScenario = event.detail.value;
 	}
-	const scenarioSelectList = scenarios.map((s) => ({ value: s.id, label: `Scenario ${s.id}: ${s.label}` }));
+	const scenarioSelectList = scenarios.map((s) => ({ value: s.id, label: s.label }));
 
 	// ============================================================
 	// EFFECT CONFIG
