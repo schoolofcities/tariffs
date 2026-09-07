@@ -1,20 +1,22 @@
 export const GRADUATED_COLORS = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
-export const TARIFF_LIST = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "before August 22", "after August 22", "Section 338", "Energy and natural resources", "Non-CUSMA-Compliant"];
+export const TARIFF_LIST = ["All goods subject to tariffs (after Aug 22, 2026)", "All goods subject to tariffs (prior to Aug 22, 2026)", "Section 338 – Total", "Section 338 – Dairy", "Section 338 – Alcohol", "Section 338 – Motor vehicles", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"];
 
 export const TARIFF_NAME_CODES = {
-    "All goods subject to tariffs": 'Total', 
-    "Automobiles": 'Auto', 
-    "Aluminum": 'Alum', 
-    "Steel": 'Steel', 
-    "Copper": 'Cop', 
-    "Lumber (before Oct 14)": 'Lum_old', 
-    "Lumber (after Oct 14)": 'Lum', 
-    "Trucks (Medium & Heavy Duty Vehicles)": 'MHDV', 
-    "before August 22": 'before August 22',
-    "after August 22": 'after August 22',
-    "Section 338": 'Section 338',
-    "Energy and natural resources": 'Ene', 
+    "All goods subject to tariffs (after Aug 22, 2026)": 'after August 22',
+    "All goods subject to tariffs (prior to Aug 22, 2026)": 'before August 22',
+    "Section 338 – Total": 'Section 338',
+    "Section 338 – Dairy": "Dairy",
+    "Section 338 – Alcohol": "Alcohol",
+    "Section 338 – Motor vehicles": 'Motor',
+    "Automobiles": 'Auto',
+    "Aluminum": 'Alum',
+    "Steel": 'Steel',
+    "Copper": 'Cop',
+    "Lumber (before Oct 14)": 'Lum_old',
+    "Lumber (after Oct 14)": 'Lum',
+    "Trucks (Medium & Heavy Duty Vehicles)": 'MHDV',
+    "Energy and natural resources": 'Ene',
     "Non-CUSMA-Compliant": 'CUSMA',
 };
 
@@ -42,8 +44,12 @@ export const TARIFF_IMPACT_TEXT = {
     'before August 22_1': "Estimated % and number of businesses directly exposed to tariffs in effect before August 22",
     'after August 22_1': "Estimated % and number of businesses directly exposed to tariffs in effect after August 22",
     'Section 338_1': "Estimated % and number of businesses directly exposed to Section 338 tariffs",
+    'Dairy_1': "Estimated % and number of businesses directly exposed to US Administration's Dairy Tariffs on Canada",
+    'Alcohol_1': "Estimated % and number of businesses directly exposed to US Administration's Alcohol Tariffs on Canada",
+    'Motor_1': "Estimated % and number of businesses directly exposed to US Administration's Motor Vehicle Tariffs on Canada",
     'Ene_1': "Estimated % and number of businesses directly exposed to US Administration's Energy and natural resources tariffs on Canada",
     'CUSMA_1': "Estimated % and number of businesses directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+
     'Total_2': "Estimated % and number of employees (by work location) directly exposed to all types of US Administration's Tariffs on Canada",
     'Auto_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Automobile Tariffs on Canada",
     'Alum_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -55,8 +61,12 @@ export const TARIFF_IMPACT_TEXT = {
     'before August 22_2': "Estimated % and number of employees (by work location) directly exposed to tariffs in effect before August 22",
     'after August 22_2': "Estimated % and number of employees (by work location) directly exposed to tariffs in effect after August 22",
     'Section 338_2': "Estimated % and number of employees (by work location) directly exposed to Section 338 tariffs",
+    'Dairy_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Dairy Tariffs on Canada",
+    'Alcohol_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Alcohol Tariffs on Canada",
+    'Motor_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Motor Vehicle Tariffs on Canada",
     'Ene_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
     'CUSMA_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
+
     'Total_3': "Estimated % and number of employees (by primary residence) directly exposed to all types of US Administration's Tariffs on Canada",
     'Auto_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Automobile Tariffs on Canada",
     'Alum_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Aluminum Tariffs on Canada",
@@ -68,9 +78,18 @@ export const TARIFF_IMPACT_TEXT = {
     'before August 22_3': "Estimated % and number of employees (by primary residence) directly exposed to tariffs in effect before August 22",
     'after August 22_3': "Estimated % and number of employees (by primary residence) directly exposed to tariffs in effect after August 22",
     'Section 338_3': "Estimated % and number of employees (by primary residence) directly exposed to Section 338 tariffs",
+    'Dairy_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Dairy Tariffs on Canada",
+    'Alcohol_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Alcohol Tariffs on Canada",
+    'Motor_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Motor Vehicle Tariffs on Canada",
     'Ene_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Energy and natural resources tariffs on Canada",
     'CUSMA_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's non-CUSMA Compliant Tariffs on Canada",
 };
+
+// NOTE: Dairy_*, Alcohol_*, and Motor_* break values below are ESTIMATES based on
+// ADA-level percentiles from tariff-impacts-ada-data_8_27_2026.xlsx (not real CMA
+// aggregates, unlike the other rows in this file). Dairy/Alcohol are sized similarly
+// to Cop/MHDV; Motor is sized closer to Auto/Steel. Re-check these once Motor/Dairy/
+// Alcohol are running through the CMA-level pipeline and swap in real values.
 
 export const TARIFF_CMA_BREAKS_PCT = {
     "Total_1": [5.5, 7, 8.5, 11],
@@ -84,8 +103,12 @@ export const TARIFF_CMA_BREAKS_PCT = {
     "before August 22_1": [5.5, 7, 8.5, 11],
     "after August 22_1": [5.5, 7, 8.5, 11],
     "Section 338_1": [5.5, 7, 8.5, 11],
+    "Dairy_1": [0.4, 0.7, 0.95, 1.5],
+    "Alcohol_1": [0.4, 0.75, 1, 1.75],
+    "Motor_1": [1.5, 3.5, 6.5, 9],
     "Ene_1": [0.9, 1.1, 1.3, 1.75],
     "CUSMA_1": [5.5, 6.5, 8, 11],
+
     "Total_2": [7.5, 9.5, 12.5, 15],
     "Auto_2": [1, 2.25, 3.5, 6],
     "Alum_2": [2, 3, 5, 8],
@@ -97,8 +120,12 @@ export const TARIFF_CMA_BREAKS_PCT = {
     "before August 22_2": [6, 8, 10.5, 13.5],
     "after August 22_2": [6, 8, 10.5, 13.5],
     "Section 338_2": [6, 8, 10.5, 13.5],
+    "Dairy_2": [0.1, 0.5, 0.9, 2.75],
+    "Alcohol_2": [0.15, 0.6, 1.3, 5],
+    "Motor_2": [0.7, 3, 8, 11.5],
     "Ene_2": [1.75, 2.5, 3, 4.75],
     "CUSMA_2": [6, 8, 10.5, 13.5],
+
     "Total_3": [6, 7.5, 9, 13],
     "Auto_3": [0.5, 0.9, 1.4, 2],
     "Alum_3": [1.25, 1.5, 2.5, 4],
@@ -110,6 +137,9 @@ export const TARIFF_CMA_BREAKS_PCT = {
     "before August 22_3": [5.5, 6.75, 8, 11],
     "after August 22_3": [5.5, 6.75, 8, 11],
     "Section 338_3": [5.5, 6.75, 8, 11],
+    "Dairy_3": [0.35, 0.5, 0.7, 1],
+    "Alcohol_3": [0.4, 0.6, 1, 1.5],
+    "Motor_3": [4.25, 6, 8, 10.5],
     "Ene_3": [0.75, 1, 1.25, 1.75],
     "CUSMA_3": [5.5, 6.75, 8, 11],
 };
@@ -126,8 +156,12 @@ export const TARIFF_CMA_BREAKS_COUNT_LINEAR = {
     "before August 22_B": [2500, 5000, 7500, 10000],
     "after August 22_B": [2500, 5000, 7500, 10000],
     "Section 338_B": [2500, 5000, 7500, 10000],
+    "Dairy_B": [125, 250, 375, 500],
+    "Alcohol_B": [125, 250, 375, 500],
+    "Motor_B": [750, 1500, 2500, 4000],
     "Ene_B": [250, 500, 750, 1000],
     "CUSMA_B": [2500, 5000, 7500, 10000],
+
     "Total_E": [50000, 100000, 150000, 200000],
     "Auto_E": [12500, 25000, 37500, 50000],
     "Alum_E": [25000, 50000, 75000, 100000],
@@ -139,8 +173,12 @@ export const TARIFF_CMA_BREAKS_COUNT_LINEAR = {
     "before August 22_E": [25000, 50000, 75000, 100000],
     "after August 22_E": [25000, 50000, 75000, 100000],
     "Section 338_E": [25000, 50000, 75000, 100000],
+    "Dairy_E": [2500, 5000, 7500, 10000],
+    "Alcohol_E": [2500, 5000, 10000, 15000],
+    "Motor_E": [15000, 30000, 50000, 70000],
     "Ene_E": [10000, 20000, 30000, 40000],
     "CUSMA_E": [50000, 100000, 150000, 200000],
+
     "Total_C": [125000, 250000, 375000, 500000],
     "Auto_C": [25000, 50000, 75000, 100000],
     "Alum_C": [25000, 50000, 75000, 100000],
@@ -152,6 +190,9 @@ export const TARIFF_CMA_BREAKS_COUNT_LINEAR = {
     "before August 22_C": [62500, 125000, 187500, 250000],
     "after August 22_C": [62500, 125000, 187500, 250000],
     "Section 338_C": [62500, 125000, 187500, 250000],
+    "Dairy_C": [2500, 5000, 7500, 10000],
+    "Alcohol_C": [2500, 5000, 10000, 15000],
+    "Motor_C": [40000, 75000, 110000, 150000],
     "Ene_C": [12500, 25000, 37500, 50000],
     "CUSMA_C": [125000, 250000, 375000, 500000],
 };
@@ -168,8 +209,12 @@ export const TARIFF_CMA_BREAKS_COUNT_POW = {
     "before August 22_B": [100, 1000, 5000, 10000],
     "after August 22_B": [100, 1000, 5000, 10000],
     "Section 338_B": [100, 1000, 5000, 10000],
+    "Dairy_B": [5, 50, 200, 500],
+    "Alcohol_B": [5, 50, 200, 500],
+    "Motor_B": [25, 250, 1000, 3000],
     "Ene_B": [10, 100, 500, 1000],
     "CUSMA_B": [100, 1000, 5000, 10000],
+
     "Total_E": [2000, 20000, 100000, 200000],
     "Auto_E": [500, 5000, 20000, 50000],
     "Alum_E": [1000, 10000, 50000, 100000],
@@ -181,8 +226,12 @@ export const TARIFF_CMA_BREAKS_COUNT_POW = {
     "before August 22_E": [1000, 10000, 50000, 100000],
     "after August 22_E": [1000, 10000, 50000, 100000],
     "Section 338_E": [1000, 10000, 50000, 100000],
+    "Dairy_E": [50, 500, 2000, 5000],
+    "Alcohol_E": [100, 1000, 5000, 10000],
+    "Motor_E": [500, 5000, 30000, 60000],
     "Ene_E": [500, 5000, 20000, 50000],
     "CUSMA_E": [2000, 20000, 100000, 200000],
+
     "Total_C": [5000, 50000, 200000, 500000],
     "Auto_C": [1000, 10000, 50000, 100000],
     "Alum_C": [1000, 10000, 50000, 100000],
@@ -194,6 +243,9 @@ export const TARIFF_CMA_BREAKS_COUNT_POW = {
     "before August 22_C": [2500, 25000, 100000, 250000],
     "after August 22_C": [2500, 25000, 100000, 250000],
     "Section 338_C": [2500, 25000, 100000, 250000],
+    "Dairy_C": [100, 1000, 5000, 10000],
+    "Alcohol_C": [200, 2000, 8000, 15000],
+    "Motor_C": [2000, 20000, 80000, 150000],
     "Ene_C": [500, 5000, 20000, 50000],
     "CUSMA_C": [5000, 50000, 200000, 500000],
 };

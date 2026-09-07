@@ -10,6 +10,8 @@
 	import * as pmtiles from "pmtiles";
 	import Select from "svelte-select";
 
+	import { TARIFF_LIST, TARIFF_NAME_CODES } from './constantsv2.js';
+
 	const protocol = new pmtiles.Protocol();
 	maplibregl.addProtocol('pmtiles', protocol.tile);
 
@@ -32,199 +34,33 @@
 	let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	let graduated_siz = [5, 9, 15, 24, 34];
 
-	let metricType = "Percent"; // ["Percent", "Count"]
+	let metricType = $state("Percent"); // ["Percent", "Count"]
 	function metricSelect(value) {
 		metricType = value;
 	}
 
-	let geoType = "ADA"; // ["ADA", "CSD"]
+	let geoType = $state("ADA"); // ["ADA", "CSD"]
 	function geoTypeSelect(value) {
 		geoType = value;
 	}
 
-	let impactType = "Business" // ["EmployeeHome","EmployeeWork", "Business"] 
+	let impactType = $state("Business") // ["EmployeeHome","EmployeeWork", "Business"] 
 	function impactTypeSelect(value) {
 		impactType = value;
 	}
 
-	let tariffType = "All goods subject to tariffs" // see full list below
+	// let tariffType = $state("All goods subject to tariffs (after Aug 22, 2026)");
+
+	let tariffType = $state(
+		"All goods subject to tariffs (after Aug 22, 2026)"
+	);
+
 	function tariffTypeSelect(event) {
-		const raw = event.detail.value;
-		if (raw === "Motorcycles and broader auto parts") {
-			tariffType = "Motor";
-		} else {
-			tariffType = raw;
-		}
-	}
-
-	// Maps the internal dataLayers tariffType value to the label shown in the dropdown
-	const tariffLabelMap = {
-		"Motor": "Motorcycles and broader auto parts"
-	};
-
-	// Reactive: what the Select component should display, given the current internal tariffType
-	$: selectedTariffLabel = tariffLabelMap[tariffType] ?? tariffType;
-
-
-	const selectTariffList = ["All goods subject to tariffs", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Dairy", "Alcohol", "before August 22", "after August 22", "Section 338", "Motorcycles and broader auto parts", "Energy and natural resources", "Non-CUSMA-Compliant"]; 
-
-	
-
-	let mapQuery;
-	$: mapQuery = {
-		metricType: metricType,
-		impactType: impactType,
-		tariffType: tariffType,
-	};
-
-	let mapSelected;
-	$: mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
-		Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
-	)?.[0];
-
-
-	// dynamic update to map if any inputs are changed
-
-	function updateMap() {
-		if (
-			map &&
-			map.isStyleLoaded() &&
-			map.getLayer("polygons") &&
-			map.getLayer("polygons_csd") &&
-			map.getLayer("centroids") &&
-			map.getLayer("centroids_csd")
-		) {
-			if (mapSelected) {
-				const useCSD = geoType === "CSD";
-				
-				// Determine active layers based on geoType
-				let activePolygonLayer, activeCentroidLayer, activeOutlineLayer;
-				if (useCSD) {
-					activePolygonLayer = 'polygons_csd';
-					activeCentroidLayer = 'centroids_csd';
-					activeOutlineLayer = 'outline-hover-csd';
-					map.setPaintProperty('outline', 'line-opacity', 0.05); // changes appearance of ADA boundaries
-				} else {
-					activePolygonLayer = 'polygons';
-					activeCentroidLayer = 'centroids';
-					activeOutlineLayer = 'outline-hover';
-					map.setPaintProperty('outline', 'line-opacity', 0.2);  // changes appearance of ADA boundaries
-				}
-				
-				// All polygon/centroid layers
-				const allPolygonLayers = ['polygons', 'polygons_csd'];
-				const allCentroidLayers = ['centroids', 'centroids_csd'];
-				const allOutlineLayers = ['outline-hover', 'outline-hover-csd'];
-				const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
-
-				// Hide all outline layers
-				allOutlineLayers.forEach(layer => {
-					if (map.getLayer(layer)) {
-						const field = layer.includes('csd') ? 'CSDDGUID' : 'ADADGUID';
-						map.setFilter(layer, ['==', field, '']);
-					}
-				});
-
-				if (mapQuery.metricType === "Percent") {
-					// Hide all polygon/centroid layers, then show active
-					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
-					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
-					map.setLayoutProperty(activePolygonLayer, 'visibility', 'visible');
-
-				map.setPaintProperty(activePolygonLayer, "fill-opacity", 0.8);					map.setPaintProperty(activePolygonLayer, "fill-color", [
-						"case",
-						["==", ["get", dataLayers[mapSelected].dataSource], null], "#D0D1C9",
-						["step", ["get", dataLayers[mapSelected].dataSource],
-						dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
-						dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
-						dataLayers[mapSelected].colours[2], dataLayers[mapSelected].breaks[2],
-						dataLayers[mapSelected].colours[3], dataLayers[mapSelected].breaks[3],
-						dataLayers[mapSelected].colours[4]],
-					]);
-
-				} else if (mapQuery.metricType === "Count") {
-					// Hide all polygon/centroid layers, then show active
-					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
-					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
-					map.setLayoutProperty(activeCentroidLayer, 'visibility', 'visible');
-
-					map.setPaintProperty(activeCentroidLayer, "circle-opacity", 0.5);
-					map.setPaintProperty(activeCentroidLayer, "circle-stroke-width", 1);
-					map.setPaintProperty(activeCentroidLayer, "circle-stroke-opacity", 0.75);
-
-					map.setPaintProperty(activeCentroidLayer, "circle-color", [
-						"case",
-						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
-						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
-						dataLayers[mapSelected].colours[0],
-					]);
-
-					map.setPaintProperty(activeCentroidLayer, "circle-stroke-color", [
-						"case",
-						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
-						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
-						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
-						dataLayers[mapSelected].colours[0],
-					]);
-
-					map.setPaintProperty(activeCentroidLayer, "circle-radius", [
-						"interpolate", ["linear"], ["zoom"],
-						3, [
-							"case",
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-							0.5
-						],
-						7.9999, [
-							"case",
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-							0.5
-						],
-						8, [
-							"case",
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
-							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].size[1],
-							dataLayers[mapSelected].size[0],
-						],
-					]);
-
-					map.setLayoutProperty(
-						activeCentroidLayer,
-						"circle-sort-key",
-						["get", dataLayers[mapSelected].dataSource]
-					);
-					
-
-				} else {
-					console.log("no data")
-				}
-			} else {
-				console.log("no matching data layer");
-			}
-		} else {
-			console.log("map not loaded");
-		}
-	};
-
-	$: {
-		mapQuery;   // track metricType, impactType, tariffType
-		mapSelected;
-		map;
-		geoType;
-		updateMap();
-	}
-
-
+        const nextTariffType = event.detail.value;
+        if (TARIFF_NAME_CODES[nextTariffType]) {
+            tariffType = nextTariffType;
+        }
+    }
 
 	// all the data layers
 
@@ -1143,6 +979,169 @@
 		},
 	};
 
+	const mapQuery = $derived({
+		metricType: metricType,
+		impactType: impactType,
+		tariffType: TARIFF_NAME_CODES[tariffType],
+	});
+
+	const mapSelected = $derived(
+		Object.entries(dataLayers).find(([key, layer]) =>
+			Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
+		)?.[0]
+	);
+
+
+	// dynamic update to map if any inputs are changed
+
+	function updateMap() {
+		if (
+			map &&
+			map.isStyleLoaded() &&
+			map.getLayer("polygons") &&
+			map.getLayer("polygons_csd") &&
+			map.getLayer("centroids") &&
+			map.getLayer("centroids_csd")
+		) {
+			if (mapSelected) {
+				const useCSD = geoType === "CSD";
+				
+				// Determine active layers based on geoType
+				let activePolygonLayer, activeCentroidLayer, activeOutlineLayer;
+				if (useCSD) {
+					activePolygonLayer = 'polygons_csd';
+					activeCentroidLayer = 'centroids_csd';
+					activeOutlineLayer = 'outline-hover-csd';
+					map.setPaintProperty('outline', 'line-opacity', 0.05); // changes appearance of ADA boundaries
+				} else {
+					activePolygonLayer = 'polygons';
+					activeCentroidLayer = 'centroids';
+					activeOutlineLayer = 'outline-hover';
+					map.setPaintProperty('outline', 'line-opacity', 0.2);  // changes appearance of ADA boundaries
+				}
+				
+				// All polygon/centroid layers
+				const allPolygonLayers = ['polygons', 'polygons_csd'];
+				const allCentroidLayers = ['centroids', 'centroids_csd'];
+				const allOutlineLayers = ['outline-hover', 'outline-hover-csd'];
+				const guidField = useCSD ? 'CSDDGUID' : 'ADADGUID';
+
+				// Hide all outline layers
+				allOutlineLayers.forEach(layer => {
+					if (map.getLayer(layer)) {
+						const field = layer.includes('csd') ? 'CSDDGUID' : 'ADADGUID';
+						map.setFilter(layer, ['==', field, '']);
+					}
+				});
+
+				if (mapQuery.metricType === "Percent") {
+					// Hide all polygon/centroid layers, then show active
+					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					map.setLayoutProperty(activePolygonLayer, 'visibility', 'visible');
+
+				map.setPaintProperty(activePolygonLayer, "fill-opacity", 0.8);					map.setPaintProperty(activePolygonLayer, "fill-color", [
+						"case",
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "#D0D1C9",
+						["step", ["get", dataLayers[mapSelected].dataSource],
+						dataLayers[mapSelected].colours[0], dataLayers[mapSelected].breaks[0],
+						dataLayers[mapSelected].colours[1], dataLayers[mapSelected].breaks[1],
+						dataLayers[mapSelected].colours[2], dataLayers[mapSelected].breaks[2],
+						dataLayers[mapSelected].colours[3], dataLayers[mapSelected].breaks[3],
+						dataLayers[mapSelected].colours[4]],
+					]);
+
+				} else if (mapQuery.metricType === "Count") {
+					// Hide all polygon/centroid layers, then show active
+					allPolygonLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					allCentroidLayers.forEach(layer => map.setLayoutProperty(layer, 'visibility', 'none'));
+					map.setLayoutProperty(activeCentroidLayer, 'visibility', 'visible');
+
+					map.setPaintProperty(activeCentroidLayer, "circle-opacity", 0.5);
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-width", 1);
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-opacity", 0.75);
+
+					map.setPaintProperty(activeCentroidLayer, "circle-color", [
+						"case",
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
+						dataLayers[mapSelected].colours[0],
+					]);
+
+					map.setPaintProperty(activeCentroidLayer, "circle-stroke-color", [
+						"case",
+						["==", ["get", dataLayers[mapSelected].dataSource], null], "rgba(0,0,0,0)",
+						["==", ["get", dataLayers[mapSelected].dataSource], 0], "rgba(0,0,0,0)",
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].colours[4],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].colours[3],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].colours[2],
+						[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].colours[1],
+						dataLayers[mapSelected].colours[0],
+					]);
+
+					map.setPaintProperty(activeCentroidLayer, "circle-radius", [
+						"interpolate", ["linear"], ["zoom"],
+						3, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							0.5
+						],
+						7.9999, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							0.5
+						],
+						8, [
+							"case",
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[3]], dataLayers[mapSelected].size[4],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[2]], dataLayers[mapSelected].size[3],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[1]], dataLayers[mapSelected].size[2],
+							[">", ["get", dataLayers[mapSelected].dataSource], dataLayers[mapSelected].breaks[0]], dataLayers[mapSelected].size[1],
+							dataLayers[mapSelected].size[0],
+						],
+					]);
+
+					map.setLayoutProperty(
+						activeCentroidLayer,
+						"circle-sort-key",
+						["get", dataLayers[mapSelected].dataSource]
+					);
+					
+
+				} else {
+					console.log("no data")
+				}
+			} else {
+				console.log("no matching data layer");
+			}
+		} else {
+			console.log("map not loaded");
+		}
+	};
+
+	$effect(() => {
+		mapSelected;
+		geoType;
+
+		console.log("mapSelected:", mapSelected);
+		console.log("tariffType:", tariffType);
+		console.log("tariff code:", TARIFF_NAME_CODES[tariffType]);
+
+		if (map && map.isStyleLoaded()) {
+			updateMap();
+		}
+	});
+
+
+
+	
+
 
 	// maps loading and hovering functions
 
@@ -1600,15 +1599,15 @@
 			map.setLayerZoomRange('centroids', 1, 12);
 			map.setLayerZoomRange('centroids_csd', 1, 12);
 
-			mapQuery = {
-				metricType: metricType,
-				impactType: impactType,
-				tariffType: tariffType,
-			};
+			// mapQuery = {
+			// 	metricType: metricType,
+			// 	impactType: impactType,
+			// 	tariffType: tariffType,
+			// };
 
-			mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
-				Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
-			)?.[0];
+			// mapSelected = Object.entries(dataLayers).find(([key, layer]) =>
+			// 	Object.entries(mapQuery).every(([k, v]) => layer[k] === v)
+			// )?.[0];
 
 			map.once('idle', () => {
 				updateMap();
@@ -1809,7 +1808,7 @@
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
 			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
-			<i>First published October 2025. Updated August 2026.</i>
+			<i>First published October 2025. Updated September 2026.</i>
 		</p>
 
 		<div id = "select-wrapper">
@@ -1818,8 +1817,8 @@
 			</div>
 			<Select
 				id = 'select'
-				items = {selectTariffList}
-				value = {selectedTariffLabel}
+				items = {TARIFF_LIST}
+				value = {tariffType}
 				clearable = {false}
 				showChevron = {true}
 				listAutoWidth = {true}
@@ -2056,7 +2055,7 @@
 		<div class="datadetail">
 
 			<p>
-				Counts of Employment (home) data are based on estimates from the 2021 Census of Population. Counts of Businesses and Employment (place of work) and are based on estimates from the Canadian Business Register (December 2022).
+				Data sections are by level 6 Harmonized System (HS) codes, truncated from level 8, due to the HS to North American Industry Classification System code conversions; therefore, sections are not additive. Counts of Employment (home) data are based on estimates from the 2021 Census of Population. Counts of Businesses and Employment (place of work) and are based on estimates from the Canadian Business Register (December 2022).
 			</p>
 			
 			<h4 style="margin-bottom: 0px;">Data sources</h4>

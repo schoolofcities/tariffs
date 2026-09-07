@@ -33,7 +33,7 @@
     let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
     let geoType = $state("CMA"); // ["CMA"] - ADA/CSD data not yet available for bar charts
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
-    let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
+    let tariffType = $state("All goods subject to tariffs (after Aug 22, 2026)");
 
     let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
     let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
@@ -299,6 +299,8 @@
                 Power scale
             </button>
         </div>
+
+        
     </div>
 
     <!-- Legend section -->
@@ -438,6 +440,12 @@
                 >{cmaData.GEO_NAME}</text>
             {/each}
         </svg>
+
+        <div id="destext">
+            <p>
+                Data sections are by level 6 Harmonized System (HS) codes, truncated from level 8, due to the HS to North American Industry Classification System code conversions; therefore, sections are not additive.
+            </p>
+        </div>
     </div>
 </div>
 
