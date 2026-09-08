@@ -443,7 +443,7 @@
 
         <div id="destext">
             <p>
-                Data sections are by level 6 Harmonized System (HS) codes, truncated from level 8, due to the HS to North American Industry Classification System code conversions; therefore, sections are not additive.
+				Note: Due to the methods used to match tariffed goods to industry codes, selections are not additive. Pay attention to the scale when interpreting the chart.
             </p>
         </div>
     </div>
