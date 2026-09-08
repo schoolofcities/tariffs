@@ -1,4 +1,4 @@
-<!-- <Password/> -->
+<Password/>
 
 <script>
 	import '../../assets/global-styles.css';
@@ -71,6 +71,9 @@
 		return regionColors[regionName] || '#999';
 	}
 
+	$: displayMedian = filteredMetroMetrics.length
+		? median(filteredMetroMetrics, m => m.percentChange) : null;
+
 	// Configuration
 	let selection = {
 		year1: 2024,
@@ -83,6 +86,28 @@
 		update_date: "2026-09-05"
 	}
 
+	const periodOptions = [
+		{ key: 'aprMar', label: 'Apr–Mar',
+		p1Start: '2024-04-01', p1End: '2025-03-31',
+		p2Start: '2025-04-01', p2End: '2026-03-31' },
+		{ key: 'augJul', label: 'Aug–Jul',
+		p1Start: '2024-08-01', p1End: '2025-07-31',
+		p2Start: '2025-08-01', p2End: '2026-07-31' }
+	];
+	let selectedPeriodKey = 'aprMar';
+	$: activePeriod = periodOptions.find(p => p.key === selectedPeriodKey);
+
+	let isRecomputing = false;
+
+	async function selectPeriod(key) {
+		if (key === selectedPeriodKey) return;
+		isRecomputing = true;
+		await new Promise(r => setTimeout(r, 0));   // let the paint happen
+		selectedPeriodKey = key;
+		await tick();                                // wait for metroMetrics
+		isRecomputing = false;
+	}
+
 	// State variables
 	let processedData = [];
 	let metros = [];
@@ -93,9 +118,23 @@
 	let searchQuery = "";
 	let showBigMetros = true;
 	let showSmallMetros = true;
-	let selectedDataset = 'ca_us_stops_with_return_9_5.csv'
 	// View toggle: "map", "rankings", or "trends"
 	let viewMode = "trends";
+
+	const datasetOptions = [
+		{ file: 'city_date_original.csv',    label: 'Original' },
+		{ file: 'city_date_no_return.csv',   label: 'No return' },
+		{ file: 'city_date_with_return.csv', label: 'With return' }
+	];
+	let selectedDataset = 'city_date_with_return.csv';
+
+	async function selectDataset(file) {
+		if (file === selectedDataset) return;
+		selectedDataset = file;
+		processedData = [];
+		metros = [];
+		await loadData(file);
+	}
 
 
 	// Metro to region mapping (US states to regions)
@@ -308,10 +347,10 @@
 	$: metroMetrics = (() => {
 		if (processedData.length === 0) return [];
 
-		const period1Start = new Date(selection.period1Start);
-		const period1End = new Date(selection.period1End);
-		const period2Start = new Date(selection.period2Start);
-		const period2End = new Date(selection.period2End);
+		const period1Start = new Date(activePeriod.p1Start);
+		const period1End   = new Date(activePeriod.p1End);
+		const period2Start = new Date(activePeriod.p2Start);
+		const period2End   = new Date(activePeriod.p2End);
 
 		return metros.map(metro => {
 			const metroData = processedData.filter(d => d.metro === metro);
@@ -331,7 +370,11 @@
 			const percentChange = avg1 > 0 ? ((avg2 - avg1) / avg1) * 100 : 0;
 
 			// For LOESS trend
-			const sortedData = [...metroData].sort((a, b) => a.date - b.date);
+			const sortedData = metroData
+				.filter(d => d.date >= period1Start && d.date <= period2End)
+				.sort((a, b) => a.date - b.date);
+
+				
 			
 			let regressionLine = null;
 			let startCircle = null;
@@ -464,7 +507,7 @@
 	
 		<AuthorDate
 			authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
-			date="May 2026."
+			date="September 2026."
 		/>
 
 		<p>
@@ -473,13 +516,13 @@
 		</p>
 
 		<p>
-			But how has this decline varied in terms of magnitude and geography? 
+			<!-- But how has this decline varied in terms of magnitude and geography?  -->
 		</p>
 
 		<p>
 			<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
 
-			We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
+			<!-- We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to. -->
 		</p>
 		
 
@@ -503,24 +546,60 @@
 		<!-- View Toggle -->
 		<div class="view-toggle">
 			<div class="toggle-group">
-				<span class="toggle-label">View:</span>
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "trends"}
-					on:click={() => (viewMode = "trends")}
-				>
-					Trends
-				</button>
-				
-				<button
-					class="toggle-btn"
-					class:active={viewMode === "map"}
-					on:click={() => (viewMode = "map")}
-				>
-					Map
-				</button>
+				<div class="toggle-group">
+				<span class="toggle-label">Trip definition:</span>
+					{#each datasetOptions as opt}
+						<button
+							class="toggle-btn"
+							class:active={selectedDataset === opt.file}
+							disabled={isLoading}
+							on:click={() => selectDataset(opt.file)}
+						>
+							{opt.label}
+						</button>
+					{/each}
+				</div>
+
+				<div class="toggle-group">
+					<span class="toggle-label">Comparison period:</span>
+					{#each periodOptions as opt}
+						<button
+							class="toggle-btn"
+							class:active={selectedPeriodKey === opt.key}
+							disabled={isLoading}
+							on:click={() => (selectedPeriodKey = opt.key)}
+						>
+							{opt.label}
+						</button>
+					{/each}
+				</div>
 
 			</div>
+		</div>
+
+		<div class = "toggle-group">
+
+						
+			<span class="toggle-label">
+				Median change, {activePeriod.label}: {displayMedian?.toFixed(1)}%
+			</span>				
+
+				<span class="toggle-label">View:</span>
+								<button
+									class="toggle-btn"
+									class:active={viewMode === "trends"}
+									on:click={() => (viewMode = "trends")}
+								>
+									Trends
+								</button>
+								
+								<button
+									class="toggle-btn"
+									class:active={viewMode === "map"}
+									on:click={() => (viewMode = "map")}
+								>
+									Map
+								</button>
 		</div>
 
 		<span class="toggle-label">Select metros:</span>
