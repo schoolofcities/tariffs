@@ -18,13 +18,13 @@
     // S1, S3, S4, S5, S6 — there is no S2. Replace these with the real
     // tariff descriptions; unlisted codes fall back to "Scenario n".
     const SCENARIO_LABELS = {
-        S1: "Scenario 1",
-        S3: "Scenario 3",
-        S4: "Scenario 4",
-        S5: "Scenario 5",
-        S6: "Scenario 6"
+        S1: "Household Consumption",
+        S3: "Agri-food & Seafood",
+        S4: "Steel & Aluminum",
+        S5: "Softwood Lumber",
+        S6: "Autos & Parts"
     };
-
+    
     const EFFECTS = [
         { code: "TOT",   label: "All effects" },
         { code: "DIR",   label: "Direct" },
