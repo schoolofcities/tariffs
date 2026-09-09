@@ -13,6 +13,7 @@
 	const links = [
 		{ name: "Homepage", url: "./" },
 		{ name: "Background and findings", url: "./potential-local-impacts" },
+		{ name: "Reflecting on new Section 338 Tariffs. (09/2026)", url: "./section-338"},
 		{ name: "Canadian travel to the U.S. (05/2026)", url: "./canada-us-visits"},
 		{ name: "Update on lumber tariffs (02/2026)", url: "./lumber" },
 		{ name: "Update on truck tariffs (02/2026)", url: "./trucks" },

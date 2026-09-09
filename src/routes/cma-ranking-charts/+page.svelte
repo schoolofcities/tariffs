@@ -10,7 +10,7 @@
 	import ImageSingle from '$lib/ImageSingle.svelte';
 	import GraphicSingle from '$lib/GraphicSingle.svelte';
 	import GraphicsMultiples from '$lib/GraphicMultiples.svelte';
-	import HorizontalBarChart from '$lib/HorizontalBarChart.svelte';
+	import HorizontalBarChart from '$lib/HorizontalBarChartv2.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Password from '$lib/Password.svelte';
 
@@ -31,7 +31,6 @@
 	];
 
 </script>
-
 
 
 
@@ -131,7 +130,7 @@
 
 		<AuthorDate
 			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, & <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
-			date="First published October 2025. Updated November 2025."
+			date="First published October 2025. Updated September 2026."
 		/>
 
 		<p>
@@ -171,7 +170,7 @@
 		</p>
 
 		<p>
-			Note that all results are based on tariffs as of September 1, 2025, except for the Lumber and Medium layers, which were updated in November 25, 2025.
+			Results are based on tariffs as of September 1, 2026.
 		</p>
 
 		<br>
@@ -188,7 +187,7 @@
 		</h2>
 
 		<p>
-			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of U.S. tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that U.S. tariffs have the potential to impact more than 5,000 businesses, almost 200,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current U.S. tariffs (as of September 1, 2025) for businesses and workers is between 5 and 10% of businesses and workers in Canada’s largest city-regions.
+			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of U.S. tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that U.S. tariffs have the potential to impact more than 8,000 businesses, almost 250,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current U.S. tariffs (as of September 1, 2026) for businesses and workers is between 5 and 12% of businesses and workers in Canada’s largest city-regions.
 		</p>
 
 		<p>

@@ -1,5 +1,5 @@
 <script>
-	import { regressionData } from './regressionData_v2.js';
+	import { regressionData } from './regressionData.js';
 	import jstat from 'jstat';
 
 	export let metric = "share";

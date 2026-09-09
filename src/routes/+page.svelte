@@ -161,6 +161,10 @@
 		</li>
 
 		<li>
+			<a href="./section-338">Read our blog on alcohol, dairy, and motor vehicle tariffs from Section 338 of the Tariff Act of 1930</a>.
+		</li>
+
+		<li>
 			<a href="./canada-us-visits">Read our blog on the decline in Canadian travel to the U.S.</a>.
 		</li>
 		

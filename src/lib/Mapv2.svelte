@@ -3,7 +3,7 @@
 	import logoBlueColour from '../assets/sofc-uoft-logo-blue-colour.svg';
 	import "../assets/global-styles.css";
 
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 
 	import maplibregl from "maplibre-gl";
 	import "maplibre-gl/dist/maplibre-gl.css";
@@ -16,6 +16,10 @@
 	maplibregl.addProtocol('pmtiles', protocol.tile);
 
 	let map;
+
+	onDestroy(() => {
+		map?.remove();
+	});
 
 	let addressQuery="";
 	let addressResults="";

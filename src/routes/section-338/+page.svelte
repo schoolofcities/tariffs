@@ -38,27 +38,26 @@
 
 	<title>Mapping tariffs: Reflecting on new Section 338 Tariffs | School of Cities</title>
 
-	<meta name="description" content="An update on potential local lumber impacts on jobs and businesses across Canada via maps and charts" />
+	<meta name="description" content="An update on potential local impacts of new Section 338 tariffs on jobs and businesses across Canada via maps and charts" />
 	<meta name="author" content="School of Cities">
-	<meta rel="canonical" href="https://schoolofcities.github.io/tariffs/lumber">
+	<meta rel="canonical" href="https://schoolofcities.github.io/tariffs/section-338">
 
-	<meta property="og:title" content="Lumber and Trucks" />
-	<meta property="og:description" content="An update on potential local lumber impacts on jobs and businesses across Canada via maps and charts" />
+	<meta property="og:title" content="Mapping tariffs: Reflecting on New Section 338 Tariffs" />
+	<meta property="og:description" content="An update on potential local impacts of new Section 338 tariffs on jobs and businesses across Canada via maps and charts" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/tariffs/lumber" />
+	<meta property="og:url" content="https://schoolofcities.github.io/tariffs/section-338" />
 	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Lumber and Trucks" />
-	<meta name="twitter:description" content="An update on potential local lumber impacts on jobs and businesses across Canada via maps and charts" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/tariffs/lumber" />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" /> 
+	<meta name="twitter:title" content="Mapping tariffs: Reflecting on New Section 338 Tariffs" />
+	<meta name="twitter:description" content="An update on potential local impacts of new Section 338 tariffs on jobs and businesses across Canada via maps and charts" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/tariffs/section-338" />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/tariffs/main/static/web-card.png" />
 
 </svelte:head>
 
 
-<Password/>
 
 
 <main>
