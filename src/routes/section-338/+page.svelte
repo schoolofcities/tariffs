@@ -234,6 +234,12 @@
 		<p>
 			Our visualizations represent an estimate of the potential direct impacts on Canadian jobs and businesses. These estimates cannot account for the actual economic activity of Canadian businesses since the Trump administration first introduced tariffs on Canadian goods in February 2025. Our current analysis also cannot account for the downstream impacts of tariffs, referred to as the indirect and induced impacts related to these external shocks to urban and regional economies. Stay tuned for our upcoming release of models that include these extended effects. In the meantime, we invite you to explore our updated online <a href="https://mappingtariffs.org/map">mapping and visualization tool</a>, as well as our <a href="https://mappingtariffs.org/cma-ranking-charts">city ranking tool</a>.
 		</p>
+
+		<br><br>
+
+		<p>
+			<b><i>Note:</i></b> At time of publication, the Trump administration had just made <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">five additional proclamations</a> related to tariffs. Three of these proclamations exclude certain dairy and alcohol related goods, as well as motorcycles, from being imported into the United States from Canada. The other two proclamations modify (through additions or subtractions) the lists of goods subject to tariffs under the motor vehicle and alcohol proclamations. All excluded goods are accounted for in our new Section 338 map layers, but we cannot currently distinguish between goods that are subject to tariffs and those that are completely excluded from export to the US. We have not yet updated the Section 338 tariffs to include the additions and subtractions. And we have not yet conducted analysis to account for <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Canada’s counter-tariffs</a>.
+		</p>
 			
 	</div>
 
