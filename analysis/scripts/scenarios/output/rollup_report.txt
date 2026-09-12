@@ -1,0 +1,50 @@
+Input: analysis\scripts\input\all_scenarios_csd.csv  (5,161 rows, 16 columns)
+CSD id: CSDDGUID
+Employment denominator: NONE — percentages will be skipped
+Population: none
+Job-loss fields (15): S1_DIR_Jobs, S1_INDIR_Jobs, S1_INDCD_Jobs, S3_DIR_Jobs, S3_INDIR_Jobs, S3_INDCD_Jobs, S4_DIR_Jobs, S4_INDIR_Jobs, S4_INDCD_Jobs, S5_DIR_Jobs, S5_INDIR_Jobs, S5_INDCD_Jobs, S6_DIR_Jobs, S6_INDIR_Jobs, S6_INDCD_Jobs
+Scenarios detected: S1 [direct, indirect, induced]; S3 [direct, indirect, induced]; S4 [direct, indirect, induced]; S5 [direct, indirect, induced]; S6 [direct, indirect, induced]
+
+NUMERIC COERCION
+
+SIGN AND MISSINGNESS
+  all job fields were <= 0 (losses); converted to positive magnitudes. Every output number is now a job LOSS — label the charts accordingly.
+  977 of 5,161 CSDs have NO estimate in any scenario field. They contribute 0 to every rollup, which is the right arithmetic but means '0 jobs lost' and 'not modelled' look identical downstream.
+  221 CSDs are modelled at exactly zero in every field.
+
+DERIVED TOTALS
+  S1_TOT_Jobs, S3_TOT_Jobs, S4_TOT_Jobs, S5_TOT_Jobs, S6_TOT_Jobs
+
+GEOGRAPHY
+Province: derived PRUID from CSDDGUID (13 provinces/territories, 0 unresolved)
+CMA lookup: collapsed 498,786 rows to 5,161 unique CSDs, mapping consistent throughout
+CMA lookup: 4154 of 5161 CSDs found no match and will land in the 'Unassigned' bucket
+Census metropolitan area: 4154 CSDs are outside any Census metropolitan area (183,432 jobs across all scenario/effect fields). Kept as 'Non-CMA' so totals reconcile.
+CMA names: filtered 41 to 41 units where GEO_LEVEL == 'Census metropolitan area'
+CMA names: 112 aggregated units had no name/level match and were dropped (census agglomerations and the Non-CMA bucket). CMA output is now a SUBSET of the national total by design.
+Province: using columns already on the CSD file (PRUID, PRNAME)
+
+PERCENTAGES (computed after aggregation)
+  no employment denominator available — percentage fields skipped. Add a CSD-level employment column and pass --employment-col to get '% of employment' fields computed after aggregation.
+CMA denominator: 'EMP_TOTAL' from cma_denominator.csv matched 41 of 41 units
+Province denominator: 'EMP_TOTAL' from prov_denominator.csv matched 13 of 13 units
+  added 20 percentage fields at each level
+
+PLAUSIBILITY CHECKS (on the source estimates, not the rollup)
+  1 province(s) are exactly ZERO in every scenario: ['Prince Edward Island']. A whole province at zero usually means missing input data, not the absence of tariff exposure. Verify before publishing.
+  S1: indirect is 3.8x direct and induced is 6.5x direct. Input-output models normally give direct > indirect > induced, so check the columns are not transposed and that the multipliers are Type II as intended.
+  S3: indirect is 2.7x direct and induced is 3.7x direct. Input-output models normally give direct > indirect > induced, so check the columns are not transposed and that the multipliers are Type II as intended.
+  S4: indirect is 2.8x direct and induced is 5.4x direct. Input-output models normally give direct > indirect > induced, so check the columns are not transposed and that the multipliers are Type II as intended.
+  S5: indirect is 2.5x direct and induced is 3.8x direct. Input-output models normally give direct > indirect > induced, so check the columns are not transposed and that the multipliers are Type II as intended.
+  S6: indirect is 2.6x direct and induced is 4.2x direct. Input-output models normally give direct > indirect > induced, so check the columns are not transposed and that the multipliers are Type II as intended.
+
+RECONCILIATION (CSD sum vs rollup sum)
+  Province: all 20 summed fields reconcile to the CSD totals
+  CMA: covers 76.6% of national job effects (the rest is outside CMA boundaries — CMA totals are NOT national totals)
+
+OUTPUT
+  analysis\scripts\output\all_scenarios_cma.csv  (41 rows, 45 cols)
+  analysis\scripts\output\all_scenarios_cma.json
+  analysis\scripts\output\all_scenarios_province.csv  (13 rows, 45 cols)
+  analysis\scripts\output\all_scenarios_province.json
+  analysis\scripts\output\rollup_breaks.json

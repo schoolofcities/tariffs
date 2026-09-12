@@ -1,0 +1,135 @@
+# Changelog
+
+Purpose: Track user-visible changes in a concise, release-oriented format.
+
+All notable changes to this project will be documented in this file.
+
+The format is based on Keep a Changelog and adheres to Semantic Versioning.
+
+## [Unreleased]
+
+### Added
+- Add before/after metrics to optimize reports (tile size, file size, features, vertices).
+
+### Changed
+- Add colored headings/labels and before/after deltas to optimize text summary.
+
+### Fixed
+- TBD_UNVT_CHANGELOG_FIXED
+
+### Security
+- TBD_UNVT_CHANGELOG_SECURITY
+
+## [0.5.0] - 2026-01-20
+
+### Changed
+- Inspect defaults: layer statistics are now opt-in via `--include-layer-list` to avoid expensive scans by default.
+
+### Performance
+- Inspect processing uses tile_column chunking for high zooms (z>=12).
+- Histogram and zoom histogram scans now chunk by tile_column for high zooms (z>=12).
+
+## [0.4.7] - 2026-01-18
+### Added
+- Add `--report-format` JSON/NDJSON output for optimize.
+- Add Makefile targets for JSON report output from inspect/optimize.
+
+### Changed
+- Switch inspect output flag to `--report-format`.
+- Require OUTPUT_MBTILES_PATH and STYLE_PATH for the optimize Makefile target.
+- Move milestone history from SPEC into `docs/MILESTONE.md`.
+- Drop p50/p95 from inspect stats in SPEC (not present in upstream vt-optimizer).
+- Note future work for WAL disable option in compat mode and PMTiles v2 reads in SPEC.
+
+## [0.4.6] - 2026-01-17
+### Added
+- Count tiles over `--max-tile-bytes` in inspect outputs for MBTiles/PMTiles.
+
+## [0.4.5] - 2026-01-17
+### Added
+- Add `--unknown-filter` mode to control handling of unsupported style expressions during optimize.
+
+### Changed
+- Remove unsupported `--style-mode none` option.
+
+## [0.4.4] - 2026-01-15
+### Added
+- Add tile size to tile summary output ("Size of tile").
+- Add progress indicators for PMTiles inspect (spinner/bar depending on estimate availability).
+
+### Changed
+- Align PMTiles inspect output sections with MBTiles.
+- Enforce Cargo.toml version bump for release PRs via CI.
+
+## [0.4.3] - 2026-01-14
+### Added
+- Add a "Top 10 big tiles" section to inspect text output (respects --zoom).
+- Allow `inspect -z/-x/-y` to show tile summaries in compat-style arguments.
+- Document an inspect workflow and tips in HOW_TO.
+
+### Changed
+- Hide Metadata/Summary/Histogram/Layers output when `-x/-y` are provided.
+- Skip "Top 10 big tiles" output when `-x/-y` are provided.
+
+## [0.4.2] - 2026-01-14
+### Changed
+- Improve inspect text output readability (summary list items, zoom table with percentages).
+- Hide histogram-by-zoom section by default and add zoom-level tip to the Zoom section.
+
+## [0.4.1] - 2026-01-14
+### Changed
+- Bump rusqlite to 0.38 (bundled) and adjust SQLite row reads for u64 conversions.
+
+## [0.4.0] - 2026-01-14
+### Changed
+- Change edition to 2024 in Cargo.toml
+
+## [0.3.2] - 2026-01-14
+### Changed
+- Limit compat z/x/y inspection output to tile summary only.
+- Add label coloring for tile summary entries (including layer/keys lines).
+
+## [0.3.1] - 2026-01-14
+### Changed
+- Improve inspect text output readability (colored labels, title styling, path underline).
+- Show layer/feature/key/value totals in summary output.
+- Add a visible gap between progress output and report text.
+
+## [0.3.0] - 2026-01-13
+
+### Added
+- parallel MBTiles prune with multi-reader pipeline.
+- prune options for SQLite read/write cache sizing and dropping empty tiles.
+
+### Changed
+- fallback to zoom-based reader partitioning when rowid is unavailable.
+
+## [0.1.5] - 2026-01-13
+
+### Added
+- inspect `--layers` filter for file layers and tile summaries.
+
+## [0.1.4] - 2026-01-13
+
+### Changed
+- Allow `inspect --stats` without value to show possible values.
+
+## [0.1.3] - 2026-01-13
+
+### Changed
+- Require `make fmt` and `make clippy` before every commit (AGENTS update).
+
+## [0.1.2] - 2026-01-13
+
+### Added
+- Tile summary per-layer vertex/value counts.
+
+## [0.1.1] - 2026-01-13
+
+### Added
+- Tile summary totals.
+
+## [0.1.0] - 2026-01-08
+
+### Changed
+- Removed aarch64-unknown-linux-gnu target from release workflow.

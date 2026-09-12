@@ -1,5 +1,7 @@
 <Password/>
 
+<!-- Sister cities inspiration: https://www.brookings.edu/articles/chinas-retaliatory-tariffs-will-hurt-trump-voting-counties-most/ -->
+
 <script>
 	import '../../assets/global-styles.css';
 	import Logo from '$lib/LogoTop.svelte';
@@ -13,6 +15,7 @@
 	import IndustryScatterView from './assets/IndustryScatterView.svelte';
 	import IndustryCorrelationSimple from './assets/IndustryCorrelationSimple.svelte';
 	import RegressionView from './assets/RegressionView.svelte';
+	import { regressionData } from './assets/regressionData.js';
 	import { industryCorrelations } from './assets/industryCorrelations.js';
 	import { visitJobsScatterData } from './assets/visitJobsScatterData.js';
 	import { onMount } from 'svelte';
@@ -104,7 +107,44 @@
 	let correlationViewMode = "correlations-simple";
 	let correlationMetric = "share";
 
-	$: correlationData = industryCorrelations;
+	// $: correlationData = industryCorrelations;
+
+	$: correlationData = (() => {
+		const valid = regressionData.filter(
+			r => Number.isFinite(r.visitChange) &&
+				Number.isFinite(r.distToBorderKm) &&
+				Number.isFinite(r.cy24Enplanements)
+		);
+		
+		function pearson(xs, ys) {
+			const n = xs.length;
+			if (n < 2) return { r: NaN, p: NaN };
+			const mx = xs.reduce((s, v) => s + v, 0) / n;
+			const my = ys.reduce((s, v) => s + v, 0) / n;
+			const num = xs.reduce((s, v, i) => s + (v - mx) * (ys[i] - my), 0);
+			const dx = Math.sqrt(xs.reduce((s, v) => s + (v - mx) ** 2, 0));
+			const dy = Math.sqrt(ys.reduce((s, v) => s + (v - my) ** 2, 0));
+			const r = (dx && dy) ? num / (dx * dy) : NaN;
+			// two-tailed t-test approximation
+			const t = r * Math.sqrt((n - 2) / (1 - r * r));
+			// rough p-value via normal approx for large n
+			const z = Math.abs(t) * Math.SQRT1_2;
+			const p = 2 * (1 - 0.5 * (1 + Math.sign(z) * Math.sqrt(1 - Math.exp(-2 * z * z / Math.PI))));
+			return { r, p };
+		}
+		
+		const visits = valid.map(r => r.visitChange);
+		const dist = pearson(valid.map(r => r.distToBorderKm), visits);
+		const enplane = pearson(valid.map(r => r.cy24Enplanements), visits);
+		
+		const extras = [
+			{ code: 'ctrl', industry: 'Distance to border (km)', correlation: dist.r, pValue: dist.p, sampleSize: valid.length },
+			{ code: 'ctrl', industry: 'Airport enplanements (CY24)', correlation: enplane.r, pValue: enplane.p, sampleSize: valid.length },
+		];
+		
+		return [...industryCorrelations, ...extras];
+	})();
+	
 	$: scatterData = visitJobsScatterData;
 	$: metricLabel = "job share";
 
@@ -421,8 +461,15 @@
 			From the <a href="https://www.bls.gov/cew/">U.S. Quarterly Census on Employment and Wages</a>, we gathered industry data on metropolitan statistical areas to conduct correlations and a regression with visits. 
 			Using the share of industries per metro, our analysis finds strong predictors in the arts and entertainment sector, retail and trade, and professional and technical services in relation to the decline in U.S. metro visits.
 		</p>
-		
 
+		<p>
+			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares of jobs, signalling a worse the year-over-year percentage decline for art/entertainment oriented metros.
+			This is borderline significant in the professional services industry as well (p = 0.06), where this includes legal, accounting, consulting, architecture, engineering and technical services.
+			Manufacturing, retail and wholesale trade industries show better year-over-year outcomes, which may indicate that a resilience in cities' reliance on more local industries.
+			<!-- Interestingly, manufacturing, retail and wholesale trade show bifurcating effects: when measured as job shares, these industries are associated with better year-over-year outcomes, while the totals show a negative correlation.
+			This phenomenon likely reflects the interdependency that larger metros have with Canadian trade. -->
+		</p>
+		
 
 	</div>
 
@@ -437,43 +484,13 @@
 	{#if dataLoaded}
 
 
-
-
-
-	<IndustryCorrelationSimple correlations={correlationData} metricLabel={metricLabel} />
-
-
-	<div class="text" style = "margin-top: 50px">
-		<p>
-			From the correlations, the arts and entertainment sector in metros are impacted negatively across both the shares of jobs, signalling a worse the year-over-year percentage decline for art/entertainment oriented metros.
-			This is borderline significant in the professional services industry as well (p = 0.06), where this includes legal, accounting, consulting, architecture, engineering and technical services.
-			Manufacturing, retail and wholesale trade industries show better year-over-year outcomes, which may indicate that a resilience in cities' reliance on more local industries.
-			<!-- Interestingly, manufacturing, retail and wholesale trade show bifurcating effects: when measured as job shares, these industries are associated with better year-over-year outcomes, while the totals show a negative correlation.
-			This phenomenon likely reflects the interdependency that larger metros have with Canadian trade. -->
-		</p>
-	</div>
-
 	<IndustryScatterView data={scatterData} mode={correlationMetric} />
 	<div class="text" style = "margin-top: 50px">
 		<p>
 			When looking at strictly dominant industries per metro in the scatterplot, we see a general positive trend across all industries with the share of industries. 
 			This could suggest that metros with diversified industries may be impacted harder while the more specialized metros are more resilient. 
 		</p>
-	</div>
-	<RegressionView metric={correlationMetric} />
-	<div class="text" style="margin-top: 0px;">
-
-		<div class="caption-container">
-			<p>
-				<span class="caption-source">
-					Job data are from the <a href="https://www.bls.gov/cew/">U.S. Census of Employment and Wages</a> aggregated for 2023's metropolitan statistical areas, the most recent complete data. Passenger enplanement data are from the <a href="https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger">Federal Aviation Administration</a>.
-				</span>
-			</p>
-		</div>
-
-	</div>
-
-	<div class="text" style = "margin-top: 50px">
+	
 		<p>
 			<!-- From our results, using the total number of jobs affected, the Northeast region has a statistically significant effect on whether a city is declining or not. -->
 			To complement the scatterplot analysis, we ran a multivariate regression model using retail trade as the baseline as it is a large industry that is relatively stable and is in nearly every metro.
@@ -488,7 +505,22 @@
 
 		</p>
 	</div>
+
 	
+	<IndustryCorrelationSimple correlations={correlationData} metricLabel={metricLabel} />
+	
+	<RegressionView metric={correlationMetric} />
+	<div class="text" style="margin-top: 0px;">
+
+		<div class="caption-container">
+			<p>
+				<span class="caption-source">
+					Job data are from the <a href="https://www.bls.gov/cew/">U.S. Census of Employment and Wages</a> aggregated for 2023's metropolitan statistical areas, the most recent complete data. Passenger enplanement data are from the <a href="https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger">Federal Aviation Administration</a>.
+				</span>
+			</p>
+		</div>
+
+	</div>
 
 	<div class="text" style = "margin-top: 50px">
 		
@@ -499,6 +531,8 @@
 			Industry categories are based on the 2 digit North American Industrial Classification System (NAICS) codes from 2023. 
 		</p>
 	</div>
+
+	
 
 	<div class="text">
 		<h3>Data sources and methods</h3>

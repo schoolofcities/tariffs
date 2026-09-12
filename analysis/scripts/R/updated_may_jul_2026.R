@@ -1,0 +1,179 @@
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(lubridate)
+
+num <- read.csv("../../raw/updated_may_to_jul_2026.csv")
+denom <- read.csv("../../raw/denom_updated_may_to_jul_2026.csv")
+
+glimpse(num)
+
+glimpse(denom)
+
+norm <- num %>%
+  inner_join(denom, by = c("DATE" = "SNAPSHOT_EVENT_DATE"))
+
+norm <- norm %>%
+  mutate(
+    DATE = as.Date(as.character(DATE), format = "%Y%m%d"),
+    norm_stops = (UNIQUESTOPS / UNIQUE_CANADIAN_DEVICES)
+  )
+
+# Check result
+glimpse(norm)
+
+monthly <- norm %>%
+  mutate(year = year(DATE), month = month(DATE)) %>%
+  group_by(METRO, year, month) %>%
+  summarise(
+    total_norm_stops = sum(norm_stops, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(date = make_date(year, month, 1))
+
+# Sort by metro and date
+monthly <- monthly %>% arrange(METRO, date)
+
+# MoM difference (absolute change from previous month)
+monthly <- monthly %>%
+  group_by(METRO) %>%
+  mutate(
+    mom_change = total_norm_stops - lag(total_norm_stops, 1),
+    mom_pct   = (total_norm_stops / lag(total_norm_stops, 1) - 1) * 100
+  ) %>%
+  ungroup()
+
+# YoY difference (same month, previous year)
+monthly <- monthly %>%
+  group_by(METRO, month) %>%
+  arrange(year) %>%
+  mutate(
+    yoy_change = total_norm_stops - lag(total_norm_stops, 1),
+    yoy_pct    = (total_norm_stops / lag(total_norm_stops, 1) - 1) * 100
+  ) %>%
+  ungroup()
+
+yoy_may_jul <- monthly %>%
+  filter(month %in% 5:7) %>%
+  # Keep only 2025 and 2026 for comparison
+  filter(year %in% c(2025, 2026)) %>%
+  select(METRO, year, month, total_norm_stops, yoy_change, yoy_pct)
+
+# View YoY changes for each city-month
+print(yoy_may_jul)
+
+national_monthly <- monthly %>%
+  group_by(year, month, date) %>%
+  summarise(
+    national_total = sum(total_norm_stops, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(date) %>%
+  mutate(
+    mom_change = national_total - lag(national_total, 1),
+    mom_pct    = (national_total / lag(national_total, 1) - 1) * 100
+  ) %>%
+  group_by(month) %>%
+  arrange(year) %>%
+  mutate(
+    yoy_change = national_total - lag(national_total, 1),
+    yoy_pct    = (national_total / lag(national_total, 1) - 1) * 100
+  ) %>%
+  ungroup()
+
+# Filter to May-July 2026 YoY
+national_yoy <- national_monthly %>%
+  filter(month %in% 5:7, year == 2026) %>%
+  select(year, month, national_total, yoy_change, yoy_pct)
+
+print(national_yoy)
+
+library(ggplot2)
+library(dplyr)
+
+# Aggregate all metros per day
+daily_national <- norm %>%
+  group_by(DATE) %>%
+  summarise(
+    # Sum unique stops across all metros, divide by total devices, scale to per million
+    stops_per_million = (sum(UNIQUESTOPS) / first(UNIQUE_CANADIAN_DEVICES)) * 1e6,
+    .groups = "drop"
+  )
+
+# Plot with LOESS
+ggplot(daily_national, aes(x = DATE, y = stops_per_million)) +
+  geom_point(alpha = 0.3, size = 0.6, color = "grey40") +
+  geom_smooth(method = "loess", span = 0.1, se = TRUE, color = "red", fill = "pink") +
+  labs(
+    title = "National Daily Stops per Million Canadian Devices",
+    subtitle = "LOESS smoothing (span = 0.1)",
+    x = "Date", y = "Stops per 1M devices"
+  ) +
+  theme_minimal()
+
+# Identify the 6 metros with the most total stops
+top_metros <- norm %>%
+  group_by(METRO) %>%
+  summarise(total_stops = sum(UNIQUESTOPS), .groups = "drop") %>%
+  slice_max(total_stops, n = 6) %>%
+  pull(METRO)
+
+# Filter and scale
+norm_top <- norm %>%
+  filter(METRO %in% top_metros) %>%
+  mutate(stops_per_million = (UNIQUESTOPS / UNIQUE_CANADIAN_DEVICES) * 1e6)
+
+# Facet plot
+ggplot(norm_top, aes(x = DATE, y = stops_per_million)) +
+  geom_point(alpha = 0.2, size = 0.4, color = "grey40") +
+  geom_smooth(method = "loess", span = 0.15, se = FALSE, color = "steelblue") +
+  facet_wrap(~ METRO, scales = "free_y", ncol = 2) +
+  labs(
+    title = "Daily LOESS Trends – Top 6 Metros",
+    x = "Date", y = "Stops per 1M devices"
+  ) +
+  theme_minimal() +
+  theme(strip.text = element_text(face = "bold"))
+
+
+library(dplyr)
+library(ggplot2)
+library(patchwork)  # for combining plots
+
+# 1. Daily total numerator (sum of UNIQUESTOPS across all metros)
+daily_num <- norm %>%
+  group_by(DATE) %>%
+  summarise(total_stops = sum(UNIQUESTOPS, na.rm = TRUE), .groups = "drop")
+
+# 2. Daily denominator (should be constant across metros, keep distinct)
+daily_denom <- norm %>%
+  distinct(DATE, UNIQUE_CANADIAN_DEVICES)
+
+# 3. Daily number of metros reporting (coverage check)
+daily_metros <- norm %>%
+  group_by(DATE) %>%
+  summarise(n_metros = n_distinct(METRO), .groups = "drop")
+
+# Plot them
+p1 <- ggplot(daily_num, aes(x = DATE, y = total_stops)) +
+  geom_line(alpha = 0.7) +
+  geom_smooth(method = "loess", span = 0.1, color = "red", se = FALSE) +
+  labs(title = "Total Daily Unique Stops (Numerator)", y = "Total Stops") +
+  theme_minimal()
+
+p2 <- ggplot(daily_denom, aes(x = DATE, y = UNIQUE_CANADIAN_DEVICES)) +
+  geom_line(alpha = 0.7) +
+  geom_smooth(method = "loess", span = 0.1, color = "blue", se = FALSE) +
+  labs(title = "Total Canadian Devices (Denominator)", y = "Devices") +
+  theme_minimal()
+
+p3 <- ggplot(daily_metros, aes(x = DATE, y = n_metros)) +
+  geom_line(alpha = 0.7) +
+  geom_smooth(method = "loess", span = 0.1, color = "darkgreen", se = FALSE) +
+  labs(title = "Number of Metros Reporting", y = "Metro Count") +
+  theme_minimal()
+
+# Combine into one view
+(p1 / p2 / p3) + 
+  plot_annotation(title = "Diagnosing the April 2026 Plunge",
+                  subtitle = "Look for a sudden jump in denom, drop in numerator, or drop in metro count")

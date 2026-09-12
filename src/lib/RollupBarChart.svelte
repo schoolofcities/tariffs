@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import Select from "svelte-select";
     import { scaleLinear, scalePow } from 'd3-scale';
-    import { GRADUATED_COLORS } from './constantsv2.js';
+    import { GRADUATED_COLORS } from './constants.js';
 
     /*
       Data comes straight from roll_up_to_cma_prov.py:
@@ -96,7 +96,7 @@
         });
     });
 
-    // Chart geometry — same conventions as HorizontalBarChartv2
+    // Chart geometry — same conventions as HorizontalBarChart
     let chartWidth = $state(0);
     let legendWidth = $state(0);
     let chartHeight = $derived(24 * rows.length + 40);

@@ -21,10 +21,10 @@
 	// ------------------------------------------------------------------
 	// PMTILES SOURCES – update paths to your actual files
 	// ------------------------------------------------------------------
-	let choropleth_csd   = "/pmtiles/all_scenarios_csd.pmtiles";
-	let centroids_csd    = "/pmtiles/all_scenarios_csd_centroids.pmtiles";
-	let choropleth_ada   = "/pmtiles/all_scenarios_ada.pmtiles";
-	let centroids_ada    = "/pmtiles/all_scenarios_ada_centroids.pmtiles";
+	let choropleth_csd   = "/pmtiles/scenarios/all_scenarios_csd.pmtiles";
+	let centroids_csd    = "/pmtiles/scenarios/all_scenarios_csd_centroids.pmtiles";
+	let choropleth_ada   = "/pmtiles/scenarios/all_scenarios_ada.pmtiles";
+	let centroids_ada    = "/pmtiles/scenarios/all_scenarios_ada_centroids.pmtiles";
 	let censusDivisions  = "/pmtiles/census-divisions.pmtiles";
 
 	// Scenario-independent denominator for Percent mode: total employment per

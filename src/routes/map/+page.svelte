@@ -1,6 +1,6 @@
 <script>
 
-    import Map from '$lib/Mapv2.svelte';
+    import Map from '$lib/Map.svelte';
     import Password from '$lib/Password.svelte';
     
 </script>

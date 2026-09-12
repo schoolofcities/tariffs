@@ -1,0 +1,403 @@
+---
+title: "Canadian Visit Decline vs. U.S. Metro Industry Structure"
+author: "Karen Chapple, Yihoi Jung, Jeff Allen"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 6)
+library(tidyverse)
+library(jsonlite)
+library(ggrepel)
+library(broom)
+library(knitr)
+library(kableExtra)
+```
+
+## Overview
+
+This document replicates the three analyses from the Svelte interactive:
+
+1. **Scatter** — dominant-industry job share vs. visit YoY % change, by metro
+2. **Correlations** — Pearson r between each industry's job share and visit change
+3. **Regression** — multivariate OLS predicting visit change from industry shares,
+   population, region, distance to Canadian border, and airport enplanements
+
+---
+
+## 1. Data
+
+### 1a. Scatter data (dominant industry per metro)
+
+`visitJobsScatterData.js` exported directly from the Svelte build. If you want to
+re-read from the JS file, use the commented `fromJSON` block; otherwise paste the
+path to a CSV export.
+
+```{r load-scatter}
+# Option A: read from a CSV export of visitJobsScatterData
+# scatter_raw <- read_csv("visitJobsScatterData.csv")
+
+# Option B: parse the JS file directly
+js_text <- readLines("visitJobsScatterData.js", warn = FALSE) |>
+  paste(collapse = "\n") |>
+  # strip JS export wrapper
+  str_remove("^export const visitJobsScatterData = ") |>
+  str_remove(";$") |>
+  str_trim()
+
+scatter <- fromJSON(js_text) |>
+  as_tibble() |>
+  filter(is.finite(visitChange), is.finite(dominantShare))
+
+glimpse(scatter)
+```
+
+### 1b. Industry correlations
+
+Pre-computed in `industryCorrelations.js`.
+
+```{r load-corr}
+js_corr <- readLines("industryCorrelations.js", warn = FALSE) |>
+  paste(collapse = "\n") |>
+  str_remove("^export const industryCorrelations = ") |>
+  str_remove(";$") |>
+  str_trim()
+
+corr_df <- fromJSON(js_corr) |>
+  as_tibble() |>
+  arrange(correlation)
+
+glimpse(corr_df)
+```
+
+### 1c. Regression data
+
+`regressionData.js` drives `RegressionView.svelte`. Export it to CSV from your
+build pipeline, or adapt the path below. Expected columns: `metro`, `visitChange`,
+`population2025`, `distToBorderKm`, `cy24Enplanements`, `region`,
+plus one column per NAICS code for industry shares (e.g. `share_44_45`).
+
+```{r load-regression}
+# Adjust path to your regressionData CSV export
+reg_raw <- read_csv("regressionData.csv")   # <-- replace with your actual path
+
+# State → region lookup (matches the Svelte stateToRegion map)
+state_to_region <- c(
+  IL="Midwest", IN="Midwest", MI="Midwest", OH="Midwest", WI="Midwest",
+  IA="Midwest", KS="Midwest", MN="Midwest", MO="Midwest", NE="Midwest",
+  ND="Midwest", SD="Midwest",
+  CT="Northeast", ME="Northeast", MA="Northeast", NH="Northeast", RI="Northeast",
+  VT="Northeast", NJ="Northeast", NY="Northeast", PA="Northeast",
+  DE="Northeast", MD="Northeast",
+  AZ="Southwest", NM="Southwest", OK="Southwest", TX="Southwest",
+  CO="Southwest", NV="Southwest", UT="Southwest",
+  AL="Southeast", AR="Southeast", FL="Southeast", GA="Southeast", KY="Southeast",
+  LA="Southeast", MS="Southeast", NC="Southeast", SC="Southeast", TN="Southeast",
+  VA="Southeast", WV="Southeast", DC="Southeast",
+  AK="Pacific", CA="Pacific", HI="Pacific", OR="Pacific",
+  WA="Pacific", ID="Pacific", MT="Pacific"
+)
+
+reg <- reg_raw |>
+  filter(
+    is.finite(visitChange),
+    is.finite(distToBorderKm),
+    is.finite(cy24Enplanements),
+    !is.na(population2025),
+    !is.na(region)
+  )
+```
+
+---
+
+## 2. Scatter: visit change vs. dominant-industry job share
+
+Replicates `IndustryScatterView.svelte` in share mode. Each metro is one point,
+coloured by dominant NAICS sector.
+
+```{r scatter-plot, fig.height=6}
+# OLS trendline across all metros
+lm_scatter <- lm(dominantShare ~ visitChange, data = scatter)
+
+ggplot(scatter, aes(x = visitChange, y = dominantShare, colour = dominantIndustry)) +
+  geom_vline(xintercept = 0, linetype = "dashed", colour = "grey50", linewidth = 0.6) +
+  geom_point(size = 2.5, alpha = 0.85, stroke = 0.3, shape = 21,
+             aes(fill = dominantIndustry), colour = "black") +
+  geom_abline(
+    intercept = coef(lm_scatter)[1],
+    slope     = coef(lm_scatter)[2],
+    linetype  = "dashed", colour = "grey30", linewidth = 1
+  ) +
+  scale_x_continuous(
+    limits = c(-100, 40),
+    breaks = seq(-100, 40, 20),
+    labels = \(x) paste0(x, "%")
+  ) +
+  scale_y_continuous(
+    labels = \(y) paste0(round(y * 100), "%")
+  ) +
+  scale_fill_manual(values = c(
+    "Accommodation/Food"         = "rgb(17, 165, 121)",   # approx Svelte colorSequence
+    "Arts/Entertainment"         = "rgb(207, 28, 144)",
+    "Construction"               = "rgb(230, 131, 16)",
+    "Education"                  = "rgb(225, 157, 168)",
+    "Finance & Insurance"        = "rgb(57, 105, 172)",
+    "Health Care"                = "rgb(128, 186, 90)",
+    "Information"                = "rgb(0, 134, 149)",
+    "Manufacturing"              = "rgb(242, 183, 1)",
+    "Mining/Oil & Gas"           = "rgb(231, 63, 116)",
+    "Professional Services"      = "rgb(127, 60, 141)",
+    "Retail Trade"               = "rgb(17, 165, 121)",
+    "Transportation/Warehousing" = "rgb(57, 105, 172)",
+    "Wholesale Trade"            = "rgb(128, 186, 90)"
+  )) +
+  guides(fill = guide_legend(title = "Dominant industry", ncol = 2)) +
+  labs(
+    title   = "Canadian visit change vs. dominant-industry job share",
+    x       = "Canada → US visits YoY % change",
+    y       = "Dominant-industry share of jobs",
+    caption = "Each point = one metro. Dashed line = OLS trend."
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "bottom")
+```
+
+```{r scatter-lm-summary}
+glance(lm_scatter) |>
+  select(r.squared, adj.r.squared, p.value, nobs) |>
+  kable(digits = 3, caption = "OLS fit: dominant share ~ visit change") |>
+  kable_styling(bootstrap_options = "condensed", full_width = FALSE)
+```
+
+---
+
+## 3. Industry correlations
+
+Replicates `IndustryCorrelationSimple.svelte`. Pearson r between each industry's
+job *share* across metros and the metro's visit YoY % change.
+
+```{r corr-table}
+corr_df |>
+  mutate(
+    sig      = case_when(pValue < 0.001 ~ "***", pValue < 0.01 ~ "**",
+                         pValue < 0.05 ~ "*", pValue < 0.1 ~ ".", TRUE ~ ""),
+    pValue   = ifelse(pValue < 0.001, "<0.001", formatC(pValue, digits = 3, format = "f"))
+  ) |>
+  select(Industry = industry, Correlation = correlation, `p-value` = pValue,
+         `Sig.` = sig, N = sampleSize) |>
+  kable(digits = 3, align = c("l","r","r","l","r"),
+        caption = "Pearson correlations: industry job share vs. visit YoY % change") |>
+  kable_styling(bootstrap_options = c("striped","condensed"), full_width = FALSE) |>
+  row_spec(which(corr_df$pValue < 0.05 & corr_df$correlation < 0),
+           color = "#C0392B", bold = TRUE) |>
+  row_spec(which(corr_df$pValue < 0.05 & corr_df$correlation > 0),
+           color = "#2980B9", bold = TRUE)
+```
+
+```{r corr-plot, fig.height=7}
+corr_df |>
+  mutate(
+    industry = fct_reorder(industry, correlation),
+    sig      = pValue < 0.05,
+    dir      = ifelse(correlation >= 0, "positive", "negative")
+  ) |>
+  ggplot(aes(x = correlation, y = industry, fill = dir, alpha = sig)) +
+  geom_col(width = 0.7) +
+  geom_vline(xintercept = 0, linewidth = 0.5, colour = "grey30") +
+  geom_text(
+    aes(label = sprintf("r = %.3f", correlation),
+        hjust = ifelse(correlation >= 0, -0.1, 1.1)),
+    size = 3.2, colour = "grey20"
+  ) +
+  scale_alpha_manual(values = c(`TRUE` = 1, `FALSE` = 0.4), guide = "none") +
+  scale_fill_manual(values = c(positive = "#2980B9", negative = "#C0392B"),
+                    guide = "none") +
+  scale_x_continuous(limits = c(-0.35, 0.42), expand = c(0, 0)) +
+  labs(
+    title   = "Industry job share correlation with Canadian visit change",
+    x       = "Pearson r",
+    y       = NULL,
+    caption = "Bold fill = p < 0.05. Faded = not significant."
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+---
+
+## 4. Regression: visit change ~ industry shares + controls
+
+Replicates the full-model tab of `RegressionView.svelte`. Predictors are
+standardised before entry (matching the Svelte `standardize()` helper), so
+coefficients are in units of standard deviations of each predictor.
+
+Baseline industry: **Retail Trade** (44-45) — dropped to avoid perfect
+multicollinearity among shares. Baseline region: **Midwest**.
+
+```{r regression}
+naics_labels <- c(
+  "11"    = "Agriculture",
+  "21"    = "Mining/Oil & Gas",
+  "22"    = "Utilities",
+  "23"    = "Construction",
+  "31_33" = "Manufacturing",
+  "42"    = "Wholesale Trade",
+  # "44_45" = "Retail Trade",   # baseline — omitted
+  "48_49" = "Transportation/Warehousing",
+  "51"    = "Information",
+  "52"    = "Finance & Insurance",
+  "53"    = "Real Estate",
+  "54"    = "Professional Services",
+  "55"    = "Management",
+  "56"    = "Admin/Support",
+  "61"    = "Education",
+  "62"    = "Health Care",
+  "71"    = "Arts/Entertainment",
+  "72"    = "Accommodation/Food",
+  "81"    = "Other Services",
+  "99"    = "Unclassified"
+)
+
+# Industry share column names in regressionData CSV:
+# adjust these to match your actual column names
+share_cols <- paste0("share_", names(naics_labels))
+
+# Build model matrix -------------------------------------------------------
+reg_model_df <- reg |>
+  mutate(
+    pop_M      = population2025 / 1e6,
+    dist_1000  = distToBorderKm / 1000,
+    enplane_M  = cy24Enplanements / 1e6,
+    region     = relevel(factor(region), ref = "Midwest")
+  ) |>
+  # standardise continuous predictors (matches Svelte standardize())
+  mutate(across(
+    c(pop_M, dist_1000, enplane_M, all_of(share_cols)),
+    \(x) (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+  ))
+
+formula_str <- paste(
+  "visitChange ~ pop_M + region + dist_1000 + enplane_M +",
+  paste(share_cols, collapse = " + ")
+)
+
+fit <- lm(as.formula(formula_str), data = reg_model_df)
+
+# Summary table ------------------------------------------------------------
+tidy(fit) |>
+  mutate(
+    label = case_when(
+      term == "(Intercept)"          ~ "Intercept",
+      term == "pop_M"               ~ "Population (M, std)",
+      term == "dist_1000"           ~ "Distance to border (1000 km, std)",
+      term == "enplane_M"           ~ "Airport enplanements (M, std)",
+      str_starts(term, "region")    ~ str_replace(term, "region", "Region: "),
+      str_starts(term, "share_")    ~ paste0("Share: ", naics_labels[str_remove(term, "share_")]),
+      TRUE                           ~ term
+    ),
+    sig = case_when(p.value < 0.001 ~ "***", p.value < 0.01 ~ "**",
+                    p.value < 0.05  ~ "*",   p.value < 0.1  ~ ".",
+                    TRUE            ~ ""),
+    p.value_fmt = ifelse(p.value < 0.001, "<0.001",
+                         formatC(p.value, digits = 3, format = "f"))
+  ) |>
+  select(Variable = label, Coefficient = estimate,
+         `Std. Error` = std.error, `t` = statistic,
+         `p-value` = p.value_fmt, `Sig.` = sig) |>
+  kable(digits = 3, align = c("l","r","r","r","r","l"),
+        caption = sprintf(
+          "OLS regression (n = %d, R² = %.3f, Adj. R² = %.3f)",
+          nobs(fit), summary(fit)$r.squared, summary(fit)$adj.r.squared
+        )) |>
+  kable_styling(bootstrap_options = c("striped", "condensed"), full_width = FALSE) |>
+  row_spec(which(tidy(fit)$p.value < 0.05 & tidy(fit)$estimate < 0),
+           color = "#C0392B", bold = TRUE) |>
+  row_spec(which(tidy(fit)$p.value < 0.05 & tidy(fit)$estimate > 0),
+           color = "#2980B9", bold = TRUE)
+```
+
+```{r regression-plot, fig.height=8}
+tidy(fit, conf.int = TRUE) |>
+  filter(term != "(Intercept)") |>
+  mutate(
+    label = case_when(
+      term == "pop_M"            ~ "Population (M, std)",
+      term == "dist_1000"        ~ "Distance to border (1000 km, std)",
+      term == "enplane_M"        ~ "Airport enplanements (M, std)",
+      str_starts(term, "region") ~ str_replace(term, "region", "Region: "),
+      str_starts(term, "share_") ~ paste0("Share: ",
+                                           naics_labels[str_remove(term, "share_")]),
+      TRUE ~ term
+    ),
+    type = case_when(
+      str_starts(term, "share_") ~ "Industry share",
+      str_starts(term, "region") ~ "Region",
+      TRUE                       ~ "Control"
+    ),
+    sig = p.value < 0.05,
+    label = fct_reorder(label, estimate)
+  ) |>
+  ggplot(aes(x = estimate, y = label, colour = type, alpha = sig)) +
+  geom_vline(xintercept = 0, linewidth = 0.5, colour = "grey30") +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high),
+                 height = 0.3, linewidth = 0.7) +
+  geom_point(size = 2.5) +
+  scale_alpha_manual(values = c(`TRUE` = 1, `FALSE` = 0.35), guide = "none") +
+  scale_colour_manual(values = c(
+    "Industry share" = "#2C3E7A",
+    "Region"         = "#E67E22",
+    "Control"        = "#27AE60"
+  )) +
+  labs(
+    title   = "Regression coefficients (standardised predictors)",
+    x       = "Coefficient (std)",
+    y       = NULL,
+    colour  = NULL,
+    caption = "95% CIs shown. Faded = p > 0.05. Baseline: Midwest, Retail Trade."
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+```{r fit-stats}
+glance(fit) |>
+  select(r.squared, adj.r.squared, sigma, statistic, p.value, nobs, df) |>
+  kable(digits = 4, caption = "Model fit statistics") |>
+  kable_styling(bootstrap_options = "condensed", full_width = FALSE)
+```
+
+---
+
+## 5. Actual vs. predicted
+
+```{r actual-vs-predicted, fig.height=5}
+tibble(
+  actual    = fit$model$visitChange,
+  predicted = fitted(fit),
+  metro     = reg_model_df$metro[as.integer(rownames(fit$model))]
+) |>
+  ggplot(aes(x = actual, y = predicted)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey50") +
+  geom_point(alpha = 0.6, size = 2, colour = "#2C3E7A") +
+  scale_x_continuous(labels = \(x) paste0(x, "%")) +
+  scale_y_continuous(labels = \(x) paste0(x, "%")) +
+  labs(
+    title = "Actual vs. predicted visit YoY change",
+    x     = "Actual (%)",
+    y     = "Predicted (%)"
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+---
+
+## Session info
+
+```{r session}
+sessionInfo()
+```

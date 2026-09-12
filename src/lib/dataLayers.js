@@ -1,4 +1,4 @@
-import { GRADUATED_COLORS, TARIFF_NAME_CODES } from './constantsv2.js';
+import { GRADUATED_COLORS, TARIFF_NAME_CODES } from './constants.js';
 
 export const GRADUATED_SIZES = [5, 9, 15, 24, 34];
 

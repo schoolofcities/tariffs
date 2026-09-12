@@ -33,7 +33,7 @@
     let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
     let geoType = $state("CMA"); // ["CMA"] - ADA/CSD data not yet available for bar charts
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
-    let tariffType = $state("All goods subject to tariffs"); // see full list in TARIFF_LIST
+    let tariffType = $state("All goods subject to tariffs (after Aug 22, 2026)");
 
     let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
     let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
@@ -149,11 +149,11 @@
     }
 
     onMount(async () => {
-        const response = await fetch('json/cma_tariffs_percents_centroids.json');
+        const response = await fetch('json/cma_tariffs_percents_centroidsv2.json');
         const pctData = await response.json();
         cmaPcts = pctData.filter(item => item.GEO_LEVEL === "Census metropolitan area");
         
-        const countsResponse = await fetch('json/cma_tariffs_counts_centroids.json');
+        const countsResponse = await fetch('json/cma_tariffs_counts_centroidsv2.json');
         const countsData = await countsResponse.json();
         cmaCounts = countsData.filter(item => item.GEO_LEVEL === "Census metropolitan area");
     });
@@ -175,7 +175,10 @@
     }
 
     function tariffTypeSelect(event) {
-        tariffType = event.detail.value;
+        const nextTariffType = event.detail.value;
+        if (TARIFF_NAME_CODES[nextTariffType]) {
+            tariffType = nextTariffType;
+        }
     }
 
     $effect(() => {
@@ -184,6 +187,9 @@
         // console.log($state.snapshot(cmaSorted));
         
     })
+
+    
+
 </script>
 
 <div class="text">
@@ -293,6 +299,8 @@
                 Power scale
             </button>
         </div>
+
+        
     </div>
 
     <!-- Legend section -->
@@ -432,6 +440,12 @@
                 >{cmaData.GEO_NAME}</text>
             {/each}
         </svg>
+
+        <div id="destext">
+            <p>
+				Note: Due to the methods used to match tariffed goods to industry codes, selections are not additive. Pay attention to the scale when interpreting the chart.
+            </p>
+        </div>
     </div>
 </div>
 

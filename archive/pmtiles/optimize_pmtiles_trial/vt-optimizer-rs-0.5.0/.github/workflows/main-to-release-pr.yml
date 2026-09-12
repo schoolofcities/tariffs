@@ -1,0 +1,179 @@
+name: Open main -> release PR
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open PR from main to release
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const head = `${owner}:main`;
+            const base = 'release';
+
+            async function ensureReleaseBranch() {
+              try {
+                await github.rest.git.getRef({
+                  owner,
+                  repo,
+                  ref: `heads/${base}`,
+                });
+                return;
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+
+              const { data: mainRef } = await github.rest.git.getRef({
+                owner,
+                repo,
+                ref: 'heads/main',
+              });
+
+              await github.rest.git.createRef({
+                owner,
+                repo,
+                ref: `refs/heads/${base}`,
+                sha: mainRef.object.sha,
+              });
+              core.info('Created release branch from main.');
+            }
+
+            await ensureReleaseBranch();
+
+            const { data: comparison } = await github.rest.repos.compareCommits({
+              owner,
+              repo,
+              base,
+              head: 'main',
+            });
+            if (comparison.behind_by === 0 && comparison.ahead_by === 0) {
+              core.info('No commits between release and main. Skipping PR.');
+              return;
+            }
+
+            const prMap = new Map();
+
+            async function addPrByNumber(number) {
+              if (prMap.has(number)) return;
+              try {
+                const { data: pr } = await github.rest.pulls.get({
+                  owner,
+                  repo,
+                  pull_number: number,
+                });
+                if (pr.merged_at && pr.base && pr.base.ref === 'main') {
+                  prMap.set(pr.number, pr);
+                }
+              } catch (error) {
+                core.warning(`Failed to fetch PR #${number}: ${error.message}`);
+              }
+            }
+
+            async function collectPrsFromCommits(commits) {
+              for (const commit of commits || []) {
+                try {
+                  const { data: assoc } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                    owner,
+                    repo,
+                    commit_sha: commit.sha,
+                  });
+                  for (const pr of assoc) {
+                    if (pr.merged_at && pr.base && pr.base.ref === 'main') {
+                      prMap.set(pr.number, pr);
+                    }
+                  }
+                } catch (error) {
+                  core.warning(`Failed to list PRs for commit ${commit.sha}: ${error.message}`);
+                }
+
+                const message = commit.commit && commit.commit.message ? commit.commit.message : '';
+                const matches = message.match(/\(#(\d+)\)/g) || [];
+                for (const match of matches) {
+                  const number = parseInt(match.replace(/\D/g, ''), 10);
+                  if (!Number.isNaN(number)) {
+                    await addPrByNumber(number);
+                  }
+                }
+              }
+            }
+
+            let page = 1;
+            const perPage = 100;
+            while (true) {
+              const { data: comparison } = await github.rest.repos.compareCommits({
+                owner,
+                repo,
+                base,
+                head: 'main',
+                per_page: perPage,
+                page,
+              });
+              await collectPrsFromCommits(comparison.commits);
+              if (!comparison.commits || comparison.commits.length < perPage) {
+                break;
+              }
+              page += 1;
+            }
+
+            const prList = Array.from(prMap.values()).sort((a, b) => a.number - b.number);
+            const prLines = prList.map((pr) => `- ${pr.html_url} by @${pr.user.login}`);
+            const summary = prLines.length > 0
+              ? `## Included PRs\n\n${prLines.join('\n')}`
+              : 'No merged PRs found between main and release.';
+
+            let title = 'Merge main into release';
+            if (prList.length > 0) {
+              const latestMerged = prList
+                .filter((pr) => pr.merged_at)
+                .sort((a, b) => new Date(b.merged_at) - new Date(a.merged_at))[0];
+              if (latestMerged) {
+                const mergedAt = new Date(latestMerged.merged_at);
+                const iso = mergedAt.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
+                title = `Release ${iso}`;
+              }
+            }
+
+            const { data: prs } = await github.rest.pulls.list({
+              owner,
+              repo,
+              state: 'open',
+              head,
+              base,
+            });
+
+            const body = `Automated PR to promote main into release. Review and merge when ready.\n\n${summary}`;
+
+            if (prs.length > 0) {
+              const pr = prs[0];
+              await github.rest.pulls.update({
+                owner,
+                repo,
+                pull_number: pr.number,
+                title,
+                body,
+              });
+              core.info(`Updated existing PR #${pr.number}.`);
+              return;
+            }
+
+            await github.rest.pulls.create({
+              owner,
+              repo,
+              head: 'main',
+              base,
+              title,
+              body,
+            });

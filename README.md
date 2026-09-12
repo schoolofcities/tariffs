@@ -26,11 +26,21 @@ Employees (by work location) are defined from the employee ranges provided in th
 -	200 to 499 -->	350 employees
 -	500 + -->	550 employees
 
-## MAP DATA
+## DATA
 
-Downloadable CSV outputs for the map are available here:
+Downloadable CSV outputs are available here:
+Map:
 - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
 - [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values
+
+Scenarios:
+- [all_scenarios_csd.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the census subdivision area geometries and values
+- [all_scenarios_ada.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the aggregated dissemination area geometries and values
+- [ada_total_emp.csv](static/csv/ada_total_emp.csv) - for total employment values for aggregated dissemination areas (used as denominator)
+- [csd_total_emp.csv](static/csv/csd_total_emp.csv) - for total employment values for census subdivisions (used as denominator)
+
+Canada-US-Visits:
+- [us_normalized_trips_daily](static/canada-us-visits/us_normalized_trips_daily.csv) - for the normalized values of the Canada to U.S. visits by city (daily)
 
 ## DATA SOURCES
 #### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
@@ -44,9 +54,9 @@ Downloadable CSV outputs for the map are available here:
 8)	Census 2021 Data – Aggregate Dissemination Area Level [(_data is found in the 'Comprehensive download files' section_)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E&SearchText=canada&DGUIDlist=2021A000011124&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0)
 9)	Rate of CUSMA Utilisation by products at the two-digit HS Code level (data obtained from an interview that we have conducted with Canadian Chamber of Commerce)
 
-All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation.ipynb) to run smoothly, please ensure that all data, including the ones not in folder, are downloaded and located in the same folder as the Python notebook.
+All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in folder, are downloaded and located in the same folder as the Python notebook.
 
-## STEPS
+## MAP STEPS
 1)	Extract list of HS Codes for products that are subject to tariffs and duties.
 
        _Any new tariffs officially announced by the US International Trade Commission would result in an update of the HTS and changes to Chapter 99, which pertains to temporary legislation and amendments from the general HTS terms. HTS codes and HS codes are the same at the 6-digit level, thus it is safe to list the entire HTS code so long as they are later snipped to the first 6 digits during Python processing._
@@ -110,3 +120,15 @@ pmtiles convert choropleth.mbtiles choropleth.pmtiles
 
 15) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
 
+## MAP SCENARIO STEPS
+
+1) 
+
+2) If the tiles are too large, use the maximum tile bytes command such as the following:
+
+```tippecanoe -Z 0 -z 12 --maximum-tile-bytes=10000000 \
+  --output=all_scenarios_ada_centroids.mbtiles \
+  --drop-rate=0 all_scenarios_ada_centroids.geojson --force
+```
+
+15) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
