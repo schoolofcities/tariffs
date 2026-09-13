@@ -56,7 +56,7 @@ Canada-US-Visits:
 
 All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in folder, are downloaded and located in the same folder as the Python notebook.
 
-## MAP STEPS
+## DIRECT EXPOSURE MAP STEPS
 1)	Extract list of HS Codes for products that are subject to tariffs and duties.
 
        _Any new tariffs officially announced by the US International Trade Commission would result in an update of the HTS and changes to Chapter 99, which pertains to temporary legislation and amendments from the general HTS terms. HTS codes and HS codes are the same at the 6-digit level, thus it is safe to list the entire HTS code so long as they are later snipped to the first 6 digits during Python processing._
@@ -118,17 +118,92 @@ pmtiles convert choropleth.mbtiles choropleth.pmtiles
   --drop-rate=0 all_scenarios_ada_centroids.geojson --force
 ```
 
-15) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
+## SCENARIO STEPS
 
-## MAP SCENARIO STEPS
+1) Ensure that you have the latest report from the Multi-Regional Input Output Model excel file with DIR_INDIR_INDCD_SC{n} and Jobs Multiplier sheets.
 
-1) 
+2) Make sure you have trail_csd_full.csv or trail_ada_full.csv to use as the denominator of all jobs per region.
 
-2) If the tiles are too large, use the maximum tile bytes command such as the following:
+3) Make sure you have intermediate/NAICS 2022v1 to IOIC 2022 concordance.xlsx for the NAICS to Input Output concordance.
 
+4) Run all_scenarios_combined_ada.py and all_scenarios_combined.py (ADA & CSD versions)
+
+5) Convert all_scenarios_csd_centroids.geojson and all_scenarios_csd.geojson into pmtiles using script_scenarios.sh or doing Step 6.
+
+6) The tiles sizes may be too large, so use the maximum tile bytes command such as the following:
+
+_For Choropleth Map (note: adjust the simplification value accordingly if there's more data to be added)_
+
+```
+tippecanoe -Z 0 -z 11 --output=all_scenarios_csd.mbtiles --detect-shared-borders --drop-fraction-as-needed --coalesce --simplification=6 --drop-densest-as-needed all_scenarios_csd.geojson
+```
+
+ _For Centroid Map_
 ```tippecanoe -Z 0 -z 12 --maximum-tile-bytes=10000000 \
   --output=all_scenarios_ada_centroids.mbtiles \
   --drop-rate=0 all_scenarios_ada_centroids.geojson --force
 ```
 
-15) Ensure that the .gz extension for the pmtiles files (& make sure that Map.svelte points to the correct files) for users to view in Firefox browsers.
+_For all mbtiles_
+```
+pmtiles convert ____.mbtiles ____.pmtiles
+```
+
+7) Rolling up to CMA and province for the /map-scenarios-charts page:
+
+```
+python analysis/scripts/scenarios/run_rollup.py    # from the repo root
+```
+
+## CANADA US VISITS STEPS
+
+1) Ensure that you have both the visitor and the all Canadian devices data from Cuebiq.
+
+2) Run the following to normalize the data:
+
+```
+python analysis/scripts/canada-us-visits/run_rollup.py    # from the repo root
+```
+
+Now you have the normalized csv to use for the /canada-us-visits page!
+
+3) For regression, scatterplots and correlations, first fetch QCEW employment using the U.S. QCEW API:
+
+```
+python analysis/scripts/get_qcew_msa_industry.py
+```
+
+If accessing at a later date, newer data may be available. At the time of this, 2023 is the most recent annual data for MSAs.
+
+This fuzzy matches the metro names in us_normalized_trips_daily.csv with the area titles and then matches the metros with the MSA.
+Output is qcew_msa_industry_2023_a_2digit.csv
+
+4) Build MSA features such as the distance to border, enplanements, etc. Produces msa_features.csv
+
+```
+cd analysis/scripts && python build_msa_features.py
+```
+
+5) Correlations for the frontend:
+
+```
+python analysis/scripts/all_industries_corr.py    # share-based (primary)
+python analysis/scripts/all_industries_corr_raw.py   # raw job counts
+```
+
+Produces R squared values, p values per NAICS sector against the visitor YOY percents.
+
+6) Regression data and scatterplot data
+
+```
+python analysis/scripts/export_regression_data.py     # regressionData.js
+python analysis/scripts/export_visit_jobs_scatter.py  # visitJobsScatterData.js
+```
+
+7) (Optional) Export the data for analysis in R
+
+```
+python analysis/scripts/export_analysis_data.py
+```
+
+8) Check coverage using check_data_coverage.py

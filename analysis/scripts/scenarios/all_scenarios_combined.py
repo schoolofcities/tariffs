@@ -1,9 +1,8 @@
 """
 Combined CSD job-loss allocation: ALL 5 scenarios (1, 3, 4, 5, 6) x 3 effects -> ONE GeoJSON.
 
-Produces a single output with 18 columns per CSD:
+Produces a single output with 15 columns per CSD:
     S1_DIR_Jobs, S1_INDIR_Jobs, S1_INDCD_Jobs,
-    S2_DIR_Jobs, S2_INDIR_Jobs, S2_INDCD_Jobs,
     ... through S6.
 (No Total columns -- the frontend sums the 3 selected effects itself.)
 
@@ -275,7 +274,7 @@ def save_combined(clean_csd, all_columns_df, output_name):
 
 
 # ============================================================
-# MAIN: 6 scenarios x 3 effects -> 18 columns -> one combined output
+# MAIN: 5 scenarios x 3 effects -> 15 columns -> one combined output
 # ============================================================
 if __name__ == '__main__':
     print("Loading shared inputs once (workbook, employment, geometry)...")
@@ -284,7 +283,7 @@ if __name__ == '__main__':
     full_employment = load_csd_employment_full(TRAIL_CSD_FULL_CSV)
     clean_csd = load_clean_csd_geometry(CSD_SHAPEFILE)
 
-    # Accumulate all 18 columns onto CSDDGUID.
+    # Accumulate all 15 columns onto CSDDGUID.
     combined = full_employment[['CSDDGUID']].drop_duplicates().reset_index(drop=True)
 
     all_skipped = set()
@@ -322,7 +321,7 @@ if __name__ == '__main__':
     print(f"\n{'='*60}\nSaving combined output ({len(SCENARIOS)*len(EFFECTS)} columns)...\n{'='*60}")
     save_combined(clean_csd, combined, OUTPUT_NAME)
 
-    print(f"\n{'='*60}\nSUMMARY — 18 columns (6 scenarios x 3 effects)\n{'='*60}")
+    print(f"\n{'='*60}\nSUMMARY — 15 columns (5 scenarios x 3 effects)\n{'='*60}")
     print(f"{'Column':<18} {'Extracted':>14} {'Allocated':>14} {'BS codes':>9}")
     for col, extracted, allocated, ncodes in summary:
         print(f"{col:<18} {extracted:>14,.0f} {allocated:>14,.0f} {ncodes:>9}")

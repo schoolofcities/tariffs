@@ -1,0 +1,267 @@
+metro_name,area_code,area_title,match_type,match_score
+"Abilene, TX",C1018,"Abilene, TX",exact,1.0
+"Akron, OH",C1042,"Akron, OH",exact,1.0
+"Albany, NY",C1058,"Albany-Schenectady-Troy, NY",manual,1.0
+"Albuquerque, NM",C1074,"Albuquerque, NM",exact,1.0
+"Allentown, PA",C4670,"Vallejo, CA",fuzzy,0.667
+"Amarillo, TX",C1110,"Amarillo, TX",exact,1.0
+"Anchorage, AK",C1126,"Anchorage, AK",exact,1.0
+"Ann Arbor, MI",C1146,"Ann Arbor, MI",exact,1.0
+"Appleton, WI",C1154,"Appleton, WI",exact,1.0
+"Asheville, NC",C1170,"Asheville, NC",exact,1.0
+"Athens, GA",C1202,"Athens-Clarke County, GA",manual,1.0
+"Atlanta, GA",C4234,"Savannah, GA",fuzzy,0.696
+"Atlantic City, NJ",C1210,"Atlantic City-Hammonton, NJ",fuzzy,0.773
+"Auburn, AL",C1222,"Auburn-Opelika, AL",fuzzy,0.714
+"Augusta, GA",C1226,"Augusta-Richmond County, GA-SC",manual,1.0
+"Austin, TX",C1018,"Abilene, TX",fuzzy,0.667
+"Bakersfield, CA",C1254,"Bakersfield, CA",exact,1.0
+"Baltimore, MD",C1258,"Baltimore-Columbia-Towson, MD",fuzzy,0.619
+"Barnstable Town, MA",C1270,"Barnstable Town, MA",exact,1.0
+"Baton Rouge, LA",C1294,"Baton Rouge, LA",exact,1.0
+"Beaumont, TX",C1314,"Beaumont-Port Arthur, TX",fuzzy,0.667
+"Bellingham, WA",C1338,"Bellingham, WA",exact,1.0
+"Billings, MT",C1374,"Billings, MT",exact,1.0
+"Binghamton, NY",C1378,"Binghamton, NY",exact,1.0
+"Birmingham, AL",C1382,"Birmingham-Hoover, AL",fuzzy,0.8
+"Blacksburg, VA",C3134,"Lynchburg, VA",fuzzy,0.741
+"Bloomington, IL",C1401,"Bloomington, IL",exact,1.0
+"Bloomington, IN",C1402,"Bloomington, IN",exact,1.0
+"Boise City, ID",C1426,"Boise City, ID",exact,1.0
+"Boston, MA",C3370,"Modesto, CA",fuzzy,0.667
+"Boulder, CO",C1450,"Boulder, CO",exact,1.0
+"Bowling Green, KY",C1454,"Bowling Green, KY",exact,1.0
+"Bremerton, WA",C1474,"Bremerton-Silverdale-Port Orchard, WA",manual,1.0
+"Bridgeport, CT",C1486,"Bridgeport-Stamford-Norwalk, CT",fuzzy,0.622
+"Brownsville, TX",C1518,"Brownsville-Harlingen, TX",fuzzy,0.75
+"Buffalo, NY",C1538,"Buffalo-Cheektowaga, NY",fuzzy,0.667
+"Burlington, NC",C1550,"Burlington, NC",exact,1.0
+"Burlington, VT",C1550,"Burlington, NC",fuzzy,0.857
+"Canton, OH",C1042,"Akron, OH",fuzzy,0.737
+"Cape Coral, FL",C1598,"Cape Coral-Fort Myers, FL",fuzzy,0.718
+"Cedar Rapids, IA",C1630,"Cedar Rapids, IA",exact,1.0
+"Champaign, IL",C1658,"Champaign-Urbana, IL",fuzzy,0.788
+"Charleston, SC",C1662,"Charleston, WV",fuzzy,0.857
+"Charleston, WV",C1662,"Charleston, WV",exact,1.0
+"Charlotte, NC",C1682,"Charlottesville, VA",fuzzy,0.688
+"Charlottesville, VA",C1682,"Charlottesville, VA",exact,1.0
+"Chattanooga, TN",C1686,"Chattanooga, TN-GA",fuzzy,0.909
+"Chicago, IL",C1702,"Chico, CA",fuzzy,0.7
+"Chico, CA",C1702,"Chico, CA",exact,1.0
+"Cincinnati, OH",C1714,"Cincinnati, OH-KY-IN",fuzzy,0.824
+"Clarksville, TN",C1730,"Clarksville, TN-KY",fuzzy,0.909
+"Cleveland, OH",C1746,"Cleveland-Elyria, OH",fuzzy,0.788
+"Coeur d'Alene, ID",C1766,"Coeur d'Alene, ID",exact,1.0
+"College Station, TX",C1778,"College Station-Bryan, TX",fuzzy,0.864
+"Colorado Springs, CO",C1782,"Colorado Springs, CO",exact,1.0
+"Columbia, MO",C1786,"Columbia, MO",exact,1.0
+"Columbia, SC",C1790,"Columbia, SC",exact,1.0
+"Columbus, GA",C1798,"Columbus, GA-AL",fuzzy,0.889
+"Columbus, OH",C1814,"Columbus, OH",exact,1.0
+"Corpus Christi, TX",C1858,"Corpus Christi, TX",exact,1.0
+"Crestview, FL",C2354,"Gainesville, FL",fuzzy,0.643
+"Dallas, TX",C2134,"El Paso, TX",fuzzy,0.667
+"Daphne, AL",C1930,"Daphne-Fairhope-Foley, AL",manual,1.0
+"Davenport, IA",C1934,"Davenport-Moline-Rock Island, IA-IL",manual,1.0
+"Dayton, OH",C1042,"Akron, OH",fuzzy,0.737
+"Deltona, FL",C3610,"Ocala, FL",fuzzy,0.6
+"Denver, CO",C1450,"Boulder, CO",fuzzy,0.667
+"Des Moines, IA",C1978,"Des Moines-West Des Moines, IA",fuzzy,0.75
+"Detroit, MI",C2242,"Flint, MI",fuzzy,0.6
+"Dover, DE",C2010,"Dover, DE",exact,1.0
+"Duluth, MN",C2026,"Duluth, MN-WI",fuzzy,0.87
+"Durham, NC",C2050,"Durham-Chapel Hill, NC",fuzzy,0.625
+"East Stroudsburg, PA",C2070,"East Stroudsburg, PA",exact,1.0
+"Eau Claire, WI",C2074,"Eau Claire, WI",exact,1.0
+"El Centro, CA",C2094,"El Centro, CA",exact,1.0
+"El Paso, TX",C2134,"El Paso, TX",exact,1.0
+"Elkhart, IN",C2114,"Elkhart-Goshen, IN",fuzzy,0.759
+"Erie, PA",C2150,"Erie, PA",exact,1.0
+"Evansville, IN",C2178,"Evansville, IN-KY",fuzzy,0.903
+"Fargo, ND",C2202,"Fargo, ND-MN",fuzzy,0.857
+"Fayetteville, AR",C2218,"Fayetteville, NC",fuzzy,0.875
+"Fayetteville, NC",C2218,"Fayetteville, NC",exact,1.0
+"Flint, MI",C2242,"Flint, MI",exact,1.0
+"Florence, SC",C2250,"Florence, SC",exact,1.0
+"Fort Collins, CO",C2266,"Fort Collins, CO",exact,1.0
+"Fort Smith, AR",C2290,"Fort Smith, AR-OK",fuzzy,0.903
+"Fort Wayne, IN",C2306,"Fort Wayne, IN",exact,1.0
+"Fresno, CA",C2342,"Fresno, CA",exact,1.0
+"Gainesville, FL",C2354,"Gainesville, FL",exact,1.0
+"Gainesville, GA",C2358,"Gainesville, GA",exact,1.0
+"Grand Rapids, MI",C2434,"Grand Rapids-Kentwood, MI",fuzzy,0.78
+"Greeley, CO",C2454,"Greeley, CO",exact,1.0
+"Green Bay, WI",C2458,"Green Bay, WI",exact,1.0
+"Greensboro, NC",C2466,"Greensboro-High Point, NC",fuzzy,0.718
+"Greenville, NC",C2478,"Greenville, NC",exact,1.0
+"Greenville, SC",C2478,"Greenville, NC",fuzzy,0.929
+"Gulfport, MS",C2506,"Gulfport-Biloxi, MS",fuzzy,0.774
+"Hagerstown, MD",C2518,"Hagerstown-Martinsburg, MD-WV",fuzzy,0.651
+"Harrisburg, PA",C2542,"Harrisburg-Carlisle, PA",fuzzy,0.757
+"Hartford, CT",C3530,"New Haven-Milford, CT",fuzzy,0.606
+"Hattiesburg, MS",C2562,"Hattiesburg, MS",exact,1.0
+"Hickory, NC",C1702,"Chico, CA",fuzzy,0.7
+"Hilo, HI",C4652,"Urban Honolulu, HI",manual,1.0
+"Hilton Head Island, SC",C2594,"Hilton Head Island-Bluffton, SC",fuzzy,0.83
+"Houma, LA",C4974,"Yuma, AZ",fuzzy,0.706
+"Houston, TX",C2642,"Houston-The Woodlands-Sugar Land, TX",manual,1.0
+"Huntington, WV",C2658,"Huntington-Ashland, WV-KY-OH",fuzzy,0.667
+"Huntsville, AL",C2662,"Huntsville, AL",exact,1.0
+"Idaho Falls, ID",C2682,"Idaho Falls, ID",exact,1.0
+"Indianapolis, IN",C2690,"Indianapolis-Carmel-Anderson, IN",fuzzy,0.667
+"Iowa City, IA",C2698,"Iowa City, IA",exact,1.0
+"Jackson, MI",C2710,"Jackson, MI",exact,1.0
+"Jackson, MS",C2714,"Jackson, MS",exact,1.0
+"Jackson, TN",C2718,"Jackson, TN",exact,1.0
+"Jacksonville, FL",C2726,"Jacksonville, FL",exact,1.0
+"Jacksonville, NC",C2734,"Jacksonville, NC",exact,1.0
+"Janesville, WI",C2750,"Janesville-Beloit, WI",fuzzy,0.8
+"Johnson City, TN",C2774,"Johnson City, TN",exact,1.0
+"Joplin, MO",C2790,"Joplin, MO",exact,1.0
+"Kahului, HI",C4652,"Urban Honolulu, HI",fuzzy,0.621
+"Kalamazoo, MI",C2802,"Kalamazoo-Portage, MI",fuzzy,0.765
+"Kansas City, MO",C2814,"Kansas City, MO-KS",fuzzy,0.909
+"Kennewick, WA",C2842,"Kennewick-Richland, WA",fuzzy,0.743
+"Killeen, TX",C2866,"Killeen-Temple, TX",fuzzy,0.759
+"Kingsport, TN",C2874,"Kingston, NY",fuzzy,0.72
+"Kingston, NY",C2874,"Kingston, NY",exact,1.0
+"Knoxville, TN",C2894,"Knoxville, TN",exact,1.0
+"Lafayette, IN",C2918,"Lafayette, LA",fuzzy,0.846
+"Lafayette, LA",C2918,"Lafayette, LA",exact,1.0
+"Lake Charles, LA",C2934,"Lake Charles, LA",exact,1.0
+"Lake Havasu City, AZ",C2942,"Lake Havasu City-Kingman, AZ",fuzzy,0.833
+"Lakeland, FL",C2946,"Lakeland-Winter Haven, FL",fuzzy,0.649
+"Lancaster, PA",C2954,"Lancaster, PA",exact,1.0
+"Lansing, MI",C2242,"Flint, MI",fuzzy,0.7
+"Laredo, TX",C2970,"Laredo, TX",exact,1.0
+"Las Cruces, NM",C2974,"Las Cruces, NM",exact,1.0
+"Las Vegas, NV",C2974,"Las Cruces, NM",fuzzy,0.667
+"Lebanon, NH",C3070,"Lincoln, NE",fuzzy,0.636
+"Lexington, KY",C3046,"Lexington-Fayette, KY",fuzzy,0.765
+"Lincoln, NE",C3070,"Lincoln, NE",exact,1.0
+"Little Rock, AR",C3078,"Little Rock-North Little Rock-Conway, AR",fuzzy,0.6
+"Longview, TX",C3098,"Longview, TX",exact,1.0
+"Los Angeles, CA",C3108,"Los Angeles-Long Beach-Anaheim, CA",fuzzy,0.612
+"Louisville, KY",C3114,"Louisville, KY-IN",fuzzy,0.903
+"Lubbock, TX",C3118,"Lubbock, TX",exact,1.0
+"Lynchburg, VA",C3134,"Lynchburg, VA",exact,1.0
+"Macon, GA",C3374,"Monroe, LA",fuzzy,0.632
+"Madison, WI",C3154,"Madison, WI",exact,1.0
+"Manchester, NH",C3170,"Manchester-Nashua, NH",fuzzy,0.8
+"McAllen, TX",C1018,"Abilene, TX",fuzzy,0.727
+"Memphis, TN",C3282,"Memphis, TN-MS-AR",fuzzy,0.786
+"Merced, CA",C3290,"Merced, CA",exact,1.0
+"Miami, FL",C3310,"Miami-Fort Lauderdale-Pompano Beach, FL",manual,1.0
+"Midland, TX",C3326,"Midland, TX",exact,1.0
+"Milwaukee, WI",C3334,"Milwaukee-Waukesha, WI",fuzzy,0.743
+"Minneapolis, MN",C3346,"Minneapolis-St. Paul-Bloomington, MN-WI",manual,1.0
+"Mobile, AL",C3366,"Mobile, AL",exact,1.0
+"Modesto, CA",C3370,"Modesto, CA",exact,1.0
+"Monroe, LA",C3374,"Monroe, LA",exact,1.0
+"Montgomery, AL",C3386,"Montgomery, AL",exact,1.0
+"Muskegon, MI",C2710,"Jackson, MI",fuzzy,0.609
+"Myrtle Beach, SC",C3482,"Myrtle Beach-Conway-North Myrtle Beach, SC-NC",manual,1.0
+"Naples, FL",C3610,"Ocala, FL",fuzzy,0.632
+"Nashville, TN",C1170,"Asheville, NC",fuzzy,0.846
+"New Haven, CT",C3530,"New Haven-Milford, CT",fuzzy,0.765
+"New Orleans, LA",C3538,"New Orleans-Metairie, LA",fuzzy,0.769
+"New York, NY",C3562,"New York-Newark-Jersey City, NY-NJ-PA",manual,1.0
+"North Port, FL",C3584,"North Port-Sarasota-Bradenton, FL",fuzzy,0.6
+"Norwich, CT",C3598,"Norwich-New London, CT",fuzzy,0.667
+"Ocala, FL",C3610,"Ocala, FL",exact,1.0
+"Odessa, TX",C3622,"Odessa, TX",exact,1.0
+"Ogden, UT",C3626,"Ogden-Clearfield, UT",fuzzy,0.667
+"Oklahoma City, OK",C3642,"Oklahoma City, OK",exact,1.0
+"Olympia, WA",C4942,"Yakima, WA",fuzzy,0.667
+"Omaha, NE",C3070,"Lincoln, NE",manual,1.0
+"Orlando, FL",C3610,"Ocala, FL",fuzzy,0.7
+"Oshkosh, WI",C3678,"Oshkosh-Neenah, WI",fuzzy,0.759
+"Oxnard, CA",C3290,"Merced, CA",fuzzy,0.6
+"Palm Bay, FL",C3610,"Ocala, FL",fuzzy,0.667
+"Panama City, FL",C3746,"Panama City, FL",exact,1.0
+"Pensacola, FL",C3494,"Naples-Marco Island, FL",fuzzy,0.667
+"Peoria, IL",C3790,"Peoria, IL",exact,1.0
+"Philadelphia, PA",C3798,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",manual,1.0
+"Phoenix, AZ",C3806,"Phoenix-Mesa-Chandler, AZ",fuzzy,0.611
+"Pittsburgh, PA",C3830,"Pittsburgh, PA",exact,1.0
+"Port St. Lucie, FL",C3894,"Port St. Lucie, FL",exact,1.0
+"Portland, ME",C3886,"Portland-South Portland, ME",fuzzy,0.667
+"Poughkeepsie, NY",C4038,"Rochester, NY",manual,1.0
+"Prescott Valley, AZ",C4406,"Spokane-Spokane Valley, WA",fuzzy,0.622
+"Providence, RI",C3930,"Providence-Warwick, RI-MA",fuzzy,0.718
+"Provo, UT",C3934,"Provo-Orem, UT",fuzzy,0.783
+"Pueblo, CO",C3938,"Pueblo, CO",exact,1.0
+"Punta Gorda, FL",C3946,"Punta Gorda, FL",exact,1.0
+"Racine, WI",C3154,"Madison, WI",fuzzy,0.667
+"Raleigh, NC",C3958,"Raleigh-Cary, NC",fuzzy,0.815
+"Reading, PA",C3974,"Reading, PA",exact,1.0
+"Redding, CA",C3982,"Redding, CA",exact,1.0
+"Reno, NV",C3990,"Reno, NV",exact,1.0
+"Richmond, VA",C4006,"Richmond, VA",exact,1.0
+"Riverside, CA",C1254,"Bakersfield, CA",fuzzy,0.643
+"Roanoke, VA",C4022,"Roanoke, VA",exact,1.0
+"Rochester, MN",C4034,"Rochester, MN",exact,1.0
+"Rochester, NY",C4038,"Rochester, NY",exact,1.0
+"Rockford, IL",C4042,"Rockford, IL",exact,1.0
+"Sacramento, CA",C2094,"El Centro, CA",fuzzy,0.667
+"Saginaw, MI",C4098,"Saginaw, MI",exact,1.0
+"Salinas, CA",C4150,"Salinas, CA",exact,1.0
+"Salisbury, MD",C4154,"Salisbury, MD-DE",fuzzy,0.897
+"Salt Lake City, UT",C4162,"Salt Lake City, UT",exact,1.0
+"San Antonio, TX",C4170,"San Antonio-New Braunfels, TX",fuzzy,0.682
+"San Diego, CA",C2342,"Fresno, CA",fuzzy,0.609
+"San Francisco, CA",C4186,"San Francisco-Oakland-Berkeley, CA",fuzzy,0.667
+"San Jose, CA",C4150,"Salinas, CA",fuzzy,0.696
+"San Luis Obispo, CA",C4202,"San Luis Obispo-Paso Robles, CA",fuzzy,0.76
+"Santa Cruz, CA",C4210,"Santa Cruz-Watsonville, CA",fuzzy,0.75
+"Santa Maria, CA",C4220,"Santa Maria-Santa Barbara, CA",fuzzy,0.75
+"Santa Rosa, CA",C4222,"Santa Rosa-Petaluma, CA",fuzzy,0.757
+"Savannah, GA",C4234,"Savannah, GA",exact,1.0
+"Scranton, PA",C4470,"Stockton, CA",fuzzy,0.667
+"Seattle, WA",C4266,"Seattle-Tacoma-Bellevue, WA",manual,1.0
+"Sebastian, FL",C3610,"Ocala, FL",manual,1.0
+"Shreveport, LA",C4334,"Shreveport-Bossier City, LA",fuzzy,0.683
+"Sioux Falls, SD",C4362,"Sioux Falls, SD",exact,1.0
+"South Bend, IN",C4378,"South Bend-Mishawaka, IN-MI",fuzzy,0.683
+"Spartanburg, SC",C4390,"Spartanburg, SC",exact,1.0
+"Spokane, WA",C4406,"Spokane-Spokane Valley, WA",fuzzy,0.667
+"Springfield, IL",C4410,"Springfield, IL",exact,1.0
+"Springfield, MA",C4414,"Springfield, MA",exact,1.0
+"Springfield, MO",C4418,"Springfield, MO",exact,1.0
+"St. Cloud, MN",C4106,"St. Cloud, MN",exact,1.0
+"St. George, UT",C4110,"St. George, UT",exact,1.0
+"St. Louis, MO",C4118,"St. Louis, MO-IL",fuzzy,0.897
+"State College, PA",C4430,"State College, PA",exact,1.0
+"Stockton, CA",C4470,"Stockton, CA",exact,1.0
+"Syracuse, NY",C4506,"Syracuse, NY",exact,1.0
+"Tallahassee, FL",C4522,"Tallahassee, FL",exact,1.0
+"Tampa, FL",C3610,"Ocala, FL",fuzzy,0.667
+"Terre Haute, IN",C4546,"Terre Haute, IN",exact,1.0
+"Toledo, OH",C4578,"Toledo, OH",exact,1.0
+"Topeka, KS",C4582,"Topeka, KS",exact,1.0
+"Torrington, CT",C1550,"Burlington, NC",fuzzy,0.714
+"Trenton, NJ",C3990,"Reno, NV",fuzzy,0.737
+"Tucson, AZ",C4606,"Tucson, AZ",exact,1.0
+"Tulsa, OK",C4614,"Tulsa, OK",exact,1.0
+"Tupelo, MS",C3938,"Pueblo, CO",fuzzy,0.6
+"Tuscaloosa, AL",C4622,"Tuscaloosa, AL",exact,1.0
+"Tyler, TX",C4634,"Tyler, TX",exact,1.0
+"Urban Honolulu, HI",C4652,"Urban Honolulu, HI",exact,1.0
+"Utica, NY",C4654,"Utica-Rome, NY",fuzzy,0.783
+"Vallejo, CA",C4670,"Vallejo, CA",exact,1.0
+"Virginia Beach, VA",C4726,"Virginia Beach-Norfolk-Newport News, VA-NC",fuzzy,0.6
+"Visalia, CA",C4730,"Visalia, CA",exact,1.0
+"Waco, TX",C4738,"Waco, TX",exact,1.0
+"Warner Robins, GA",C4758,"Warner Robins, GA",exact,1.0
+"Washington, DC",C4890,"Wilmington, NC",fuzzy,0.714
+"Waterloo, IA",C4794,"Waterloo-Cedar Falls, IA",fuzzy,0.667
+"Wausau, WI",C4814,"Wausau-Weston, WI",fuzzy,0.741
+"Wichita, KS",C4862,"Wichita, KS",exact,1.0
+"Wilmington, NC",C4890,"Wilmington, NC",exact,1.0
+"Winston, NC",C4890,"Wilmington, NC",fuzzy,0.8
+"Worcester, MA",C4934,"Worcester, MA-CT",fuzzy,0.897
+"Yakima, WA",C4942,"Yakima, WA",exact,1.0
+"York, PA",C4962,"York-Hanover, PA",fuzzy,0.667
+"Youngstown, OH",C2874,"Kingston, NY",fuzzy,0.615
+"Yuba City, CA",C4970,"Yuba City, CA",exact,1.0
+"Yuma, AZ",C4974,"Yuma, AZ",exact,1.0
