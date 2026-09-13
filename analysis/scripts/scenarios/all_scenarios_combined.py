@@ -44,11 +44,11 @@ from pathlib import Path
 # ============================================================
 SCRIPT_DIR = Path(__file__).parent
 
-MRIO_WORKBOOK = SCRIPT_DIR / '../raw/scenario summary - clsd MRIO - as of August 27 2026 - 2022 model.xlsx'
-CONCORDANCE_WORKBOOK = SCRIPT_DIR / '../intermediate/NAICS 2022v1 to IOIC 2022 concordance.xlsx'
-TRAIL_CSD_FULL_CSV = SCRIPT_DIR / '../intermediate/trail_csd_full.csv'
-CSD_SHAPEFILE = SCRIPT_DIR / '../../data/census/lcsd000b21a_e/lcsd000b21a_e.shp'
-OUTPUT_DIR = SCRIPT_DIR / '../outputs'
+MRIO_WORKBOOK = SCRIPT_DIR / '../../raw/scenario summary - clsd MRIO - as of August 27 2026 - 2022 model.xlsx'
+CONCORDANCE_WORKBOOK = SCRIPT_DIR / '../../intermediate/NAICS 2022v1 to IOIC 2022 concordance.xlsx'
+TRAIL_CSD_FULL_CSV = SCRIPT_DIR / '../../intermediate/trail_csd_full.csv'
+CSD_SHAPEFILE = SCRIPT_DIR / '../../../data/census/lcsd000b21a_e/lcsd000b21a_e.shp'
+OUTPUT_DIR = SCRIPT_DIR / '../../outputs'
 
 SCENARIOS = [1, 3, 4, 5, 6]
 EFFECTS = ['DIR', 'INDIR', 'INDCD']          # 3 effects, all treated identically

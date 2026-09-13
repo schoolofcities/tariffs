@@ -20,11 +20,11 @@ from pathlib import Path
 # ============================================================
 SCRIPT_DIR = Path(__file__).parent
 
-MRIO_WORKBOOK = SCRIPT_DIR / '../raw/scenario summary - clsd MRIO - as of August 27 2026 - 2022 model.xlsx'
-CONCORDANCE_WORKBOOK = SCRIPT_DIR / '../intermediate/NAICS 2022v1 to IOIC 2022 concordance.xlsx'
-TRAIL_ADA_FULL_CSV = SCRIPT_DIR / '../intermediate/trail_ada_full.csv'      # <-- ADA employment
-ADA_SHAPEFILE = SCRIPT_DIR / '../input-data/large_size_data/lada000b21a_e.shp'  # <-- ADA shapefile
-OUTPUT_DIR = SCRIPT_DIR / '../outputs'
+MRIO_WORKBOOK = SCRIPT_DIR / '../../raw/scenario summary - clsd MRIO - as of August 27 2026 - 2022 model.xlsx'
+CONCORDANCE_WORKBOOK = SCRIPT_DIR / '../../intermediate/NAICS 2022v1 to IOIC 2022 concordance.xlsx'
+TRAIL_ADA_FULL_CSV = SCRIPT_DIR / '../../intermediate/trail_ada_full.csv'      # <-- ADA employment
+ADA_SHAPEFILE = SCRIPT_DIR / '../../input-data/large_size_data/lada000b21a_e.shp'  # <-- ADA shapefile
+OUTPUT_DIR = SCRIPT_DIR / '../../outputs'
 
 SCENARIOS = [1, 3, 4, 5, 6]
 EFFECTS = ['DIR', 'INDIR', 'INDCD']
