@@ -1,5 +1,5 @@
 <script>
-		// (as of September 1, 2025)
+	
 	import logoBlueColour from '../assets/sofc-uoft-logo-blue-colour.svg';
 	import "../assets/global-styles.css";
 
@@ -53,10 +53,8 @@
 		impactType = value;
 	}
 
-	// let tariffType = $state("All goods subject to tariffs (after Aug 22, 2026)");
-
 	let tariffType = $state(
-		"All goods subject to tariffs (after Aug 22, 2026)"
+		"All goods subject to tariffs (after Sep 29, 2026)"
 	);
 
 	function tariffTypeSelect(event) {
@@ -1064,7 +1062,7 @@
 			{:else if dataLayers[mapSelected]?.metricType === "Count" && dataLayers[mapSelected]?.colours}
 				<div id="destext">
 					<p>
-						{dataLayers[mapSelected]?.text} (as of September 1, 2025)
+						{dataLayers[mapSelected]?.text} (as of September 2026)
 					</p></div>
 
 				<!--5, 7.5, 10, 20, 40--> 
@@ -1151,7 +1149,7 @@
 			
 			<h4 style="margin-bottom: 0px;">Data sources</h4>
 			<p>
-				All layers on this map are based on tariffs as of September 1, 2025, except for the Lumber and Medium  layers, which were updated in November 25, 2025.
+				All layers on this map are based on tariffs as of September 2026.
 			</p>
 			<p>
 				Layers on this map were created by combining data from the following sources:
