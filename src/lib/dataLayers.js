@@ -9,11 +9,19 @@ export const GRADUATED_SIZES = [5, 9, 15, 24, 34];
 // `breaks`  are the choropleth/centroid class breaks. Percent suffixes (_1/_2/_3)
 //           are FRACTIONS (0.05 = 5%); count suffixes (_B/_E/_C) are raw counts.
 //
-// ScenAfter  = 'after August 22'  ∪ nonCUSMA
-// ScenBefore = 'before August 22' ∪ nonCUSMA
-// The bare 'after August 22' / 'before August 22' columns still exist in the
+// ScenAfter  = 'after September 29'  ∪ nonCUSMA
+// ScenBefore = 'before September 29' ∪ nonCUSMA
+// The bare 'after September 29' / 'before September 29' columns still exist in the
 // pmtiles but are NOT scenario totals — they exclude non-CUSMA exposure. They are
 // deliberately absent from this file so they can't be selected.
+//
+// Section 338 is three codes, not one:
+//   S338_Tar = codes actually subject to the Section 338 tariff  (652 HS codes)
+//   S338_Exc = codes carved out / exempt from it                  (24 HS codes)
+//   S338_Tot = Tariffed + Excluded, the full Section 338 universe (676 HS codes)
+// S338_Tot equals Dairy ∪ Alcohol ∪ Motor exactly, and Motor dominates it, so
+// Tot/Tar breaks are sized off Motor rather than off the broad Total/Scen scale
+// the old single 'Section 338' spec was (incorrectly) copied from.
 // ---------------------------------------------------------------------------
 
 const LAYER_SPECS = [
@@ -31,7 +39,7 @@ const LAYER_SPECS = [
     },
     {
         code: 'ScenAfter',
-        subject: 'all tariffs in effect after August 22, 2026',
+        subject: 'all tariffs in effect after September 29, 2026',
         breaks: {
             _1: [0.05, 0.1, 0.2, 0.3],
             _2: [0.04, 0.1, 0.2, 0.4],
@@ -43,7 +51,7 @@ const LAYER_SPECS = [
     },
     {
         code: 'ScenBefore',
-        subject: 'all tariffs in effect prior to August 22, 2026',
+        subject: 'all tariffs in effect prior to September 29, 2026',
         breaks: {
             _1: [0.05, 0.1, 0.2, 0.3],
             _2: [0.05, 0.1, 0.2, 0.4],
@@ -66,15 +74,39 @@ const LAYER_SPECS = [
         },
     },
     {
-        code: 'Section 338',
-        subject: 'Section 338 tariffs',
+        code: 'S338_Tot',
+        subject: 'Section 338 tariffs (goods tariffed and excluded combined)',
         breaks: {
-            _1: [0.05, 0.1, 0.2, 0.3],
-            _2: [0.05, 0.1, 0.2, 0.4],
-            _3: [0.05, 0.1, 0.2, 0.5],
+            _1: [0.01, 0.04, 0.08, 0.2],
+            _2: [0.01, 0.04, 0.08, 0.2],
+            _3: [0.01, 0.04, 0.08, 0.2],
             _B: [10, 50, 100, 200],
-            _E: [500, 1000, 2500, 5000],
-            _C: [400, 700, 1000, 1500],
+            _E: [200, 500, 1000, 2000],
+            _C: [200, 500, 1000, 2000],
+        },
+    },
+    {
+        code: 'S338_Tar',
+        subject: 'goods subject to Section 338 tariffs',
+        breaks: {
+            _1: [0.01, 0.04, 0.08, 0.2],
+            _2: [0.01, 0.04, 0.08, 0.2],
+            _3: [0.01, 0.04, 0.08, 0.2],
+            _B: [10, 50, 100, 200],
+            _E: [200, 500, 1000, 2000],
+            _C: [200, 500, 1000, 2000],
+        },
+    },
+    {
+        code: 'S338_Exc',
+        subject: 'goods excluded from Section 338 tariffs',
+        breaks: {
+            _1: [0.002, 0.005, 0.01, 0.02],
+            _2: [0.002, 0.005, 0.01, 0.02],
+            _3: [0.002, 0.005, 0.01, 0.02],
+            _B: [1, 2, 5, 10],
+            _E: [10, 50, 100, 250],
+            _C: [10, 50, 100, 250],
         },
     },
     {
