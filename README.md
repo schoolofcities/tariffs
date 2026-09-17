@@ -15,6 +15,9 @@ From the map:
 From the Census Metropolitan Area rankings chart:
 - [Census metropolitan area counts and percentages](/data/cma/cma_tariffs_counts_and_percents.xlsx)
 
+Harmonized System codes:
+- [Full list of HS codes](/analysis/raw/tariffs/tariff_hs_codes_9_29_2026.csv)
+- [Section 338 specific HS codes (tariffed and excluded)](/analysis/raw/tariffs/section_338.xlsx)
 <!-- - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
 - [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values -->
 

@@ -60,6 +60,19 @@
         }
     }
 
+	const TARIFF_NOTES = {
+		ScenAfter: 'Includes all tariffs in effect as of September 29, 2026, which include the Section 338 tariffs on dairy, alcohol, motor vehicles, and additionally non-CUSMA-compliant goods.',
+		ScenBefore: 'Reflects tariffs in effect before September 29, 2026. Section 338 tariffs on dairy, alcohol, and motor vehicles are not included.',
+		S338_Tot: 'The full scope of Section 338: every dairy, alcohol, and motor vehicle covered by a tariff or exclusion act.',
+		S338_Tar: 'Goods tariffed under Section 338.',
+		S338_Exc: 'Goods that are banned from import to the U.S. from Canada under Section 338.',
+		Dairy: 'Dairy goods covered by Section 338, including both tariffed and excluded codes.',
+		Alcohol: 'Alcohol goods covered by Section 338, including both tariffed and excluded codes.',
+		Motor: 'Motor vehicle goods covered by Section 338, including both tariffed and excluded codes.',
+	};
+
+	const tariffNote = $derived(TARIFF_NOTES[TARIFF_NAME_CODES[tariffType]]);
+
 
 	const mapQuery = $derived({
 		metricType: metricType,
@@ -913,6 +926,12 @@
 			/>
 		</div>
 
+		{#if tariffNote}
+			<div class="datadetail tariff-note">
+				<p>{tariffNote}</p>
+			</div>
+		{/if}
+
 		<div id="destext">
 		<p style="margin-bottom: -5px;">
 			Select an indicator:
@@ -1443,6 +1462,20 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+	}
+
+	.tariff-note {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		padding: 2px 10px;
+		border-left: 3px solid var(--brandLightBlue);
+		background-color: #f7f9fb;
+	}
+
+	.tariff-note p {
+		font-size: 13px;
+		line-height: 18px;
+		padding: 0;
 	}
 
 	#searchbar {
