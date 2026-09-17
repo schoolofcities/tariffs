@@ -2,6 +2,7 @@
 	
 	import logoBlueColour from '../assets/sofc-uoft-logo-blue-colour.svg';
 	import "../assets/global-styles.css";
+	import { base } from '$app/paths';
 
 	import { onMount, onDestroy } from "svelte";
 
@@ -24,16 +25,11 @@
 	let addressQuery="";
 	let addressResults="";
 
-	// **Change these to have the .gz extension after .pmtiles for deployment**
-
-	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/direct_exposure/choropleth.pmtiles";
-	let centroids_ada = "/pmtiles/direct_exposure/centroids.pmtiles";
-
-	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
-	let choropleth_csd = "/pmtiles/direct_exposure/choropleth_csd.pmtiles";
-	let centroids_csd = "/pmtiles/direct_exposure/centroids_csd.pmtiles";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
+	let choropleth_ada = `${base}/pmtiles/direct_exposure/choropleth.pmtiles`;
+	let centroids_ada  = `${base}/pmtiles/direct_exposure/centroids.pmtiles`;
+	let choropleth_csd = `${base}/pmtiles/direct_exposure/choropleth_csd.pmtiles`;
+	let centroids_csd  = `${base}/pmtiles/direct_exposure/centroids_csd.pmtiles`;
+	let censusDivisions = `${base}/pmtiles/census-divisions.pmtiles`;
 
 	// let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	// let graduated_siz = [5, 9, 15, 24, 34];
@@ -327,17 +323,17 @@
 
 			map.addSource('ne_provincelines', {
 				type: 'geojson',
-				data: './geojson/province-state-lines.geojson'
+				data: `${base}/geojson/province-state-lines.geojson`
 			});
 
 			map.addSource('provincepoints', {
 				type: 'geojson',
-				data: './geojson/province-points.geojson'
+				data: `${base}/geojson/province-points.geojson`
 			});
 
 			map.addSource('city_names', {
 				type: 'geojson',
-				data: './geojson/populated-places-canada.geojson'
+				data: `${base}/geojson/populated-places-canada.geojson`
 			});
 
 			map.addLayer({

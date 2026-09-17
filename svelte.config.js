@@ -4,6 +4,8 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const dev = "production" === "development";
 
+const base = process.env.BASE_PATH ?? '';
+
 const config = {
 
 	preprocess: vitePreprocess(),
@@ -14,9 +16,8 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-		    base: dev ? "" : "",
-			// base: dev ? "" : "/tariffs",
-		}
+            base
+        }
 	}
 };
 
