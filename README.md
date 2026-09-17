@@ -6,7 +6,7 @@ This project covers an [updated list of tariffs](https://mappingtariffs.org/curr
 
 ## DATA
 
-Downloadable CSV outputs are available here:
+Downloadable CSV and Excel outputs are available here:
 
 From the map:
 - [Census subdivision counts and percentages](/analysis/outputs/csv/csd_counts_and_percents.xlsx)
@@ -32,7 +32,6 @@ Canada-US-Visits:
 - [csd_total_emp.csv](static/csv/csd_total_emp.csv) - for total employment values for census subdivisions (used as denominator) -->
 
 ## DATA SOURCES
-#### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
 1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
 2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
 3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
