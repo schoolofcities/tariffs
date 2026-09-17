@@ -18,7 +18,16 @@ const config = {
 		paths: {
 			base,
 			relative: true
-		}
+		},
+		prerender: {
+            // Fork-only: base is hardcoded to /tariffs, so root-absolute links
+            // and asset paths elsewhere in the site fail the crawler's base
+            // check. Downgrade to a warning -- only /map needs to work here.
+            handleHttpError: ({ path, referrer, message }) => {
+                console.warn(`[prerender] ignoring: ${message}`);
+                return;
+            }
+        }
 	}
 };
 
