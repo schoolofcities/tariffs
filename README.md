@@ -9,14 +9,11 @@ This project covers an [updated list of tariffs](https://mappingtariffs.org/curr
 Downloadable CSV outputs are available here:
 
 From the map:
-- [Census subdivision counts](/analysis/outputs/csv/counts_csd.csv)
-- [Census subdivision percentages](/analysis/outputs/csv/percents_csd.csv)
-- [Aggregate dissemination area counts](/analysis/outputs/csv/counts_ada.csv)
-- [Aggregate dissemination area percentages](/analysis/outputs/csv/percents_ada.csv)
+- [Census subdivision counts and percentages](/analysis/outputs/csv/csd_counts_and_percents.xlsx)
+- [Aggregate dissemination area counts and percentages](/analysis/outputs/csv/ada_counts_and_percents.xlsx)
 
-From the cma rankings chart:
-- [Census metropolitan area counts](/data/cma/cma_tariffs_counts_centroids.csv)
-- [Census metropolitan area percentages](/data/cma/cma_tariffs_percents_centroids.csv)
+From the Census Metropolitan Area rankings chart:
+- [Census metropolitan area counts and percentages](/data/cma/cma_tariffs_counts_and_percents.xlsx)
 
 <!-- - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
 - [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values -->

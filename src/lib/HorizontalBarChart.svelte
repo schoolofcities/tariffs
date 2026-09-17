@@ -13,6 +13,7 @@
         TARIFF_CMA_BREAKS_COUNT_LINEAR,
         TARIFF_CMA_BREAKS_COUNT_POW,
     } from './constants.js';
+    import { base } from '$app/paths';
     
     let cmaPcts = $state([]);
     let cmaCounts = $state([]);
@@ -33,7 +34,7 @@
     let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
     let geoType = $state("CMA"); // ["CMA"] - ADA/CSD data not yet available for bar charts
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
-    let tariffType = $state("All goods subject to tariffs (after Aug 22, 2026)");
+    let tariffType = $state("All goods subject to tariffs (after Sep 29, 2026)");
 
     let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
     let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
@@ -149,11 +150,11 @@
     }
 
     onMount(async () => {
-        const response = await fetch('json/cma_tariffs_percents_centroidsv2.json');
+        const response = await fetch(`${base}/json/cma_tariffs_percents_centroids.json`);
         const pctData = await response.json();
         cmaPcts = pctData.filter(item => item.GEO_LEVEL === "Census metropolitan area");
         
-        const countsResponse = await fetch('json/cma_tariffs_counts_centroidsv2.json');
+        const countsResponse = await fetch(`${base}/json/cma_tariffs_counts_centroids.json`);
         const countsData = await countsResponse.json();
         cmaCounts = countsData.filter(item => item.GEO_LEVEL === "Census metropolitan area");
     });
