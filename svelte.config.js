@@ -16,8 +16,9 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-            base
-        }
+			base,
+			relative: true
+		}
 	}
 };
 

@@ -13,8 +13,8 @@ build() {
 }
 
 CHORO_OPTS=(-Z 0 -z 11 --detect-shared-borders --drop-fraction-as-needed \
-            --coalesce --simplification=6 --drop-densest-as-needed)
-CENTROID_OPTS=(-Z 0 -z 12 --drop-rate=0)
+            --coalesce --simplification=6 --drop-densest-as-needed --maximum-tile-bytes=2000000)
+CENTROID_OPTS=(-Z 0 -z 12 --drop-rate=0 --maximum-tile-bytes=2000000)
 
 build choropleth     "${CHORO_OPTS[@]}"
 build centroids      "${CENTROID_OPTS[@]}"
