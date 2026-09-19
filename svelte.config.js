@@ -4,6 +4,8 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const dev = "production" === "development";
 
+const base = process.env.BASE_PATH ?? '';
+
 const config = {
 
 	preprocess: vitePreprocess(),
@@ -14,9 +16,18 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-		    base: dev ? "" : "",
-			// base: dev ? "" : "/tariffs",
-		}
+			base,
+			relative: true
+		},
+		prerender: {
+            // Fork-only: base is hardcoded to /tariffs, so root-absolute links
+            // and asset paths elsewhere in the site fail the crawler's base
+            // check. Downgrade to a warning -- only /map needs to work here.
+            handleHttpError: ({ path, referrer, message }) => {
+                console.warn(`[prerender] ignoring: ${message}`);
+                return;
+            }
+        }
 	}
 };
 

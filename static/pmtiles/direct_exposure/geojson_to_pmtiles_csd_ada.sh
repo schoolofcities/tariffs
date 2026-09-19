@@ -4,17 +4,17 @@
 set -e
 
 build() {
-    local dir="$1" base="$2"
-    shift 2
-    echo "Processing $dir/$base..."
-    tippecanoe "$@" --output="$dir/${base}.mbtiles" --force "$dir/${base}.geojson"
-    pmtiles convert "$dir/${base}.mbtiles" "$dir/${base}.pmtiles"
-    rm "$dir/${base}.mbtiles"
+    local base="$1"
+    shift
+    echo "Processing $base..."
+    tippecanoe "$@" --output="${base}.mbtiles" --force "${base}.geojson"
+    pmtiles convert "${base}.mbtiles" "${base}.pmtiles"
+    rm "${base}.mbtiles"
 }
 
 CHORO_OPTS=(-Z 0 -z 11 --detect-shared-borders --drop-fraction-as-needed \
-            --coalesce --simplification=6 --drop-densest-as-needed)
-CENTROID_OPTS=(-Z 0 -z 12 --drop-rate=0)
+            --coalesce --simplification=6 --drop-densest-as-needed --maximum-tile-bytes=2000000)
+CENTROID_OPTS=(-Z 0 -z 12 --drop-rate=0 --maximum-tile-bytes=2000000)
 
 build choropleth     "${CHORO_OPTS[@]}"
 build centroids      "${CENTROID_OPTS[@]}"

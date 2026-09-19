@@ -1,16 +1,68 @@
-# Mapping Potential Direct Exposure to US Tariffs at Aggregate Dissemination Area Level
+# Mapping Tariffs
 
-## OBJECTIVE AND DEFINITIONS
+The purpose of this project is to assess the potential effects and impacts of U.S. tariffs on Canadian employees and businesses through a quantitative lens. 
+
+This project covers an [updated list of tariffs](https://mappingtariffs.org/current-tariffs); [a national tariff map](https://mappingtariffs.org/map); [Census Metropolitan Area rankings](https://mappingtariffs.org/cma-rankings-chart); [background](https://mappingtariffs.org/potential-local-impacts), [lumber](https://mappingtariffs.org/lumber), [truck](https://mappingtariffs.org/truck) and [Section 338](https://mappingtariffs.org/section-338) blog posts about findings; and a separate [Canada to U.S. visits](https://mappingtariffs.org/canada-us-visits) analysis. 
+
+## DATA
+
+Downloadable CSV and Excel outputs are available here:
+
+From the map:
+- [Census subdivision counts and percentages](/analysis/outputs/csv/csd_counts_and_percents.xlsx)
+- [Aggregate dissemination area counts and percentages](/analysis/outputs/csv/ada_counts_and_percents.xlsx)
+
+From the Census Metropolitan Area rankings chart:
+- [Census metropolitan area counts and percentages](/data/cma/cma_tariffs_counts_and_percents.xlsx)
+
+Harmonized System codes:
+- [Full list of HS codes](/analysis/raw/tariffs/tariff_hs_codes_9_29_2026.csv)
+- [Section 338 specific HS codes (tariffed and excluded)](/analysis/raw/tariffs/section_338.xlsx)
+<!-- - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
+- [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values -->
+
+
+Canada-US-Visits:
+- [us_normalized_trips_daily](static/canada-us-visits/us_normalized_trips_daily.csv) - for the normalized values of the Canada to U.S. visits by city (daily)
+
+<!-- Scenarios:
+- [all_scenarios_csd.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the census subdivision area geometries and values
+- [all_scenarios_ada.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the aggregated dissemination area geometries and values
+- [ada_total_emp.csv](static/csv/ada_total_emp.csv) - for total employment values for aggregated dissemination areas (used as denominator)
+- [csd_total_emp.csv](static/csv/csd_total_emp.csv) - for total employment values for census subdivisions (used as denominator) -->
+
+## DATA SOURCES
+1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
+2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
+3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
+4)	Province/Territory 2024 Annual Export Data to the US at HS6 level [(_same setting as above, except to set Country/State to 'US total' instead_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
+5)	December 2022 Establishment Counts by Dissemination Area (DA) [(_downloaded from Borealis_)](https://borealisdata.ca/file.xhtml?fileId=442841&version=5.1)
+6)	Census 2021 Geographic Boundary Files at Aggregate Dissemination Area (ADA) level [(_select the appropriate geographic levels at the 'Statistical boundaries' section_)](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21)
+7)	[Dissemination Geographies Relationship File](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/dguid-idugd/index2021-eng.cfm?year=21) to link DAs to ADAs
+8)	Census 2021 Data – Aggregate Dissemination Area Level [(_data is found in the 'Comprehensive download files' section_)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E&SearchText=canada&DGUIDlist=2021A000011124&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0)
+9)	Rate of CUSMA Utilisation by products at the two-digit HS Code level (data obtained from an interview that we have conducted with Canadian Chamber of Commerce)
+
+All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in folder, are downloaded and located in the same folder as the Python notebook.
+
+## POTENTIAL DIRECT EXPOSURE TO CANADIAN BUSINESSES
+
+This is about the /map and /cma-rankings-chart pages
+
+### OBJECTIVE AND DEFINITIONS
 The objective of this visualisation is to map out the direct exposure of Canadian businesses and employees (by work location and primary residence) to US President Donald Trump Second Administration’s Tariffs (Tariffs) at the Aggregate Dissemination Area (ADA) level.
 
-As of August 2025, the Tariffs include the following:
+As of September 2026, the Tariffs include the following:
 1)	10% tariffs on energy and natural resources [(HTS 9903.01.13)](https://content.govdelivery.com/bulletins/gd/USDHSCBP-3d7c46d?wgt_ref=USDHSCBP_WIDGET_2) and potash [(HTS 9903.01.15)](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/3d5b0a5)
 2)	50% tariffs on iron and steel, and their derivative products (HTS 9903.81.87, 9903.81.88, 9903.81.89, 9903.81.90, 9903.81.91, 9903.81.93)
 3)	50% tariffs on aluminum, and its derivative products (HTS 9903.85.02, 9903.85.04, 9903.85.07, 9903.85.08)
 4)	25% tariffs on automobiles, and its parts (HTS 9903.94.01, 9903.94.03, 9903.94.05)
 5)	50% tariffs on semi-finished copper and intensive copper derivative products (HTS 9903.78.01)
-6)	10% tariffs on softwood lumber (into effect October 14, 2025)
-7)	35% tariffs on all Canadian products not covered by CUSMA
+25% tariffs on upholstered furniture, kitchen cabinets, and vanities (HTS [to verify]; effective October 14, 2025)
+10% tariffs on softwood lumber (into effect October 14, 2025)
+10–50% tariffs on the full value of steel, aluminum, and copper derivative products, scaled to the percentage of metal content (HTS [to verify]; effective April 6, 2026)
+  50% tariffs on dairy, alcohol, and motor vehicles under Section 338 of the Tariff Act (HTS [to verify]; effective August 22, 2026)
+
+	35% tariffs on all Canadian products not covered by CUSMA
 
 Data on employees (by primary residence) are derived from Census 2021 data
 
@@ -26,37 +78,10 @@ Employees (by work location) are defined from the employee ranges provided in th
 -	200 to 499 -->	350 employees
 -	500 + -->	550 employees
 
-## DATA
+### DATA PROCESS FOR MAPPING
 
-Downloadable CSV outputs are available here:
-Map:
-- [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
-- [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values
+Mapping potential direct exposure to U.S. tariffs at the aggregate dissemination area & the census subdivisions. This is the process to get the final map tiles' percentages and counts.
 
-Scenarios:
-- [all_scenarios_csd.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the census subdivision area geometries and values
-- [all_scenarios_ada.csv](analysis/outputs/csv/all_scenarios_csd.csv) - for the aggregated dissemination area geometries and values
-- [ada_total_emp.csv](static/csv/ada_total_emp.csv) - for total employment values for aggregated dissemination areas (used as denominator)
-- [csd_total_emp.csv](static/csv/csd_total_emp.csv) - for total employment values for census subdivisions (used as denominator)
-
-Canada-US-Visits:
-- [us_normalized_trips_daily](static/canada-us-visits/us_normalized_trips_daily.csv) - for the normalized values of the Canada to U.S. visits by city (daily)
-
-## DATA SOURCES
-#### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
-1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
-2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
-3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
-4)	Province/Territory 2024 Annual Export Data to the US at HS6 level [(_same setting as above, except to set Country/State to 'US total' instead_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
-5)	December 2022 Establishment Counts by Dissemination Area (DA) [(_downloaded from Borealis_)](https://borealisdata.ca/file.xhtml?fileId=442841&version=5.1)
-6)	Census 2021 Geographic Boundary Files at Aggregate Dissemination Area (ADA) level [(_select the appropriate geographic levels at the 'Statistical boundaries' section_)](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21)
-7)	[Dissemination Geographies Relationship File](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/dguid-idugd/index2021-eng.cfm?year=21) to link DAs to ADAs
-8)	Census 2021 Data – Aggregate Dissemination Area Level [(_data is found in the 'Comprehensive download files' section_)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E&SearchText=canada&DGUIDlist=2021A000011124&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0)
-9)	Rate of CUSMA Utilisation by products at the two-digit HS Code level (data obtained from an interview that we have conducted with Canadian Chamber of Commerce)
-
-All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in folder, are downloaded and located in the same folder as the Python notebook.
-
-## DIRECT EXPOSURE MAP STEPS
 1)	Extract list of HS Codes for products that are subject to tariffs and duties.
 
        _Any new tariffs officially announced by the US International Trade Commission would result in an update of the HTS and changes to Chapter 99, which pertains to temporary legislation and amendments from the general HTS terms. HTS codes and HS codes are the same at the 6-digit level, thus it is safe to list the entire HTS code so long as they are later snipped to the first 6 digits during Python processing._
@@ -89,7 +114,7 @@ All data can be found and downloaded from the 'analysis' folder, with the except
 
 11)	[Refer to Jupter notebook] Results from Step 10 are then processed to be appended to the choropleth and centroid maps. They will both be saved as GeoJSON files.
 
-12)	Convert the GeoJSON files into MBTiles, then PMTiles via Windows Subsystem for Linux with the following codes:
+12)	Convert the GeoJSON files into MBTiles, then PMTiles with the following codes:
     
 _For Choropleth Map (note: adjust the simplification value accordingly if there's more data to be added)_
 ```
@@ -118,7 +143,19 @@ pmtiles convert choropleth.mbtiles choropleth.pmtiles
   --drop-rate=0 all_scenarios_ada_centroids.geojson --force
 ```
 
-## SCENARIO STEPS
+15) Update [dataLayers.js](/src/lib/dataLayers.js) and [constants.js](/src/lib/constants.js) with the new codes if there are any.
+
+16) Ensure that [Map.svelte](/src/lib/Map.svelte) is also up to date with the default selected option and it's updated dates.
+
+### DATA PROCESS FOR CMA CHARTS
+
+1) The [Jupyter Notebook file for ADAs](/analysis/notebooks/Data%20Manipulation%20ADA.ipynb) will give you ADA based [percentages](/analysis/outputs/csv/percents_ada.csv) and [counts](/analysis/outputs/csv/counts_ada.csv). Put them into an excel file called ada_tariff_counts_percents_{INSERT_DATE}.xlsx.
+
+2) Run the [CMA Jupyter Notebook](/analysis/notebooks/get_cma_tariffs_fixed_just_cma.ipynb).
+
+3) Put the CMA tariffs [counts](/data/cma/cma_tariffs_counts_centroids.json) and [percents](/data/cma/cma_tariffs_percents_centroids.json) into the [json folder](/static/json/).
+
+<!-- ## SCENARIO STEPS
 
 1) Ensure that you have the latest report from the Multi-Regional Input Output Model excel file with DIR_INDIR_INDCD_SC{n} and Jobs Multiplier sheets.
 
@@ -153,9 +190,11 @@ pmtiles convert ____.mbtiles ____.pmtiles
 
 ```
 python analysis/scripts/scenarios/run_rollup.py    # from the repo root
-```
+``` -->
 
 ## CANADA US VISITS STEPS
+
+These are the data processing steps for analyzing phone
 
 1) Ensure that you have both the visitor and the all Canadian devices data from Cuebiq.
 
@@ -167,6 +206,8 @@ python analysis/scripts/canada-us-visits/run_rollup.py    # from the repo root
 
 Now you have the normalized csv to use for the /canada-us-visits page!
 
+
+<!-- 
 3) For regression, scatterplots and correlations, first fetch QCEW employment using the U.S. QCEW API:
 
 ```
@@ -206,4 +247,4 @@ python analysis/scripts/export_visit_jobs_scatter.py  # visitJobsScatterData.js
 python analysis/scripts/export_analysis_data.py
 ```
 
-8) Check coverage using check_data_coverage.py
+8) Check coverage using check_data_coverage.py -->
