@@ -73,6 +73,8 @@
 
 	$: displayMedian = filteredMetroMetrics.length
 		? median(filteredMetroMetrics, m => m.percentChange) : null;
+	$: displayMean = filteredMetroMetrics.length
+		? mean(filteredMetroMetrics, m => m.percentChange) : null;
 
 	// Configuration
 	let selection = {
@@ -315,7 +317,7 @@
 		console.log(
 			"YoY median % change, Aug 1 2024 - Jul 31 2026 (Aug-Jul split):",
 			median(augJulChanges),
-			"YoY mean % change, Apr 1 2024 - Mar 31 2026 (Apr-Mar split):",
+			"YoY mean % change, Aug 1 2024 - Jul 31 2026 (Aug-Jul split):",
 			mean(augJulChanges)
 		);
 	}
@@ -581,7 +583,7 @@
 
 						
 			<span class="toggle-label">
-				Median change, {activePeriod.label}: {displayMedian?.toFixed(1)}%
+				Median change, {activePeriod.label}: {displayMedian?.toFixed(1)}%, Mean change: {displayMean?.toFixed(1)}%
 			</span>				
 
 				<span class="toggle-label">View:</span>
