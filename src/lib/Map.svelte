@@ -62,13 +62,13 @@
 
 	const TARIFF_NOTES = {
 		ScenAfter: 'Includes all tariffs in effect as of September 29, 2026, which include the Section 338 tariffs on dairy, alcohol, motor vehicles, and additionally non-CUSMA-compliant goods.',
-		ScenBefore: 'Reflects tariffs in effect before September 29, 2026. Section 338 tariffs on dairy, alcohol, and motor vehicles are not included.',
-		S338_Tot: 'The full scope of Section 338: every dairy, alcohol, and motor vehicle covered by a tariff or exclusion act.',
+		ScenBefore: 'Reflects tariffs in effect prior to the introduction of any Section 338 tariffs.',
+		S338_Tot: 'Reflects all goods that are tariffed or excluded under Section 338.',
 		S338_Tar: 'Goods tariffed under Section 338.',
 		S338_Exc: 'Goods that are banned from import to the U.S. from Canada under Section 338.',
-		Dairy: 'Dairy goods covered by Section 338, including both tariffed and excluded codes.',
-		Alcohol: 'Alcohol goods covered by Section 338, including both tariffed and excluded codes.',
-		Motor: 'Motor vehicle goods covered by Section 338, including both tariffed and excluded codes.',
+		Dairy: 'Dairy goods covered by Section 338, including both tariffed and excluded goods.',
+		Alcohol: 'Alcohol goods covered by Section 338, including both tariffed and excluded goods.',
+		Motor: 'Motor vehicle goods covered by Section 338, including both tariffed and excluded goods.',
 	};
 
 	const tariffNote = $derived(TARIFF_NOTES[TARIFF_NAME_CODES[tariffType]]);
@@ -906,7 +906,7 @@
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
 			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
-			<i>First published October 2025. Updated September 2026.</i>
+			<i>First published October 2025. Updated September 28, 2026.</i>
 		</p>
 
 		<div id = "select-wrapper">

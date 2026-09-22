@@ -170,7 +170,7 @@
 		</p>
 
 		<p>
-			Results are based on tariffs as of September 1, 2026.
+			Results are based on tariffs as of September 28, 2026.
 		</p>
 
 		<br>
@@ -187,7 +187,7 @@
 		</h2>
 
 		<p>
-			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of U.S. tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that U.S. tariffs have the potential to impact more than 8,000 businesses, almost 250,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current U.S. tariffs (as of September 1, 2026) for businesses and workers is between 5 and 12% of businesses and workers in Canada’s largest city-regions.
+			Our results highlight how the industrial structure of specific cities influences the scale of the potential impact of U.S. tariffs on the urban economy. We see that larger cities like Toronto, Montreal, and Vancouver have the highest absolute number of jobs and businesses potentially affected. For example, in the Toronto CMA, we estimate that U.S. tariffs have the potential to impact more than 8,000 businesses, almost 250,000 jobs (employment by place of work) in the city, and over 200,000 residents (employment by place of residence). However, the relative impact is much lower in these cities due to their diverse economies. Sectors like finance, tech, and cultural industries help buffer against tariff shocks. In these sectors, jobs (and related businesses) are not directly affected by tariffs.  Nonetheless, we estimate the cumulative exposure of current U.S. tariffs (as of September 28, 2026) for businesses and workers is between 5 and 12% of businesses and workers in Canada’s largest city-regions.
 		</p>
 
 		<p>
