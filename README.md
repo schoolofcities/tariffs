@@ -10,14 +10,22 @@ Downloadable CSV and Excel outputs are available here:
 
 From the map:
 - [Census subdivision counts and percentages](/analysis/outputs/csv/csd_counts_and_percents.xlsx)
+This file recounts the census subdivision counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The CSDDGUID represents the census subdivision IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
+
 - [Aggregate dissemination area counts and percentages](/analysis/outputs/csv/ada_counts_and_percents.xlsx)
+This file recounts the aggregate dissemination area counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The ADADGUID represents the aggregate dissemination area IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
 
 From the Census Metropolitan Area rankings chart:
-- [Census metropolitan area counts and percentages](/data/cma/cma_tariffs_counts_and_percents.xlsx)
+- [Census metropolitan area counts and percentages](/analysis/outputs/cma/cma_tariffs_counts_and_percents.xlsx)
+CMADGUID represents census metropolitan area IDs, with geometries found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). *CHAR_POP21* is the 2021 population count of the CMA. Counts and percents are on different sheets, with the same structure of metrics as the CSD and ADA counts/percents.
 
 Harmonized System codes:
 - [Full list of HS codes](/analysis/raw/tariffs/tariff_hs_codes_9_29_2026.csv)
+This is a list of the harmonized system codes used to convert to the NAICS codes
+
 - [Section 338 specific HS codes (tariffed and excluded)](/analysis/raw/tariffs/section_338.xlsx)
+This is a list of HS codes specific to the Section 338 tariffs. Tariffed codes for each section (dairy, motor vehicles, alcohol) are in separate sheets with the dates associated with them (Aug 22, Sep 29). Excluded items, which are items that the U.S. banned importing from Canada, have "excl" next to them as well. For the sake of analysis, we have grouped the August 22 and September 29 HS codes together to form each section.
+
 <!-- - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
 - [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values -->
 
