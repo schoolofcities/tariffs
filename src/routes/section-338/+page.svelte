@@ -132,8 +132,9 @@
 		/>
 
 		<p>
-			We compare the previous map by adding the tariffs that came into effect on August 22, 2026. 
-			The map below shows the overall vulnerability to employment across Canada <i>after</i> the introduction of the new Section 338 tariffs on August 22, 2026. 		
+			We compare the previous map by adding the tariffs that came into effect on August 22, 2026 and September 29, 2026. 
+			The map below shows the overall vulnerability to employment across Canada 
+			<i>after</i> the introduction of all Section 338 tariffs (including excluded products) in effect as of September 29, 2026. 
 		</p>
 
 		<ImageSingle
@@ -145,7 +146,9 @@
 		/>
 
 		<p>
-			As we observed when we first released the <a href="https://mappingtariffs.org/">Mapping Tariffs</a> project, almost every city, community, and neighbourhood is vulnerable to tariffs. And, given that the new tariffs (and bans) cover a range of economic activities, there is a deepening of vulnerabilities, especially in places specializing in manufacturing. For example, the map shows that while there are widespread vulnerabilities to workers, there are greater vulnerabilities in the Greater Golden Horseshoe due to the higher concentration of manufacturing industries in Canada’s industrial heartland.		
+			As we observed when we first released the <a href="https://mappingtariffs.org/">Mapping Tariffs</a> project, almost every city, community, and neighbourhood is vulnerable to tariffs. And, given that the new tariffs (and bans) cover a range of economic activities, there is a deepening of vulnerabilities, especially in places specializing in manufacturing. For example, the map shows that while there are widespread vulnerabilities to workers, 
+			there are greater vulnerabilities in the Greater Golden Horseshoe due to the higher concentration of manufacturing industries in Canada’s industrial heartland.
+			For these businesses and communities, it is even more vital for economic development practitioners and policymakers to assist businesses in adapting swiftly to this new reality through seeking new markets (in Canada and globally) and – potentially – pivoting production to meet demands in new and emerging sectors.
 		</p>
 
 
