@@ -78,7 +78,7 @@
 			<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
 			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			"
-			date="September 9, 2026"
+			date="Updated: October 13, 2026"
 		/>
 	
 	</div>
@@ -86,16 +86,17 @@
 	<div class="text">	
 
 		<p>
-			After negotiators representing Canadian and U.S. governments were unable to reach a trade deal, the Trump administration moved to impose a raft of new tariffs on Canadian goods effective as of August 22, 2026. These new tariffs, exercised under Section 338 of the 1930 US Tariff Act, include a 50% tariff on a variety of goods, ranging from honey to hockey sticks, including goods previously exempt due to their compliance with CUSMA. In response to these mounting tariffs, the Government of Canada has introduced counter-tariffs that went into effect on September 8, 2026. 
+			After negotiators representing Canadian and U.S. governments were unable to reach a trade deal in August 2026, the Trump administration moved to impose a raft of new tariffs on Canadian goods effective as of August 22, 2026. These new tariffs, exercised under Section 338 of the 1930 US Tariff Act, include a 50% tariff on a variety of goods, ranging from honey to hockey sticks, including goods previously exempt due to their compliance with CUSMA. In response to these mounting tariffs, the Government of Canada has introduced counter-tariffs that went into effect on September 8, 2026. 
+			The following day, the Trump administration made <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">five additional proclamations</a> related to tariffs that went into effect on September 29, 2026.
 		</p>
 
 
 		<p>	
-			Even though Canada-U.S. trade relations continue to worsen after the collapse of recent trade talks, the Canadian economy remains deeply integrated with the U.S. economy. Statistics Canada reports that, in 2025, U.S.-Canada trade includes $562.7 billion in exports and $361.8 billion in imports. And while the United States is still Canada’s largest trading partner, there is evidence that this may be slowly shifting. Between 2024 and 2025, the proportion of exports from Canada to the United States decreased from 76.3% to 72.3%. Similarly, the proportion of imports accounted for by the United States declined from 49.2% in 2024 to 45.9% in 2025. These shifts in the relative importance of the U.S. market are likely indicators of the efforts of Canadian businesses and governments to mitigate the potential fallout from tariffs. These efforts have included extensive “buy local” and “buy Canadian” campaigns, shifts in procurement and spending patterns, the diversification of supply chains, and attempts to reach wider, global markets.		
+			Even though Canada-U.S. trade relations continue to worsen after the collapse of recent trade talks, the Canadian economy remains deeply integrated with the U.S. economy. Statistics Canada <a href="https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2019005-eng.htm">reports</a> that, in 2025, U.S.-Canada trade includes $562.7 billion in exports and $361.8 billion in imports. And while the United States is still Canada’s largest trading partner, there is evidence that this may be slowly shifting. Between 2024 and 2025, the proportion of exports from Canada to the United States decreased from 76.3% to 72.3%. Similarly, the proportion of imports accounted for by the United States declined from 49.2% in 2024 to 45.9% in 2025. These shifts in the relative importance of the U.S. market are likely indicators of the efforts of Canadian businesses and governments to mitigate the potential fallout from tariffs. These efforts have included extensive “buy local” and “buy Canadian” campaigns, shifts in procurement and spending patterns, the diversification of supply chains, and attempts to reach wider, global markets.		
 		</p>
 
 		<p>	
-			Since we released <a href="https://mappingtariffs.org/">Mapping Tariffs</a> in October 2025, we have been tracking the potential vulnerability of Canadian cities and neighbourhoods to U.S. tariffs. The newest round of tariffs imposed by the Trump administration represents a significant escalation in the ongoing trade dispute between Canada and the United States. Therefore, we ask: Which places will be most vulnerable to new Section 338 tariffs? And, how has the tariff vulnerability landscape for Canadian cities changed, given the more expansive list of goods that are subject to tariffs?		
+			Since we released <a href="https://mappingtariffs.org/">Mapping Tariffs</a> in October 2025, we have been tracking the potential vulnerability of Canadian cities and neighbourhoods to U.S. tariffs. The newest round of tariffs imposed by the Trump administration represents a significant escalation in the ongoing trade dispute between Canada and the United States. Therefore, we ask: Which places will be most vulnerable to Section 338 tariffs? And, how has the tariff vulnerability landscape for Canadian cities changed, given the more expansive list of goods that are subject to tariffs and/or are excluded from import to the United States?		
 		</p>
 
 		<p>	
@@ -104,10 +105,13 @@
 
 		<ul>
 			<li>
-				Additional layers reflecting the new Section 338 tariffs, based on three separate orders made by the Trump administration on <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-dairy/">dairy</a>, <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-alcoholic-beverages/">alcohol</a>, and <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">motor vehicles</a> (although we note, as do <a href="https://www.cfib-fcei.ca/en/site/us-tariffs">others</a>, that the motor vehicles tariffs target an extensive range of goods that are completely unrelated to motor vehicles); and
+				Additional layers reflecting the Section 338 tariffs (as of September 29, 2026), based on the three original orders made by the Trump administration on <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-dairy/">dairy</a>, <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-alcoholic-beverages/">alcohol</a>, and <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">motor vehicles</a> (although we note, as do <a href="https://www.cfib-fcei.ca/en/site/us-tariffs">others</a>, that the motor vehicles tariffs target an extensive range of goods that are completely unrelated to motor vehicles) and incorporating the five subsequent orders, which revised the list of goods included in the dairy, alcohol and motor vehicles orders and excluded certain dairy and alcohol products;
 			</li>
 			<li>
-				Updates to the overall potential impacts of tariffs before and after the imposition of the Section 338 tariffs effective August 22, 2026.
+				New layers that differentiate between goods that are tariffed or excluded from import to the US under Section 338; and 
+			</li>
+			<li>
+				Updates to the overall potential impacts of tariffs before and after the imposition of the Section 338 tariffs effective September 29, 2026.
 			</li>
 		</ul>
 
@@ -116,12 +120,12 @@
 		<p>
 			Overall, we observe deepening and widening vulnerabilities to U.S. tariffs measured by businesses and employment (based on place of work and place of residence). 
 			To illustrate how the newest round of tariffs may impact Canadian cities and regions, we begin with a map showing the overall vulnerability to tariffs across Canada
-			 <i>before</i> the introduction of the new Section 338 tariffs on August 22, 2026 as measured by employment. 
+			 <i>before</i> the introduction of any Section 338 tariffs as measured by employment. 
 		</p>
 
 		<ImageSingle
 			imageURL="./images/before_employment_work.png"
-			caption='Potential direct tariff exposure to employment (place of work) in Canada due to tariffs before August 22, 2026'
+			caption='Potential direct tariff exposure to employment (place of work) in Canada prior to the introduction of Section 338 tariffs'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -133,19 +137,41 @@
 		</p>
 
 		<ImageSingle
-			imageURL="./images/after_employment_work.png"
-			caption='Potential direct tariff exposure to employment (place of work) in Canada due to tariffs after August 22, 2026'
+			imageURL="./images/employment_work_sep_29.png"
+			caption='Potential direct tariff exposure to employment (place of work) in Canada due to tariffs after September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
 		/>
 
 		<p>
-			As we observed when we first released the <a href="https://mappingtariffs.org/">Mapping Tariffs</a> project, almost every city, community, and neighbourhood is vulnerable to tariffs. And, given that the new tariffs cover a range of economic activities, there is a deepening of vulnerabilities, especially in places specializing in manufacturing. For example, the map shows that while there are widespread vulnerabilities to workers, there are greater vulnerabilities in the Greater Golden Horseshoe due to the higher concentration of manufacturing industries in Canada’s industrial heartland.		
+			As we observed when we first released the <a href="https://mappingtariffs.org/">Mapping Tariffs</a> project, almost every city, community, and neighbourhood is vulnerable to tariffs. And, given that the new tariffs (and bans) cover a range of economic activities, there is a deepening of vulnerabilities, especially in places specializing in manufacturing. For example, the map shows that while there are widespread vulnerabilities to workers, there are greater vulnerabilities in the Greater Golden Horseshoe due to the higher concentration of manufacturing industries in Canada’s industrial heartland.		
 		</p>
 
+
+		<h2>
+			Product bans under Section 338
+		</h2>
+
 		<p>
-			Overall, our updated results continue to underscore the localized impacts of this new round of tariffs. We now turn to examining some of the specific potential impacts related to each of the three separate proclamations made by the Trump administration.
+			The most recent developments in the ongoing trade dispute between the US and Canada means that there are now specific goods related to alcohol and dairy (alongside motorcycles) that are completely banned from import to the US. 
+			Given that these businesses have lost access to the US market, we pay particular attention to the communities and neighbourhoods that are most directly vulnerable to this change. 
+			The map below shows the overall vulnerability to businesses due to import bans imposed by the Trump administration. 
+			Our results emphasize that cities and communities large and small are vulnerable to this newest trade tactic. 
+			Particularly notable are vulnerabilities across southern British Columbia (where wineries are a mainstay of employment), rural Quebec (where the dairy industry plays an important role) and parts of Ontario and Quebec, the industrial heartland of Canada. 
+		</p>
+
+		<ImageSingle
+			imageURL="./images/excluded.png"
+			caption='Potential direct exposure to businesses across Canada due to import bans as of September 29, 2026'
+			source='<br><a href="./map">Click here to view interactive map</a>'
+			maxWidth='680px'
+			link='No'
+		/>
+
+		<p>
+			Overall, our updated results (as of September 29, 2026) continue to underscore the localized impacts of these new rounds of tariffs and bans. 
+			We now turn to examining some of the specific potential impacts related to tariffs (including bans) made by the Trump administration for alcohol, dairy, and motor vehicles respectively.
 		</p>
 
 		<h2>
@@ -153,12 +179,12 @@
 		</h2>
 
 		<p>
-			Tariffs may have a significant impact on wine-producing regions across Canada. For example, the map below shows the potential impact of tariffs on the Okanagan wine region, surrounding the City of Kelowna. Wine-making represents an important economic and tourism sector for the Okanagan region, and wineries export to the U.S. and other markets. 
+			Tariffs may have a significant impact on wine-producing regions across Canada. For example, the map below shows the potential impact of Section 338-related tariffs on the Okanagan wine region, surrounding the City of Kelowna. Wine-making represents an important economic and tourism sector for the Okanagan region, and wineries export to the U.S. and other markets. 
 		</p>
 
 		<ImageSingle
 			imageURL="./images/alcohol.png"
-			caption='Potential direct tariff exposure to businesses in the Okanagan Valley due to alcohol-related tariffs'
+			caption='Potential direct exposure to businesses in the Okanagan Valley due to alcohol-related tariffs and excluded goods as of September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -170,7 +196,15 @@
 
 		<ImageSingle
 			imageURL="./images/alcohol_2.png"
-			caption='Potential direct tariff exposure to businesses in southern Ontario due to alcohol-related tariffs'
+			caption='Potential direct exposure to businesses in the Prince Edward County region due to alcohol-related tariffs and excluded goods as of September 29, 2026'
+			source='<br><a href="./map">Click here to view interactive map</a>'
+			maxWidth='680px'
+			link='No'
+		/>
+
+		<ImageSingle
+			imageURL="./images/alcohol_3.png"
+			caption='Potential direct exposure to employment (Place of Work) in the Niagara region due to alcohol-related tariffs and excluded goods as of September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -186,7 +220,7 @@
 
 		<ImageSingle
 			imageURL="./images/dairy.png"
-			caption='Potential direct exposure to businesses in Sherbrooke and the Eastern Townships due to dairy tariffs'
+			caption='Potential direct exposure to businesses in Sherbrooke and the Eastern Townships due to dairy tariffs and excluded goods as of September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -198,7 +232,7 @@
 
 		<ImageSingle
 			imageURL="./images/dairy_2.png"
-			caption='Potential direct exposure to businesses in Toronto due to dairy tariffs'
+			caption='Potential direct exposure to businesses in Toronto due to dairy tariffs and excluded goods as of September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -217,7 +251,7 @@
 
 		<ImageSingle
 			imageURL="./images/motor_vehicle.png"
-			caption='Potential direct tariff exposure to businesses in southern Ontario due to motor vehicle tariffs'
+			caption='Potential direct tariff exposure to businesses in southern Ontario due to motor vehicle tariffs and excluded goods as of September 29, 2026'
 			source='<br><a href="./map">Click here to view interactive map</a>'
 			maxWidth='680px'
 			link='No'
@@ -238,7 +272,10 @@
 		<br><br>
 
 		<p>
-			<b><i>Note:</i></b> At time of publication, the Trump administration had just made <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">five additional proclamations</a> related to tariffs. Three of these proclamations exclude certain dairy and alcohol related goods, as well as motorcycles, from being imported into the United States from Canada. The other two proclamations modify (through additions or subtractions) the lists of goods subject to tariffs under the motor vehicle and alcohol proclamations. All excluded goods are accounted for in our new Section 338 map layers, but we cannot currently distinguish between goods that are subject to tariffs and those that are completely excluded from export to the US. We have not yet updated the Section 338 tariffs to include the additions and subtractions. And we have not yet conducted analysis to account for <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Canada’s counter-tariffs</a>.
+			<b><i>Note:</i></b> This article and our mapping and city-ranking visualization tools have been updated to account for the Trump administration's <a href="https://www.whitehouse.gov/presidential-actions/2026/07/imposing-additional-duties-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/">additional proclamations</a> related to tariffs in response to Canadian counter-tariffs. 
+			Three of these proclamations exclude certain dairy and alcohol related goods, as well as motorcycles, from being imported into the United States from Canada. 
+			The other two proclamations modify (through additions or subtractions) the lists of goods subject to tariffs under the motor vehicle and alcohol proclamations. 
+			We have not yet conducted analysis to account for <a href="https://www.canada.ca/en/department-finance/news/2026/08/list-of-products-from-the-united-states-subject-to-counter-tariffs-effective-september-8-2026.html">Canada’s counter-tariffs</a>.
 		</p>
 			
 	</div>
