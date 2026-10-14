@@ -78,7 +78,7 @@
 			<a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>,
 			<a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, 
 			"
-			date="Updated: October 13, 2026"
+			date="First published: September 17, 2026. Updated: October 13, 2026"
 		/>
 	
 	</div>
@@ -148,13 +148,16 @@
 		<p>
 			As we observed when we first released the <a href="https://mappingtariffs.org/">Mapping Tariffs</a> project, almost every city, community, and neighbourhood is vulnerable to tariffs. And, given that the new tariffs (and bans) cover a range of economic activities, there is a deepening of vulnerabilities, especially in places specializing in manufacturing. For example, the map shows that while there are widespread vulnerabilities to workers, 
 			there are greater vulnerabilities in the Greater Golden Horseshoe due to the higher concentration of manufacturing industries in Canada’s industrial heartland.
-			For these businesses and communities, it is even more vital for economic development practitioners and policymakers to assist businesses in adapting swiftly to this new reality through seeking new markets (in Canada and globally) and – potentially – pivoting production to meet demands in new and emerging sectors.
 		</p>
 
 
 		<h2>
 			Product bans under Section 338
 		</h2>
+
+		<p>
+			For these businesses and communities, it is even more vital for economic development practitioners and policymakers to assist businesses in adapting swiftly to this new reality through seeking new markets (in Canada and globally) and – potentially – pivoting production to meet demands in new and emerging sectors.
+		</p>
 
 		<p>
 			The most recent developments in the ongoing trade dispute between the US and Canada means that there are now specific goods related to alcohol and dairy (alongside motorcycles) that are completely banned from import to the US. 
