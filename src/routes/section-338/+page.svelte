@@ -156,15 +156,10 @@
 		</h2>
 
 		<p>
-			For these businesses and communities, it is even more vital for economic development practitioners and policymakers to assist businesses in adapting swiftly to this new reality through seeking new markets (in Canada and globally) and – potentially – pivoting production to meet demands in new and emerging sectors.
-		</p>
-
-		<p>
 			The most recent developments in the ongoing trade dispute between the US and Canada means that there are now specific goods related to alcohol and dairy (alongside motorcycles) that are completely banned from import to the US. 
 			Given that these businesses have lost access to the US market, we pay particular attention to the communities and neighbourhoods that are most directly vulnerable to this change. 
 			The map below shows the overall vulnerability to businesses due to import bans imposed by the Trump administration. 
-			Our results emphasize that cities and communities large and small are vulnerable to this newest trade tactic. 
-			Particularly notable are vulnerabilities across southern British Columbia (where wineries are a mainstay of employment), rural Quebec (where the dairy industry plays an important role) and parts of Ontario and Quebec, the industrial heartland of Canada. 
+			
 		</p>
 
 		<ImageSingle
@@ -174,6 +169,14 @@
 			maxWidth='680px'
 			link='No'
 		/>
+
+		<p>
+			Our results emphasize that cities and communities large and small are vulnerable to this newest trade tactic. 
+			Particularly notable are vulnerabilities across southern British Columbia (where wineries are a mainstay of employment), rural Quebec (where the dairy industry plays an important role) and parts of Ontario and Quebec, the industrial heartland of Canada. 
+			For these businesses and communities, it is even more vital for economic development practitioners and policymakers to assist businesses 
+			in adapting swiftly to this new reality through seeking new markets (in Canada and globally) and – potentially – pivoting production 
+			to meet demands in new and emerging sectors.
+		</p>
 
 		<p>
 			Overall, our updated results (as of September 29, 2026) continue to underscore the localized impacts of these new rounds of tariffs and bans. 
