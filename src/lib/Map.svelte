@@ -50,7 +50,7 @@
 	}
 
 	let tariffType = $state(
-		"All goods subject to tariffs (after Sep 29, 2026)"
+		"All goods subject to tariffs (after Oct 30, 2026)"
 	);
 
 	function tariffTypeSelect(event) {
@@ -61,7 +61,7 @@
     }
 
 	const TARIFF_NOTES = {
-		ScenAfter: 'Includes all tariffs in effect as of September 29, 2026, which include the Section 338 tariffs on dairy, alcohol, motor vehicles, and additionally non-CUSMA-compliant goods.',
+		ScenAfter: 'Includes all tariffs in effect as of October 30, 2026, which include the Section 338 tariffs on dairy, alcohol, motor vehicles, and additionally non-CUSMA-compliant goods.',
 		ScenBefore: 'Reflects tariffs in effect prior to the introduction of any Section 338 tariffs.',
 		S338_Tot: 'Reflects all goods that are tariffed or excluded under Section 338.',
 		S338_Tar: 'Goods tariffed under Section 338.',
@@ -906,7 +906,7 @@
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
 			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
-			<i>First published October 2025. Updated September 28, 2026.</i>
+			<i>First published October 2025. Updated November 2, 2026.</i>
 		</p>
 
 		<div id = "select-wrapper">
@@ -1077,7 +1077,7 @@
 			{:else if dataLayers[mapSelected]?.metricType === "Count" && dataLayers[mapSelected]?.colours}
 				<div id="destext">
 					<p>
-						{dataLayers[mapSelected]?.text} (as of September 2026)
+						{dataLayers[mapSelected]?.text} (as of November 2026)
 					</p></div>
 
 				<!--5, 7.5, 10, 20, 40--> 
@@ -1164,7 +1164,7 @@
 			
 			<h4 style="margin-bottom: 0px;">Data sources</h4>
 			<p>
-				All layers on this map are based on tariffs as of September 2026.
+				All layers on this map are based on tariffs as of November 2026.
 			</p>
 			<p>
 				Layers on this map were created by combining data from the following sources:

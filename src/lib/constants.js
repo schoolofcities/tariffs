@@ -1,9 +1,9 @@
 export const GRADUATED_COLORS = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 
-export const TARIFF_LIST = ["All goods subject to tariffs (after Sep 29, 2026)", "All goods subject to tariffs (prior to Sep 29, 2026)", "Section 338 – Total", "Section 338 – Tariffed", "Section 338 – Excluded", "Section 338 – Dairy", "Section 338 – Alcohol", "Section 338 – Motor vehicles", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"];
-// ScenAfter  = 'after September 29'  ∪ nonCUSMA
-// ScenBefore = 'before September 29' ∪ nonCUSMA
-// The bare 'after September 29' / 'before September 29' columns are still emitted by
+export const TARIFF_LIST = ["All goods subject to tariffs (after Oct 30, 2026)", "All goods subject to tariffs (prior to Oct 30, 2026)", "Section 338 – Total", "Section 338 – Tariffed", "Section 338 – Excluded", "Section 338 – Dairy", "Section 338 – Alcohol", "Section 338 – Motor vehicles", "Automobiles", "Aluminum", "Steel", "Copper", "Lumber (before Oct 14)", "Lumber (after Oct 14)", "Trucks (Medium & Heavy Duty Vehicles)", "Energy and natural resources", "Non-CUSMA-Compliant"];
+// ScenAfter  = 'after October 30'  ∪ nonCUSMA
+// ScenBefore = 'before October 30' ∪ nonCUSMA
+// The bare 'after October 30' / 'before October 30' columns are still emitted by
 // the notebooks but are NOT scenario totals — they exclude non-CUSMA exposure
 // entirely. Do not point the dropdown at them.
 //
@@ -17,8 +17,8 @@ export const TARIFF_LIST = ["All goods subject to tariffs (after Sep 29, 2026)",
 // "exposure" to goods that are exempt from the tariff reads as misleading. Add the
 // "Section 338 – Excluded" label to TARIFF_LIST if you do want it selectable.
 export const TARIFF_NAME_CODES = {
-    "All goods subject to tariffs (after Sep 29, 2026)": 'ScenAfter',
-    "All goods subject to tariffs (prior to Sep 29, 2026)": 'ScenBefore',
+    "All goods subject to tariffs (after Oct 30, 2026)": 'ScenAfter',
+    "All goods subject to tariffs (prior to Oct 30, 2026)": 'ScenBefore',
     "Section 338 – Total": 'S338_Tot',
     "Section 338 – Tariffed": 'S338_Tar',
     "Section 338 – Excluded": 'S338_Exc',
@@ -57,8 +57,8 @@ export const TARIFF_IMPACT_TEXT = {
     'LumOld_1': "Estimated % and number of businesses directly exposed to US Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
     'LumNew_1': "Estimated % and number of businesses directly exposed to US Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
     'MHDV_1': "Estimated % and number of businesses directly exposed to US Administration's MHDV Tariffs on Canada",
-    'ScenBefore_1': "Estimated % and number of businesses directly exposed to all tariffs in effect prior to September 29, 2026",
-    'ScenAfter_1': "Estimated % and number of businesses directly exposed to all tariffs in effect after September 29, 2026",
+    'ScenBefore_1': "Estimated % and number of businesses directly exposed to all tariffs in effect prior to October 30, 2026",
+    'ScenAfter_1': "Estimated % and number of businesses directly exposed to all tariffs in effect after October 30, 2026",
     'S338_Tot_1': "Estimated % and number of businesses directly exposed to Section 338 tariffs (tariffed and excluded goods combined)",
     'S338_Tar_1': "Estimated % and number of businesses directly exposed to goods subject to Section 338 tariffs",
     'S338_Exc_1': "Estimated % and number of businesses producing goods excluded from Section 338 tariffs",
@@ -76,8 +76,8 @@ export const TARIFF_IMPACT_TEXT = {
     'LumOld_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
     'LumNew_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
     'MHDV_2': "Estimated % and number of employees (by work location) directly exposed to US Administration's MHDV Tariffs on Canada",
-    'ScenBefore_2': "Estimated % and number of employees (by work location) directly exposed to all tariffs in effect prior to September 29, 2026",
-    'ScenAfter_2': "Estimated % and number of employees (by work location) directly exposed to all tariffs in effect after September 29, 2026",
+    'ScenBefore_2': "Estimated % and number of employees (by work location) directly exposed to all tariffs in effect prior to October 30, 2026",
+    'ScenAfter_2': "Estimated % and number of employees (by work location) directly exposed to all tariffs in effect after October 30, 2026",
     'S338_Tot_2': "Estimated % and number of employees (by work location) directly exposed to Section 338 tariffs (tariffed and excluded goods combined)",
     'S338_Tar_2': "Estimated % and number of employees (by work location) directly exposed to goods subject to Section 338 tariffs",
     'S338_Exc_2': "Estimated % and number of employees (by work location) producing goods excluded from Section 338 tariffs",
@@ -95,8 +95,8 @@ export const TARIFF_IMPACT_TEXT = {
     'LumOld_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada (before Oct 14, 2025)",
     'LumNew_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's Lumber Tariffs on Canada (after Oct 14, 2025)",
     'MHDV_3': "Estimated % and number of employees (by primary residence) directly exposed to US Administration's MHDV Tariffs on Canada",
-    'ScenBefore_3': "Estimated % and number of employees (by primary residence) directly exposed to all tariffs in effect prior to September 29, 2026",
-    'ScenAfter_3': "Estimated % and number of employees (by primary residence) directly exposed to all tariffs in effect after September 29, 2026",
+    'ScenBefore_3': "Estimated % and number of employees (by primary residence) directly exposed to all tariffs in effect prior to October 30, 2026",
+    'ScenAfter_3': "Estimated % and number of employees (by primary residence) directly exposed to all tariffs in effect after October 30, 2026",
     'S338_Tot_3': "Estimated % and number of employees (by primary residence) directly exposed to Section 338 tariffs (tariffed and excluded goods combined)",
     'S338_Tar_3': "Estimated % and number of employees (by primary residence) directly exposed to goods subject to Section 338 tariffs",
     'S338_Exc_3': "Estimated % and number of employees (by primary residence) producing goods excluded from Section 338 tariffs",

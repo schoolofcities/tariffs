@@ -9,9 +9,9 @@ export const GRADUATED_SIZES = [5, 9, 15, 24, 34];
 // `breaks`  are the choropleth/centroid class breaks. Percent suffixes (_1/_2/_3)
 //           are FRACTIONS (0.05 = 5%); count suffixes (_B/_E/_C) are raw counts.
 //
-// ScenAfter  = 'after September 29'  ∪ nonCUSMA
-// ScenBefore = 'before September 29' ∪ nonCUSMA
-// The bare 'after September 29' / 'before September 29' columns still exist in the
+// ScenAfter  = 'after October 30'  ∪ nonCUSMA
+// ScenBefore = 'before October 30' ∪ nonCUSMA
+// The bare 'after October 30' / 'before October 30' columns still exist in the
 // pmtiles but are NOT scenario totals — they exclude non-CUSMA exposure. They are
 // deliberately absent from this file so they can't be selected.
 //
@@ -39,7 +39,7 @@ const LAYER_SPECS = [
     },
     {
         code: 'ScenAfter',
-        subject: 'all tariffs in effect after September 29, 2026',
+        subject: 'all tariffs in effect after October 30, 2026',
         breaks: {
             _1: [0.05, 0.1, 0.2, 0.3],
             _2: [0.04, 0.1, 0.2, 0.4],
@@ -51,7 +51,7 @@ const LAYER_SPECS = [
     },
     {
         code: 'ScenBefore',
-        subject: 'all tariffs in effect prior to September 29, 2026',
+        subject: 'all tariffs in effect prior to October 30, 2026',
         breaks: {
             _1: [0.05, 0.1, 0.2, 0.3],
             _2: [0.05, 0.1, 0.2, 0.4],
