@@ -130,7 +130,7 @@
 
 		<AuthorDate
 			authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, & <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
-			date="First published October 2025. Updated September 2026."
+			date="First published October 2025. Updated November 2, 2026."
 		/>
 
 		<p>
