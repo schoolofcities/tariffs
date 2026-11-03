@@ -34,7 +34,7 @@
     let scaleType = $state("Linear"); // ["Linear", "Power-0.2"]
     let geoType = $state("CMA"); // ["CMA"] - ADA/CSD data not yet available for bar charts
     let impactType = $state("EmployeeHome"); // ["EmployeeHome","EmployeeWork", "Business"] 
-    let tariffType = $state("All goods subject to tariffs (after Sep 29, 2026)");
+    let tariffType = $state("All goods subject to tariffs (after Oct 30, 2026)");
 
     let tariffKeyPct = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_PCT[impactType]);
     let tariffKeyCount = $derived(TARIFF_NAME_CODES[tariffType] + TARIFF_IMPACT_CODES_COUNT[impactType]);
