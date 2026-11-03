@@ -105,12 +105,20 @@
 	// ============================================================
 	// SCENARIO CONFIG
 	// ============================================================
+	// const scenarios = [
+	// 	{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1%. <a href="https://www.scotiabank.com/ca/en/about/economics/economics-publications/post.other-publications.insights-views.cusma-scenario-note--march-5--2026-.html", target = "_blank">Scotiabank Economics</a> and the <a href="https://www.bankofcanada.ca/wp-content/uploads/2025/01/mpr-2025-01-29.pdf">Bank of Canada</a> have given their projections of consumption decline, ranging from 0.5% to 2% of GDP consumption in Canada due to the tariffs.' },
+	// 	{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline. Although not as directly affected, analysis from <a href="https://www.agri-pulse.com/articles/23170-analysis-chttps://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/hecking-in-on-us-canada-agricultural-trade">Agri-Pulse</a> and <a href="https://retail-insider.com/retail-insider/opinion/2025/08/canadas-agri-food-sector-hit-by-35-u-s-tariff-after-ottawa-stalls/">Retail Insider</a> show significant declines in this sector in terms of agri-food exports' },
+	// 	{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline. The <a href="https://fao-on.org/en/report/impacts-of-us-tariffs/">Financial Accountability Office (FAO) of Ontario</a> reported a potential 137,900 job decrease in Ontario by 2029 under the April 2025 tariff scenario.' },
+	// 	{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline. The softwood lumber tariffs have affected the industry drastically, leading to declining lumber production and exports as noted by a report from the <a href="https://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/">Royal Bank of Canada</a> and our <a href="https://mappingtariffs.org/lumber">softwood lumber blog</a>.' },
+	// 	{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline. The FAO noted a potential 20% decrease in U.S. motor vehicles exports and a 30% decrease for motor parts by 2029.' }
+	// ];
+
 	const scenarios = [
-		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption', description: 'Overall household consumption expenditures in Canada decline by 1%. <a href="https://www.scotiabank.com/ca/en/about/economics/economics-publications/post.other-publications.insights-views.cusma-scenario-note--march-5--2026-.html", target = "_blank">Scotiabank Economics</a> and the <a href="https://www.bankofcanada.ca/wp-content/uploads/2025/01/mpr-2025-01-29.pdf">Bank of Canada</a> have given their projections of consumption decline, ranging from 0.5% to 2% of GDP consumption in Canada due to the tariffs.' },
-		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood', description: 'Agriculture, agri-food, and seafood exports to the U.S. decline. Although not as directly affected, analysis from <a href="https://www.agri-pulse.com/articles/23170-analysis-chttps://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/hecking-in-on-us-canada-agricultural-trade">Agri-Pulse</a> and <a href="https://retail-insider.com/retail-insider/opinion/2025/08/canadas-agri-food-sector-hit-by-35-u-s-tariff-after-ottawa-stalls/">Retail Insider</a> show significant declines in this sector in terms of agri-food exports' },
-		{ id: 4, code: 'DFD4_ST_AL', label: 'Steel & Aluminum', description: 'Steel and aluminum manufacturing exports to the U.S. decline. The <a href="https://fao-on.org/en/report/impacts-of-us-tariffs/">Financial Accountability Office (FAO) of Ontario</a> reported a potential 137,900 job decrease in Ontario by 2029 under the April 2025 tariff scenario.' },
-		{ id: 5, code: 'DFD5_FOR', label: 'Softwood Lumber', description: 'Softwood lumber exports to the U.S. decline. The softwood lumber tariffs have affected the industry drastically, leading to declining lumber production and exports as noted by a report from the <a href="https://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/">Royal Bank of Canada</a> and our <a href="https://mappingtariffs.org/lumber">softwood lumber blog</a>.' },
-		{ id: 6, code: 'DFD6_VEH_PTS', label: 'Autos & Parts', description: 'Automobile and auto-parts exports to the U.S. decline. The FAO noted a potential 20% decrease in U.S. motor vehicles exports and a 30% decrease for motor parts by 2029.' }
+		{ id: 1, code: 'DFD1_HHLD_CON', label: 'Household Consumption' },
+		{ id: 3, code: 'DFD3_AG_AF_SF', label: 'Agri-food & Seafood' },
+		{ id: 4, code: 'DFD4_ST_AL',    label: 'Steel & Aluminum' },
+		{ id: 5, code: 'DFD5_FOR',      label: 'Softwood Lumber' },
+		{ id: 6, code: 'DFD6_VEH_PTS',  label: 'Autos & Parts' }
 	];
 
 	let selectedScenario = 1;
@@ -275,8 +283,8 @@
 			.join(' + ');
 		const scenarioLabel = scenarios.find(s => s.id === scenarioId)?.label ?? '';
 		const text = metric === 'Percent'
-			? `Estimated share of local workforce affected (${effectLabel}) under Scenario ${scenarioId} (${scenarioLabel})`
-			: `Estimated job loss from ${effectLabel} under Scenario ${scenarioId} (${scenarioLabel})`;
+			? `Estimated share of local workforce affected (${effectLabel}) in the ${scenarioLabel} scenario`
+			: `Estimated job loss from ${effectLabel} in the ${scenarioLabel} scenario`;
 
 		return {
 			fields,
@@ -906,15 +914,15 @@
 			<a href="./" target="_blank" class="research-link">Mapping Tariffs</a>
 		</div>
 
-		<h2>Mapping job-loss scenarios from U.S. tariffs in Canada</h2>
+		<h2>Mapping job impact scenarios due to U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
-			By <a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco">Richard DiFrancesco</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, Clara Turner, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>.<br>
-			<i>Last updated August 2026.</i>
+			By <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco">Richard DiFrancesco</a>, Clara Turner, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
+			<i>Last updated November 2, 2026.</i>
 		</p>
 
 		<div id="select-wrapper">
 
-			<p class = "summary">The following 5 job loss scenarios have been built using a <strong>Multiregional Input-Output model</strong> over Canadian provinces and territories, showing job losses by geographic unit using the model's provincial job losses as a multiplier.</p>
+			<p class="summary">The following job impact scenarios have been developed using a <strong>Multiregional Input-Output (MRIO) model</strong> for each of Canada's provinces and territories. Model results are then applied to the local level to estimate impacts. The scenarios are described more fully <a href="./scenarios">here</a>.</p>
 			<div id="destext">
 				<p style="margin-bottom: -5px;">Select a scenario:</p>
 			</div>
@@ -929,9 +937,7 @@
 				listOffset={10}
 				on:change={scenarioSelect}
 			/>
-			<p class="scenario-description">
-				{@html scenarios.find((s) => s.id === selectedScenario)?.description}
-			</p>
+			
 		</div>
 
 		<div id="destext">
@@ -1009,11 +1015,18 @@
 		</div>
 
 		<div class="datadetail">
-			<p>
+			<!-- <p>
 				Counts of employment (place of work) are based on estimates from the Canadian Business
 				Register (December 2022) for Direct effects. Indirect and Induced effects are modeled
 				using a provincial multi-regional input-output model (Statistics Canada Table 36-10-0113-01),
 				allocated to this geography.
+			</p> -->
+
+			<p>
+				Direct effects are estimated based on counts of employment (place of work) using the
+				Canadian Business Register (December 2022). Indirect and Induced effects are modeled
+				using a provincial multi-regional input-output model and applied to employment at the
+				local level.
 			</p>
 
 			<h4 style="margin-bottom: 15px;">Data sources</h4>
