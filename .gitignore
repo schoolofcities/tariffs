@@ -53,3 +53,13 @@ static/pmtiles/old_ada/
 static/pmtiles/centroids_11.pmtiles
 static/pmtiles/centroids_25.pmtiles
 static/pmtiles/choropleth_11.pmtiles
+
+# Census source data (too large for GitHub)
+data/census/
+analysis/intermediate/2021_92-151_X.csv
+
+# Python / R scratch
+__pycache__/
+*.pyc
+.RData
+.Rhistory
