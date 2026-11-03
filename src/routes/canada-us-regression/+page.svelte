@@ -23,6 +23,7 @@
 	import { scaleLinear, line } from "d3";
 	import { regressionLoess } from "d3-regression";
 	import { mean, sum, max as d3Max, min as d3Min } from 'd3-array';
+	import { base } from '$app/paths';
 
 	const regionOptions = ['Midwest', 'Northeast', 'Southwest', 'Southeast', 'Pacific'];
 	let selectedRegions = [...regionOptions];
@@ -447,7 +448,7 @@
 		/>
 
 		<p>
-			Many U.S. cities have seen a significant reduction in Canadian travel from our analysis on <a href="/canada-us-visits">how much Canadian travel declined to U.S. cities</a>.
+			Many U.S. cities have seen a significant reduction in Canadian travel from our analysis on <a href="{base}/canada-us-visits">how much Canadian travel declined to U.S. cities</a>.
 			<!-- We used cell phone activity data to investigate the magnitude and geography of this shift. -->
 		</p>
 

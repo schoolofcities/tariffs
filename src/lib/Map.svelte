@@ -2,6 +2,7 @@
 	
 	import logoBlueColour from '../assets/sofc-uoft-logo-blue-colour.svg';
 	import "../assets/global-styles.css";
+	import { base } from '$app/paths';
 
 	import { onMount, onDestroy } from "svelte";
 
@@ -24,16 +25,11 @@
 	let addressQuery="";
 	let addressResults="";
 
-	// **Change these to have the .gz extension after .pmtiles for deployment**
-
-	// ADA pmtiles (ada_all contains both LumOld and LumNew data)
-	let choropleth_ada = "/pmtiles/direct_exposure/choropleth.pmtiles";
-	let centroids_ada = "/pmtiles/direct_exposure/centroids.pmtiles";
-
-	// CSD pmtiles (csd_all contains both LumOld and LumNew data)
-	let choropleth_csd = "/pmtiles/direct_exposure/choropleth_csd.pmtiles";
-	let centroids_csd = "/pmtiles/direct_exposure/centroids_csd.pmtiles";
-	let censusDivisions = "/pmtiles/census-divisions.pmtiles";
+	let choropleth_ada = `${base}/pmtiles/direct_exposure/choropleth.pmtiles`;
+	let centroids_ada  = `${base}/pmtiles/direct_exposure/centroids.pmtiles`;
+	let choropleth_csd = `${base}/pmtiles/direct_exposure/choropleth_csd.pmtiles`;
+	let centroids_csd  = `${base}/pmtiles/direct_exposure/centroids_csd.pmtiles`;
+	let censusDivisions = `${base}/pmtiles/census-divisions.pmtiles`;
 
 	// let graduated_col = ["#f1c500", "#fb921f", "#f3603e", "#d73256", "#ab1368"];
 	// let graduated_siz = [5, 9, 15, 24, 34];
@@ -63,6 +59,19 @@
             tariffType = nextTariffType;
         }
     }
+
+	const TARIFF_NOTES = {
+		ScenAfter: 'Includes all tariffs in effect as of September 29, 2026, which include the Section 338 tariffs on dairy, alcohol, motor vehicles, and additionally non-CUSMA-compliant goods.',
+		ScenBefore: 'Reflects tariffs in effect prior to the introduction of any Section 338 tariffs.',
+		S338_Tot: 'Reflects all goods that are tariffed or excluded under Section 338.',
+		S338_Tar: 'Goods tariffed under Section 338.',
+		S338_Exc: 'Goods that are banned from import to the U.S. from Canada under Section 338.',
+		Dairy: 'Dairy goods covered by Section 338, including both tariffed and excluded goods.',
+		Alcohol: 'Alcohol goods covered by Section 338, including both tariffed and excluded goods.',
+		Motor: 'Motor vehicle goods covered by Section 338, including both tariffed and excluded goods.',
+	};
+
+	const tariffNote = $derived(TARIFF_NOTES[TARIFF_NAME_CODES[tariffType]]);
 
 
 	const mapQuery = $derived({
@@ -327,17 +336,17 @@
 
 			map.addSource('ne_provincelines', {
 				type: 'geojson',
-				data: './geojson/province-state-lines.geojson'
+				data: `${base}/geojson/province-state-lines.geojson`
 			});
 
 			map.addSource('provincepoints', {
 				type: 'geojson',
-				data: './geojson/province-points.geojson'
+				data: `${base}/geojson/province-points.geojson`
 			});
 
 			map.addSource('city_names', {
 				type: 'geojson',
-				data: './geojson/populated-places-canada.geojson'
+				data: `${base}/geojson/populated-places-canada.geojson`
 			});
 
 			map.addLayer({
@@ -897,7 +906,7 @@
 		<h2>Mapping potential direct exposure of U.S. tariffs in Canada</h2>
 		<p style="font-size: 14px; margin-top: 25px; line-height: 20px;">
 			By <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>, <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank">Yihoi Jung</a>, <a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>.<br>
-			<i>First published October 2025. Updated September 2026.</i>
+			<i>First published October 2025. Updated September 28, 2026.</i>
 		</p>
 
 		<div id = "select-wrapper">
@@ -916,6 +925,12 @@
 				on:change = {tariffTypeSelect}
 			/>
 		</div>
+
+		{#if tariffNote}
+			<div class="datadetail tariff-note">
+				<p>{tariffNote}</p>
+			</div>
+		{/if}
 
 		<div id="destext">
 		<p style="margin-bottom: -5px;">
@@ -1447,6 +1462,20 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+	}
+
+	.tariff-note {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		padding: 2px 10px;
+		border-left: 3px solid var(--brandLightBlue);
+		background-color: #f7f9fb;
+	}
+
+	.tariff-note p {
+		font-size: 13px;
+		line-height: 18px;
+		padding: 0;
 	}
 
 	#searchbar {

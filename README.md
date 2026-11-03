@@ -6,17 +6,25 @@ This project covers an [updated list of tariffs](https://mappingtariffs.org/curr
 
 ## DATA
 
-Downloadable CSV outputs are available here:
+Downloadable CSV and Excel outputs are available here:
 
 From the map:
-- [Census subdivision counts](/analysis/outputs/csv/counts_csd.csv)
-- [Census subdivision percentages](/analysis/outputs/csv/percents_csd.csv)
-- [Aggregate dissemination area counts](/analysis/outputs/csv/counts_ada.csv)
-- [Aggregate dissemination area percentages](/analysis/outputs/csv/percents_ada.csv)
+- [Census subdivision counts and percentages](/analysis/outputs/csv/csd_counts_and_percents.xlsx)
+This file recounts the census subdivision counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The CSDDGUID represents the census subdivision IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
 
-From the cma rankings chart:
-- [Census metropolitan area counts](/data/cma/cma_tariffs_counts_centroids.csv)
-- [Census metropolitan area percentages](/data/cma/cma_tariffs_percents_centroids.csv)
+- [Aggregate dissemination area counts and percentages](/analysis/outputs/csv/ada_counts_and_percents.xlsx)
+This file recounts the aggregate dissemination area counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The ADADGUID represents the aggregate dissemination area IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
+
+From the Census Metropolitan Area rankings chart:
+- [Census metropolitan area counts and percentages](/analysis/outputs/cma/cma_tariffs_counts_and_percents.xlsx)
+CMADGUID represents census metropolitan area IDs, with geometries found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). *CHAR_POP21* is the 2021 population count of the CMA. Counts and percents are on different sheets, with the same structure of metrics as the CSD and ADA counts/percents.
+
+Harmonized System codes:
+- [Full list of HS codes](/analysis/raw/tariffs/tariff_hs_codes_9_29_2026.csv)
+This is a list of the harmonized system codes used to convert to the NAICS codes
+
+- [Section 338 specific HS codes (tariffed and excluded)](/analysis/raw/tariffs/section_338.xlsx)
+This is a list of HS codes specific to the Section 338 tariffs. Tariffed codes for each section (dairy, motor vehicles, alcohol) are in separate sheets with the dates associated with them (Aug 22, Sep 29). Excluded items, which are items that the U.S. banned importing from Canada, have "excl" next to them as well. For the sake of analysis, we have grouped the August 22 and September 29 HS codes together to form each section.
 
 <!-- - [choropleth_csd.geojson](analysis/outputs/csv/choropleth_csd.csv) - for the census subdivision area geometries and values
 - [choropleth.geojson](analysis/outputs/csv/choropleth.csv) - for the aggregated dissemination area geometries and values -->
@@ -32,7 +40,6 @@ Canada-US-Visits:
 - [csd_total_emp.csv](static/csv/csd_total_emp.csv) - for total employment values for census subdivisions (used as denominator) -->
 
 ## DATA SOURCES
-#### Raw data for the counts and percentages of the national map can be found [here](analysis/tariff-impacts-data-1-26.xlsx)
 1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
 2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
 3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)

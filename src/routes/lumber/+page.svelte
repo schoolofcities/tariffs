@@ -13,6 +13,7 @@
 	import HorizontalBarChart from '$lib/HorizontalBarChart.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Password from '$lib/Password.svelte';
+	import { base } from '$app/paths';
 
 	import ScrollyImages from "$lib/ScrollyImages.svelte";
 
