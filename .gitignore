@@ -1,0 +1,19 @@
+node_modules
+.svelte-kit
+build
+.vscode
+.DS_Store
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+.claude
+
+# Large intermediate geo files: only ship pmtiles / small web geojson
+*.mbtiles
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.gpkg
