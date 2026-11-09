@@ -77,31 +77,11 @@
 }
 
 
-/* brand colours */
+/* Brand colours (--brandDarkBlue, --brandGray70, …) are defined in $lib/styles/brand.js
+   and written onto :root by routes/+layout.svelte, so JS and CSS share one palette. */
 
 :root {
 	font-family: OpenSans, sans-serif;
-	--brandDarkBlue: #1E3765;
-	--brandMedBlue: #007FA3;
-	--brandLightBlue: #6FC7EA;
-	--brandPurple: #6D247A;
-	--brandPink: #AB1368;
-	--brandDarkGreen: #0D534D;
-	--brandMedGreen: #00A189;
-	--brandLightGreen: #8DBF2E;
-	--brandRed: #DC4633;
-	--brandYellow: #F1C500;
-	--brandOrange: #EBA00F;
-	--brandBlack: #000000;
-	--brandWhite: #ffffff;
-	--brandGray: #D0D1C9;
-	--brandGray10: #E6E6E6;
-	--brandGray15: #D9D9D9;
-	--brandGray50: #858585;
-	--brandGray60: #727272;
-	--brandGray70: #4d4d4d;
-	--brandGray80: #333333;
-	--brandGray90: #191919;
 
 	/* layout */
 	--header-height: 60px;
@@ -152,24 +132,10 @@
 
 /* single-column posts that line up with the left column of .two-col pages:
    <div class="two-col post"><article class="post-body">…</article></div>.
-   The empty right track keeps the left edge identical; inner blocks drop their
-   own centring so everything sits flush in that column. */
+   The empty right track keeps the left edge identical. */
 .two-col.post > .post-body {
 	grid-column: 1;
 	min-width: 0;
-}
-
-.two-col.post .text,
-.two-col.post .title-text-container {
-	max-width: none;
-	margin-left: 0;
-	margin-right: 0;
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.two-col.post .title-text-container h1 {
-	margin-top: 30px;
 }
 
 /* posts are one column, so keep them under the wordmark whenever they fit
@@ -190,26 +156,29 @@
 	padding-right: 0 !important;
 }
 
-/* section / article pages in .two-col: title, subtitle, side-column headings */
+/* page title + optional subtitle (PageTitle.svelte; the homepage writes its own),
+   then 30px before the page content */
+.page-heading {
+	margin: 0 0 30px;
+}
+
 .page-title {
-	margin: 0 0 10px;
+	margin: 0;
 	font-size: var(--title-size);
 	line-height: 1.1;
-	color: var(--brandDarkBlue);
 }
 
 .page-subtitle {
-	margin: 0 0 30px;
+	margin: 10px 0 0;
 	font-family: SourceSerifItalic, serif;
 	font-size: var(--subtitle-size);
 	line-height: 1.35;
 	color: var(--brandGray90);
 }
 
+/* side-column headings: same look as other h2s (see "standard text"), tighter spacing */
 .side-heading {
 	margin-top: 0;
-	padding-bottom: 6px;
-	border-bottom: 1px solid var(--brandLightBlue);
 }
 
 .side-heading + * {
@@ -218,12 +187,6 @@
 
 * + .side-heading {
 	margin-top: 36px;
-}
-
-.two-col > :first-child a:hover,
-.two-col > :last-child p a:hover,
-.two-col > :last-child li a:hover {
-	color: var(--brandMedGreen);
 }
 
 @media (max-width: 1200px) {
@@ -315,24 +278,6 @@ a.footnote-ref:hover {
 }
 
 
-/* section headings in article / overview pages: h2 underlined, h3 not
-   (not the References box heading) */
-.two-col h2:not(.footnotes h2) {
-	padding-bottom: 6px;
-	border-bottom: 1px solid var(--brandLightBlue);
-}
-
-.two-col h3 {
-	margin-top: 65px;
-	border-bottom: none;
-	text-decoration: none;
-}
-
-/* ...but tight when it directly follows another heading (e.g. a section's first sub-section) */
-.two-col :is(h1, h2, h3, h4) + h3 {
-	margin-top: 24px;
-}
-
 /* links default to black (components with their own link colours override this) */
 a {
 	color: var(--brandBlack);
@@ -354,21 +299,11 @@ main {
 	position: relative;
 }
 
-.text {
-	background-color: none;
-	max-width: 680px;
-	margin: 0 auto;
-	position: relative;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 0px;
-}
-
 h1 {
 	font-family: TradeGothicBold;
 	font-weight: normal;
 	font-size: 40px;
-	color: var(--brandDarkBlue);
+	color: var(--brandBlack);
 	text-decoration: none;
 	margin-bottom: 0px;
 	padding: 0px;
@@ -416,13 +351,6 @@ p {
 	text-rendering: optimizeLegibility;
 }
 
-@media screen and (max-width: 600px) {
-	.text p {
-		font-size: 17px;
-		line-height: 26px;
-	}
-}
-
 b {
 	font-family: SourceSerifBold;
 	font-weight: normal;
@@ -441,16 +369,6 @@ i {
 em {
 	font-family: SourceSerifItalic;
 	font-weight: normal;
-}
-
-.text a {
-	color: var(--brandBlack);
-	text-decoration: underline;
-	font-family: SourceSerif;
-}
-
-.text a:hover {
-	color: var(--brandMedGreen);
 }
 
 ul {
@@ -473,112 +391,6 @@ li {
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
 }
-
-.details {
-	background-color: none;
-	max-width: 680px;
-	margin: 0 auto;
-	position: relative;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 0px;
-	margin-top: 40px;
-	margin-bottom: 50px;
-	border: solid 1px var(--brandGray);
-	border-top-right-radius: 50px;
-}
-
-.details p {
-	font-family: SourceSerif;
-	font-weight: normal;
-	color: var(--brandGray90);
-	text-align: left;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-size: 17px;
-	line-height: 24px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-}
-
-.details h2 {
-	text-align: left;
-	font-family: TradeGothicBold;
-	font-weight: normal;
-	font-size: 22px;
-	margin-top: 25px;
-	margin-bottom: 0px;
-	color: var(--brandDarkBlue);
-}
-
-@media screen and (max-width: 600px) {
-	.details p {
-		font-size: 15px;
-		line-height: 23px;
-	}
-}
-
-.callout {
-	background-color: var(--brandWhite);
-	max-width: 680px;
-	margin: 0 auto;
-	position: relative;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 30px;
-	padding-bottom: 10px;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	border: solid 2px var(--brandMedBlue);
-	border-radius: 10px;
-	border-top-right-radius: 50px;
-}
-
-.callout h2 {
-	text-align: left;
-	font-family: TradeGothicBold;
-	background-color: var(--brandMedGreen);
-	color: var(--brandWhite);
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	padding-left: 10px;
-	padding-right: 20px;
-	border-radius: 2px;
-	border-top-right-radius: 25px;
-	border-bottom: solid 2px var(--brandMedBlue);
-	font-weight: normal;
-	font-size: 26px;
-}
-
-.callout p {
-	font-family: SourceSerif;
-	font-weight: normal;
-	color: var(--brandGray90);
-	text-align: left;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-size: 17px;
-	line-height: 28px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-}
-
-@media screen and (max-width: 600px) {
-	.callout {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	.callout p {
-		font-size: 15px;
-		line-height: 23px;
-	}
-}
-
-
 
 .caption-container {
 	margin-top: 2px;
@@ -632,8 +444,7 @@ li {
 		--title-size: 25.5px;
 		--subtitle-size: 17px;
 	}
-	p,
-	.text p {
+	p {
 		font-size: 15px;
 		line-height: 23px;
 	}
@@ -653,9 +464,101 @@ li {
 	h4 {
 		font-size: 17px;
 	}
-	.details p,
-	.callout p {
-		font-size: 13px;
+}
+
+
+/* ------------------------------------------------------------------ standard text
+   One set of rules for all running text: every page's content sits in .two-col
+   (overview pages, posts, About, rankings, report, travel). Sizes and fonts for
+   h1–h4, p, li come from the element rules above; this block adds what's specific
+   to page content (title size, h2 underline, links, side-column text).
+   Wrapped in :where() so it has no extra specificity: a component that styles its
+   own headings or links (tool cards, footnote markers, footnotes box) still wins.
+   It must stay at the end of the file, after the plain element rules it builds on.
+   Pages shouldn't restyle these elements themselves; change them here. */
+
+/* page titles: a 25px square (25% fill, 1px border) in the section's colour, set in
+   routes/+layout.svelte, centred on the first line. On wide screens it hangs in the left
+   margin so the title text stays aligned with the column; on smaller screens it sits
+   inline and indents the title. The homepage title is styled separately. */
+:where(.two-col) h1 {
+	--title-square: 25px;
+	--title-square-gap: 24px;
+	position: relative;
+	font-size: var(--title-size);
+	line-height: 1.1;
+}
+
+:where(.two-col) h1::before {
+	content: '';
+	position: absolute;
+	top: calc(0.55em - var(--title-square) / 2); /* centre of the first line (line-height 1.1) */
+	left: calc(-1 * (var(--title-square) + var(--title-square-gap)));
+	box-sizing: border-box; /* border stays inside the 25px */
+	width: var(--title-square);
+	height: var(--title-square);
+	background: color-mix(in srgb, var(--section-colour, var(--brandLightBlue)) 25%, transparent);
+	border: 1px solid var(--section-colour, var(--brandLightBlue));
+}
+
+@media (max-width: 1200px) {
+	:where(.two-col) h1 {
+		padding-left: calc(var(--title-square) + var(--title-square-gap));
+	}
+	:where(.two-col) h1::before {
+		left: 0;
+	}
+}
+
+/* section headings: a 10px light-blue bar at 50%, drawn as a background so it can sit
+   10px up from the bottom edge, behind the text (a border can't be moved). Not the
+   References heading in the footnotes box. */
+:where(.two-col) h2:not(:where(.footnotes) h2) {
+	padding-bottom: 13px;
+	--bar: color-mix(in srgb, var(--brandLightBlue) 50%, transparent);
+	background: linear-gradient(var(--bar), var(--bar)) no-repeat;
+	background-size: 100% 10px;
+	background-position: left bottom 10px;
+}
+
+/* side column (<aside>) headings, e.g. "Tools" / "Posts" / "Research team": same bar in yellow */
+:where(.two-col) aside h2 {
+	--bar: color-mix(in srgb, var(--brandYellow) 25%, transparent);
+}
+
+/* sub-section headings: same idea as h2, but a 5px light-green line at 25%, 14px up from the bottom edge */
+:where(.two-col) h3 {
+	margin-top: 65px;
+	padding-bottom: 13px;
+	--bar: color-mix(in srgb, var(--brandLightGreen) 25%, transparent);
+	background: linear-gradient(var(--bar), var(--bar)) no-repeat;
+	background-size: 100% 5px;
+	background-position: left bottom 14px;
+}
+
+/* ...but tight when it directly follows another heading (e.g. a section's first sub-section) */
+:where(.two-col) :is(h1, h2, h3, h4) + h3 {
+	margin-top: 24px;
+}
+
+:where(.two-col) a {
+	color: var(--brandBlack);
+	text-decoration: underline;
+}
+
+:where(.two-col) a:hover {
+	color: var(--brandMedGreen);
+}
+
+/* side column (<aside>): smaller body text */
+:where(.two-col) aside p {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@media (max-width: 600px) {
+	:where(.two-col) aside p {
+		font-size: 13.5px;
 		line-height: 20px;
 	}
 }

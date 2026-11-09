@@ -1,7 +1,7 @@
 <script>
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
-	import TitleStandard from '$lib/components/post/TitleStandard.svelte';
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 </script>
 
@@ -13,7 +13,7 @@
 <main>
 	<div class="two-col about">
 		<div class="intro">
-			<TitleStandard title="About" />
+			<PageTitle title="About" />
 
 			<p>
 				New tariffs imposed by U.S. President Donald Trump on Canada and other countries have sparked interest—and concern—about their effects on jobs and businesses across Canada. As details about tariffs on Canadian goods continue to emerge, policymakers, business leaders, and the public are asking where the impacts will be felt—now and over the longer term. What places are most vulnerable?
@@ -108,42 +108,14 @@
 </main>
 
 <style>
-	.intro :global(.title-text-container) {
-		max-width: none;
-		margin: 0 0 30px;
-		padding: 0;
-	}
-
-	.intro :global(.title-text-container h1) {
-		margin-top: 0;
-	}
-
-	.intro a:hover,
-	.team a:hover {
-		color: var(--brandMedGreen);
-	}
-
+	/* heading look, links and side-column text size come from the global standard-text styles */
 	.team h2 {
 		margin-top: 0;
-		padding-bottom: 6px;
-		border-bottom: 1px solid var(--brandLightBlue);
-	}
-
-	.team p {
-		font-size: 16px;
-		line-height: 24px;
 	}
 
 	@media (max-width: 1200px) {
 		.team h2 {
 			margin-top: 10px;
-		}
-	}
-
-	@media (max-width: 600px) {
-		.team p {
-			font-size: 13.5px;
-			line-height: 20px;
 		}
 	}
 </style>

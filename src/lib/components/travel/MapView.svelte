@@ -1,4 +1,5 @@
 <script>
+	import { BRAND } from '$lib/styles/brand.js';
 	import { onMount, onDestroy } from 'svelte';
 	import { base } from '$app/paths';
 	import maplibregl from 'maplibre-gl';
@@ -6,10 +7,9 @@
 
 	export let filteredMetroMetrics = [];
 	export let globalMaxNormalized = 0.001;
-	export let legendSizeBins = [];
 
-	const negativeColor = '#DC4633';
-	const positiveColor = '#007FA3';
+	const negativeColor = BRAND.red;
+	const positiveColor = BRAND.medBlue;
 
 	let map;
 	let mapContainer;
@@ -102,16 +102,16 @@
 				],
 				'circle-color': [
 					'interpolate', ['linear'], ['get', 'percentChange'],
-					-70, '#DC4633',
+					-70, BRAND.red,
 					-35, '#EEA298',
-					-15, '#F1C500',
+					-15, BRAND.yellow,
 					0, '#FFFFFF',
 					15, '#A5D5E3',
-					30, '#007FA3'
+					30, BRAND.medBlue
 				],
 				'circle-opacity': 0.9,
 				'circle-stroke-width': 1,
-				'circle-stroke-color': '#1E3765'
+				'circle-stroke-color': BRAND.darkBlue
 			}
 		});
 
@@ -241,7 +241,7 @@
 				type: 'line',
 				source: 'osm',
 				'source-layer': 'boundaries',
-				paint: { 'line-color': '#D0D1C9', 'line-width': 1 }
+				paint: { 'line-color': BRAND.gray, 'line-width': 1 }
 			});
 			map.addLayer({
 				id: 'province_boundaries_case',
@@ -253,7 +253,7 @@
 				id: 'province_boundaries',
 				type: 'line',
 				source: 'ne_provincelines',
-				paint: { 'line-color': '#D0D1C9', 'line-width': 1 }
+				paint: { 'line-color': BRAND.gray, 'line-width': 1 }
 			});
 
 			map.addLayer({
@@ -267,7 +267,7 @@
 					'text-anchor': 'center',
 					'symbol-sort-key': ['get', 'scalerank']
 				},
-				paint: { 'text-color': '#333333', 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
+				paint: { 'text-color': BRAND.gray80, 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
 				filter: ['<', ['get', 'scalerank'], 5],
 				minzoom: 2,
 				maxzoom: 6
@@ -284,7 +284,7 @@
 					'text-anchor': 'center',
 					'symbol-sort-key': ['get', 'scalerank']
 				},
-				paint: { 'text-color': '#333333', 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
+				paint: { 'text-color': BRAND.gray80, 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
 				minzoom: 6,
 				maxzoom: 8
 			});
@@ -300,7 +300,7 @@
 					'text-size': ['interpolate', ['linear'], ['zoom'], 4, 10, 10, 13],
 					'text-anchor': 'center'
 				},
-				paint: { 'text-color': '#333333', 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
+				paint: { 'text-color': BRAND.gray80, 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.8 },
 				filter: ['any', ['==', ['get', 'kind'], 'city'], ['==', ['get', 'kind'], 'state_capital'], ['==', ['get', 'kind'], 'national capital']],
 				minzoom: 8
 			});
@@ -316,7 +316,7 @@
 					'text-size': ['interpolate', ['linear'], ['zoom'], 4, 9, 10, 11],
 					'text-anchor': 'center'
 				},
-				paint: { 'text-color': '#333333', 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.65 },
+				paint: { 'text-color': BRAND.gray80, 'text-halo-color': '#fff', 'text-halo-width': 1.5, 'text-opacity': 0.65 },
 				filter: ['all', ['!=', ['get', 'kind'], 'city'], ['!=', ['get', 'kind'], 'state_capital'], ['!=', ['get', 'kind'], 'national capital']],
 				minzoom: 8
 			});
@@ -401,26 +401,9 @@
 		</div>
 		<div class="legend-labels">
 			<span class="legend-left">-70%</span>
-			<!-- <span class="legend-mid">-20%</span> -->
 			<span class="legend-zero">0%</span>
 			<span class="legend-right">+30%</span>
 		</div>
-		<!-- <div class="size-legend">
-			<div class="size-items">
-				<div class="size-item">
-					<span class="legend-circle" style={`width:${legendCircleDiameterPx(7)}px;height:${legendCircleDiameterPx(7)}px;`}></span>
-					<span>mall trip volume</span>
-				</div>
-				<div class="size-item">
-					<span class="legend-circle" style={`width:${legendCircleDiameterPx(25)}px;height:${legendCircleDiameterPx(25)}px;`}></span>
-					<span>medium trip volume</span>
-				</div>
-				<div class="size-item">
-					<span class="legend-circle" style={`width:${legendCircleDiameterPx(55)}px;height:${legendCircleDiameterPx(55)}px;`}></span>
-					<span>large trip volume</span>
-				</div>
-			</div>
-		</div> -->
 
 		<p class="map-legend-text">
 			The larger the circle size, the greater the total volume of trips from 04/2025 to 03/2026. 
@@ -502,7 +485,7 @@
 	.legend-gradient {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(to right, #DC4633 0%, #F1C500 55%, #FFFFFF 70%, #007FA3 100%);
+		background: linear-gradient(to right, var(--brandRed) 0%, var(--brandYellow) 55%, var(--brandWhite) 70%, var(--brandMedBlue) 100%);
 	}
 
 	.legend-labels {
@@ -520,36 +503,8 @@
 	}
 
 	.legend-left { left: 2%; transform: none; }
-	.legend-mid { left: 50%; }
 	.legend-zero { left: 70%; }
 	.legend-right { left: 98%; transform: translateX(-100%); }
-
-	.size-legend {
-		margin-top: 10px;
-		font-size: 12px;
-		color: var(--brandGray90);
-	}
-
-	.size-items {
-		display: flex;
-		gap: 12px;
-		flex-wrap: wrap;
-		margin-top: 6px;
-	}
-
-	.size-item {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-	}
-
-	.legend-circle {
-		display: inline-block;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.85);
-		border: 1.5px solid #4d5d7a;
-		flex: 0 0 auto;
-	}
 
 	@media (max-width: 720px) {
 		.color-legend {

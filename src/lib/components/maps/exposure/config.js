@@ -3,6 +3,7 @@
 // Column names in the lookup files are <tariff code><suffix>:
 //   percent (fractions, 0.05 = 5%):  _1 businesses, _2 employees (work), _3 employees (home)
 //   count:                            _B businesses, _E employees (work), _C employees (home)
+import { BRAND } from '$lib/styles/brand.js';
 
 import { base } from '$app/paths';
 import { withData } from '$lib/maps/geographies.js';
@@ -10,7 +11,7 @@ import { withData } from '$lib/maps/geographies.js';
 export const UPDATED = 'September 2026';
 export const TARIFFS_AS_OF = 'September 2026';
 
-export const GRADUATED_COLOURS = ['#f1c500', '#fb921f', '#f3603e', '#d73256', '#ab1368'];
+export const GRADUATED_COLOURS = [BRAND.yellow, '#fb921f', '#f3603e', '#d73256', BRAND.pink];
 export const GRADUATED_SIZES = [5, 9, 15, 24, 34];
 
 export const GEOGRAPHIES = withData({
@@ -30,8 +31,8 @@ export const METRICS = [
 ];
 
 // Dropdown order = array order. `breaks` keyed by column suffix.
-// NOTE (carried over): several of these breaks are provisional; see the old
-// repo's src/lib/constants.js notes for which ones need recalibrating.
+// NOTE: several of these breaks are provisional (Dairy/Alcohol/Motor, ScenBefore/
+// ScenAfter, S338_*) and should be recalibrated after the next pipeline run.
 export const TARIFFS = [
 	{
 		code: 'ScenAfter',

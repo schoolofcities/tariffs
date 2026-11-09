@@ -1,4 +1,4 @@
-// Loads the per-geography lookup files written by scripts/build_*_data.py.
+// Loads the per-geography lookup files (static/data/{exposure,scenarios}/{ada,csd}.json).
 //
 // Each file is loaded at most once per page (the promise is cached), so
 // switching back and forth between geographies never re-fetches, and a slow

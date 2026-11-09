@@ -1,8 +1,9 @@
 // MapLibre paint expressions shared by the area maps.
 //
 // `breaks` are 4 class breaks -> 5 classes, `colours` has 5 entries.
+import { BRAND } from '$lib/styles/brand.js';
 
-export const NO_DATA_COLOUR = '#D0D1C9';
+export const NO_DATA_COLOUR = BRAND.gray;
 export const TRANSPARENT = 'rgba(0,0,0,0)';
 
 /** Value source for fills: feature-state set from the lookup (null = no data). */

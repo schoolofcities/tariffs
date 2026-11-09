@@ -1,5 +1,5 @@
 // Polygon tiles shared by every area map. The tiles hold geometry + id only;
-// each map supplies its own values in a lookup file (see scripts/build_*_data.py),
+// each map supplies its own values in a lookup file (static/data/<map>/{ada,csd}.json),
 // joined on the GUID. Exposure and scenario data use the same 2021 ADA/CSD ids,
 // so they share these tiles.
 

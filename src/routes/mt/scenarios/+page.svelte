@@ -1,4 +1,5 @@
 <script>
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import ToolCards from '$lib/components/layout/ToolCards.svelte';
@@ -6,6 +7,17 @@
 	import BarChartIcon from '$lib/components/icons/BarChartIcon.svelte';
 	import DocumentIcon from '$lib/components/icons/DocumentIcon.svelte';
 	import { PUBLISHED } from '$lib/components/maps/scenarios/config.js';
+
+	// the report gets its own card above the tools
+	const report = [
+		{
+			href: '/scenarios/report',
+			icon: DocumentIcon,
+			published: PUBLISHED,
+			title: 'Report',
+			text: 'Modeling potential economic impacts of U.S. tariffs on Canada’s regions and industries: context, methods, and the regional and industry effects of each scenario.'
+		}
+	];
 
 	const tools = [
 		{
@@ -19,15 +31,8 @@
 			href: '/scenarios/rankings',
 			icon: BarChartIcon,
 			published: PUBLISHED,
-			title: 'City and province rankings',
+			title: 'Rankings',
 			text: 'Compare job losses across Canada’s census metropolitan areas and provinces for each scenario and type of effect.'
-		},
-		{
-			href: '/scenarios/report',
-			icon: DocumentIcon,
-			published: PUBLISHED,
-			title: 'Report',
-			text: 'Modeling potential economic impacts of U.S. tariffs on Canada’s regions and industries: context, methods, and the regional and industry effects of each scenario.'
 		}
 	];
 </script>
@@ -40,8 +45,10 @@
 <main>
 	<div class="two-col">
 		<div class="intro">
-			<h1 class="page-title">Job-loss scenarios from U.S. tariffs</h1>
-			<p class="page-subtitle">How many jobs could be lost across Canadian cities and regions under different tariff scenarios?</p>
+			<PageTitle
+				title="Job-loss scenarios from U.S. tariffs"
+				subtitle="How many jobs could be lost across Canadian cities and regions under different tariff scenarios?"
+			/>
 
 			<!-- TODO: placeholder text, to be written -->
 			<p>
@@ -78,6 +85,7 @@
 		</div>
 
 		<aside class="sidebar">
+			<ToolCards tools={report} />
 			<h2 class="side-heading">Tools</h2>
 			<ToolCards {tools} />
 		</aside>

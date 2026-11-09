@@ -3,70 +3,19 @@
 	import Seo from '$lib/components/post/Seo.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import AuthorDate from '$lib/components/post/AuthorDate.svelte';
-	import TitleStandard from '$lib/components/post/TitleStandard.svelte';
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import bigMetroPopulation2025 from '$lib/components/travel/big-metro-keys-2025.json';
 	import TrendLinesView from '$lib/components/travel/TrendLinesView.svelte';
 	import MapView from '$lib/components/travel/MapView.svelte';
+	import { regionColour } from '$lib/components/travel/regions.js';
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { scaleLinear, line } from "d3";
 	import { regressionLoess } from "d3-regression";
-	import { mean, sum, max as d3Max, min as d3Min } from 'd3-array';
+	import { mean, sum, max as d3Max } from 'd3-array';
 
 	const regionOptions = ['Midwest', 'Northeast', 'Southwest', 'Southeast', 'Pacific'];
 	let selectedRegions = [...regionOptions];
-
-	const regionColors = {
-		Midwest: '#6FC7EA',
-		Northeast: '#8DBF2E',
-		Southwest: '#F1C500',
-		Southeast: '#AB1368',
-		Pacific: '#00AEB3',
-		Canada: '#F3603E'
-	};
-
-	const negativeColor = '#DC4633';
-	const negativeMidColor = '#F1C500';
-	const neutralColor = '#FFFFFF';
-	const positiveColor = '#007FA3';
-
-	function hexToRgb(hex) {
-		const clean = hex.replace('#', '');
-		const bigint = parseInt(clean, 16);
-		return {
-			r: (bigint >> 16) & 255,
-			g: (bigint >> 8) & 255,
-			b: bigint & 255
-		};
-	}
-
-	function interpolateHex(fromHex, toHex, t) {
-		const from = hexToRgb(fromHex);
-		const to = hexToRgb(toHex);
-		const r = Math.round(from.r + (to.r - from.r) * t);
-		const g = Math.round(from.g + (to.g - from.g) * t);
-		const b = Math.round(from.b + (to.b - from.b) * t);
-		return `rgb(${r}, ${g}, ${b})`;
-	}
-
-	function getDivergingColor(value) {
-		const clamped = Math.max(-70, Math.min(70, value));
-		if (clamped < -15) {
-			const t = (clamped + 70) / 55;
-			return interpolateHex(negativeColor, negativeMidColor, t);
-		}
-		if (clamped < 0) {
-			const t = (clamped + 15) / 15;
-			return interpolateHex(negativeMidColor, neutralColor, t);
-		}
-		const t = clamped / 70;
-		return interpolateHex(neutralColor, positiveColor, t);
-	}
-
-	// Get region color
-	function getRegionColor(regionName) {
-		return regionColors[regionName] || '#999';
-	}
 
 	// Configuration
 	let selection = {
@@ -83,15 +32,13 @@
 	// State variables
 	let processedData = [];
 	let metros = [];
-	let loadedDateMin = null;
-	let loadedDateMax = null;
 	let isLoading = true;
 	let dataLoaded = false;
 	let searchQuery = "";
 	let showBigMetros = true;
 	let showSmallMetros = true;
 	let selectedDataset = 'us_normalized_trips_daily.csv'
-	// View toggle: "map", "rankings", or "trends"
+	// View toggle: "trends" or "map"
 	let viewMode = "trends";
 
 
@@ -190,14 +137,7 @@
 		const endDate = new Date("2026-03-31");
 		
 		processedData = normalizedData.filter(d => d.date >= startDate && d.date <= endDate);
-		if (processedData.length > 0) {
-			loadedDateMin = new Date(d3Min(processedData, d => d.date.getTime()));
-			loadedDateMax = new Date(d3Max(processedData, d => d.date.getTime()));
-		} else {
-			loadedDateMin = null;
-			loadedDateMax = null;
-		}
-		
+
 		// Get unique metros
 		metros = [...new Set(processedData.map(d => d.metro))].sort();
 	}
@@ -341,30 +281,10 @@
 		return matchesRegion && matchesSearch && matchesBigMetro;
 	});
 
-	// Sort for rankings view (worst to best)
-	$: sortedByRankings = [...filteredMetroMetrics].sort((a, b) => a.percentChange - b.percentChange);
+	// Trends view: filtered metros, worst declines first
+	$: filteredTrends = [...filteredMetroMetrics].sort((a, b) => a.percentChange - b.percentChange);
 
-	// Sort for trends view (worst negatives first, then positives)
-	$: sortedByTrends = [...filteredMetroMetrics].sort((a, b) => a.percentChange - b.percentChange);
-
-	// The filters are already applied to filteredMetroMetrics
-	$: filteredRankings = sortedByRankings;
-	$: filteredTrends = sortedByTrends;
-
-	// Statistics
-	$: totalMetros = filteredMetroMetrics.length;
-	$: metrosRising = filteredMetroMetrics.filter(m => m.percentChange > 0).length;
-	$: metrosFalling = filteredMetroMetrics.filter(m => m.percentChange < 0).length;
-	$: meanChange = filteredMetroMetrics.length > 0 ? mean(filteredMetroMetrics, m => m.percentChange) : 0;
 	$: globalMaxNormalized = d3Max(metroMetrics, m => m.avg2) || 0.001;
-	$: maxLegendVolume = d3Max(filteredMetroMetrics, m => m.avg2) || 0;
-	$: legendSizeBins = [
-		maxLegendVolume * 0.2,
-		maxLegendVolume * 0.4,
-		maxLegendVolume * 0.6,
-		maxLegendVolume * 0.8,
-		maxLegendVolume
-	];
 
 	function toggleRegion(region) {
 		if (selectedRegions.includes(region)) {
@@ -384,37 +304,31 @@
 <main>
 	<div class="two-col travel">
 		<div class="article">
-			<TitleStandard
+			<PageTitle
 				title="How much has Canadian travel to U.S. cities declined?"
 			/>
-			<!-- subtitle="An analysis of mobile footfall data across U.S. metropolitan areas, 2024–2026" -->
-			<div class="text">
+
+			<AuthorDate
+				authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
+				date="May 2026"
+			/>
+
+			<p>
+				In response to increasingly strained political relations between Canada and the United States, many Canadians have reduced their travel to the U.S..
+			</p>
+
+			<p>
+				But how has this decline varied in terms of magnitude and geography? 
+			</p>
+
+			<p>
+				We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
+			</p>
 	
-				<AuthorDate
-					authors="<a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, <a href='https://schoolofcities.utoronto.ca/people/jeff-allen/' target='_blank'>Jeff Allen</a>"
-					date="May 2026"
-				/>
-
-				<p>
-					In response to increasingly strained political relations between Canada and the United States, many Canadians have reduced their travel to the U.S.. 
-					<!-- We used cell phone activity data to investigate the magnitude and geography of this shift. -->
-				</p>
-
-				<p>
-					But how has this decline varied in terms of magnitude and geography? 
-				</p>
-
-				<p>
-					<!-- Estimates based primarily on <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/260323/dq260323a-eng.htm">data from border crossings</a> suggest a year-over-year decline in Canadian visitations at <b>20-25%</b>. By contrast, our analysis of cell phone activity indicates a larger median decrease of approximately <b>41%</b> in visits to U.S. metropolian areas. -->
-
-					We analyzed cell phone activity data, finding a year-over-year median decline of approximately <span style="background-color: var(--brandRed); color: white; font-family: OpenSansBold; padding-left: 5px; padding-right: 5px;">42%</span> in Canadian visits to U.S. metropolitan areas between April 1, 2024 to March 31, 2025 (Year 1) and April 1, 2025 to March 31, 2026 (Year 2). This is significantly higher than the ~25% drop recorded by <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005301">border crossings estimates</a>. This means that a) border crossing data is not capturing the full drop in Canadian business and trade-related travel and b) when Canadians travel to the U.S., they are visiting fewer locations and staying for less time than they used to.
-				</p>
-		
 
 
-			</div>
 
-			<div class="text" style="margin-top: 50px;">
+			<div style="margin-top: 50px;">
 
 				<p>
 					Consistent with media reporting, our data shows significant declines in <a href="https://archive.ph/20250812180600/https:/www.bloomberg.com/news/features/2025-08-11/trump-tariffs-and-jabs-push-canadians-to-exit-florida-enclave#selection-1237.0-1237.66">snowbird destinations</a> like Florida; 
@@ -448,48 +362,43 @@
 
 			</div>
 
-			<div class="text">
-				<h3>Data sources and methods</h3>
+			<h3>Data sources and methods</h3>
 
-				<!-- <div class="text" style="margin-top: 0px;"> -->
-
-					<div class="caption-container">
-						<p>
-							<span class="caption-source">Updated May 2026</span>
-						</p>
-					</div>
-		<!-- 
-				</div> -->
+			<div class="caption-container">
 				<p>
-					The data used to define Canadian devices traveling to U.S. metro areas is provided by <a href="https://cuebiq.com/">Cuebiq</a>.
-					Cuebiq is a location intelligence platform that provides <a href="https://cuebiq.com/privacy-center/">anonymized and aggregated cell phone data</a> for academic research and humanitarian initiatives. 
+					<span class="caption-source">Updated May 2026</span>
 				</p>
-			
-				<p>
-					A stop is defined by Cuebiq as a point in space and time where the user spent a certain amount of dwelling time. A stop-detection algorithm by Cuebiq computes these stops. 
-					A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
-					Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
-					These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
-				</p>
-
-				<p>
-					Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S.. A subsequent trip begins when we see this pattern occur again.
-					We selected the top 266 U.S. metropolitan statistical areas via their population from the <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-total-metro-and-micro-statistical-areas.html">U.S. Census Bureau</a>.
-					To determine which region gets a count on a specific day, the first stop that is in a U.S. metro at <a href="https://en.wikipedia.org/wiki/Geohash">geohash level 6</a> is counted for that metro on that day. 
-					Following days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
-					In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
-				</p>
-
-				<p>
-					All values are normalized by the total number of unique Canadian devices each day to account for daily variations in data coverage.
-					The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
-				</p>
-
-				<p>
-					You can download the selected normalized trip data <a href={`${base}/data/travel/${selectedDataset}`}>from this link</a>.
-				</p>
-				<br>
 			</div>
+
+			<p>
+				The data used to define Canadian devices traveling to U.S. metro areas is provided by <a href="https://cuebiq.com/">Cuebiq</a>.
+				Cuebiq is a location intelligence platform that provides <a href="https://cuebiq.com/privacy-center/">anonymized and aggregated cell phone data</a> for academic research and humanitarian initiatives. 
+			</p>
+		
+			<p>
+				A stop is defined by Cuebiq as a point in space and time where the user spent a certain amount of dwelling time. A stop-detection algorithm by Cuebiq computes these stops. 
+				A "Canadian device" is defined as a unique device per day in the stops table with the country code set as "Canada" and the device type as "Home."
+				Home devices are classified based on the duration and timing of the stops from an observation of the past 84 days, and each device is assigned a unique anonymized identifier. 
+				These Canadian devices have been recorded between April 1, 2024 - March 31, 2026 to measure daily trip occurrences.
+			</p>
+
+			<p>
+				Trips are deemed to occur when a device has a stop in Canada, followed by a stop in the U.S.. A subsequent trip begins when we see this pattern occur again.
+				We selected the top 266 U.S. metropolitan statistical areas via their population from the <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-total-metro-and-micro-statistical-areas.html">U.S. Census Bureau</a>.
+				To determine which region gets a count on a specific day, the first stop that is in a U.S. metro at <a href="https://en.wikipedia.org/wiki/Geohash">geohash level 6</a> is counted for that metro on that day. 
+				Following days within the same metro are not counted; however, if that device enters another metro, the first stop in that new metro is then recorded.
+				In other words, this approach captures unique metro-device trip occurrences for Canadian travellers to the U.S.. 
+			</p>
+
+			<p>
+				All values are normalized by the total number of unique Canadian devices each day to account for daily variations in data coverage.
+				The trend lines are fit via a <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS</a> curve.
+			</p>
+
+			<p>
+				You can download the selected normalized trip data <a href={`${base}/data/travel/${selectedDataset}`}>from this link</a>.
+			</p>
+			<br>
 		</div>
 
 		<aside class="chart-col" aria-label="Year-over-year change in trips chart">
@@ -502,91 +411,89 @@
 
 			{#if dataLoaded}
 
-			<div class="text" style="margin-bottom: 0px;">
 
-				<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
+			<h3>Charting year-over-year change in trips by Canadians to U.S. metros</h3>
 
-				<!-- View Toggle -->
-				<div class="view-toggle">
-					<div class="toggle-group">
-						<span class="toggle-label">View:</span>
-						<button
-							class="toggle-btn"
-							class:active={viewMode === "trends"}
-							on:click={() => (viewMode = "trends")}
-						>
-							Trends
-						</button>
-				
-						<button
-							class="toggle-btn"
-							class:active={viewMode === "map"}
-							on:click={() => (viewMode = "map")}
-						>
-							Map
-						</button>
+			<!-- View Toggle -->
+			<div class="view-toggle">
+				<div class="toggle-group">
+					<span class="toggle-label">View:</span>
+					<button
+						class="toggle-btn"
+						class:active={viewMode === "trends"}
+						on:click={() => (viewMode = "trends")}
+					>
+						Trends
+					</button>
+			
+					<button
+						class="toggle-btn"
+						class:active={viewMode === "map"}
+						on:click={() => (viewMode = "map")}
+					>
+						Map
+					</button>
 
-					</div>
 				</div>
-
-				<span class="toggle-label">Select metros:</span>
-
-				<div class="metro-selector">
-					<div class="metro-selector-group">
-						<span class="metro-selector-sublabel">By region</span>
-						<div class="button-group">
-							{#each regionOptions as region}
-								<button
-									type="button"
-									class="region-toggle-button {selectedRegions.includes(region) ? 'selected' : ''}"
-									on:click={() => toggleRegion(region)}
-								>
-									<span
-										class="region-swatch"
-										style="background-color: {getRegionColor(region)}"
-									></span>
-									<span class="region-name">{region}</span>
-								</button>
-							{/each}
-						</div>
-					</div>
-
-					<div class="metro-selector-group">
-						<span class="metro-selector-sublabel">By population size</span>
-						<div class="population-search-row">
-							<div class="button-group">
-
-								<button
-									type="button"
-									class="region-toggle-button {showSmallMetros ? 'selected' : ''}"
-									on:click={() => (showSmallMetros = !showSmallMetros)}
-								>
-									{"<"} 1,000,000
-								</button>
-								<button
-									type="button"
-									class="region-toggle-button {showBigMetros ? 'selected' : ''}"
-									on:click={() => (showBigMetros = !showBigMetros)}
-								>
-									≥ 1,000,000
-								</button>
-							</div>
-							<div class="search-container">
-								<input
-									type="text"
-									class="search-input"
-									placeholder="Search for a metro area"
-									bind:value={searchQuery}
-								/>
-								{#if searchQuery}
-									<button class="clear-search" on:click={() => searchQuery = ""}>×</button>
-								{/if}
-							</div>
-						</div>
-					</div>
-				</div>
-
 			</div>
+
+			<span class="toggle-label">Select metros:</span>
+
+			<div class="metro-selector">
+				<div class="metro-selector-group">
+					<span class="metro-selector-sublabel">By region</span>
+					<div class="button-group">
+						{#each regionOptions as region}
+							<button
+								type="button"
+								class="region-toggle-button {selectedRegions.includes(region) ? 'selected' : ''}"
+								on:click={() => toggleRegion(region)}
+							>
+								<span
+									class="region-swatch"
+									style="background-color: {regionColour(region)}"
+								></span>
+								<span class="region-name">{region}</span>
+							</button>
+						{/each}
+					</div>
+				</div>
+
+				<div class="metro-selector-group">
+					<span class="metro-selector-sublabel">By population size</span>
+					<div class="population-search-row">
+						<div class="button-group">
+
+							<button
+								type="button"
+								class="region-toggle-button {showSmallMetros ? 'selected' : ''}"
+								on:click={() => (showSmallMetros = !showSmallMetros)}
+							>
+								{"<"} 1,000,000
+							</button>
+							<button
+								type="button"
+								class="region-toggle-button {showBigMetros ? 'selected' : ''}"
+								on:click={() => (showBigMetros = !showBigMetros)}
+							>
+								≥ 1,000,000
+							</button>
+						</div>
+						<div class="search-container">
+							<input
+								type="text"
+								class="search-input"
+								placeholder="Search for a metro area"
+								bind:value={searchQuery}
+							/>
+							{#if searchQuery}
+								<button class="clear-search" on:click={() => searchQuery = ""}>×</button>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+
 	
 			<!-- Rankings and Trends Views -->
 			{#if viewMode !== "map"}
@@ -606,22 +513,19 @@
 			<MapView
 				filteredMetroMetrics={filteredMetroMetrics}
 				globalMaxNormalized={globalMaxNormalized}
-				legendSizeBins={legendSizeBins}
 			/>
 			{/if}
 	
 			{/if}
 
-			<div class="text" style="margin-top: 0px;">
 
-				<div class="caption-container">
-					<p>
-						<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.
-						<br>Editor's note (May 13, 2026): Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>.</span>
-					</p>
-				</div>
-
+			<div class="caption-container">
+				<p>
+					<span class="caption-source">Cell phone data are from <a href="https://cuebiq.com/">Cuebiq</a>. Geographic reference data are from <a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a>.
+					<br>Editor's note (May 13, 2026): Portland, Oregon has been removed due to the <a href="https://www.oregon.gov/rea/newsroom/pages/2025-oren-j/the-oregon-consumer-privacy-act.aspx">Oregon Consumer Privacy Act 2025</a>.</span>
+				</p>
 			</div>
+
 		</aside>
 	</div>
 
@@ -675,7 +579,6 @@
 	.region-swatch {
 		height: 15px;
 		width: 5px;
-		/* border: solid 1px var(--); */
 		border-radius: 0px;
 		flex: 0 0 auto;
 	}
@@ -834,30 +737,17 @@
 		color: var(--brandGray90);
 	}
 
-	.text {
-		max-width: none;
-		margin: 0;
-		padding: 0;
-	}
-
 	/* right column is wide enough for the trend rows (label + change + 360px line) */
 	.two-col.travel {
 		--col-left: 560px;
 		--col-right: 680px;
 	}
 
+	/* chart heading: no underline bar (unlike the text h3s) */
 	.chart-col h3 {
 		margin-top: 0;
-	}
-
-	.article :global(.title-text-container) {
-		max-width: none;
-		margin: 0 0 30px;
-		padding: 0;
-	}
-
-	.article :global(.title-text-container h1) {
-		margin-top: 0;
+		padding-bottom: 0;
+		background: none;
 	}
 
 	@media (max-width: 1200px) {

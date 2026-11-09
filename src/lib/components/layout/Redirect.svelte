@@ -25,6 +25,14 @@
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
-<main class="text">
+<main class="moved">
 	<p>This page has moved to <a href={target}>{target}</a>.</p>
 </main>
+
+<style>
+	.moved {
+		box-sizing: border-box;
+		max-width: 680px;
+		padding: 40px 20px;
+	}
+</style>

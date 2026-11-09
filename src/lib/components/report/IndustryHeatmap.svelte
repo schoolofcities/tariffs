@@ -102,12 +102,12 @@
 		margin-top: 10px;
 		font-family: OpenSans, sans-serif;
 		font-size: 12px;
-		color: var(--brandGray70, #4d4d4d);
+		color: var(--brandGray70);
 	}
 
 	.ramp {
 		width: 160px;
 		height: 10px;
-		border: 1px solid #e6e6e6;
+		border: 1px solid var(--brandGray10);
 	}
 </style>

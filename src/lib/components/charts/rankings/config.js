@@ -4,9 +4,8 @@
 // CMA percents are in percent units (5.5 = 5.5%), unlike the map lookup
 // files which store fractions.
 //
-// NOTE (carried over from the old constants.js): Dairy/Alcohol/Motor,
-// ScenBefore/ScenAfter and S338_* breaks are provisional and should be
-// recomputed from real CMA percentiles after the next pipeline run.
+// NOTE: Dairy/Alcohol/Motor, ScenBefore/ScenAfter and S338_* breaks are provisional
+// and should be recomputed from real CMA percentiles after the next pipeline run.
 
 /** Date of the most recent data update shown on the rankings chart. */
 export const UPDATED = 'September 2026';

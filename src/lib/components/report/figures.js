@@ -1,7 +1,6 @@
 // Report figures: which chart component draws each one. No regions are emphasised
-// (the docx doesn't). Each chart's
-// title is its caption as written in the report docx; data comes from the generated
-// content (scripts/build_report_content.py -> figureData[n]).
+// (the docx doesn't). Each chart's title is its caption as written in the report docx;
+// data comes from $lib/content/scenarios-report.js (figureData[n]).
 
 
 export const FIGURES = {

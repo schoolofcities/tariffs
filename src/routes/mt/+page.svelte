@@ -8,6 +8,14 @@
 	import Seo from '$lib/components/post/Seo.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import { NAV } from '$lib/site/nav.js';
+	import CanadaIcon from '$lib/components/icons/CanadaIcon.svelte';
+	import BarChartIcon from '$lib/components/icons/BarChartIcon.svelte';
+	import DocumentIcon from '$lib/components/icons/DocumentIcon.svelte';
+	import PostIcon from '$lib/components/icons/PostIcon.svelte';
+
+	// tools get their own icon (as on the section pages); everything else is a post
+	const ICONS = { map: CanadaIcon, rankings: BarChartIcon, report: DocumentIcon };
+	const iconFor = (href) => ICONS[href.split('/').pop()] ?? PostIcon;
 
 	const section = (href) => NAV.find((s) => s.href === href);
 
@@ -21,27 +29,27 @@
 			.groups.flatMap((g) => (g.heading === 'Posts' ? [...g.links].reverse() : g.links))
 			.filter((l) => l.href !== href);
 
+	// card titles, links and border colours come from the nav; only the blurbs are here
+	const card = (href, text) => {
+		const s = section(href);
+		return { href: s.href, title: s.label, border: s.colour, text };
+	};
+
 	const main = [
 		{
-			href: '/exposure',
-			title: 'Direct exposure',
-			border: 'var(--brandPurple)',
-			text: 'Where are the jobs and businesses that make goods subject to U.S. tariffs? Maps, city rankings, and posts on the potential direct exposure of local economies across Canada.',
+			...card('/exposure', 'Where are the jobs and businesses that make goods subject to U.S. tariffs? Maps, city rankings, and posts on the potential direct exposure of local economies across Canada.'),
 			links: pages('/exposure')
 		},
 		{
-			href: '/scenarios',
-			title: 'Scenarios',
-			border: 'var(--brandPink, #AB1368)',
-			text: 'Modelled job losses across Canadian cities and regions under five U.S. tariff scenarios, from a multiregional input-output model.',
+			...card('/scenarios', 'Modelled job losses across Canadian cities and regions under five U.S. tariff scenarios, from a multiregional input-output model.'),
 			links: pages('/scenarios')
 		}
 	];
 
 	const more = [
-		{ href: '/about', title: 'About', text: 'The project and the research team behind it.' },
-		{ href: '/current-tariffs', title: 'Current tariffs', text: 'An updated list of current U.S. tariffs on Canada.' },
-		{ href: section('/travel/canada-us-visits').href, title: 'Canada–U.S. travel', text: 'How much has Canadian travel to U.S. cities declined?' }
+		card('/about', 'The project and the research team behind it.'),
+		card('/current-tariffs', 'An updated list of current U.S. tariffs on Canada.'),
+		card('/travel/canada-us-visits', 'How much has Canadian travel to U.S. cities declined?')
 	];
 </script>
 
@@ -52,18 +60,25 @@
 />
 
 <main class="home">
-	<h1 class="page-title">Mapping Tariffs</h1>
-	<p class="page-subtitle">How could U.S. tariffs affect jobs, businesses, and places across Canada?</p>
+	<!-- same structure as PageTitle, with the homepage's own (larger) title -->
+	<header class="page-heading">
+		<h1 class="page-title">Mapping Tariffs</h1>
+		<p class="page-subtitle">How could U.S. tariffs affect jobs, businesses, and places across Canada?</p>
+	</header>
 
 	<div class="main-cards">
 		{#each main as card (card.href)}
-			<section class="card big" style:border-color={card.border}>
+			<section class="card big" style:border-color={card.border} style:--accent={card.border}>
 				<h2><a href="{root}{card.href}">{card.title} →</a></h2>
 				<p>{card.text}</p>
 				<ul>
 					{#each card.links as link (link.href)}
+						{@const Icon = iconFor(link.href)}
 						<li>
-							<a href="{root}{link.href}">{link.label}</a>
+							<span class="link">
+								<span class="link-icon"><Icon size={18} /></span>
+								<a href="{root}{link.href}">{link.label}</a>
+							</span>
 							{#if link.date}<span class="date">{longDate(link.date)}</span>{/if}
 						</li>
 					{/each}
@@ -74,7 +89,7 @@
 
 	<div class="more-cards">
 		{#each more as card (card.href)}
-			<a class="card small" href="{root}{card.href}">
+			<a class="card small" href="{root}{card.href}" style:border-color={card.border}>
 				<span class="small-title">{card.title} →</span>
 				<span class="small-text">{card.text}</span>
 			</a>
@@ -93,15 +108,17 @@
 		padding: 90px var(--site-pad) 60px var(--content-left);
 	}
 
-	/* very wide screens: flush with the other pages' left edge, like .two-col */
-	@media (min-width: 1800px) {
+	/* above 1400px: flush left, so the title and cards line up under the
+	   "Mapping Tariffs" box in the header */
+	@media (min-width: 1401px) {
 		.home {
 			align-self: flex-start;
 			margin-left: 0;
 		}
 	}
 
-	@media (max-width: 1200px) {
+	/* 1400px and below: not enough room for the indent, so centre with equal side padding */
+	@media (max-width: 1400px) {
 		.home {
 			max-width: calc(1100px + 12vw);
 			margin: 0 auto;
@@ -115,10 +132,16 @@
 		}
 	}
 
-	/* square, flat cards with a thin coloured border: purple / pink for the two
-	   projects, light blue for the rest; dark blue on hover */
+	/* homepage title: its own look, separate from the other pages' titles; 12px bigger */
+	.page-title {
+		font-size: calc(var(--title-size) + 12px);
+	}
+
+	/* square cards with a thin border in the section's colour (from $lib/site/nav.js,
+	   set inline) and a soft drop shadow; dark blue on hover */
 	.card {
 		border: 1px solid var(--brandLightBlue);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		transition: border-color 0.15s ease;
 	}
 
@@ -145,7 +168,9 @@
 	}
 
 	.big h2 {
-		margin: 0 0 12px;
+		margin: 0 0 14px;
+		padding-bottom: 10px;
+		border-bottom: 2px solid var(--accent);
 		font-size: 27px;
 	}
 
@@ -175,22 +200,38 @@
 	.big li {
 		display: flex;
 		justify-content: space-between;
-		align-items: baseline;
+		align-items: center;
 		gap: 16px;
 		margin: 0;
 		padding: 5px 0;
-		font-family: SourceSerif, serif;
-		font-size: 16px;
+		font-family: OpenSans, sans-serif;
+		font-size: 15px;
 		line-height: 21px;
 	}
 
+	/* fixed-width icon column, so all link titles line up */
+	.link {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.link-icon {
+		display: flex;
+		flex-shrink: 0;
+		width: 18px;
+		color: var(--brandMedBlue);
+	}
+
 	.big li a {
-		color: var(--brandDarkBlue);
-		text-decoration: none;
+		color: var(--brandMedBlue);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.big li a:hover {
-		text-decoration: underline;
+		color: var(--brandDarkBlue);
 	}
 
 	.date {
@@ -241,7 +282,7 @@
 			line-height: 23px;
 		}
 		.big li {
-			font-size: 14px;
+			font-size: 13.5px;
 		}
 		.small-title {
 			font-size: 17px;

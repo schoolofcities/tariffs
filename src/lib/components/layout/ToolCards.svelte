@@ -68,10 +68,11 @@
 
 	.updated {
 		margin-top: -4px;
-		font-family: OpenSansBold, sans-serif;
+		padding: 2px 0 6px;
+		font-family: OpenSansItalic, sans-serif;
 		font-size: 12px;
 		line-height: 16px;
-		color: var(--brandMedBlue);
+		color: var(--brandBlack);
 	}
 
 	.card-text {

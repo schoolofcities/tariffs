@@ -24,6 +24,7 @@
 </script>
 
 <script>
+	import { BRAND } from '$lib/styles/brand.js';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { onMount } from 'svelte';
 	import { ANCHORS, INITIAL_VIEW, GLOBE_MAX_ZOOM, baseStyle, addBasemapLayers } from '$lib/maps/basemap.js';
@@ -239,7 +240,7 @@
 			map.addLayer(
 				{
 					id: L.hover, type: 'fill', ...src, layout: hidden,
-					paint: { 'fill-color': '#1E3765', 'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.5, 0] }
+					paint: { 'fill-color': BRAND.darkBlue, 'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.5, 0] }
 				},
 				ANCHORS.lines
 			);

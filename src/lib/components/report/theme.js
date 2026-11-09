@@ -1,16 +1,18 @@
 // Shared look for the report charts (matches the site's charts: Open Sans labels,
 // Trade Gothic titles, brand colours). Nothing below 12px so text stays >= 11px.
+import { BRAND } from '$lib/styles/brand.js';
 
+// brand colours, plus the extra greys the report's chart script used
 export const C = {
-	darkblue: '#1E3765',
-	medblue: '#007FA3',
-	lightblue: '#6FC7EA',
-	red: '#DC4633', // brandRed
-	g10: '#E6E6E6',
+	darkblue: BRAND.darkBlue,
+	medblue: BRAND.medBlue,
+	lightblue: BRAND.lightBlue,
+	red: BRAND.red,
+	g10: BRAND.gray10,
 	g20: '#CCCCCC',
 	g30: '#B3B3B3',
 	g45: '#8C8C8C',
-	g70: '#4D4D4D',
+	g70: BRAND.gray70,
 	g90: '#1A1A1A'
 };
 
@@ -23,8 +25,8 @@ export const EFFECTS = [
 
 export const HIGHLIGHT = C.darkblue;
 /** job-loss bars (Figures 2, 4, 7, 10, 12): total jobs lost purple, per 1,000 residents pink; no regions emphasised */
-export const RANKED = { total: '#6D247A', per1000: '#AB1368' }; // brandPurple / brandPink
-export const CONTEXT = C.medblue; // non-highlighted bars (brandMedBlue)
+export const RANKED = { total: BRAND.purple, per1000: BRAND.pink };
+export const CONTEXT = C.medblue; // non-highlighted bars
 export const INK = C.g90;
 export const INK2 = C.g70;
 

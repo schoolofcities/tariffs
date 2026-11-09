@@ -1,10 +1,13 @@
 <script>
+	import { BRAND } from '$lib/styles/brand.js';
+	import { regionColour } from './regions.js';
+
 	export let filteredTrends = [];
 	export let chartHeight = 50;
 	export let metroLabelWidth = 180;
 
 	let chartWidth = 360;
-	const eventColor = "#007FA3";
+	const eventColor = BRAND.medBlue;
 
 	let showTrump = false;
 	let showCad = false;
@@ -57,18 +60,6 @@
 		},
 	];
 
-	function getRegionColor(regionName) {
-		const regionColors = {
-			Midwest: "#6FC7EA",
-			Northeast: "#8DBF2E",
-			Southwest: "#F1C500",
-			Southeast: "#AB1368",
-			Pacific: "#00AEB3",
-			Canada: "#F3603E",
-		};
-		return regionColors[regionName] || "#999";
-	}
-
 	function getMetroDisplayName(metroName) {
 		const metroNameAliases = {
 			"Louisville, KY-IN": "Louisville/Jefferson County, KY-IN",
@@ -95,20 +86,20 @@
 					y1="5"
 					x2="30"
 					y2="5"
-					stroke="#1E3765"
+					stroke={BRAND.darkBlue}
 					stroke-width="2"
 				/>
 				<circle 
 					cx="3" 
 					cy="5" 
 					r="3" 
-					fill="#1E3765" 
+					fill={BRAND.darkBlue} 
 				/>
 				<circle
 					cx="27"
 					cy="5"
 					r="3"
-					fill="#DC4633"
+					fill={BRAND.red}
 				/>
 			</svg
 			>
@@ -121,7 +112,7 @@
 					y1="5"
 					x2="20"
 					y2="5"
-					stroke="#1E3765"
+					stroke={BRAND.darkBlue}
 					stroke-opacity="0.75"
 					stroke-width="1"
 					stroke-dasharray="4"
@@ -312,7 +303,7 @@
 							y1="15"
 							x2="5"
 							y2={chartHeight - 15}
-							stroke={getRegionColor(metro.region)}
+							stroke={regionColour(metro.region)}
 							stroke-width="3"
 						/>
 						<text x="12" y="31" class="textCity"
@@ -353,7 +344,7 @@
 									x2={yearIndex * (chartWidth / 2) +
 										(tick * chartWidth) / 2 / 12}
 									y2={45}
-									stroke="#333333"
+									stroke={BRAND.gray80}
 									stroke-opacity="0.15"
 									stroke-width="1"
 								/>
@@ -393,7 +384,7 @@
 								y1={metro.meanLine}
 								x2={chartWidth}
 								y2={metro.meanLine}
-								stroke="#1E3765"
+								stroke={BRAND.darkBlue}
 								stroke-opacity="0.75"
 								stroke-width="1"
 								stroke-dasharray="4"
@@ -404,7 +395,7 @@
 						{#if metro.regressionLine}
 							<path
 								d={metro.regressionLine}
-								stroke="#1E3765"
+								stroke={BRAND.darkBlue}
 								stroke-width="2"
 								fill="none"
 							/>
@@ -413,7 +404,7 @@
 									cx={metro.startCircle.cx}
 									cy={metro.startCircle.cy}
 									r="3"
-									fill="#1E3765"
+									fill={BRAND.darkBlue}
 								/>
 							{/if}
 							{#if metro.endCircle}
@@ -421,7 +412,7 @@
 									cx={metro.endCircle.cx}
 									cy={metro.endCircle.cy}
 									r="3"
-									fill="#DC4633"
+									fill={BRAND.red}
 								/>
 							{/if}
 						{/if}
@@ -569,11 +560,11 @@
 	}
 
 	.up-arrow {
-		color: #007fa3;
+		color: var(--brandMedBlue);
 	}
 
 	.down-arrow {
-		color: #dc4633;
+		color: var(--brandRed);
 	}
 
 	@media (max-width: 600px) {
@@ -659,7 +650,7 @@
 
 .event-btn.active {
 	opacity: 1;
-	border-color: #007fa3;
+	border-color: var(--brandMedBlue);
 }
 
 .event-btn:hover {

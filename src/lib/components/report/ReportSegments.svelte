@@ -1,4 +1,4 @@
-<!-- A run of report content: HTML segments and figure segments (see build_report_content.py). -->
+<!-- A run of report content: HTML segments and figure segments (see $lib/content/scenarios-report.js). -->
 <script>
 	import ReportFigure from './ReportFigure.svelte';
 

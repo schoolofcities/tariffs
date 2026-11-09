@@ -120,7 +120,7 @@
 		font-family: OpenSans, sans-serif;
 		font-size: 12px;
 		line-height: 1.3;
-		color: var(--brandGray70, #4d4d4d);
+		color: var(--brandGray70);
 		cursor: pointer;
 	}
 

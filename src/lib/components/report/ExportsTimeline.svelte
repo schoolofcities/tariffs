@@ -5,11 +5,12 @@
 	rows: [{ month: 'YYYY-MM', exports_unadjusted_millions, exports_seasonally_adjusted_millions, yoy_pct_change }]
 -->
 <script>
+	import { BRAND } from '$lib/styles/brand.js';
 	import { scaleLinear } from 'd3';
-	import { C, INK, INK2, SUBTITLE_STYLE } from './theme.js';
+	import { C, INK2, SUBTITLE_STYLE } from './theme.js';
 
-	const UNADJUSTED = '#00A189'; // brandMedGreen
-	const TARIFF_COLOUR = '#6D247A'; // brandPurple
+	const UNADJUSTED = BRAND.medGreen;
+	const TARIFF_COLOUR = BRAND.purple;
 
 	let { rows, width } = $props();
 
@@ -36,7 +37,7 @@
 	const y2 = $derived(scaleLinear().domain([-85, 85]).range([TOP + H1 + GAP + H2, TOP + H1 + GAP]));
 
 	const path = (key) => pts.map((p, i) => `${i ? 'L' : 'M'}${x(p.t).toFixed(1)},${y1(p[key]).toFixed(1)}`).join('');
-	const years = $derived(Array.from({ length: 11 }, (_, i) => 2016 + i).filter((yr, i) => width >= 520 || i % 2 === 0));
+	const years = $derived(Array.from({ length: 11 }, (_, i) => 2016 + i).filter((_, i) => width >= 520 || i % 2 === 0));
 	const barW = $derived(Math.max(1, ((x(2017) - x(2016)) / 12) * 0.72));
 	const last = $derived(pts.at(-1));
 	const covid = $derived(pts.slice(0, 60).reduce((a, b) => (b.yoy < a.yoy ? b : a)));

@@ -1,10 +1,10 @@
 <!--
 	MRIO scenarios report, in the order of the report docx. Text, tables, footnotes,
-	table of contents and chart data are generated from the docx + chart CSVs by
-	scripts/build_report_content.py into $lib/content/scenarios-report.js; figures are
-	drawn by $lib/components/report/.
+	table of contents and chart data are in $lib/content/scenarios-report.js; figures
+	are drawn by $lib/components/report/.
 -->
 <script>
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import AuthorDate from '$lib/components/post/AuthorDate.svelte';
 	import Footnotes from '$lib/components/post/Footnotes.svelte';
@@ -34,7 +34,7 @@
 
 	<div class="two-col post">
 		<article class="post-body report" use:footnoteTooltips={report.footnotes}>
-			<h1 id="introduction" class="page-title">{TITLE}</h1>
+			<PageTitle id="introduction" title={TITLE} />
 			<AuthorDate
 				authors="<a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Richard J. DiFrancesco</a> and <a href='https://www.linkedin.com/in/clara-turner-64764b29/' target='_blank'>Clara Turner</a>"
 				date={PUBLISHED}
@@ -72,21 +72,14 @@
 		scroll-margin-top: 16px;
 	}
 
-	/* section headings only, not the "References" heading inside the footnotes box */
+	/* heading looks come from the global standard-text styles; the report only adds
+	   extra space above its (long) sections, not the "References" heading in the footnotes box */
 	.report :global(h2:not(.footnotes h2)) {
 		margin-top: 90px;
 	}
 
-	.report :global(h2:not(.footnotes h2)) {
-		padding-bottom: 10px; /* text to underline */
-	}
-
 	.report :global(h4) {
 		margin: 28px 0 0;
-		font-family: TradeGothicBold, sans-serif;
-		font-weight: normal;
-		font-size: 19px;
-		color: var(--brandDarkBlue);
 	}
 
 	/* ---- tables: same look as the trading-partners table on /exposure */
@@ -122,7 +115,7 @@
 		font-weight: normal;
 		text-align: left;
 		vertical-align: bottom;
-		border-bottom: 2px solid #e6e6e6;
+		border-bottom: 2px solid var(--brandGray10);
 	}
 
 	.report :global(td) {
@@ -170,9 +163,6 @@
 		}
 		.report :global(.report-table figcaption) {
 			font-size: 13px;
-		}
-		.report :global(h4) {
-			font-size: 17px;
 		}
 		.report :global(.scenario-lead) {
 			font-size: 13px;

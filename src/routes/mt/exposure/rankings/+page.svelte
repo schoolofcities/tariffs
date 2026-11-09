@@ -1,4 +1,5 @@
 <script>
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import AuthorDate from '$lib/components/post/AuthorDate.svelte';
@@ -15,7 +16,7 @@
 <main>
 	<div class="two-col">
 		<div class="article">
-			<h1 class="page-title">Ranking Canadian urban areas by their potential direct exposure of U.S. tariffs</h1>
+			<PageTitle title="Ranking Canadian urban areas by their potential direct exposure of U.S. tariffs" />
 
 			<AuthorDate
 				authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, & <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
@@ -125,10 +126,6 @@
 
 	.two-col {
 		--col-right: 560px;
-	}
-
-	.article :global(a:hover) {
-		color: var(--brandMedGreen);
 	}
 
 	@media (max-width: 1200px) {

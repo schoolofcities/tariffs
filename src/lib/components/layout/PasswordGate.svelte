@@ -152,7 +152,7 @@
 	}
 
 	input[aria-invalid='true'] {
-		border-color: var(--brandRed, #dc4633);
+		border-color: var(--brandRed);
 	}
 
 	button {
@@ -174,6 +174,6 @@
 		margin: 10px 0 0;
 		font-family: OpenSans, sans-serif;
 		font-size: 13px;
-		color: var(--brandRed, #dc4633);
+		color: var(--brandRed);
 	}
 </style>

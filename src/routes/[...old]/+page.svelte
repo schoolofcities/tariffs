@@ -1,6 +1,7 @@
 <script>
 	import Redirect from '$lib/components/layout/Redirect.svelte';
+
+	let { data } = $props();
 </script>
 
-<!-- the site now lives under /mt/ -->
-<Redirect to="/" />
+<Redirect to={data.to} />

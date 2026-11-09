@@ -1,4 +1,5 @@
 <script>
+	import PageTitle from '$lib/components/layout/PageTitle.svelte';
 	import { base } from '$app/paths';
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
@@ -29,7 +30,7 @@
 			href: '/exposure/rankings',
 			icon: BarChartIcon,
 			updated: RANKINGS_UPDATED,
-			title: 'City rankings',
+			title: 'Rankings',
 			text: 'Compare the same measures in aggregate across Canada’s 41 census metropolitan areas, by number and by share of jobs and businesses.'
 		}
 	];
@@ -43,8 +44,10 @@
 <main>
 	<div class="two-col">
 	<div class="intro">
-		<h1 class="page-title">Mapping potential direct exposure to U.S. tariffs</h1>
-		<p class="page-subtitle">Where are the jobs and businesses that make goods subject to U.S. tariffs?</p>
+		<PageTitle
+			title="Mapping potential direct exposure to U.S. tariffs"
+			subtitle="Where are the jobs and businesses that make goods subject to U.S. tariffs?"
+		/>
 
 			<AuthorDate
 				authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/eli-easton-77bb60273/'  target='_blank'>Eli Easton</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>"
@@ -255,21 +258,7 @@
 </main>
 
 <style>
-
-	.intro a,
-	.sidebar a {
-		color: var(--brandBlack);
-	}
-
-	.intro a:hover,
-	.posts a:hover {
-		color: var(--brandMedGreen);
-	}
-
-	.sidebar .methods {
-		font-size: 16px;
-		line-height: 24px;
-	}
+	/* link colours and side-column text size come from the global standard-text styles */
 
 	.posts {
 		margin: 16px 0 0;
@@ -286,10 +275,11 @@
 		border-bottom: 1px solid var(--brandGray);
 	}
 
+	/* same type and colour as the tool card titles above */
 	.posts a {
-		font-family: SourceSerif, serif;
+		font-family: TradeGothicBold, sans-serif;
 		font-size: 18px;
-		color: var(--brandBlack);
+		color: var(--brandDarkBlue);
 	}
 
 	.posts a:hover {
@@ -305,6 +295,7 @@
 
 	.methods {
 		margin-top: 30px;
+		padding-top: 20px;
 	}
 
 	@media (max-width: 600px) {
@@ -314,10 +305,6 @@
 		}
 		.date {
 			font-size: 11px;
-		}
-		.sidebar .methods {
-			font-size: 13.5px;
-			line-height: 20px;
 		}
 	}
 </style>

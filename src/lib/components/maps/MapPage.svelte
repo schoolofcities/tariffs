@@ -3,12 +3,15 @@
 	readout, notes) + AreaMap. Each map supplies its content as snippets and its
 	data through `geographies` / `view` / `derive`; everything else is shared.
 
-	Snippet content is styled through the `.panel :global(...)` rules below, so
-	maps get consistent labels, selects, notes etc. without repeating CSS.
+	Snippet content is styled through the `.panel-body :global(...)` rules below, so
+	maps get consistent labels, selects, notes etc. without repeating CSS. The site
+	footer sits after .panel-body, at the end of the panel's scroll, so
+	those rules don't reach it.
 -->
 <script>
 	import AreaMap from './AreaMap.svelte';
 	import Legend from './Legend.svelte';
+	import Footer from '$lib/components/layout/Footer.svelte';
 
 	let {
 		title,
@@ -32,28 +35,33 @@
 
 <div class="layout">
 	<aside class="panel">
-		<h1>{title}</h1>
-		{#if byline}<div class="byline">{@render byline()}</div>{/if}
+		<div class="panel-body">
+			<h1>{title}</h1>
+			{#if byline}<div class="byline">{@render byline()}</div>{/if}
 
-		<section class="controls">
-			{@render controls()}
-		</section>
+			<section class="controls">
+				{@render controls()}
+			</section>
 
-		<section class="legend">
-			<p class="description">{description}</p>
-			<Legend mode={view.mode} breaks={view.breaks} colours={view.colours} sizes={view.sizes} {formatBreak} />
-		</section>
+			<section class="legend">
+				<p class="description">{description}</p>
+				<Legend mode={view.mode} breaks={view.breaks} colours={view.colours} sizes={view.sizes} {formatBreak} />
+			</section>
 
-		<p class="hovered" aria-live="polite">
-			<i>Hovered area</i>:
-			{#if hovered}
-				{#if hovered.name}{`${hovered.name}: `}{/if}<strong>{format(hovered.value)}</strong>
-			{:else}
-				hover over the map to see values
-			{/if}
-		</p>
+			<p class="hovered" aria-live="polite">
+				<i>Hovered area</i>:
+				{#if hovered}
+					{#if hovered.name}{`${hovered.name}: `}{/if}<strong>{format(hovered.value)}</strong>
+				{:else}
+					hover over the map to see values
+				{/if}
+			</p>
 
-		{#if notes}<section class="notes">{@render notes()}</section>{/if}
+			{#if notes}<section class="notes">{@render notes()}</section>{/if}
+		</div>
+
+		<!-- site footer at the end of the panel: only seen when the panel is scrolled to the bottom -->
+		<Footer />
 	</aside>
 
 	<div class="map">
@@ -73,9 +81,16 @@
 		height: 100%;
 		overflow-y: auto;
 		box-sizing: border-box;
-		padding: 20px;
+		padding: 0;
 		background: var(--brandWhite);
 		border-right: 1px solid var(--brandDarkBlue);
+		/* the footer at the end of the panel: it lays itself out by its own (narrow) width */
+		--footer-gap: 40px;
+	}
+
+	/* panel content; padding here (not on .panel) so the footer runs edge to edge */
+	.panel-body {
+		padding: 20px;
 	}
 
 	.map {
@@ -117,7 +132,7 @@
 		padding-top: 5px;
 	}
 
-	.panel :global(.control-label) {
+	.panel-body :global(.control-label) {
 		display: block;
 		margin: 14px 0 8px;
 		padding: 0;
@@ -127,7 +142,7 @@
 		color: var(--brandGray90);
 	}
 
-	.panel :global(select) {
+	.panel-body :global(select) {
 		width: 100%;
 		padding: 8px 10px;
 		border: 1px solid var(--brandGray);
@@ -139,13 +154,13 @@
 		cursor: pointer;
 	}
 
-	.panel :global(select:hover),
-	.panel :global(select:focus) {
+	.panel-body :global(select:hover),
+	.panel-body :global(select:focus) {
 		border-color: var(--brandMedBlue);
 	}
 
 	/* explanatory note under a control (e.g. tariff or scenario description) */
-	.panel :global(.control-note) {
+	.panel-body :global(.control-note) {
 		margin: 8px 0 0;
 		padding: 4px 10px;
 		border-left: 3px solid var(--brandLightBlue);
@@ -154,7 +169,7 @@
 		line-height: 18px;
 	}
 
-	.panel :global(.summary) {
+	.panel-body :global(.summary) {
 		font-size: 15px;
 		line-height: 21px;
 	}
@@ -191,12 +206,12 @@
 		margin-top: 20px;
 	}
 
-	.panel :global(a) {
+	.panel-body :global(a) {
 		color: var(--brandBlack);
 		text-decoration: underline;
 	}
 
-	.panel :global(a:hover) {
+	.panel-body :global(a:hover) {
 		color: var(--brandMedGreen);
 	}
 </style>
