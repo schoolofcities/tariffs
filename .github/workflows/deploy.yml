@@ -31,10 +31,10 @@ jobs:
       - run: npm ci
 
       - name: Build
-        env:
-          # Serves the site at schoolofcities.github.io/tariffs-v2/.
-          # When mappingtariffs.org moves here, delete this line and add static/CNAME.
-          BASE_PATH: /tariffs-v2
+        # env:
+        #   # Serves the site at schoolofcities.github.io/tariffs-v2/.
+        #   # When mappingtariffs.org moves here, delete this line and add static/CNAME.
+        #   BASE_PATH: /tariffs-v2
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
