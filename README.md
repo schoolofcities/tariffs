@@ -26,7 +26,6 @@ How many jobs could be lost across Canadian cities and regions under five tariff
 How much has Canadian travel to U.S. cities declined?
 
 - Page: [Canada–U.S. travel](https://mappingtariffs.org/mt/travel/canada-us-visits)
-- Analysis: [`analysis/travel/`](analysis/travel/)
 - Data download: [`static/data/travel/us_normalized_trips_daily.csv`](static/data/travel/us_normalized_trips_daily.csv)
 
 ## Other pages

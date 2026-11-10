@@ -60,6 +60,8 @@
 	{scale}
 	formatTick={(n) => (n >= 1000 ? `${n / 1000}K` : String(n))}
 	formatBox={(n) => `${n.toFixed(1)}%`}
+	barName="Total"
+	boxName="Percent"
 	boxBreaks={BREAKS_PCT[keyPct] ?? []}
 	colours={GRADUATED_COLOURS}
 	formatBoxBreak={(b) => `${b}%`}

@@ -1,7 +1,7 @@
 <!--
 	Job impact scenario rankings for CMAs or provinces: data + controls for
-	RankedBarChart. Bars = selected metric (jobs or share of employment),
-	box = share of employment.
+	RankedBarChart. Bars = jobs lost, box = share of employment; "rank by" only
+	changes the order.
 
 	Data: static/data/scenarios/rollup_{cma,province}.json and rollup_breaks.json
 	(from analysis/scenarios/roll_up_to_cma_prov.py). Fields: S{n}_{DIR|INDIR|INDCD|TOT}_{Jobs|Pct}.
@@ -44,14 +44,15 @@
 
 	const countKey = $derived(`${scenario}_${effect}_Jobs`);
 	const pctKey = $derived(`${scenario}_${effect}_Pct`);
-	const isPercent = $derived(rankBy === 'percent');
 
+	// Bars are always the number of jobs lost and the box always the share of all jobs;
+	// "rank by" only changes the order (as on the exposure rankings).
 	const rows = $derived.by(() => {
-		const key = isPercent ? pctKey : countKey;
+		const sortKey = rankBy === 'percent' ? pctKey : countKey;
 		return data[level]
-			.filter((d) => Number.isFinite(+d[key]))
-			.sort((a, b) => b[key] - a[key])
-			.map((d) => ({ id: d.GEO_UID, label: d.GEO_NAME, bar: +d[key], box: +d[pctKey] }));
+			.filter((d) => Number.isFinite(+d[sortKey]))
+			.sort((a, b) => b[sortKey] - a[sortKey])
+			.map((d) => ({ id: d.GEO_UID, label: d.GEO_NAME, bar: +d[countKey], box: +d[pctKey] }));
 	});
 
 	// Box classes: precomputed by the rollup script, quintiles as a fallback.
@@ -63,9 +64,10 @@
 		return [0.2, 0.4, 0.6, 0.8].map((q) => Math.round(vals[Math.floor(q * (vals.length - 1))] * 10) / 10);
 	});
 
-	// Axis is rescaled per selection: scenarios and levels differ by orders of magnitude.
+	// Axis: sized to the largest job loss for the scenario / effect / level (they differ by
+	// orders of magnitude), so it doesn't change when the ranking order changes.
 	const ticks = $derived.by(() => {
-		const max = rows.length ? niceCeiling(rows[0].bar) : 0;
+		const max = rows.length ? niceCeiling(Math.max(...rows.map((d) => d.bar).filter(Number.isFinite))) : 0;
 		if (!max) return [0];
 		const fractions = scale === 'linear' ? [0, 0.25, 0.5, 0.75, 1] : [0, 0.02, 0.1, 0.3, 0.6, 1];
 		return fractions.map((f) => max * f);
@@ -77,14 +79,11 @@
 		return Math.ceil(v / mag) * mag;
 	}
 
-	const formatTick = (n) => {
-		if (isPercent) return `${Math.round(n * 10) / 10}%`;
-		return n >= 1000 ? `${Math.round(n / 100) / 10}K` : String(Math.round(n));
-	};
+	const formatTick = (n) => (n >= 1000 ? `${Math.round(n / 100) / 10}K` : String(Math.round(n)));
 
 	const description = $derived(
 		`${scenarioLabel(scenario)}, ${CHART_EFFECTS.find((e) => e.value === effect)?.label.toLowerCase()}. ` +
-			`Bars show the potential number of jobs lost${isPercent ? ' as a share of all jobs' : ''}; ` +
+			'Bars show the potential number of jobs lost; ' +
 			'the coloured box shows the potential number of jobs lost as a share of all jobs.'
 	);
 
@@ -107,6 +106,8 @@
 	{scale}
 	{formatTick}
 	formatBox={(n) => `${n.toFixed(1)}%`}
+	barName="Total"
+	boxName="Percent"
 	{boxBreaks}
 	colours={GRADUATED_COLOURS}
 	formatBoxBreak={(b) => `${b}%`}

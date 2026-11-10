@@ -19,12 +19,10 @@
 
 	const section = (href) => NAV.find((s) => s.href === href);
 
-	// a section's pages (not its overview, which the card title links to); posts are
-	// listed oldest first in the menu, newest first here
+	// all of a section's pages, overview first (as in the menu); posts are listed oldest
+	// first in the menu, newest first here
 	const pages = (href) =>
-		section(href)
-			.groups.flatMap((g) => (g.heading === 'Posts' ? [...g.links].reverse() : g.links))
-			.filter((l) => l.href !== href);
+		section(href).groups.flatMap((g) => (g.heading === 'Posts' ? [...g.links].reverse() : g.links));
 
 	// card titles, links and border colours come from the nav; only the blurbs are here
 	const card = (href, text) => {
