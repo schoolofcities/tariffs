@@ -164,7 +164,7 @@
 	/* single-page sections (About, Current tariffs, travel) */
 	.section-link {
 		font-family: TradeGothicBold, sans-serif;
-		font-size: 17px;
+		font-size: 16px;
 		color: var(--brandWhite);
 		text-decoration: none;
 	}

@@ -31,6 +31,7 @@
 	import { loadAreaData, valueOf } from '$lib/maps/areaData.js';
 	import { NO_DATA_COLOUR, fillColour, circleColour, circleRadius, stateValue, propValue } from '$lib/maps/styleExpressions.js';
 	import LocationSearch from './LocationSearch.svelte';
+	import { RecentreControl } from '$lib/maps/recentreControl.js';
 
 	/**
 	 * @typedef {Object} Geography
@@ -276,7 +277,9 @@
 				...INITIAL_VIEW,
 				attributionControl: { compact: true, customAttribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors' }
 			});
-			map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-left');
+			// top right (the location search is top left); re-centre stacks under the zoom buttons
+			map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
+			map.addControl(new RecentreControl(INITIAL_VIEW), 'top-right');
 
 			// Globe when zoomed out, flat when zoomed in. Only touch the
 			// projection when crossing the threshold, not on every zoom tick.
@@ -354,6 +357,14 @@
 	.canvas {
 		position: absolute;
 		inset: 0;
+	}
+
+	/* re-centre button (RecentreControl), same size as the zoom buttons */
+	.canvas :global(.recentre-button) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--brandGray80);
 	}
 
 	.search {

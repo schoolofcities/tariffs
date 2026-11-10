@@ -1,5 +1,5 @@
 <!--
-	Job-loss scenarios map: controls + notes for MapPage.
+	Job impact scenarios map: controls + notes for MapPage.
 	Values per selection are computed by `derive` in ./config.js.
 -->
 <script>
@@ -7,8 +7,9 @@
 	import ToggleGroup from '../ToggleGroup.svelte';
 	import { GEO_OPTIONS } from '$lib/maps/geographies.js';
 	import { syncUrlState } from '$lib/utils/urlState.svelte.js';
+	import { root } from '$lib/site/paths.js';
 	import {
-		DEFAULTS, EFFECTS, GEOGRAPHIES, METRICS, SCENARIOS, PUBLISHED,
+		DEFAULTS, EFFECTS, GEOGRAPHIES, METRICS, SCENARIOS, MAP_UPDATED,
 		derive, resolveSelection, formatValue, formatBreak
 	} from './config.js';
 
@@ -28,7 +29,7 @@
 </script>
 
 <MapPage
-	title="Mapping job-loss scenarios from U.S. tariffs in Canada"
+	title="Mapping job impact scenarios due to U.S. tariffs in Canada"
 	geographies={GEOGRAPHIES}
 	view={selection.view}
 	{derive}
@@ -38,20 +39,21 @@
 >
 	{#snippet byline()}
 		<p>
-			By <a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank" rel="noopener">Richard DiFrancesco</a>,
-			<a href="https://discover.research.utoronto.ca/8035-tara-vinodrai" target="_blank" rel="noopener">Tara Vinodrai</a>,
+			By <a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank" rel="noopener">Yihoi Jung</a>,
 			<a href="https://jamaps.github.io/" target="_blank" rel="noopener">Jeff Allen</a>,
-			<a href="https://schoolofcities.utoronto.ca/people/karen-chapple/" target="_blank" rel="noopener">Karen Chapple</a>,
+			<a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank" rel="noopener">Richard J. DiFrancesco</a>,
 			<a href="https://www.linkedin.com/in/clara-turner-64764b29/" target="_blank" rel="noopener">Clara Turner</a>,
-			<a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank" rel="noopener">Yihoi Jung</a>.<br />
-			<i>Published {PUBLISHED}.</i>
+			<a href="https://discover.research.utoronto.ca/8035-tara-vinodrai" target="_blank" rel="noopener">Tara Vinodrai</a>, and <a href="https://schoolofcities.utoronto.ca/people/karen-chapple/" target="_blank" rel="noopener">Karen Chapple</a>.<br />
+			<i>Last updated {MAP_UPDATED}.</i>
 		</p>
 	{/snippet}
 
 	{#snippet controls()}
 		<p class="summary">
-			These five job-loss scenarios were built with a <strong>multi-regional input-output model</strong> of Canadian
-			provinces and territories, allocating each province's modelled job losses to local areas.
+			The following employment scenarios are based on output from a <strong>Multiregional Input-Output (MRIO) model</strong> of
+			the Canadian economy as represented by thirteen provinces and territories. The MRIO model computes direct, indirect
+			and induced effects for each tariff scenario by industry for each region of Canada; these effects are then extended to
+			the local level. The scenarios are described more fully <a href="{root}/scenarios">here</a>.
 		</p>
 
 		<label class="control-label" for="scenario-select">Select a scenario:</label>
@@ -79,9 +81,9 @@
 
 	{#snippet notes()}
 		<p>
-			Counts of employment (place of work) are based on estimates from the Canadian Business Register (December 2022)
-			for direct effects. Indirect and induced effects are modelled using a provincial multi-regional input-output model
-			(Statistics Canada Table 36-10-0113-01), allocated to this geography. Percentages are job losses as a share of total
+			Direct effects are estimated based on counts of employment (place of work) using the Canadian Business Register
+			(December 2022). Indirect and induced effects are modelled using a provincial multi-regional input-output model and
+			applied to employment at the local level. Percentages are job losses as a share of total
 			local employment; areas without an employment estimate are shown as no data.
 		</p>
 		<h2>Data sources</h2>

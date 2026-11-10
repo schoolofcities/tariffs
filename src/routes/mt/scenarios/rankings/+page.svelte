@@ -18,7 +18,7 @@
 				<PageTitle title="Ranked job losses by cities and provinces due to U.S. tariffs" />
 
 				<AuthorDate
-					authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Richard DiFrancesco</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, & <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
+					authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Richard J. DiFrancesco</a>, <a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://www.linkedin.com/in/yihoi-jung-0b95351b5/' target='_blank'>Yihoi Jung</a>, and <a href='https://jamaps.github.io/' target='_blank'> Jeff Allen</a>"
 					date="November 2026"
 				/>
 
@@ -27,7 +27,7 @@
 				</h2>
 
 				<p>
-					Similar to our ranking charts for direct exposure to tariffs, we have built a tool for job losses. This comes from a Multi-Regional Input Output (MRIO) model built by Richard DiFrancesco.
+					Similar to our ranking charts for direct exposure to tariffs, we have built a tool for job losses. This comes from a Multi-Regional Input Output (MRIO) model built by Richard J. DiFrancesco.
 				</p>
 
 				<h2>

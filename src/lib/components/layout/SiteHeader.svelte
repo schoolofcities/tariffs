@@ -188,14 +188,19 @@
 
 	.desktop-nav > ul {
 		display: flex;
+		align-items: center;
 		gap: 4px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
+	/* flex, so the links and dropdown buttons line up whatever the global li type is
+	   (as inline items they sat on the li's text baseline, which differs for buttons) */
 	.section {
 		position: relative;
+		display: flex;
+		align-items: center;
 		padding: 0;
 		margin: 0;
 	}
@@ -221,10 +226,16 @@
 		color: var(--brandDarkBlue);
 	}
 
-	/* selected: current section, or the open dropdown */
-	.section-link.active,
-	.section-link[aria-expanded='true'] {
+	/* current section (the page you're on): dark blue */
+	.section-link.active {
 		background: var(--brandDarkBlue);
+		color: var(--brandWhite);
+	}
+
+	/* open dropdown (the section you're looking at): medium blue, also when it's the
+	   current section */
+	.section-link[aria-expanded='true'] {
+		background: var(--brandMedBlue);
 		color: var(--brandWhite);
 	}
 

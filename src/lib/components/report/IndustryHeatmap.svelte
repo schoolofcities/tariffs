@@ -1,7 +1,7 @@
 <!--
 	Figure 14: share of each scenario's job loss by industry, as a table with each cell
 	shaded white -> yellow -> orange -> red (red at 30% and over). Uses the report's
-	table styling (see the .report table rules on the report page).
+	table styling (the .report-content table rules in global.css).
 	rows: [{ industry, '1. Household consumption': %, ... }]
 -->
 <script>

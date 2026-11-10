@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import PageTitle from '$lib/components/layout/PageTitle.svelte';
@@ -41,6 +42,22 @@
 			</li>
 
 			<li>
+				<a href="{root}/scenarios">Read our backgrounder and blog</a> on mapping direct, indirect and induced impacts under different tariff scenarios.
+			</li>
+
+			<li>
+				<a href="{root}/scenarios/map">Explore maps of the potential direct, indirect and induced impacts on jobs</a> under five different tariff scenarios across Canada at the municipal and neighbourhood level.
+			</li>
+
+			<li>
+				<a href="{root}/scenarios/rankings">Review these same potential impacts on jobs across Canadian cities and provinces</a>.
+			</li>
+
+			<li>
+				<a href="{root}/scenarios/summary-report">Read our report on how different tariff scenarios may impact jobs across Canada</a> (see the <a href="{base}/documents/scenarios-appendix-a.pdf" target="_blank">Appendix</a> for technical details).
+			</li>
+
+			<li>
 				<a href="{root}/exposure/section-338">Read our blog on alcohol, dairy, and motor vehicle tariffs from Section 338 of the Tariff Act of 1930</a>.
 			</li>
 
@@ -78,7 +95,7 @@
 			</p>
 
 			<p>
-				<a href="https://jamaps.github.io/" target="_blank">Jeff Allen, PhD</a> is a Senior Research Associate and the Lead of Data Visualization at the School of Cities at the University of Toronto. 
+				<a href="https://jamaps.github.io/" target="_blank">Jeff Allen, PhD</a> is a Senior Research Associate and the Lead of Maps and Data Visualization at the School of Cities at the University of Toronto. 
 			</p>
 
 			<p>
@@ -94,7 +111,7 @@
 			</p>
 
 			<p>
-				<a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank">Richard DiFrancesco, PhD</a> is Associate Professor in the Department of Geography and Planning at the University of Toronto and has expertise in input-output data and models.
+				<a href="https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco" target="_blank">Richard J. DiFrancesco, PhD</a> is Associate Professor in the Department of Geography and Planning at the University of Toronto and has expertise in input-output data and models.
 			</p>
 
 			<p>

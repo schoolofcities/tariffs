@@ -1,48 +1,50 @@
-// Job-loss scenarios (MRIO model): shared by the scenarios map, the rankings
+// Job impact scenarios (MRIO model): shared by the scenarios map, the rankings
 // chart and the /scenarios overview page.
 
 import { base } from '$app/paths';
-import { root } from '$lib/site/paths.js';
 import { withData } from '$lib/maps/geographies.js';
 import { GRADUATED_COLOURS, GRADUATED_SIZES } from '$lib/components/maps/exposure/config.js';
 
 /** All scenarios content (map, rankings, overview) was first published together. */
 export const PUBLISHED = 'November 2026';
 
+/** Last update to the scenarios map. */
+export const MAP_UPDATED = 'November 2026';
+
 /**
  * Scenario codes match the S{n} prefixes in the data (there is no S2).
- * `report` is the scenario's number in the MRIO report (/scenarios/report), which numbers them 1–5.
+ * `report` is the scenario's number in the MRIO report (/scenarios/summary-report), which numbers them 1–5.
  */
 export const SCENARIOS = [
 	{
 		code: 'S1',
 		report: 1,
 		label: 'Household Consumption',
-		description: `Overall household consumption expenditures in Canada decline by 1%. <a href="https://www.scotiabank.com/ca/en/about/economics/economics-publications/post.other-publications.insights-views.cusma-scenario-note--march-5--2026-.html" target="_blank">Scotiabank Economics</a> and the <a href="https://www.bankofcanada.ca/wp-content/uploads/2025/01/mpr-2025-01-29.pdf" target="_blank">Bank of Canada</a> have given their projections of consumption decline, ranging from 0.5% to 2% of GDP consumption in Canada due to the tariffs.`
+		description: 'In the household consumption scenario, we model the potential impact on jobs if household consumption expenditures across Canada decline by 1%.'
 	},
 	{
 		code: 'S3',
 		report: 2,
 		label: 'Agri-food & Seafood',
-		description: `Agriculture, agri-food, and seafood exports to the U.S. decline. Although not as directly affected, analysis from <a href="https://www.agri-pulse.com/articles/23170-analysis-checking-in-on-us-canada-agricultural-trade" target="_blank">Agri-Pulse</a> and <a href="https://retail-insider.com/retail-insider/opinion/2025/08/canadas-agri-food-sector-hit-by-35-u-s-tariff-after-ottawa-stalls/" target="_blank">Retail Insider</a> show significant declines in this sector in terms of agri-food exports.`
+		description: 'In the agrifood and seafood scenario, we model the potential impact on jobs if agriculture, agrifood, and seafood exports to the U.S. decline by between 7% and 16%, depending on the industry.'
 	},
 	{
 		code: 'S4',
 		report: 3,
 		label: 'Steel & Aluminum',
-		description: `Steel and aluminum manufacturing exports to the U.S. decline. The <a href="https://fao-on.org/en/report/impacts-of-us-tariffs/" target="_blank">Financial Accountability Office (FAO) of Ontario</a> reported a potential 137,900 job decrease in Ontario by 2029 under the April 2025 tariff scenario.`
+		description: 'In the steel and aluminum scenario, we model the potential impact on jobs if steel and aluminum exports to the U.S. decline by 15% and 10%, respectively.'
 	},
 	{
 		code: 'S5',
 		report: 4,
 		label: 'Softwood Lumber',
-		description: `Softwood lumber exports to the U.S. decline. The softwood lumber tariffs have affected the industry drastically, leading to declining lumber production and exports as noted by a report from the <a href="https://www.rbc.com/en/economics/canadian-analysis/featured-analysis/insights/tracking-the-impact-of-u-s-tariffs-on-five-targeted-canadian-industries/" target="_blank">Royal Bank of Canada</a> and our <a href="${root}/exposure/lumber">softwood lumber post</a>.`
+		description: 'In the softwood lumber scenario, we model the potential impact on jobs if softwood lumber exports to the U.S. decline by 12%.'
 	},
 	{
 		code: 'S6',
 		report: 5,
-		label: 'Autos & Parts',
-		description: 'Automobile and auto-parts exports to the U.S. decline. The FAO noted a potential 20% decrease in U.S. motor vehicles exports and a 30% decrease for motor parts by 2029.'
+		label: 'Automotive & Parts',
+		description: 'In the automotive and parts scenario, we model the potential impact on jobs if motor vehicle manufacturing and motor vehicle parts manufacturing exports to the U.S. decline by 20% and 15%, respectively.'
 	}
 ];
 
@@ -68,7 +70,7 @@ export const METRICS = [
 	{ value: 'count', label: 'Total' }
 ];
 
-export const DEFAULTS = { scenario: 'S1', effects: ['DIR'], metric: 'percent', geo: 'CSD' };
+export const DEFAULTS = { scenario: 'S1', effects: ['DIR', 'INDIR', 'INDCD'], metric: 'percent', geo: 'CSD' };
 
 // Percent = job losses as % of local employment (percent units, 1 = 1%).
 const PERCENT_BREAKS = { default: [1, 3, 5, 7], S4: [0.1, 0.5, 1, 2] };
@@ -108,8 +110,8 @@ export function resolveSelection(sel) {
 	return {
 		scenario: SCENARIOS.find((s) => s.code === sel.scenario) ?? SCENARIOS[0],
 		description: isPercent
-			? `Estimated share of local employment lost (${effects}) under the ${scenario} scenario`
-			: `Estimated jobs lost (${effects}) under the ${scenario} scenario`,
+			? `Estimated share of local employment affected (${effects}) in the ${scenario} scenario`
+			: `Estimated job loss from ${effects} in the ${scenario} scenario`,
 		view: {
 			geo: sel.geo,
 			mode: isPercent ? 'fill' : 'circle',

@@ -7,21 +7,18 @@
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
-	import { NAV } from '$lib/site/nav.js';
+	import { NAV, longDate } from '$lib/site/nav.js';
 	import CanadaIcon from '$lib/components/icons/CanadaIcon.svelte';
 	import BarChartIcon from '$lib/components/icons/BarChartIcon.svelte';
 	import DocumentIcon from '$lib/components/icons/DocumentIcon.svelte';
 	import PostIcon from '$lib/components/icons/PostIcon.svelte';
 
 	// tools get their own icon (as on the section pages); everything else is a post
-	const ICONS = { map: CanadaIcon, rankings: BarChartIcon, report: DocumentIcon };
+	const ICONS = { map: CanadaIcon, rankings: BarChartIcon, 'summary-report': DocumentIcon };
 	const iconFor = (href) => ICONS[href.split('/').pop()] ?? PostIcon;
 
 	const section = (href) => NAV.find((s) => s.href === href);
 
-	// the menu uses short months ("Sep 2026"); spell them out here ("September 2026")
-	const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	const longDate = (d) => d?.replace(/\b([A-Z][a-z]{2})\b/, (m) => MONTHS.find((n) => n.startsWith(m)) ?? m);
 	// a section's pages (not its overview, which the card title links to); posts are
 	// listed oldest first in the menu, newest first here
 	const pages = (href) =>
@@ -59,45 +56,47 @@
 	type="website"
 />
 
-<main class="home">
-	<!-- same structure as PageTitle, with the homepage's own (larger) title -->
-	<header class="page-heading">
-		<h1 class="page-title">Mapping Tariffs</h1>
-		<p class="page-subtitle">How could U.S. tariffs affect jobs, businesses, and places across Canada?</p>
-	</header>
+<main>
+	<div class="home">
+		<!-- same structure as PageTitle, with the homepage's own (larger) title -->
+		<header class="page-heading">
+			<h1 class="page-title">Mapping Tariffs</h1>
+			<p class="page-subtitle">How could U.S. tariffs affect jobs, businesses, and places across Canada?</p>
+		</header>
 
-	<div class="main-cards">
-		{#each main as card (card.href)}
-			<section class="card big" style:border-color={card.border} style:--accent={card.border}>
-				<h2><a href="{root}{card.href}">{card.title} →</a></h2>
-				<p>{card.text}</p>
-				<ul>
-					{#each card.links as link (link.href)}
-						{@const Icon = iconFor(link.href)}
-						<li>
-							<span class="link">
-								<span class="link-icon"><Icon size={18} /></span>
-								<a href="{root}{link.href}">{link.label}</a>
-							</span>
-							{#if link.date}<span class="date">{longDate(link.date)}</span>{/if}
-						</li>
-					{/each}
-				</ul>
-			</section>
-		{/each}
+		<div class="main-cards">
+			{#each main as card (card.href)}
+				<section class="card big" style:border-color={card.border} style:--accent={card.border}>
+					<h2><a href="{root}{card.href}">{card.title} →</a></h2>
+					<p>{card.text}</p>
+					<ul>
+						{#each card.links as link (link.href)}
+							{@const Icon = iconFor(link.href)}
+							<li>
+								<span class="link">
+									<span class="link-icon"><Icon size={18} /></span>
+									<a href="{root}{link.href}">{link.label}</a>
+								</span>
+								{#if link.date}<span class="date">{longDate(link.date)}</span>{/if}
+							</li>
+						{/each}
+					</ul>
+				</section>
+			{/each}
+		</div>
+
+		<div class="more-cards">
+			{#each more as card (card.href)}
+				<a class="card small" href="{root}{card.href}" style:border-color={card.border}>
+					<span class="small-title">{card.title} →</span>
+					<span class="small-text">{card.text}</span>
+				</a>
+			{/each}
+		</div>
 	</div>
 
-	<div class="more-cards">
-		{#each more as card (card.href)}
-			<a class="card small" href="{root}{card.href}" style:border-color={card.border}>
-				<span class="small-title">{card.title} →</span>
-				<span class="small-text">{card.text}</span>
-			</a>
-		{/each}
-	</div>
+	<Footer />
 </main>
-
-<Footer />
 
 <style>
 	/* lines up with the left edge of the other pages' content */

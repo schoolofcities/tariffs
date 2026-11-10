@@ -1,6 +1,6 @@
 <!--
 	Ranked horizontal bar chart (presentational). Used by the exposure city
-	rankings and the job-loss scenario rankings.
+	rankings and the job impact scenario rankings.
 
 	Each row: { id, label, bar, box }
 	  bar  -> bar length (on a linear or power-0.2 scale over `ticks`)

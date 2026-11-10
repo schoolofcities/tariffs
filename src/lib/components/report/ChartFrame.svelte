@@ -9,7 +9,8 @@
 	/** e.g. "Figure 7: Scenario 3 (steel and aluminum): job loss by province" (may include a footnote marker) */
 	import { tick } from 'svelte';
 
-	let { title, chart } = $props();
+	/** title: the figure's caption; may be empty (e.g. a report chart reused without its title) */
+	let { title = '', chart } = $props();
 	let width = $state(0);
 	let figure;
 	let saving = $state(false);
@@ -18,7 +19,7 @@
 	const fileName = $derived.by(() => {
 		const text = title.replace(/<[^>]*>/g, '');
 		const n = text.match(/^Figure\s+(\w+)/i);
-		const base = n ? `figure-${n[1]}` : text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+		const base = n ? `figure-${n[1]}` : text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'chart';
 		return `mapping-tariffs-${base}.png`;
 	});
 
@@ -63,7 +64,7 @@
 </script>
 
 <figure class="chart-frame" bind:this={figure}>
-	<figcaption class="chart-title">{@html title}</figcaption>
+	{#if title}<figcaption class="chart-title">{@html title}</figcaption>{/if}
 	<div class="chart-body" bind:clientWidth={width}>
 		{#if width}{@render chart(width)}{/if}
 	</div>

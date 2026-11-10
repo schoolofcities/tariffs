@@ -33,7 +33,7 @@
 	<SectionNav items={contents} title={TITLE} />
 
 	<div class="two-col post">
-		<article class="post-body report" use:footnoteTooltips={report.footnotes}>
+		<article class="post-body report report-content" use:footnoteTooltips={report.footnotes}>
 			<PageTitle id="introduction" title={TITLE} />
 			<AuthorDate
 				authors="<a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Richard J. DiFrancesco</a> and <a href='https://www.linkedin.com/in/clara-turner-64764b29/' target='_blank'>Clara Turner</a>"
@@ -82,55 +82,6 @@
 		margin: 28px 0 0;
 	}
 
-	/* ---- tables: same look as the trading-partners table on /exposure */
-	.report :global(.report-table) {
-		margin: 28px 0 34px;
-	}
-
-	.report :global(.report-table figcaption) {
-		margin: 0 0 10px;
-		font-family: OpenSansBold, sans-serif;
-		font-size: 15px;
-		line-height: 1.2;
-		color: var(--brandBlack);
-	}
-
-	.report :global(.table-scroll) {
-		overflow-x: auto;
-	}
-
-	.report :global(table) {
-		width: 100%;
-		border-collapse: collapse;
-		border-top: 2px solid #e9e9ee; /* same as the body rows */
-		font-family: OpenSans, sans-serif;
-		font-size: 14px;
-		line-height: 1.35;
-		color: var(--brandDarkBlue);
-	}
-
-	.report :global(th) {
-		padding: 6px 10px;
-		font-family: OpenSansBold, sans-serif;
-		font-weight: normal;
-		text-align: left;
-		vertical-align: bottom;
-		border-bottom: 2px solid var(--brandGray10);
-	}
-
-	.report :global(td) {
-		padding: 4px 10px;
-		background: #e9e9ee;
-		border-bottom: 2px solid var(--brandWhite);
-		vertical-align: top;
-	}
-
-	.report :global(td.num),
-	.report :global(th.num) {
-		text-align: right;
-		white-space: nowrap;
-	}
-
 	/* ---- the one-line scenario assumption under each scenario heading: white box, thin border */
 	.report :global(.scenario-lead) {
 		margin: 16px 0 24px;
@@ -148,7 +99,7 @@
 		margin: 24px 0 28px;
 		padding: 16px 20px;
 		/* same fill as the table rows */
-		background: #e9e9ee;
+		background: #f4f4f7;
 	}
 
 	.report :global(.report-callout p) {
@@ -158,12 +109,6 @@
 	}
 
 	@media (max-width: 600px) {
-		.report :global(table) {
-			font-size: 12px;
-		}
-		.report :global(.report-table figcaption) {
-			font-size: 13px;
-		}
 		.report :global(.scenario-lead) {
 			font-size: 13px;
 			line-height: 20px;

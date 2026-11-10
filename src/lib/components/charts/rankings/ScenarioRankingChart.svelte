@@ -1,10 +1,10 @@
 <!--
-	Job-loss scenario rankings for CMAs or provinces: data + controls for
+	Job impact scenario rankings for CMAs or provinces: data + controls for
 	RankedBarChart. Bars = selected metric (jobs or share of employment),
 	box = share of employment.
 
 	Data: static/data/scenarios/rollup_{cma,province}.json and rollup_breaks.json
-	(from roll_up_to_cma_prov.py). Fields: S{n}_{DIR|INDIR|INDCD|TOT}_{Jobs|Pct}.
+	(from analysis/scenarios/roll_up_to_cma_prov.py). Fields: S{n}_{DIR|INDIR|INDCD|TOT}_{Jobs|Pct}.
 -->
 <script>
 	import { onMount } from 'svelte';
@@ -19,7 +19,14 @@
 		{ value: 'cma', label: 'Census metropolitan areas' },
 		{ value: 'province', label: 'Provinces and territories' }
 	];
-	const CHART_EFFECTS = [{ value: 'TOT', label: 'All effects', text: 'Total job losses: direct, indirect and induced combined.' }, ...EFFECTS];
+	// the ranking tool's own wording for each economic impact indicator (the map keeps EFFECTS' text)
+	const IMPACT_TEXT = {
+		TOT: 'Estimated potential job losses, including direct, indirect and induced effects.',
+		DIR: 'Estimated potential job losses based on tariffs to the affected industry/industries.',
+		INDIR: 'Estimated potential job losses based on impacts to the supply chains of the affected industry/industries.',
+		INDCD: 'Estimated potential job losses based on reduced spending as a result of tariffs on the affected industry/industries.'
+	};
+	const CHART_EFFECTS = [{ value: 'TOT', label: 'All effects' }, ...EFFECTS].map((e) => ({ ...e, text: IMPACT_TEXT[e.value] }));
 	const RANK_BY = [
 		{ value: 'percent', label: 'Share of employment' },
 		{ value: 'count', label: 'Total jobs' }
@@ -77,7 +84,8 @@
 
 	const description = $derived(
 		`${scenarioLabel(scenario)}, ${CHART_EFFECTS.find((e) => e.value === effect)?.label.toLowerCase()}. ` +
-			`Bars show ${isPercent ? 'job losses as a share of employment' : 'the number of jobs lost'}; the coloured box shows the share of employment.`
+			`Bars show the potential number of jobs lost${isPercent ? ' as a share of all jobs' : ''}; ` +
+			'the coloured box shows the potential number of jobs lost as a share of all jobs.'
 	);
 
 	onMount(async () => {
@@ -103,7 +111,7 @@
 	colours={GRADUATED_COLOURS}
 	formatBoxBreak={(b) => `${b}%`}
 	{description}
-	note="Note: the axis is rescaled for each selection, since scenarios and geographic levels differ by orders of magnitude. Pay attention to the scale when comparing."
+	note="Note: Differences in the five scenarios and geographic scale (CMA vs. province) mean that data displays differ by orders of magnitude. Please pay attention to the scale when comparing."
 	error={loadError}
 	ariaLabel="Ranked bar chart of job losses"
 >
@@ -119,7 +127,7 @@
 		<p class="control-label">Select a geographic level:</p>
 		<ToggleGroup label="Geographic level" options={LEVELS} bind:value={level} />
 
-		<p class="control-label">Select which job losses to show:</p>
+		<p class="control-label">Select the economic impact indicator:</p>
 		<ToggleGroup label="Effects" options={CHART_EFFECTS} bind:value={effect} />
 		<p class="control-note">{CHART_EFFECTS.find((e) => e.value === effect)?.text}</p>
 

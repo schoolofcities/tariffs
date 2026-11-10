@@ -1,6 +1,8 @@
 <!--
 	Stack of link cards for a section's interactive tools.
-	tools: [{ href, title, text, icon (component), updated?, published? }]
+	tools: [{ href, title, text, icon (component), updated?, published?, url? }]
+	href is a site page path (under /mt/); url, if given, is used as-is instead (e.g. a PDF)
+	and opens in a new tab.
 -->
 <script>
 	import { root } from '$lib/site/paths.js';
@@ -9,8 +11,8 @@
 </script>
 
 <div class="cards">
-	{#each tools as tool (tool.href)}
-		<a class="card" href="{root}{tool.href}">
+	{#each tools as tool (tool.url ?? tool.href)}
+		<a class="card" href={tool.url ?? `${root}${tool.href}`} target={tool.url ? '_blank' : undefined} rel={tool.url ? 'noopener' : undefined}>
 			{#if tool.icon}<span class="icon"><tool.icon size={52} /></span>{/if}
 			<span class="card-body">
 				<span class="card-title">{tool.title} →</span>

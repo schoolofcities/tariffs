@@ -15,5 +15,6 @@ export const REDIRECTS = {
 	'current-tariffs': '/current-tariffs',
 	// earlier paths within /mt/
 	'mt/exposure/backgrounder': '/exposure',
-	'mt/travel': '/travel/canada-us-visits'
+	'mt/travel': '/travel/canada-us-visits',
+	'mt/scenarios/report': '/scenarios/summary-report'
 };

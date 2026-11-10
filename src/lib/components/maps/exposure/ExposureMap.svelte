@@ -44,8 +44,7 @@
 			By <a href="https://mkbs-mkbs2000.github.io/Personal-Portfolio/" target="_blank" rel="noopener">Muhammad Khalis Bin Samion</a>,
 			<a href="https://jamaps.github.io/" target="_blank" rel="noopener">Jeff Allen</a>,
 			<a href="https://www.linkedin.com/in/yihoi-jung-0b95351b5/" target="_blank" rel="noopener">Yihoi Jung</a>,
-			<a href="https://discover.research.utoronto.ca/8035-tara-vinodrai" target="_blank" rel="noopener">Tara Vinodrai</a>,
-			<a href="https://schoolofcities.utoronto.ca/people/karen-chapple/" target="_blank" rel="noopener">Karen Chapple</a>.<br />
+			<a href="https://discover.research.utoronto.ca/8035-tara-vinodrai" target="_blank" rel="noopener">Tara Vinodrai</a>, and <a href="https://schoolofcities.utoronto.ca/people/karen-chapple/" target="_blank" rel="noopener">Karen Chapple</a>.<br />
 			<i>First published October 2025. Updated {UPDATED}.</i>
 		</p>
 	{/snippet}

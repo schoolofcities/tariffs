@@ -11,6 +11,11 @@ export const SITE_NAME = 'Mapping Tariffs';
 /** 'September 2026' -> 'Sep 2026' (menu dates use short months) */
 const shortMonth = (monthYear) => monthYear.replace(/^([A-Za-z]{3})[a-z]*/, '$1');
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+/** Menu date with the month spelled out, for pages: 'Updated Sep 2026' -> 'Updated September 2026' */
+export const longDate = (d) => d?.replace(/\b([A-Z][a-z]{2})\b/, (m) => MONTHS.find((n) => n.startsWith(m)) ?? m);
+
 /** Colour for pages outside any section with its own colour (e.g. the homepage). */
 export const DEFAULT_COLOUR = 'var(--brandLightBlue)';
 
@@ -44,7 +49,7 @@ export const NAV = [
 					// publication order, oldest first
 					{ label: 'Lumber tariffs', href: '/exposure/lumber', date: 'Feb 2026' },
 					{ label: 'Truck tariffs', href: '/exposure/trucks', date: 'Feb 2026' },
-					{ label: 'Reflecting on new Section 338 tariffs', href: '/exposure/section-338', date: 'Sep 2026' }
+					{ label: 'Section 338 tariffs', href: '/exposure/section-338', date: 'Oct 2026' }
 				]
 			}
 		]
@@ -57,9 +62,9 @@ export const NAV = [
 			{
 				links: [
 					{ label: 'Overview', href: '/scenarios' },
+					{ label: 'Summary report', href: '/scenarios/summary-report', date: shortMonth(SCENARIOS_PUBLISHED) },
 					{ label: 'Interactive map', href: '/scenarios/map', date: shortMonth(SCENARIOS_PUBLISHED) },
-					{ label: 'Rankings', href: '/scenarios/rankings', date: shortMonth(SCENARIOS_PUBLISHED) },
-					{ label: 'Report', href: '/scenarios/report', date: shortMonth(SCENARIOS_PUBLISHED) }
+					{ label: 'Rankings', href: '/scenarios/rankings', date: shortMonth(SCENARIOS_PUBLISHED) }
 				]
 			}
 		]

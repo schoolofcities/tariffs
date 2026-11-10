@@ -4,7 +4,7 @@
 	import { root } from '$lib/site/paths.js';
 	import Seo from '$lib/components/post/Seo.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
-	import { NAV } from '$lib/site/nav.js';
+	import { NAV, longDate } from '$lib/site/nav.js';
 	import AuthorDate from '$lib/components/post/AuthorDate.svelte';
 	import ImageSingle from '$lib/components/post/ImageSingle.svelte';
 	import GraphicSingle from '$lib/components/post/GraphicSingle.svelte';
@@ -50,7 +50,7 @@
 		/>
 
 			<AuthorDate
-				authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/eli-easton-77bb60273/'  target='_blank'>Eli Easton</a>, <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Rick DiFrancesco</a>"
+				authors="<a href='https://discover.research.utoronto.ca/8035-tara-vinodrai' target='_blank'>Tara Vinodrai</a>, <a href='https://schoolofcities.utoronto.ca/people/karen-chapple/' target='_blank'>Karen Chapple</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>, <a href='https://mkbs-mkbs2000.github.io/Personal-Portfolio/' target='_blank'>Muhammad Khalis Bin Samion</a>, <a href='https://www.linkedin.com/in/eli-easton-77bb60273/'  target='_blank'>Eli Easton</a>, and <a href='https://www.geography.utoronto.ca/people/directories/all-faculty/richard-difrancesco' target='_blank'>Richard J. DiFrancesco</a>"
 				date="October 2025"
 			/>
 
@@ -241,7 +241,7 @@
 			{#each posts as post (post.href)}
 				<li>
 					<a href="{root}{post.href}">{post.label}</a>
-					<span class="date">{post.date}</span>
+					<span class="date">{longDate(post.date)}</span>
 				</li>
 			{/each}
 		</ul>
@@ -272,6 +272,7 @@
 		align-items: baseline;
 		gap: 16px;
 		padding: 10px 0;
+		line-height: 22px; /* rows keep their own height, not the body-text li line height */
 		border-bottom: 1px solid var(--brandGray);
 	}
 
