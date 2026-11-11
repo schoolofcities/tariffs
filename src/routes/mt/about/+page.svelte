@@ -78,7 +78,7 @@
 			</li>
 
 			<li>
-				<a href="https://github.com/schoolofcities/tariffs" target="_blank">Learn more about our research methodology</a>.
+				<a href="https://github.com/schoolofcities/tariffs-v2" target="_blank">Access our code and data on GitHub</a>.
 			</li>
 			</ul>
 		</div>

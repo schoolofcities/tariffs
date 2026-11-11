@@ -16,6 +16,8 @@
 <main>
 	<div class="two-col">
 		<div class="article">
+			<!-- intro: on one-column screens the chart comes right after this, before the first heading -->
+			<div class="article-intro">
 			<PageTitle title="Ranking Canadian urban areas by their potential direct exposure of U.S. tariffs" />
 
 			<AuthorDate
@@ -24,7 +26,7 @@
 			/>
 
 			<p>
-				Recent tariffs imposed by U.S. President Donald Trump on Canada and other trading partners have raised important questions about their impact on Canadian jobs, businesses, and urban economies. Since May 2025, Drs. Karen Chapple and Tara Vinodrai have been leading a research team at the School of Cities to ask the question: How vulnerable are Canadian cities to U.S. tariffs? 
+				Recent tariffs imposed by U.S. President Donald Trump on Canada and other trading partners have raised important questions about their impact on Canadian jobs, businesses, and urban economies. 
 			</p>
 
 			<p>
@@ -34,7 +36,9 @@
 			<p>
 				Importantly, the impact of tariffs extends beyond the industries directly targeted. These effects can ripple through urban economies, influencing employment, investment, and the overall character of cities. 
 			</p>
+			</div>
 
+			<div class="article-body">
 			<h2>
 				The challenge of city-level analysis
 			</h2>
@@ -112,6 +116,7 @@
 			<p>
 				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs?tab=readme-ov-file" target="_blank">data and methodology page</a>
 			</p>
+			</div>
 		</div>
 
 		<aside class="chart-col" aria-label="City rankings chart">
@@ -136,4 +141,20 @@
 		}
 	}
 
+
+	/* one column: intro, then the chart, then the rest of the text */
+	@media (max-width: 1200px) {
+		.article {
+			display: contents;
+		}
+		.article-intro {
+			order: 1;
+		}
+		.chart-col {
+			order: 2;
+		}
+		.article-body {
+			order: 3;
+		}
+	}
 </style>

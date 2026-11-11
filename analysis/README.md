@@ -27,10 +27,10 @@ values the tools show.
 
 Direct exposure ([`exposure/`](../static/downloads/exposure/)):
 - [Census subdivision counts and percentages](../static/downloads/exposure/csd_counts_and_percents.xlsx)
-This file recounts the census subdivision counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The CSDDGUID represents the census subdivision IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
+This file recounts the census subdivision counts and percentages for businesses, employees (home), and employees (work) for each tariff category. The CSDDGUID represents the census subdivision IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
 
 - [Aggregate dissemination area counts and percentages](../static/downloads/exposure/ada_counts_and_percents.xlsx)
-This file recounts the aggregate dissemination area counts and percentages for businesses, employees (home) and employees (work) for each tariff category. The ADADGUID represents the aggregate dissemination area IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
+This file recounts the aggregate dissemination area counts and percentages for businesses, employees (home), and employees (work) for each tariff category. The ADADGUID represents the aggregate dissemination area IDs, where the geometries associated with the IDs can be found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). Each column has an tariff category and type of metric separated by an underscore.
 
 - [Census metropolitan area counts and percentages](../static/downloads/exposure/cma_tariffs_counts_and_percents.xlsx)
 CMADGUID represents census metropolitan area IDs, with geometries found [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21). *CHAR_POP21* is the 2021 population count of the CMA. Counts and percents are on different sheets, with the same structure of metrics as the CSD and ADA counts/percents.
@@ -50,9 +50,9 @@ Canada–U.S. travel:
 - [us_normalized_trips_daily.csv](../static/data/travel/us_normalized_trips_daily.csv) - the normalized values of the Canada to U.S. visits by city (daily)
 
 ## Data sources
-1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099) and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
+1)	List of HS Codes for products tariffed by the US from [HTS Chapter 98](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2098), [HTS Chapter 99](https://hts.usitc.gov/reststop/file?release=currentRelease&filename=Chapter%2099), and US Federal Register for [Duties on Softwood Lumber](https://www.federalregister.gov/documents/2018/01/03/2017-28484/certain-softwood-lumber-products-from-canada-antidumping-duty-order-and-partial-amended-final)
 2)	2025 Canadian HS8-NAICS Concordance Table (_requested directly from StatsCan_)
-3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total' and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
+3)	Province/Territory 2024 Annual Export Data to the World at HS6 level [(_toggle to HS6, click on 'Data Extraction', set start date as Jan 2024, set end date as Dec 2024, click on Annual data checkbox, set Country/State to 'World total', and download data for every province_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
 4)	Province/Territory 2024 Annual Export Data to the US at HS6 level [(_same setting as above, except to set Country/State to 'US total' instead_)](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/exp-eng.htm)
 5)	December 2022 Establishment Counts by Dissemination Area (DA) [(_downloaded from Borealis_)](https://borealisdata.ca/file.xhtml?fileId=442841&version=5.1)
 6)	Census 2021 Geographic Boundary Files at Aggregate Dissemination Area (ADA) level [(_select the appropriate geographic levels at the 'Statistical boundaries' section_)](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21)
@@ -60,7 +60,7 @@ Canada–U.S. travel:
 8)	Census 2021 Data – Aggregate Dissemination Area Level [(_data is found in the 'Comprehensive download files' section_)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E&SearchText=canada&DGUIDlist=2021A000011124&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0)
 9)	Rate of CUSMA Utilisation by products at the two-digit HS Code level (data obtained from an interview that we have conducted with Canadian Chamber of Commerce)
 
-All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6 and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in this repo, are downloaded and that the paths at the top of each notebook point to them.
+All data can be found and downloaded from the 'analysis' folder, with the exception of Data Nos. 5, 6, and 8 due to large file sizes. For the Python code (Data Manipulation ADA.ipynb / Data Manipulation CSD.ipynb) to run smoothly, please ensure that all data, including the ones not in this repo, are downloaded and that the paths at the top of each notebook point to them.
 
 ## Direct exposure
 
@@ -120,7 +120,7 @@ Mapping potential direct exposure to U.S. tariffs at the aggregate dissemination
   	
   	  _c.	How many estimated employees working within each directly exposed industry._
 
-6)	[Refer to Jupyter notebook] Each result (5a, 5b and 5c) will be aggregated from DA to ADA level using table created in Step 2.
+6)	[Refer to Jupyter notebook] Each result (5a, 5b, and 5c) will be aggregated from DA to ADA level using table created in Step 2.
 
 7)	[Refer to Jupyter notebook] Results 5a and 5b, after aggregated, will be used to create a choropleth map (showing percentage of exposure in each ADA) and centroid map (showing count of exposure in each ADA).
 
@@ -181,7 +181,7 @@ Run [create_excel_exports.ipynb](exposure/create_excel_exports.ipynb) to rebuild
 
 [clean_derivatives.py](exposure/clean_derivatives.py) removes derivative HS codes whose first 6 digits already appear as non-derivative codes; [verify_hs_codes.py](exposure/verify_hs_codes.py) flags codes for manual review against Federal Register sources.
 
-[add_tariff_categories.ipynb](exposure/add_tariff_categories.ipynb) adds the `before August 22`, `after August 22` and `Section 338` categories to existing ADA/CSD outputs without rerunning the full notebooks.
+[add_tariff_categories.ipynb](exposure/add_tariff_categories.ipynb) adds the `before August 22`, `after August 22`, and `Section 338` categories to existing ADA/CSD outputs without rerunning the full notebooks.
 
 ## Scenarios (job impact scenarios)
 
@@ -197,7 +197,7 @@ Run [create_excel_exports.ipynb](exposure/create_excel_exports.ipynb) to rebuild
 
 5) Convert the outputs into the site's lookup files with [build_scenario_data.py](scenarios/build_scenario_data.py) (writes `static/data/scenarios/{ada,csd}.json`, using `all_scenarios_{ada,csd}.csv` and the total-employment denominators). The v2 site reuses the exposure map shapes, so no scenario tiles are needed.
 
-6) Update `src/lib/components/maps/scenarios/config.js` if scenarios, colour breaks or the update date change.
+6) Update `src/lib/components/maps/scenarios/config.js` if scenarios, colour breaks, or the update date change.
 
 7) Rolling up to CMA and province for the scenario rankings page:
 
@@ -205,7 +205,7 @@ Run [create_excel_exports.ipynb](exposure/create_excel_exports.ipynb) to rebuild
 python analysis/scenarios/run_rollup.py    # from the repo root (see the PATHS block at the top of the script)
 ```
 
-8) Copy the rollup outputs (`output/all_scenarios_{cma,province}.json`, `rollup_breaks.json`) to `static/data/scenarios/` as `rollup_cma.json`, `rollup_province.json` and `rollup_breaks.json`.
+8) Copy the rollup outputs (`output/all_scenarios_{cma,province}.json`, `rollup_breaks.json`) to `static/data/scenarios/` as `rollup_cma.json`, `rollup_province.json`, and `rollup_breaks.json`.
 
 ## Canada–U.S. travel
 

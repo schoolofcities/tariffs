@@ -15,6 +15,8 @@
 <main>
 	<div class="two-col">
 		<div class="article">
+			<!-- intro: on one-column screens the chart comes right after this, before the first heading -->
+			<div class="article-intro">
 			<PageTitle title="Ranking potential job impacts at the metropolitan scale based on scenario modelling" />
 
 			<AuthorDate
@@ -33,7 +35,9 @@
 			<p>
 				Similar to our <a href="{root}/exposure/rankings">ranking charts for direct exposure to tariffs</a>, we have built a tool that ranks Canadian Census Metropolitan Areas (CMAs) and provinces and territories by their potential job losses. The estimates come from a closed multiregional input-output (MRIO) model of the Canadian economy, based on the most recent input-output data for Canada and its regions. The model covers 220 industries and 13 provinces and territories; we then estimated results for local communities and rolled them up to CMAs and provinces. For the full results and methodology, see our <a href="{root}/scenarios/summary-report">summary report</a>.
 			</p>
+			</div>
 
+			<div class="article-body">
 			<h2>Understanding the potential job impact of U.S. tariffs on Canadian cities</h2>
 
 			<p>
@@ -131,6 +135,7 @@
 			<p>
 				For detailed data descriptions, download links, and processing steps, please read our <a href="https://github.com/schoolofcities/tariffs-v2/tree/main/analysis#readme" target="_blank">data and methodology page</a>
 			</p>
+			</div>
 		</div>
 
 		<aside class="chart-col" aria-label="Job-loss rankings chart">
@@ -151,6 +156,22 @@
 			margin-top: 20px;
 			padding-top: 10px;
 			border-top: 1px solid var(--brandLightBlue);
+		}
+	}
+
+	/* one column: intro, then the chart, then the rest of the text */
+	@media (max-width: 1200px) {
+		.article {
+			display: contents;
+		}
+		.article-intro {
+			order: 1;
+		}
+		.chart-col {
+			order: 2;
+		}
+		.article-body {
+			order: 3;
 		}
 	}
 </style>
