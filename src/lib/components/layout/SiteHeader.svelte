@@ -215,6 +215,9 @@
 		background: none;
 		font-family: TradeGothicBold, sans-serif;
 		font-size: 16px;
+		/* set here so links and buttons match: links would otherwise inherit the global
+		   li line-height (30px, for body text), which buttons don't */
+		line-height: 20px;
 		color: var(--brandDarkBlue);
 		text-decoration: none;
 		cursor: pointer;
