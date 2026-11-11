@@ -7,7 +7,7 @@
 	with every section expanded.
 -->
 <script>
-	import { root } from '$lib/site/paths.js';
+	import { root, pagePath } from '$lib/site/paths.js';
 	import { page } from '$app/state';
 	import { afterNavigate } from '$app/navigation';
 	import logo from '$assets/logos/sofc-uoft-logo-blue-colour.svg';
@@ -18,7 +18,7 @@
 	let headerEl;
 
 	// path within the site (/mt/exposure -> /exposure), to match the nav entries
-	const pathname = $derived(page.url.pathname.startsWith(root) ? page.url.pathname.slice(root.length) || '/' : page.url.pathname);
+	const pathname = $derived(pagePath(page.url.pathname));
 	const href = (path) => `${root}${path}`;
 
 	function closeAll() {

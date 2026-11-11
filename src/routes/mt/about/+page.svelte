@@ -7,8 +7,8 @@
 </script>
 
 <Seo
-	title="About"
-	description="About Mapping Tariffs: a School of Cities project examining potential local impacts of U.S. tariffs on jobs and businesses across Canada, and the research team behind it."
+	title="About Mapping Tariffs"
+	description="A School of Cities project examining potential local impacts of U.S. tariffs on jobs and businesses across Canada, and the research team behind it."
 />
 
 <main>

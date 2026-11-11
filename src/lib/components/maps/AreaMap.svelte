@@ -297,7 +297,14 @@
 			});
 			map.on('zoom', syncProjection);
 
+			// Attribution starts collapsed (just the (i) button). MapLibre opens the compact
+			// attribution by default; remove its 'show' class once it exists.
+			const collapseAttribution = () =>
+				container.querySelector('.maplibregl-ctrl-attrib.maplibregl-compact')?.classList.remove('maplibregl-compact-show');
+			map.once('idle', collapseAttribution);
+
 			map.on('load', () => {
+				collapseAttribution();
 				addBasemapLayers(map);
 				addDataLayers();
 

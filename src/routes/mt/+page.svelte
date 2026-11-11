@@ -50,7 +50,7 @@
 
 <Seo
 	title=""
-	description="Mapping Tariffs, from the School of Cities at the University of Toronto: maps, rankings, and scenarios on how U.S. tariffs could affect jobs, businesses, and places across Canada."
+	description="Maps, rankings, and scenarios on how U.S. tariffs could affect jobs, businesses, and places across Canada."
 	type="website"
 />
 

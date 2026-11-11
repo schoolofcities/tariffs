@@ -12,10 +12,23 @@
 	import SectionNav from '$lib/components/layout/SectionNav.svelte';
 	import ReportSegments from '$lib/components/report/ReportSegments.svelte';
 	import { footnoteTooltips } from '$lib/utils/footnoteTooltips.js';
+	import { base } from '$app/paths';
+	import ToolCards from '$lib/components/layout/ToolCards.svelte';
+	import AppendixIcon from '$lib/components/icons/AppendixIcon.svelte';
 	import { PUBLISHED } from '$lib/components/maps/scenarios/config.js';
 	import report from '$lib/content/scenarios-report.js';
 
 	const TITLE = 'Modeling Potential Economic Impacts of U.S. Tariffs on Canada’s Regions and Industries';
+
+	// the technical appendix (PDF), as a card under the byline (same card as on the Scenarios overview)
+	const appendix = [
+		{
+			url: `${base}/documents/scenarios-appendix-a.pdf`,
+			icon: AppendixIcon,
+			title: 'Technical appendix',
+			text: 'Appendix A (PDF): Measuring the Economic Impacts of U.S. Tariffs on Canada: A National, Regional and Industrial Analysis, by Richard J. DiFrancesco.'
+		}
+	];
 
 	const contents = [
 		{ id: 'introduction', label: 'Introduction', level: 1 },
@@ -40,6 +53,10 @@
 				date={PUBLISHED}
 			/>
 
+			<div class="appendix-card">
+				<ToolCards tools={appendix} />
+			</div>
+
 			<ReportSegments segments={report.body} figureData={report.figureData} />
 
 			<section id="references">
@@ -52,6 +69,67 @@
 </main>
 
 <style>
+	/* Technical appendix card. In the text column under the byline by default; on wide
+	   screens with room beside the report column (640px + 40px gap + 240px card), it moves
+	   to the right of the text, its top level with the line under the byline. Room exists at 1164–1249px (column
+	   starts at --content-left) and from 1524px (column starts after the contents list). */
+	.report {
+		position: relative;
+	}
+
+	.appendix-card {
+		margin: 24px 0 36px;
+	}
+
+	@media (min-width: 1164px) and (max-width: 1249px), (min-width: 1524px) {
+		.appendix-card {
+			position: absolute;
+			left: calc(100% + 40px);
+			width: 240px;
+			margin: -26px 0 0;
+		}
+	}
+
+	/* above phone width (beside the text or above it): smaller icon and text than the
+	   standard tool card, so the card stays secondary to the report */
+	@media (min-width: 701px) {
+		/* icon 20% smaller and tighter spacing, so the text has more width */
+		.appendix-card :global(.card) {
+			gap: 12px;
+			padding: 14px 16px;
+		}
+
+		.appendix-card :global(.card .icon) {
+			width: 44px;
+		}
+
+		.appendix-card :global(.card .icon svg) {
+			width: 42px;
+			height: auto;
+		}
+
+		/* card text 20% smaller (ToolCards sizes 20 / 12 / 16px) */
+		.appendix-card :global(.card .card-title) {
+			font-size: 16px;
+		}
+
+		.appendix-card :global(.card .updated) {
+			font-size: 9.6px;
+		}
+
+		.appendix-card :global(.card .card-text) {
+			font-size: 12.8px;
+			line-height: 1.4;
+		}
+	}
+
+	/* phones: keep it under the byline but smaller than the text around it */
+	@media (max-width: 700px) {
+		.appendix-card {
+			zoom: 0.8;
+		}
+	}
+
 	/* Wide screens: contents list directly under the "Mapping Tariffs" box, text to its right */
 	.report-page {
 		--section-nav-left: var(--content-left);

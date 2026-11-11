@@ -9,7 +9,10 @@
 	let { title, description = '', image = DEFAULT_IMAGE, type = 'article' } = $props();
 
 	const fullTitle = $derived(title ? `${title} | Mapping Tariffs` : 'Mapping Tariffs | School of Cities');
-	const url = $derived(SITE_URL + (page.url.pathname.slice(base.length) || '/'));
+	// Page path within the site. In prerendered pages `base` is relative ('..', '../..'),
+	// not a path prefix, so only strip it when it's an absolute prefix like '/tariffs-v2'.
+	const sitePath = $derived(base.startsWith('/') ? page.url.pathname.slice(base.length) : page.url.pathname);
+	const url = $derived(SITE_URL + (sitePath || '/'));
 </script>
 
 <svelte:head>
@@ -24,6 +27,7 @@
 	<meta property="og:url" content={url} />
 	<meta property="og:image" content={image} />
 	<meta property="og:locale" content="en_CA" />
+	<meta property="og:site_name" content="Mapping Tariffs" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={title || 'Mapping Tariffs'} />

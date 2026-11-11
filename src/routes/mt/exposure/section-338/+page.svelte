@@ -9,8 +9,8 @@
 </script>
 
 <Seo
-	title="Reflecting on new Section 338 tariffs"
-	description="An update on potential local impacts of new Section 338 tariffs on jobs and businesses across Canada."
+	title="Mapping tariffs: Reflecting on new Section 338 Tariffs"
+	description="An update on the potential local impacts of Section 338 tariffs and import bans on jobs and businesses across Canada."
 />
 
 <main>
